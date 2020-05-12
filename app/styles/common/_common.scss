@@ -143,13 +143,15 @@ main {
 				display : block;
 				margin-bottom : 276px;
 				span {
+					color : var(--text-black);
 					display : block;
 					font-family : var(--font);
 					font-style : normal;
 					font-weight : 700;
-					font-size : 48px;
-					line-height : 72px;
-					color : var(--text-black);
+					// font-size : 48px;
+					// line-height : 72px;
+					@include interpolate("font-size", 576px, 24px, 992px, 48px, "ease-in");
+					@include interpolate("line-height", 576px, 36px, 992px, 72px, "ease-in");
 				}
 			}
 		}
