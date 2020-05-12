@@ -39,17 +39,17 @@
 		factory(root.ScrollMagic || (root.jQuery && root.jQuery.ScrollMagic), root.TweenMax || root.TweenLite, root.TimelineMax || root.TimelineLite);
 	}
 }(this, function (ScrollMagic, Tween, Timeline) {
-	"use strict";
-	var NAMESPACE = "animation.gsap";
+	'use strict';
+	var NAMESPACE = 'animation.gsap';
 
 	var
 		console = window.console || {},
 		err = Function.prototype.bind.call(console.error || console.log || function () {}, console);
 	if (!ScrollMagic) {
-		err("(" + NAMESPACE + ") -> ERROR: The ScrollMagic main module could not be found. Please make sure it's loaded before this plugin or use an asynchronous loader like requirejs.");
+		err('(' + NAMESPACE + ') -> ERROR: The ScrollMagic main module could not be found. Please make sure it\'s loaded before this plugin or use an asynchronous loader like requirejs.');
 	}
 	if (!Tween) {
-		err("(" + NAMESPACE + ") -> ERROR: TweenLite or TweenMax could not be found. Please make sure GSAP is loaded before ScrollMagic or use an asynchronous loader like requirejs.");
+		err('(' + NAMESPACE + ') -> ERROR: TweenLite or TweenMax could not be found. Please make sure GSAP is loaded before ScrollMagic or use an asynchronous loader like requirejs.');
 	}
 
 	/*
@@ -90,7 +90,7 @@
 	 */
 	// add option (TODO: DOC (private for dev))
 	ScrollMagic.Scene.addOption(
-		"tweenChanges", // name
+		'tweenChanges', // name
 		false, // default
 		function (val) { // validation callback
 			return !!val;
@@ -103,16 +103,16 @@
 
 		var log = function () {
 			if (Scene._log) { // not available, when main source minified
-				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ")", "->");
+				Array.prototype.splice.call(arguments, 1, 0, '(' + NAMESPACE + ')', '->');
 				Scene._log.apply(this, arguments);
 			}
 		};
 
 		// set listeners
-		Scene.on("progress.plugin_gsap", function () {
+		Scene.on('progress.plugin_gsap', function () {
 			updateTweenProgress();
 		});
-		Scene.on("destroy.plugin_gsap", function (e) {
+		Scene.on('destroy.plugin_gsap', function (e) {
 			Scene.removeTween(e.reset);
 		});
 
@@ -216,7 +216,7 @@
 				}
 				newTween.pause();
 			} catch (e) {
-				log(1, "ERROR calling method 'setTween()': Supplied argument is not a valid TweenObject");
+				log(1, 'ERROR calling method \'setTween()\': Supplied argument is not a valid TweenObject');
 				return Scene;
 			}
 			if (_tween) { // kill old tween?
@@ -232,20 +232,20 @@
 			// Some tween validations and debugging helpers
 
 			if (Scene.tweenChanges() && !_tween.tweenTo) {
-				log(2, "WARNING: tweenChanges will only work if the TimelineMax object is available for ScrollMagic.");
+				log(2, 'WARNING: tweenChanges will only work if the TimelineMax object is available for ScrollMagic.');
 			}
 
 			// check if there are position tweens defined for the trigger and warn about it :)
 			if (_tween && Scene.controller() && Scene.triggerElement() && Scene.loglevel() >= 2) { // controller is needed to know scroll direction.
 				var
 					triggerTweens = Tween.getTweensOf(Scene.triggerElement()),
-					vertical = Scene.controller().info("vertical");
+					vertical = Scene.controller().info('vertical');
 				triggerTweens.forEach(function (value, index) {
 					var
 						tweenvars = value.vars.css || value.vars,
 						condition = vertical ? (tweenvars.top !== undefined || tweenvars.bottom !== undefined) : (tweenvars.left !== undefined || tweenvars.right !== undefined);
 					if (condition) {
-						log(2, "WARNING: Tweening the position of the trigger element affects the scene timing and should be avoided!");
+						log(2, 'WARNING: Tweening the position of the trigger element affects the scene timing and should be avoided!');
 						return false;
 					}
 				});
@@ -256,7 +256,7 @@
 				var
 					list = _tween.getChildren ? _tween.getChildren(true, true, false) : [_tween], // get all nested tween objects
 					newCallback = function () {
-						log(2, "WARNING: tween was overwritten by another. To learn how to avoid this issue see here: https://github.com/janpaepke/ScrollMagic/wiki/WARNING:-tween-was-overwritten-by-another");
+						log(2, 'WARNING: tween was overwritten by another. To learn how to avoid this issue see here: https://github.com/janpaepke/ScrollMagic/wiki/WARNING:-tween-was-overwritten-by-another');
 					};
 				for (var i = 0, thisTween, oldCallback; i < list.length; i++) {
 					/*jshint loopfunc: true */
@@ -272,7 +272,7 @@
 					}
 				}
 			}
-			log(3, "added tween");
+			log(3, 'added tween');
 
 			updateTweenProgress();
 			return Scene;
@@ -302,7 +302,7 @@
 				}
 				_tween.kill();
 				_tween = undefined;
-				log(3, "removed tween (reset: " + (reset ? "true" : "false") + ")");
+				log(3, 'removed tween (reset: ' + (reset ? 'true' : 'false') + ')');
 			}
 			return Scene;
 		};
