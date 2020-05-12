@@ -3,6 +3,10 @@
 .page--content {
 	&--home {
 		&__jumbo {
+			flex-wrap : wrap;
+			@media(min-width: $tablet) {
+				flex-wrap : nowrap;
+			}
 			@include interpolate("margin-bottom", 576px, 132px, 992px, 278px, "ease-in");
 
 			.section {
@@ -41,13 +45,16 @@
 						width : 300px;
 
 						@media(min-width: $tablet) {
-							width : initial;
+							width : 558px;
 						}
 
 						span {
 							display : inline-block;
 
 							@media(min-width: $tablet) {
+								display : inline;
+							}
+							@media(min-width: $ptablet) {
 								display : block;
 							}
 						}
@@ -77,23 +84,25 @@
 			.section {
 				&--content {
 					&__slider {
-						// * {
-						// 	outline : 1px solid blue;
-						// }
 						position : relative;
 						padding-bottom : 50px;
 
 						@media(min-width: $tablet) {
-							padding-top : 188px;
-							padding-bottom : 188px;
+							// padding-top : 188px;
+							// padding-bottom : 188px;
+
+							@include interpolate("padding-top", 576px, 40px, 992px, 188px, "ease-in");
+							@include interpolate("padding-bottom", 576px, 40px, 992px, 188px, "ease-in");
 						}
 
 						&--wrapper {
 							background : #eeeeee;
 							width : 469.74px;
-							height : 798px;
+							// height : 798px;
+							@include interpolate("height", 576px, 40px, 992px, 798px, "ease-in");
 							position : absolute;
-							top : -189px;
+							// top : -189px;
+							// @include interpolate("top", 576px, -40px, 992px, -188px, "ease-in");
 							top : 0;
 							right : -120px;
 							display : none;
@@ -168,14 +177,16 @@
 
 							&-slide {
 								display : flex;
-								flex-wrap : wrap;
-								justify-content : space-between;
-								align-items : flex-end;
+								flex-direction : column;
+								@media(min-width: $tablet) {
+									flex-direction : row;
+									align-items : flex-end;
+									justify-content : space-between;
+								}
 
 								.section {
 									&--content {
 										max-width : 460px;
-
 										&__link {
 											display : inline-block;
 										}
@@ -233,10 +244,12 @@
 									}
 
 									&--image {
+										a {
+											width : 100%;
+										}
 										width : 100%;
 										height : auto;
 										@media(min-width: $tablet) {
-											order : 1;
 											@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
 											@include interpolate("height", 576px, 226px, 992px, 420px, "ease-in");
 										}
@@ -256,12 +269,16 @@
 					display : block;
 
 					span {
-						display : block;
+						@media(min-width: $tablet) {
+							display : block;
+						}
 						font-family : var(--font);
 						font-style : normal;
 						font-weight : 700;
-						font-size : 32px;
-						line-height : 48px;
+						// font-size : 32px;
+						// line-height : 48px;
+						@include interpolate("font-size", 520px, 20px, 992px, 32px, "ease-in");
+						@include interpolate("line-height", 520px, 32px, 992px, 48px, "ease-in");
 						color : #231f20;
 					}
 				}
@@ -355,7 +372,7 @@
 			.readmoreLink {
 				display : block;
 				margin-top : 56px;
-				@media(min-width: $tablet) {
+				@media(min-width: 960px) {
 					display : grid;
 				}
 				grid-template-columns : repeat(4, 1fr);
@@ -385,6 +402,10 @@
 		&__focus-industries {
 			.swiper-container {
 				overflow : visible;
+			}
+			padding-top : 44px;
+			@media(min-width: $tablet) {
+				padding-top : 0;
 			}
 			@include interpolate("margin-bottom", 576px, 60px, 992px, 100px, "ease-in");
 
@@ -442,7 +463,7 @@
 							display : block;
 							position : absolute;
 							background : #eeeeee;
-							bottom : 0;
+							top : -120px;
 							left : -9999em;
 							right : -9999em;
 							z-index : -1;
@@ -501,12 +522,21 @@
 								overflow : visible;
 							}
 							&-slide {
-								display : flex;
-								flex-wrap : wrap;
-								justify-content : space-between;
-								align-items : flex-end;
+								// display : flex;
+								// flex-wrap : wrap;
+								// justify-content : space-between;
+								// align-items : flex-end;
 								opacity : 0;
 								visibility : hidden;
+								display : flex;
+								flex-direction : column;
+								@media(min-width: $tablet) {
+									flex-direction : row;
+									align-items : flex-end;
+									justify-content : space-between;
+								}
+
+
 								&-active {
 									opacity : 1;
 									visibility : visible;
@@ -585,12 +615,14 @@
 									}
 
 									&--image {
+										a {
+											width : 100%;
+										}
 										@media(min-width: $tablet) {
 											order : 1;
+											@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
+											@include interpolate("height", 576px, 226px, 992px, 420px, "ease-in");
 										}
-
-										@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
-										@include interpolate("height", 576px, 226px, 992px, 420px, "ease-in");
 									}
 								}
 							}
@@ -638,6 +670,9 @@
 
 					&_image {
 						text-align : center;
+						img {
+							width : auto;
+						}
 					}
 				}
 			}

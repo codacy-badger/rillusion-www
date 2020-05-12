@@ -11,7 +11,7 @@ body {
 	text-rendering : geometricPrecision;
 	@include interpolate("padding-top", 520px, 150px, 992px, 186px, "ease-in");
 	padding-bottom : 76px;
-	@media(min-width: $tablet) {
+	@media(min-width: 620px) {
 		padding-bottom : 0;
 	}
 }
@@ -179,4 +179,8 @@ small {
 	display : block;
 	margin-top : 0.25rem;
 	color : #6c757d !important;
+}
+
+img {
+	width : 100%;
 }
