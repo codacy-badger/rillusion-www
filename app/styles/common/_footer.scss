@@ -1,0 +1,201 @@
+
+
+
+.footer {
+	&--page {
+		background : #f5f5f5;
+		position : relative;
+		z-index : 1;
+		// margin-top: 182px;
+		// padding-top: 74px;
+		// padding-bottom: 120px;
+
+		@include interpolate("margin-top", 520px, 60px, 992px, 182px, "ease-in");
+		@include interpolate("padding-top", 520px, 80px, 992px, 74px, "ease-in");
+		@include interpolate("padding-bottom", 520px, 60px, 992px, 120px, "ease-in");
+
+		&:before {
+			content : "";
+			content : none;
+			display : block;
+			position : absolute;
+			top : 0;
+			bottom : 0;
+			left : -9999em;
+			right : -9999em;
+			z-index : -1;
+			background : #f5f5f5;
+		}
+
+		> div {
+			display : flex;
+			align-items : center;
+			justify-content : space-between;
+			flex-direction : column;
+
+			@media(min-width: 768px) {
+				flex-direction : row;
+			}
+
+			.text {
+				order : 1;
+
+				@media(min-width: 768px) {
+					order : 0;
+				}
+			}
+
+			.image {
+				order : 0;
+				@include interpolate("padding-bottom", 520px, 70px, 992px, 120px, "ease-in");
+
+				@media(min-width: 768px) {
+					order : 1;
+					padding-bottom : 0;
+				}
+
+				svg {
+					width : 100%;
+				}
+			}
+
+			.box--text {
+				&_title {
+					&_kicker {
+						@include interpolate("margin-bottom", 520px, 50px, 992px, 62px, "ease-in");
+					}
+
+					display : block;
+					@extend %heading\:2;
+					line-height : 150%;
+					color : var(--text-black);
+					@include interpolate("margin-bottom", 520px, 56px, 992px, 70px, "ease-in");
+
+					span {
+						display : block;
+					}
+				}
+			}
+
+			.link--button {
+				position : relative;
+				font-weight : 700;
+				color : var(--red);
+				padding : 12px 26px;
+				border : 2px solid var(--red);
+				display : inline-block;
+				cursor : url("https://image.flaticon.com/icons/png/32/599/599335.png"), pointer;
+				transition : background-color 0.3s, color 0.3s;
+
+				&:before {
+					content : "";
+					position : absolute;
+					top : -20px;
+					bottom : -20px;
+					left : 0;
+					right : 00px;
+					background : inherit;
+					z-index : -1;
+					opacity : 0.4;
+					transform : scale3d(0.8, 0.5, 1);
+				}
+
+				&:hover {
+					background-color : var(--red);
+					color : var(--white);
+					animation : buttonHover 0.3s forwards;
+					transition : background-color 0.1s 0.3s, color 0.1s 0.3s;
+				}
+			}
+		}
+	}
+
+	@keyframes buttonHover {
+		60% {
+			transform : scale3d(0.8, 0.8, 1);
+		}
+
+		85% {
+			transform : scale3d(1.1, 1.1, 1);
+		}
+
+		100% {
+			transform : scale3d(1, 1, 1);
+		}
+	}
+
+	&--nofollow {
+		ul {
+			padding-top : 25px;
+
+			@media(min-width: 768px) {
+				padding-top : 33px;
+			}
+
+			display : flex;
+			flex-wrap : wrap;
+			align-items : center;
+			align-content : center;
+			justify-content : space-between;
+
+			li {
+				margin-right : 30px;
+				margin-bottom : 40px;
+
+				@media(min-width: 768px) {
+					margin-bottom : 33px;
+				}
+
+				@media(max-width: 768px) {
+					flex : 1 0 auto;
+				}
+
+				&:nth-child(1) {
+					margin-right : 0;
+					flex : 0 0 calc(50% - 30px);
+
+					@media(min-width: 768px) {
+						flex : initial;
+					}
+
+					a {
+						font-weight : 700;
+						font-size : 16px;
+						line-height : 150%;
+						color : var(--text-black);
+						margin-right : 0;
+					}
+				}
+
+				&:nth-child(2) {
+					flex : 0 0 calc(50% + 30px);
+					margin-right : 0;
+					text-align : right;
+
+					@media(min-width: 768px) {
+						flex : 1 0 auto;
+						text-align : center;
+					}
+
+					& ,
+					a {
+						font-weight : 500;
+						font-size : 14px;
+						line-height : 20px;
+						color : var(--gray);
+					}
+
+					a {
+						&:hover {
+							text-decoration : underline;
+						}
+					}
+				}
+
+				&:last-child {
+					margin-right : 0;
+				}
+			}
+		}
+	}
+}

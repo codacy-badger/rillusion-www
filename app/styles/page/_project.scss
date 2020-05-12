@@ -1,0 +1,237 @@
+/*
+   *  project block
+   *  project hightlight card
+   *  project card
+   */
+
+.page {
+	&--project {
+		.grid {
+			// + & {
+			@include interpolate("margin-bottom", 520px, 95px, 992px, 362px, "ease-in");
+			// }
+			&:last-child {
+				margin-bottom : 0;
+			}
+		}
+	}
+}
+
+
+.grid.project-colum\:3 {
+	row-gap : 50px;
+
+	@media(min-width: 768px) {
+		row-gap : 30px;
+	}
+}
+
+.project {
+	&--lists {
+		display : grid;
+		@include interpolate("row-gap", 520px, 95px, 992px, 362px, "ease-in");
+		@include interpolate("margin-bottom", 520px, 95px, 992px, 362px, "ease-in");
+	}
+
+	&--list {
+		&-highlight {
+			position : relative;
+
+			.project--card {
+				display : flex;
+				align-items : center;
+				justify-content : space-between;
+				flex-direction : column;
+
+				@media(min-width: 768px) {
+					flex-direction : row;
+				}
+
+				@media(min-width: 992px) {
+					margin-right : 8.5%;
+				}
+
+				.text {
+					order : 1;
+
+					@media(min-width: 768px) {
+						margin-right : 15px;
+						max-width : 380px;
+						order : 0;
+					}
+
+					.block {
+						&-tag {
+							display : inline-block;
+							position : relative;
+							@include interpolate("margin-bottom", 520px, 40px, 992px, 68px, "ease-in");
+
+							&:after {
+								position : absolute;
+								bottom : 0;
+								left : 0;
+								content : "";
+								display : inline-block;
+								width : 20px;
+								height : 2px;
+								background-color : var(--red);
+							}
+
+							span {
+								color : var(--text-black);
+								display : inline-block;
+
+								&:not(:last-child) {
+									&:after {
+										content : ",";
+										display : inline-block;
+									}
+								}
+							}
+						}
+
+						&-title {
+							/* NOTE: heading 4 mobile style is not matching */
+							@extend .heading;
+							@include interpolate("font-size", 520px, 18px, 992px, 32px, "ease-in");
+							@include interpolate("line-height", 520px, 30px, 992px, 48px, "ease-in");
+							/* NOTE: textarea auto height lead to increase the space after */
+							@include interpolate("margin-bottom", 520px, 17px, 992px, 70px, "ease-in");
+						}
+
+						&-text {
+							font-weight : 500;
+							font-size : 16px;
+							line-height : 28px;
+							color : var(--text-black);
+							margin-bottom : 30px;
+							@include interpolate("margin-bottom", 520px, 33px, 992px, 30px, "ease-in");
+
+							@media(min-width: 768px) {
+								max-width : 263px;
+							}
+						}
+
+						&-link {
+							a {
+								display : block;
+								@extend %link;
+							}
+						}
+					}
+				}
+
+				.image {
+					z-index : 1;
+					position : relative;
+					.cover {
+						width : 100%;
+						height : 100%;
+						background : var(--gray-light);
+						position : absolute;
+						top : 0;
+						left : 0;
+						z-index : -1;
+					}
+
+					order : 0;
+					margin-bottom : 34px;
+
+					@media(min-width: 768px) {
+						margin-bottom : 0;
+						margin-left : 15px;
+						max-width : 558px;
+						max-height : 420px;
+						order : 1;
+					}
+
+
+					@media(hover: hover) and (pointer: fine) {
+						will-change : transform;
+						transition : transform 2.3s ease-out;
+
+						&:hover {
+							overflow : hidden;
+
+							img {
+								transition : transform 2.3s ease-out;
+								transform : scale(1.2);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--card {
+		&_image {
+			margin-bottom : 30px;
+
+			img {
+				@media(min-width: 768px) {
+					width : 360px;
+					height : 270px;
+				}
+			}
+
+			@media(hover: hover) and (pointer: fine) {
+				will-change : transform;
+				transition : transform 2.3s ease-out;
+
+				&:hover {
+					overflow : hidden;
+
+					img {
+						transition : transform 2.3s ease-out;
+						transform : scale(1.2);
+					}
+				}
+			}
+		}
+
+		&_title {
+			@extend %heading\:6;
+			/* NOTE: textarea auto height lead to increase the space after */
+			@include interpolate("margin-bottom", 520px, 17px, 992px, 30px, "ease-in");
+		}
+
+		&_tags {
+			span {
+				color : var(--gray-dark);
+				display : inline-block;
+				position : relative;
+				font-weight : 500;
+				@extend %para;
+
+				&:not(:last-child) {
+					&:after {
+						content : ",";
+						display : inline-block;
+					}
+				}
+			}
+		}
+	}
+}
+
+.block_bg {
+	z-index : -1;
+	background : #eeeeee;
+	// width: 100%;
+	height : 340px;
+	margin : 0 -15px;
+	position : absolute;
+	left : 0;
+	right : 0;
+	bottom : -45px;
+
+	@media (min-width: 768px) {
+		bottom : initial;
+		left : initial;
+		top : -180px;
+		right : -208px;
+		@include interpolate("width", 520px, 320px, 992px, 374px, "ease-in");
+		@include interpolate("height", 520px, 320px, 992px, 780px, "ease-in");
+	}
+}

@@ -1,0 +1,320 @@
+.page--contact {
+	.footer--page {
+		margin-top : 0;
+	}
+
+
+	.section--contact-form {
+		display : flex;
+		justify-content : space-between;
+		flex-direction : column;
+		margin-bottom : 105px;
+		@media(min-width: 768px) {
+			align-items : flex-start;
+			flex-direction : row;
+		}
+
+		.left {
+			max-width : 360px;
+			.section--content {
+				&__title {
+					.hero--text {
+						&_title {
+							@include interpolate("padding-top", 520px, 50px, 992px, 60px, "ease-in");
+							@include interpolate("padding-bottom", 520px, 30px, 992px, 92px, "ease-in");
+
+							span {
+								display : block;
+								font-style : normal;
+								font-weight : 700;
+								font-size : 48px;
+								line-height : 72px;
+								color : var(--text-black);
+							}
+						}
+					}
+				}
+				&__text {
+					margin-top : 92px;
+					p {
+						font-weight : 500;
+						font-size : 16px;
+						line-height : 28px;
+						color : #231f20;
+
+						+ p {
+							margin-top : 30px;
+						}
+
+						a {
+							display : block;
+							color : var(--red);
+							font-size : 18px;
+							font-weight : 700;
+							font-size : 16px;
+							line-height : 28px;
+						}
+					}
+				}
+			}
+		}
+
+		.right {
+			@include interpolate("margin-top", 520px, 60px, 992px, 60px, "ease-in");
+
+			@media(min-width: 768px) {
+				margin-top : 0;
+			}
+
+			.hero--text {
+				margin-bottom : 30px;
+			}
+
+			form {
+				margin : 0 auto;
+
+				@media(min-width: 768px) {
+					@include interpolate("max-width", 520px, 280px, 992px, 530px, "ease-in");
+				}
+
+				.form-group {
+					position : relative;
+
+					label {
+						display : none;
+					}
+
+					input {
+						transition : all 0.2s;
+						background-color : var(--white);
+						margin : 0;
+						font-family : var(--font);
+						font-weight : 500;
+						font-size : 14px;
+						font-size : 1rem;
+						color : var(--gray);
+						box-shadow : none;
+						border : 0;
+						border-bottom : 1px solid #cccccc;
+						padding-bottom : 15px;
+						padding-top : 12px;
+						padding-bottom : 12px;
+						padding-right : 15px;
+						margin-bottom : 35px;
+						width : 100%;
+						box-sizing : border-box;
+					}
+
+					&.input-inline {
+						label {
+							display : block;
+							color : var(--gray);
+							font-weight : 500;
+							font-size : 14px;
+							line-height : 24px;
+							margin-bottom : 15px;
+						}
+
+						.form-check-inline {
+							display : inline-block;
+
+							input {
+								width : 0;
+								height : 0;
+								position : absolute;
+								opacity : 0;
+								padding : 0;
+								margin : 0;
+
+								&:checked {
+									+ label {
+										border-color : var(--red);
+										color : var(--red);
+										cursor : pointer;
+									}
+								}
+
+								+ label {
+									font-family : var(--font);
+									cursor : pointer;
+									border : 1px solid #cccccc;
+									padding : 8px 10px;
+									display : inline-block;
+									margin-bottom : 25px;
+									margin-right : 26px;
+									font-weight : 500;
+									font-size : 14px;
+									line-height : 24px;
+									font-weight : 500;
+									color : var(--gray);
+								}
+							}
+						}
+					}
+
+					textarea {
+						display : block;
+						width : 100%;
+						height : 85px;
+						font-family : var(--font);
+						border : 0;
+						border-bottom : 1px solid #cccccc;
+						font-style : normal;
+						font-weight : 500;
+						font-size : 14px;
+						line-height : 20px;
+						color : var(--gray);
+						padding : 12px;
+						padding-left : 0;
+					}
+
+					small {
+						position : relative;
+						bottom : 45px;
+						padding-top : 10px;
+						display : inline-block;
+						display : none;
+					}
+
+					+ button {
+						margin-top : 40px;
+						display : inline-block;
+						border : 2px solid var(--red);
+						background-color : transparent;
+						padding : 12px 26px;
+						font-style : normal;
+						font-weight : 700;
+						font-size : 18px;
+						line-height : 24px;
+						color : var(--red);
+						cursor : pointer;
+						transition : 0.2s ease;
+						&:hover {
+							transition : 0.2s ease;
+							color : var(--white);
+							background : var(--red);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.page--content {
+	&--contact {
+		&__thankyou {
+			.section--header {
+				&__title {
+					display : block;
+					margin-top : 20px;
+					span {
+						display : block;
+						font-family : var(--font);
+						font-style : normal;
+						font-weight : 700;
+						font-size : 32px;
+						line-height : 48px;
+						color : #231f20;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.section--thankyou {
+	background : var(--white-light);
+	padding-top : 60px;
+	margin-top : 60px;
+
+	@media (min-width: 768px) {
+		margin-top : 0;
+	}
+
+	.hero--text_title {
+		max-width : none;
+		margin-bottom : 0;
+		// @include interpolate('margin-bottom', 520px, 60px, 992px, 70px, 'ease-in');
+	}
+
+	.philosophy {
+		&--lists {
+			@include interpolate("padding-top", 520px, 60px, 992px, 100px, "ease-in");
+			@include interpolate("padding-bottom", 520px, 60px, 992px, 77px, "ease-in");
+
+			@media(min-width: 768px) {
+				@include interpolate("margin-left", 520px, 77px, 992px, 294px, "ease-in");
+			}
+
+			ol {
+				counter-reset : my-awesome-counter;
+				display : grid;
+				row-gap : 30px;
+				column-gap : 30px;
+				grid-template-columns : 1fr;
+
+				@media(min-width: 520px) {
+					grid-template-columns : 1fr 1fr;
+				}
+
+				@media(min-width: 768px) {
+					grid-template-columns : 1fr 1fr 1fr;
+				}
+
+				@media(min-width: 960px) {
+					row-gap : 68px;
+					grid-template-columns : initial;
+					grid-template-areas : " . one two three";
+				}
+			}
+		}
+
+		&--list {
+			@media(min-width: 960px) {
+				&:nth-child(1) {
+					grid-area : one;
+				}
+
+				&:nth-child(2) {
+					grid-area : two;
+				}
+
+				&:nth-child(3) {
+					grid-area : three;
+				}
+			}
+
+			&:before {
+				content : counter(my-awesome-counter, decimal-leading-zero) ".";
+				display : block;
+				font-weight : 500;
+				font-size : 16px;
+				line-height : 24px;
+				color : var(--gray);
+				margin-bottom : 18px;
+			}
+
+			counter-increment : my-awesome-counter;
+			position : relative;
+			font-weight : 500;
+			font-size : 16px;
+			line-height : 28px;
+			color : var(--text-black);
+
+			strong {
+				span {
+					display : block;
+				}
+
+				display : block;
+				font-weight : 700;
+				color : var(--text-black);
+				font-size : 20px;
+				margin-bottom : 30px;
+			}
+		}
+	}
+}
