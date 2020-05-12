@@ -176,6 +176,10 @@
 							}
 
 							&-slide {
+								// > * {
+								// 	outline : 1px solid blue;
+								// }
+
 								display : flex;
 								flex-direction : column;
 								@media(min-width: $tablet) {
@@ -250,6 +254,7 @@
 										width : 100%;
 										height : auto;
 										@media(min-width: $tablet) {
+											order : 1;
 											@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
 											@include interpolate("height", 576px, 226px, 992px, 420px, "ease-in");
 										}
@@ -427,9 +432,6 @@
 			.section {
 				&--content {
 					&__slider {
-						// * {
-						// 	outline : 1px solid blue;
-						// }
 						position : relative;
 						padding-bottom : 50px;
 
@@ -522,6 +524,10 @@
 								overflow : visible;
 							}
 							&-slide {
+								// * {
+								// 	outline : 1px solid red;
+								// }
+
 								// display : flex;
 								// flex-wrap : wrap;
 								// justify-content : space-between;
@@ -618,8 +624,8 @@
 										a {
 											width : 100%;
 										}
+										order : 1;
 										@media(min-width: $tablet) {
-											order : 1;
 											@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
 											@include interpolate("height", 576px, 226px, 992px, 420px, "ease-in");
 										}
