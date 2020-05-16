@@ -91,6 +91,12 @@ function images() {
     .pipe(dest('dist/images'));
 }
 
+function imagesWebp() {
+  return src('app/images/**/*.{jpg,png}', { since: lastRun(images) })
+    .pipe($.webp())
+  .pipe(dest("app/images"));
+}
+
 function fonts() {
   return src('app/fonts/**/*.{eot,svg,ttf,woff,woff2}')
     .pipe($.if(!isProd, dest('.tmp/fonts'), dest('dist/fonts')));
@@ -142,7 +148,6 @@ function compressZip() {
     .pipe(dest('./'));
 }
 
-
 function extras() {
   return src([
     'app/*',
@@ -165,7 +170,7 @@ const build = series(
   clean,
   parallel(
     lint,
-    series(parallel(styles, scripts), html),
+    series(parallel(styles, scripts, imagesWebp), html),
     images,
     fonts,
     extras
@@ -192,6 +197,7 @@ function startAppServer() {
   ]).on('change', server.reload);
 
   watch('app/**/*.hbs', html);
+  watch('app/images/**/*.{jpg,png}', imagesWebp);
   watch('app/styles/**/*.scss', styles);
   watch('app/scripts/**/*.js', scripts);
   watch('app/fonts/**/*', fonts);
@@ -220,8 +226,6 @@ if (isDev) {
   serve = series(build, startDistServer);
 }
 
-exports.html = html;
-exports.scripts = scripts;
 exports.serve = serve;
 exports.build = build;
 exports.default = build;

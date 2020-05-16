@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-   
+
     <title>
       {{#if title}}
         {{title}}
@@ -24,7 +24,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="msapplication-navbutton-color" content="#ff2300" />
     <meta name="msapplication-starturl" content="/" />
-    
+
     <!-- Place favicon.ico in the root directory -->
     <link rel="icon" href="/images/favicon.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
@@ -44,7 +44,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@weareRillusion" />
     <meta name="twitter:creator" content="@weareRillusion" />
-    
+
     <!-- Noraml Card -->
     <meta itemprop="name" content="Home" />
     <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
@@ -53,8 +53,12 @@
     <!-- Veriification code -->
     <meta name="google-site-verification" content=" " />
 
+    <!-- preload domain -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
+
     <!-- build:css styles/style.css -->
-    <link href="/node_modules/aos/dist/aos.css" rel="stylesheet" />
+    <link href="/styles/vendor/aos.css" rel="stylesheet" />
     <link href="/styles/style.css" rel="stylesheet" />
     <!-- endbuild -->
 
@@ -81,20 +85,20 @@
 
     <main data-barba="container" data-barba-namespace="{{barbaNamesapce}}">
       <div class="page--{{barbaNamesapce}}">
-      
+
         <!-- page content -->
         {{#> content-block}}
           {{!-- Content goes here --}}
         {{/content-block}}
-        
+
         <!-- footer content -->
         {{> partials/footer }}
-      
+
       </div>
     </main>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
+    {{!-- <script>
       (function (b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l; b[l] || (b[l] =
           function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
@@ -103,11 +107,17 @@
         r.parentNode.insertBefore(e, r)
       }(window, document, 'script', 'ga'));
       ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
-    </script>
+    </script> --}}
 
     <!-- build:js scripts/vendor.js -->
-    <!-- endbuild --> 
-  
+    <!-- endbuild -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="scripts/script.js"></script>
+
     {{#> scripts-block}}
       {{!-- Custom scripts per page can be added --}}
     {{/scripts-block}}
