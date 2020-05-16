@@ -1,0 +1,17 @@
+* {
+  font-family: "SpaceGrotesk", Sans-Serif;
+  font-size: 16px;
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+span{
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h3 {
+  font-size: 1rem;
+  font-family: "SpaceGrotesk-SemiBold", Sans-Serif;
+}

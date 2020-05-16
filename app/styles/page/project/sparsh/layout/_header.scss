@@ -1,0 +1,136 @@
+.header {
+    @include interpolate("padding-top", 600px, 100px, 1200px, 281px);
+    @include interpolate("padding-bottom", 600px, 64px, 1200px, 215px);
+    background-color: $primary-color;
+    overflow-x: hidden;
+    position: relative;
+
+    @include media-max(599px) {
+        text-align: center;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .logo {
+        @include interpolate("margin-bottom", 600px, 32px, 1200px, 24px);
+        @include size(100%);
+
+        @include mobile {
+            @include size(80%);
+        }
+
+        @include desktop {
+            @include size(396px);
+        }
+    }
+
+    .page-tag {
+        margin-bottom: 24px;
+        background: -webkit-linear-gradient(#FFB100, #E73A01);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .content-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+        @include mobile {
+            padding-right: 0;
+            max-width: 520px;
+        }
+
+        @include desktop {
+            padding-left: 0;
+        }
+    }
+
+    .content-txt {
+        @include media-min(599px){
+            font-size: 16px;
+            line-height: 32px;
+        }
+        color: white;
+    }
+
+    .primary-bubble {
+        bottom: -2%;
+        left: -6%;
+        background-image: linear-gradient(180deg, #FFB100 0%, #E73A01 100%);
+    }
+
+    .secondary-bubble {
+        top: -11%;
+        right: 29%;
+        background-image: linear-gradient(180deg, #44E2FF 0%, #2665EA 100%);
+        @include media-min(1440px){
+            right: 0;
+        }
+    }
+}
+
+.header_banners {
+    position: relative;
+    z-index: 10;
+
+    @include media-max(599px) {
+        margin-top: 64px;
+    }
+
+    @include mobile {
+        @include size(100%);
+        right: -25%;
+    }
+
+    @include desktop {
+        @include interpolate("right", 1200px, -234px, 1439px, -393px)
+    }
+
+    @include media-min(1440px) {
+        @include size(50%);
+        right: -11.5%;
+    }
+
+    .custom-1 {
+        position: absolute;
+        bottom: 11px;
+        left: 7%;
+        @include size(21%);
+
+        @include mobile {
+            left: -2%;
+        }
+    }
+}
+
+.left-bow,
+.right-bow {
+    display: none;
+    position: absolute;
+
+    @include desktop {
+        display: block;
+    }
+}
+
+.left-bow {
+    @include size($wdt: 320px);
+    top: 116px;
+    left: -62px;
+
+    @include media-min(1440px) {
+        left: 0;
+    }
+
+}
+
+.right-bow {
+    @include size($wdt: 275px);
+    bottom: 0;
+    right: -77px;
+
+    @include media-min(1440px) {
+        right: 0;
+    }
+}

@@ -1,0 +1,147 @@
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  @include desktop {
+    @include interpolate("max-width", 1200px, 1160px, 1920px, 1620px);
+    margin: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}
+
+.logo {
+  @include size($mwidth: 116px);
+}
+
+.float-l {
+  float: left;
+}
+
+.float-r {
+  float: right;
+}
+
+
+// text classes
+
+.page-head {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: $primary-color;
+  font-weight: bold;
+  @include interpolate("font-size", 600px, 40px, 1200px, 64px);
+  @include interpolate("line-height", 600px, 45px, 1200px, 85px);
+}
+
+.page-tag{
+  background: linear-gradient(171.35deg, #3023AE 0%, #C86DD7 101.5%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+@include interpolate("font-size", 600px, 20px, 1200px, 24px);
+  @include interpolate("line-height", 600px, 30px, 1200px, 36px);
+
+}
+
+.content-head {
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: $secondary-color;
+  @include interpolate("font-size", 600px, 24px, 1200px, 32px);
+  @include interpolate("line-height", 600px, 36px, 1200px, 44px);
+  @include mobile{
+    margin-bottom: 30px;
+  }
+}
+
+.content-txt {
+  color: $base-color;
+  @include interpolate("line-height", 600px, 28px, 1200px, 36px);
+}
+
+
+//picture tag
+
+picture {
+  max-width: 100%;
+  display: inline-block;
+  width: 100%;
+}
+
+//display
+
+.d-none {
+  display: none
+}
+
+//custom-content-display
+
+.custom-content-display {
+  @include flex($jcontent: center, $aitems: center);
+  flex-direction: column;
+  text-align: center;
+  @include mobile {
+    text-align: unset;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+
+.content-wrapper-center{
+  text-align: center;
+  margin: auto;
+  @include interpolate("margin-bottom", 600px, 60px, 1200px, 100px);
+  @include interpolate("max-width", 575px, 320px, 1200px, 520px);
+}
+
+
+
+//custom-flex-order
+
+.flex-order-0 {
+  @include media-max(609px) {
+    order: 0;
+  }
+}
+
+.flex-order-1 {
+  @include media-max(609px) {
+    order: 1;
+  }
+}
+
+
+//colors
+
+.col-mt{
+color:  $mango-tango;
+}
+
+.col-copper{
+  color: $copper;
+}
+
+.col-chenin{
+  color: $chenin;
+}
+
+.col-bl{
+  color: $bay-leaf;
+}
+
+.col-mtpink{
+  color: $mt-pink;
+}
+
+.col-white{
+  color: white;
+}
+
+.word-break{
+  @include media(1700px){
+    display: block;
+  }
+}

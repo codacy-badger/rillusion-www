@@ -1,0 +1,245 @@
+.features {
+    @include interpolate("padding-top", 360px, 99px, 1200px, 180px);
+    @include interpolate("padding-bottom", 360px, 88px, 1200px, 285px);
+    overflow: hidden;
+
+    @include media-max(575px) {
+        text-align: center;
+    }
+}
+
+.features_item {
+
+    .banner-item {
+        @extend %font-0;
+        max-width: 100%;
+        margin-top: 42px;
+
+        @include mobile {
+            max-width: 50%;
+            margin-top: 0;
+        }
+
+        @include desktop {
+            max-width: 60%;
+        }
+
+        // @include interpolate("max-width", 360px, 312px, 1200px, 699px);
+    }
+
+    .content-wrapper {
+        @include media-max(575px) {
+            width: 100%;
+        }
+    }
+
+    .content-head {
+        @include interpolate("max-width", 600px, 223px, 1200px, 340px);
+
+        @include media-max(575px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .content-txt {
+        @include interpolate("max-width", 600px, 255px, 1200px, 307px);
+        @include media-max(575px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+}
+
+
+.features_item_custom-1 {
+    @include interpolate("margin-top", 600px, 54px, 1200px, 103px);
+    @include interpolate("padding-top", 600px, 56px, 1200px, 125px);
+    padding-bottom: 0;
+
+    @include tablet {
+        padding-bottom: 160px;
+    }
+
+    background-color: #E4EFF8;
+
+    .container {
+        position: relative;
+    }
+
+    .custom-content-display {
+        flex-direction: column;
+        text-align: center;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-start;
+            text-align: left;
+        }
+    }
+
+    .custom-1-list {
+        @include flex;
+    }
+
+    .custom-1-card-wrapper {
+        width: 100%;
+        @include flex($jcontent: center);
+        flex-wrap: wrap;
+        margin-top: 60px;
+        @include tablet{
+            width: 52%;
+        }
+        @include desktop{
+            width: 55%;
+        }
+    }
+
+    .custom-1-card {
+        width: 45%;
+        border-radius: 3px;
+        @extend %font-0;
+       box-shadow: -10px 10px 60px rgba(0, 55, 98, 0.1);
+        @include desktop {
+            width: 300px;
+        }
+
+        &:last-child,
+        &:nth-last-child(2) {
+            @include interpolate("margin-top", 575px, 17px, 1200px, 36px);
+        }
+
+        &:nth-child(2n){
+            @include interpolate("margin-left", 575px, 20px, 1200px, 40px);
+        }
+
+    }
+
+    .content-head {
+        @include interpolate("max-width", 600px, 210px, 1200px, 410px);
+
+        @include media-max(767px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .content-txt {
+        @include interpolate("max-width", 600px, 260px, 1200px, 310px);
+    }
+
+    .custom-1-full-banner {
+        width: 100%;
+        @include interpolate("margin-bottom", 320px, -83px, 1250px, -152px);
+        order: 2;
+        margin-top: 33px;
+        @extend %font-0;
+
+        @include tablet {
+            position: absolute;
+            width: 42.5%;
+            margin: 0;
+            right: 0;
+            @include interpolate("bottom", 768px, -230px, 1250px, -279px);
+        }
+
+        @include desktop {
+            width: 560px;
+            right: -5%;
+            
+        }
+    }
+
+    .flex-order-0 {
+        @include media-max(767px) {
+            order: 0;
+        }
+    }
+
+    .flex-order-1 {
+        @include media-max(767px) {
+            order: 1;
+        }
+    }
+}
+
+
+.features_item_custom-2 {
+    @include interpolate("padding-top", 600px, 170px, 1200px, 266px);
+    @extend %txt-center;
+    @include interpolate("margin-bottom", 600px, 88px, 1200px, 300px);
+
+    .content-head {
+        @include interpolate("max-width", 600px, 190px, 1200px, 374px);
+    }
+
+    .content-txt {
+        @include interpolate("max-width", 600px, 260px, 1200px, 410px);
+    }
+
+    .content-head,
+    .content-txt {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .custom-2-full-banner-wrapper {
+        overflow: hidden;
+        max-width: 1440px;
+        @extend %m-x-auto;
+        @include interpolate("margin-top", 600px, 56px, 1200px, 110px);
+
+        @include media-min(900px){
+            background-image: url("../images/avishkaram-culture.svg"), url("../images/avishkaram-journey.svg");
+            background-repeat: no-repeat;
+            background-position: top 140px left 0px, bottom 190px right 0px;
+            @include interpolate("background-size", 900px, 200px, 1200px, 310px );
+        }
+        @include media-min(1300px){
+            background-size: 360px, 410px;
+        }
+    }
+
+    .custom-2-full-banner {
+        max-width: calc(100% - 40px);
+
+        @include mobile {
+            @include interpolate("max-width", 576px, 500px, 1200px, 894px);
+        }
+
+        @extend %m-x-auto;
+    }
+}
+
+
+
+.features .features_item_custom-3 {
+    align-items: flex-start;
+
+    .content-wrapper {
+        @include mobile {
+            margin-top: 56px;
+        }
+    }
+
+    .content-head {
+        @include interpolate("max-width", 600px, 300px, 1200px, 380px);
+
+        @include media-max(575px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        span{
+            font-weight: inherit;
+            white-space: nowrap;
+        }
+    }
+
+    .content-txt {
+        max-width: 290px;
+    }
+
+
+}

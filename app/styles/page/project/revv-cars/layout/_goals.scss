@@ -1,0 +1,118 @@
+.goals{
+    position: relative;
+    background-color: #01B9B8;
+    z-index: 0;
+    @include interpolate("padding-top", 360px, 107px, 1200px, 131px);
+    @include interpolate("padding-bottom", 360px, 60px, 1200px, 311px);
+    
+}
+
+.goals_list{
+    @include flex;
+    flex-direction: column;
+    align-items: center;
+    @include media-min(576px){
+        flex-direction: row;
+        align-items: unset;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .custom-pos-1{
+        @include media-min(1090px){
+            position: relative;
+            top: 101px;
+        }
+    }
+
+    .custom-pos-2{
+        .content-txt{
+            @include media-min(1090px){
+                max-width: 285px;
+            }
+        }
+        @include media-min(1090px){
+            position: relative;
+            top: 227px;
+        }
+    }
+}
+
+.goals_list_item{
+    width: 100%;
+    @include media-min(450px){
+        width: 70%;
+    }
+    @include media-min(576px){
+        width: 48%;
+    }
+    @include media-min(871px){
+        width: 30%;
+    }
+    @include mobile{
+        margin:0 0px 60px;
+    }
+    @include media-min(1090px){
+        margin: 0;
+        width: auto;
+    }
+    .content-head{
+        color: $white;
+        @include media-min(871px){
+            span{
+                display: block;
+            }
+        }
+    }
+    .content-txt{
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 90%;
+        @include media-min(400px){
+            max-width: 100%;
+        }
+        @include media-min(677px){
+            max-width: 80%;
+        }
+        @include media-min(871px){
+            max-width: 100%;
+        }
+        @include media-min(1090px){
+            max-width: 271px;
+        }
+    }
+
+    .border::after{
+        background-color: $white;
+        top: -25px;
+    }
+
+    .border-l::after{
+        left: -25px;
+    }
+
+    & + .goals_list_item{
+       @include media-max(575px){
+        margin: 60px 0 0 0;
+       }
+
+    }
+}
+
+.goals_list_item-banner{
+    @extend %font-0;
+    max-width: calc(100% - 20px);
+    margin-left: 20px;
+    @include interpolate("margin-top", 576px, 55px, 1200px, 89px);
+    max-width: 100%;
+    @include media-min(871px){
+        max-width: 270px;
+    }
+}
+
+.goals_full-banner {
+    @extend %txt-center;
+}
+
+
+
+
+

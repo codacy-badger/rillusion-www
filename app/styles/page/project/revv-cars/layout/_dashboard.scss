@@ -1,0 +1,44 @@
+.dashboard{
+    background-color: #2A75EC;
+        position: relative;
+    z-index: 0;
+    @include interpolate("padding-top", 360px, 88px, 1200px, 146px);
+    @include interpolate("padding-bottom", 360px, 85px, 1200px, 130px);
+ 
+    .container{
+        @include desktop{
+            padding-left: 5%;
+        }
+    }
+
+    .custom-content-display{
+        align-items: unset;
+    }
+    .content-head{
+        max-width: 280px;
+        color: $white;
+    }
+
+    .content-txt{
+        max-width: 86%;
+        color: $white;
+        @include media-max(575px){
+            margin-bottom: 62px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        @include mobile{
+            max-width: 270px;
+        }
+    }
+}
+
+.dashboard-banner{
+    width: 100%;
+    @extend %font-0;
+    @include mobile{
+        width: 50%;
+    }
+    @include desktop{
+        width: 63%;
+    }
+}

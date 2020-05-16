@@ -3,12 +3,13 @@ const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const Modernizr = require('modernizr');
 const browserSync = require('browser-sync');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const { argv } = require('yargs');
+const handlebars = require('gulp-compile-handlebars');
+const rename = require('gulp-rename');
 
 const $ = gulpLoadPlugins();
 const server = browserSync.create();
@@ -20,7 +21,7 @@ const isTest = process.env.NODE_ENV === 'test';
 const isDev = !isProd && !isTest;
 
 function styles() {
-  return src('app/styles/*.scss')
+  return src('app/styles/**/*.scss')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.sass.sync({
@@ -34,7 +35,7 @@ function styles() {
     .pipe($.if(!isProd, $.sourcemaps.write()))
     .pipe(dest('.tmp/styles'))
     .pipe(server.reload({stream: true}));
-};
+}
 
 function scripts() {
   return src('app/scripts/**/*.js')
@@ -44,56 +45,31 @@ function scripts() {
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
     .pipe(dest('.tmp/scripts'))
     .pipe(server.reload({stream: true}));
-};
-
-async function modernizr() {
-  const readConfig = () => new Promise((resolve, reject) => {
-    fs.readFile(`${__dirname}/modernizr.json`, 'utf8', (err, data) => {
-      if (err) reject(err);
-      resolve(JSON.parse(data));
-    })
-  })
-  const createDir = () => new Promise((resolve, reject) => {
-    mkdirp(`${__dirname}/.tmp/scripts`, err => {
-      if (err) reject(err);
-      resolve();
-    })
-  });
-  const generateScript = config => new Promise((resolve, reject) => {
-    Modernizr.build(config, content => {
-      fs.writeFile(`${__dirname}/.tmp/scripts/modernizr.js`, content, err => {
-        if (err) reject(err);
-        resolve(content);
-      });
-    })
-  });
-
-  const [config] = await Promise.all([
-    readConfig(),
-    createDir()
-  ]);
-  await generateScript(config);
 }
 
 const lintBase = files => {
   return src(files)
     .pipe($.eslint({ fix: true }))
-    .pipe(server.reload({stream: true, once: true}))
+    .pipe(server.reload({ stream: true, once: true }))
     .pipe($.eslint.format())
     .pipe($.if(!server.active, $.eslint.failAfterError()));
-}
+};
+
 function lint() {
   return lintBase('app/scripts/**/*.js')
     .pipe(dest('app/scripts'));
-};
-function lintTest() {
-  return lintBase('test/spec/**/*.js')
-    .pipe(dest('test/spec'));
-};
+}
 
 function html() {
-  return src('app/*.html')
+  return src('app/**/*.hbs')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe(handlebars({}, {
+      ignorePartials: false,
+      batch: ['./app/components']
+    }))
+    .pipe(rename({
+			extname: '.html'
+    }))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
     .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
     .pipe($.if(/\.html$/, $.htmlmin({
@@ -106,31 +82,78 @@ function html() {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     })))
-    .pipe(dest('dist'));
+    .pipe($.if(!isProd, dest('.tmp'), dest('dist')));
 }
 
 function images() {
   return src('app/images/**/*', { since: lastRun(images) })
     .pipe($.imagemin())
     .pipe(dest('dist/images'));
-};
+}
 
 function fonts() {
   return src('app/fonts/**/*.{eot,svg,ttf,woff,woff2}')
     .pipe($.if(!isProd, dest('.tmp/fonts'), dest('dist/fonts')));
-};
+}
+
+function criticalCss() {
+  return src('dist/*.html')
+  .pipe(critical(
+    {
+      inline: true,
+      minify: true,
+      ignore: ["font-face"],
+      base: "dist/",
+      dimensions: [
+        {
+          height: 200,
+          width: 500,
+        },
+        {
+          height: 900,
+          width: 1300,
+        },
+      ],
+    }),
+    (err, output) => {
+      if (err) {
+        console.error(err);
+      } else if (output) {
+        console.log("Generated critical CSS");
+      }
+    }
+  )
+  .pipe(dest('dist'));
+}
+
+function serviceWorker() {
+  return workboxBuild.generateSW({
+    globDirectory: 'dist',
+    globPatterns: [
+      '**/*.{html,json,js,css}',
+    ],
+    swDest: 'dist/sw.js',
+  });
+}
+
+function compressZip() {
+  return src('dist/**/*')
+    .pipe($.zip('dist.zip'))
+    .pipe(dest('./'));
+}
+
 
 function extras() {
   return src([
     'app/*',
-    '!app/*.html'
+    '!app/*.hbs'
   ], {
     dot: true
   }).pipe(dest('dist'));
-};
+}
 
 function clean() {
-  return del(['.tmp', 'dist'])
+  return del(['.tmp', 'dist']);
 }
 
 function measureSize() {
@@ -142,7 +165,7 @@ const build = series(
   clean,
   parallel(
     lint,
-    series(parallel(styles, scripts, modernizr), html),
+    series(parallel(styles, scripts), html),
     images,
     fonts,
     extras
@@ -163,34 +186,15 @@ function startAppServer() {
   });
 
   watch([
-    'app/*.html',
+    'app/*.hbs',
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', server.reload);
 
+  watch('app/**/*.hbs', html);
   watch('app/styles/**/*.scss', styles);
   watch('app/scripts/**/*.js', scripts);
-  watch('modernizr.json', modernizr);
   watch('app/fonts/**/*', fonts);
-}
-
-function startTestServer() {
-  server.init({
-    notify: false,
-    port,
-    ui: false,
-    server: {
-      baseDir: 'test',
-      routes: {
-        '/scripts': '.tmp/scripts',
-        '/node_modules': 'node_modules'
-      }
-    }
-  });
-
-  watch('app/scripts/**/*.js', scripts);
-  watch(['test/spec/**/*.js', 'test/index.html']).on('change', server.reload);
-  watch('test/spec/**/*.js', lintTest);
 }
 
 function startDistServer() {
@@ -209,13 +213,15 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-  serve = series(clean, parallel(styles, scripts, modernizr, fonts), startAppServer);
+  serve = series(clean, parallel(styles, scripts, fonts, html), startAppServer);
 } else if (isTest) {
-  serve = series(clean, scripts, startTestServer);
+  serve = series(clean, scripts);
 } else if (isProd) {
   serve = series(build, startDistServer);
 }
 
+exports.html = html;
+exports.scripts = scripts;
 exports.serve = serve;
 exports.build = build;
 exports.default = build;

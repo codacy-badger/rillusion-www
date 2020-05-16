@@ -1,0 +1,75 @@
+.features {
+  background-color: $black-squeeze;
+  @include interpolate("padding-top", 600px, 100px, 1200px, 130px);
+}
+
+.features__content {
+  margin-bottom: 2rem;
+  @include mobile {
+    @include size($mwidth: 45%);
+  }
+  @include tablet {
+    h2 {
+      @include size($mwidth: 24.72rem);
+      margin-bottom: 2.2rem;
+    }
+    p {
+      @include size($mwidth: 19.4rem);
+    }
+  }
+}
+
+.features__tags {
+  text-align: center;
+  align-self: flex-end;
+  span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.1rem;
+  }
+  @include mobile {
+    @include size($mwidth: 45%);
+  }
+  @include desktop {
+    @include size($mwidth: 29.2rem);
+  }
+}
+
+.features__list {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 1.8rem;
+  > li{
+    font-size: 1rem;
+  }
+  & > :first-child{
+    background-color: rgba(182, 252, 227, 0.5);
+  }
+  & > :last-child{
+    background-color: rgba(225, 182, 252, 0.5);
+  }
+  & > :nth-child(2){
+    background-color: rgba(182, 201, 252, 0.5);
+  }
+}
+
+.features__list_item {
+  @include size($width: 13.05rem);
+  line-height: 1.8rem;
+  background-color: rgba(182, 239, 252, 0.5);
+  margin: 0 0.5rem 2.2rem;
+  padding: 1.2rem 0;
+  display: inline-block;
+}
+
+.features-banner{
+  display: block;
+  margin: 0 auto;
+  transform: translatey(3.1rem);
+  @include desktop{
+    @include size($mwidth: 57.5rem);
+    transform: translatey(12.1rem);
+  }
+}

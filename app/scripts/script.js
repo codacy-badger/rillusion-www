@@ -7,28 +7,6 @@ const scrollUp = 'scroll-up';
 const scrollDown = 'scroll-down';
 let lastScroll = 0;
 
-// // menu scroll up and down
-// if ($(window).width() >= 620) {
-//   window.addEventListener("scroll", () => {
-//     const currentScroll = window.pageYOffset;
-//     if (currentScroll == 0) {
-//       body.classList.remove(scrollUp);
-//       return;
-//     }
-
-//     if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
-//       // down
-//       body.classList.remove(scrollUp);
-//       body.classList.add(scrollDown);
-//     } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
-//       // up
-//       body.classList.remove(scrollDown);
-//       body.classList.add(scrollUp);
-//     }
-//     lastScroll = currentScroll;
-//   });
-// }
-
 // menu items transition
 var t1 = new TimelineMax({ paused: true });
 t1.to('.menu--items', 0.5, {
@@ -99,31 +77,3 @@ function contentAnimation() {
     '-=1.5'
   );
 }
-
-// full page animation
-// $(function() {
-//   barba.init({
-//     sync: true,
-
-//     transitions: [
-//       {
-//         async leave(data) {
-//           const done = this.async();
-
-//           pageTransition();
-//           await delay(1000);
-//           done();
-//         },
-
-//         async enter(data) {
-//           contentAnimation();
-//         },
-
-//         async once(data) {
-//           contentAnimation();
-//         }
-//       }
-//     ]
-//   });
-// });
-

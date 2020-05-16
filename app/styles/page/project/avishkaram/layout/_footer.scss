@@ -1,0 +1,26 @@
+.footer{
+    @include interpolate("padding-top", 576px, 71px, 1200px, 126px);
+    @include interpolate("padding-bottom", 576px, 64px, 1200px, 91px);
+}
+
+.footer_banner_full, .footer_banner_twin-wrapper{
+    display: inline-block;
+    width: 100%;
+    @include mobile{
+        width: 48%;
+    }
+}
+
+.footer_banner_twin-wrapper{
+    margin-top: 18px;
+    overflow: hidden;
+    @include mobile{
+         margin: 0 0 0 3%;
+    }
+}
+
+.footer_banner_twin + .footer_banner_twin{  
+    margin-top: 18px;
+    // @include interpolate("margin-top", 576px, 15px, 1200px, 30px);
+    @include interpolate("margin-bottom", 575px, 0px, 1200px, 30px);
+}

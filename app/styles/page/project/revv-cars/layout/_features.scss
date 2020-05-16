@@ -1,0 +1,201 @@
+.features {
+    @include interpolate("padding-top", 600px, 60px, 1200px, 223px);
+    @include interpolate("padding-bottom", 600px, 89px, 1200px, 314px);
+
+    .custom-content-display{  
+        align-items: unset;   
+        @include media-max(900px){
+            flex-direction: column;
+            
+        }
+    }
+}
+
+.features_item {
+    @include interpolate("margin-bottom", 576px , 94px, 1200px, 245px);
+    @include media-max(900px){
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @include desktop{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .page-head {
+        margin-bottom: 12px;
+        @include mobile{
+            margin-bottom: 20px;
+        }
+        @include interpolate("font-size", 576px, 24px, 1200px, 56px);
+        @include interpolate("line-height", 576px, 36px, 1200px, 47px);
+        
+    }
+
+    .content-txt {
+        max-width: 310px;
+        @include media-min(901px){
+            max-width: 270px;
+        }
+    }
+
+}
+
+.features_list{
+    @include flex;
+    @include media-max(900px){
+        margin-top: 69px;
+    }
+    .border::after{
+      top: -9px;
+    }
+    .border-r::after{
+        right: -9px;
+    }
+
+    & + .features_list{
+        margin-top: 12%;
+    }
+
+    .custom-col-1{
+        background-color: #01B9B8;
+    }
+    .custom-col-2{
+        background-color: #1C201F;
+    }
+    .custom-col-3{
+        background-color: #CCF4F3;
+    }
+    .custom-col-4{
+        background-color: #2A75EC;
+    }
+    .custom-col-5{
+        background-color: #EDEDED;
+    }
+}
+
+.features_list_item{
+    @include square(64px);
+    background-color: white;
+    @include tablet{
+        @include square(69px);
+    }
+    & + .features_list_item{
+        margin-left: 54px;
+        @include media-min(901px){
+            margin-left: 28px;
+        }
+    }
+}
+
+
+.features_btn_wrapper{
+    @include flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 44px;
+    @include media-min(901px){
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+}
+
+.features_btn-head{
+    color: $base-color;
+    font-weight: 300px;
+    font-family: 'Rubik', sans-serif;
+    @include interpolate("font-size", 576px, 26px, 1200px, 36px);
+    @include interpolate("line-height", 576px, 26px, 1200px, 36px);
+    @include media-min(901px){
+        margin-top: 7%;
+    }
+}
+
+.features_btn{
+    background-color: #00BAB5;
+    padding: 20px 67px;
+    border: 0;
+    color: white;
+    margin-left: 45px;
+    @include media-min(901px){
+        margin-top: 28%;
+        margin-left: 0;
+    }
+}
+
+
+.features_banners-block{
+    @extend %txt-center;
+    .content-head{
+        text-align: center;
+        display: inline-block;
+        @include media-max(900px){
+            margin-bottom: 51px;
+        }
+        @include media-min(901px){
+          position: relative;
+          top: 45px;
+        }
+        span{
+            display: block;
+        }
+    }
+}
+
+.features_banners-wrapper{
+    @include flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @include interpolate("margin-right", 767px, 10px, 1200px, 20px);
+    @include media-min(901px){
+        flex-direction: row;
+    }
+
+    .custom-pos{
+        @include media-min(901px){
+            position: relative;
+            top: 112px;
+        }
+    }
+}
+
+.features_banners-list{
+    @include flex;
+    flex-direction: row;
+    @include media-min(901px){
+        flex-direction: column;
+    }
+
+    & + .features_banners-list{
+        margin: 40px 0 0px 0;
+        @include mobile{
+            margin: 70px 0 0px 0;
+        }
+        @include media-min(901px){
+            margin: 0 0 0 85px;
+        }
+    }
+}
+
+.features_banners-list-item{
+    @extend %font-0;
+    width: 100px;
+   @include media-min(350px){
+    @include interpolate("width", 350px, 120px, 800px, 300px);
+   }
+   @include media-min(901px){
+    @include interpolate("width", 901px, 180px, 1200px, 278px);
+   }
+   & + .features_banners-list-item{
+    margin: 0 0 0 40px;
+    @include mobile{
+        margin: 0 0 0 90px;
+    }
+    @include media-min(901px){
+      margin: 117px 0 0 0;
+    }
+   }
+}

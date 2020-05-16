@@ -1,0 +1,16 @@
+* {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+span{
+  font-size: inherit;
+  font-family: inherit;
+}
+
+h3 {
+  font-size: 1rem;
+}

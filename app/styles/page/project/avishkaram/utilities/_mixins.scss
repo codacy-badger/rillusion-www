@@ -1,0 +1,85 @@
+@mixin  square($sqval) {
+  height: $sqval;
+  width: $sqval;
+}
+
+//flex mixin
+ @mixin  flex($jcontent: null, $aitems:null, $wrap:null) {
+   display: flex;
+   justify-content: $jcontent;
+   align-items: $aitems;
+   flex-wrap: $wrap;
+ }
+
+ //text elipsis
+ @mixin textellipsis($maxwidth) {
+  max-width: $maxwidth;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+//translates
+
+@mixin transxl($xl) {
+  left: $xl;
+  transform: translateX(-$xl);
+}
+
+
+//gradient-text
+
+@mixin  gradient-txt($col) {
+  background: #{-webkit-}$col;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+//txt-ouline
+@mixin  txt-outline($outline-color) {
+    color: $outline-color;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: $outline-color;
+  @include tablet{
+    -webkit-text-stroke-width: 1px;
+  }
+  @include desktop(){
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
+
+
+//Responsive Web Desin Mixins
+@mixin media-min($mn-wdith) {
+    @media only screen and (min-width: $mn-wdith) {
+        @content;
+    }
+}
+
+@mixin media-max($mx-wdith) {
+  @media only screen and (max-width: $mx-wdith) {
+      @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tab-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile {
+    @media only screen and (min-width: $mobile-breakpoint) {
+      @content;
+    }
+  }
+  
+
+

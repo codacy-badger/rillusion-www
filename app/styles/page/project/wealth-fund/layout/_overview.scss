@@ -1,0 +1,41 @@
+.overview{
+    @extend %common-padding;
+    @include interpolate("padding-top", 610px, 72px, 1200px, 200px);
+    .page-head{
+       margin-bottom: 64px;
+       @include mobile{
+           margin-bottom: 55px;
+       }
+       span{
+           display: block;
+           font-weight: inherit;
+       }
+    }
+    .content-head{
+        @include interpolate("max-width", 557px, 320px, 1920px, 658px );
+    }     
+    .content-txt{
+     @include interpolate("max-width", 557px, 320px, 1200px, 520px );
+     span{
+         @include desktop{
+            display: block;
+         }
+     }
+    }
+    .content-wrapper{
+        @include media-max(767px){
+            margin-bottom: 60px;
+        }
+    }
+
+        @include media-max(767px){
+            flex-direction: column;
+            text-align: center;
+        }
+}
+
+.overview_banner{
+   @include tablet{
+    @include size($mwidth: 40%);
+   }
+}

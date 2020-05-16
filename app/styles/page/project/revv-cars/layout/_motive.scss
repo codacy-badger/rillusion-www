@@ -1,0 +1,76 @@
+.motive {
+    @include interpolate("padding-top", 360px, 30px, 1200px, 155px);
+    @include interpolate("padding-bottom", 360px, 30px, 1200px, 114px);
+
+    @include tablet {
+        background-color: #F7F7F7;
+    }
+
+    .custom-content-display {
+        @include media-max(767px) {
+            flex-direction: column;
+
+        }
+    }
+
+    // .content-head,
+    // .content-txt {
+    //     @include media-max(767px) {
+    //         margin-left: auto;
+    //         margin-right: auto;
+    //     }
+    // }
+
+    .content-head {
+        color: #1D74FF;
+        @include interpolate("font-size", 576px, 36px, 1200px, 80px);
+        @include interpolate("line-height", 576px, 48px, 1200px, 88px);
+        @include interpolate("margin-bottom", 576px, 16px, 1200px, 30px);
+        max-width: 256px;
+        @include media-min(590px){
+            max-width: 350px;
+        }
+        @include tablet{
+            max-width: 400px;
+        }
+    }
+
+    .content-txt {
+        max-width: 270px;
+
+        @include mobile {
+            max-width: 320px;
+        }
+    }
+
+    .flex-order-0 {
+        @include media-max(767px) {
+            order: 0;
+        }
+    }
+
+    .flex-order-1 {
+        @include media-max(767px) {
+            order: 1;
+        }
+    }
+}
+
+.motive_banner {
+    width: 100%;
+    @include interpolate("left", 360px, -60px, 767px, -113px);
+    position: relative;
+
+    @include media-max(767px) {
+        margin-top: 39px;
+    }
+
+    @include media-min(860px){
+        width: 85%
+    }
+
+    @include media-min(1000px){
+        width: 70%;
+        @include interpolate("left", 1200px, -116px, 1440px, -235px);
+    }
+}

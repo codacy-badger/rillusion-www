@@ -1,0 +1,79 @@
+.motives {
+    @include interpolate("padding-top", 360px, 48px, 1200px, 190px);
+    @include interpolate("padding-bottom", 360px, 48px, 1200px, 190px);
+
+    
+}
+
+.motives_list {
+    padding-left: 18px;
+    @include mobile{
+        padding-left: 0;
+        float: right;
+    margin-right: 3%;
+    }
+}
+
+.motives_list_item {
+    position: relative;
+
+    &::before {
+        counter-increment: count;
+        content: "0"counter(count);
+        color: $primary-color;
+        font-size: 10px;
+        line-height: 16px;
+        @extend %pos-abs;
+        top: 0;
+        left: -18px;
+        @include tablet {
+            font-size: 16px;
+            left: -32px;
+        }
+    }
+
+    .custom-pos-1 {
+        bottom: 0;
+    }
+
+    .custom-pos-2 {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.motives_list-icon {
+    @include interpolate("width", 768px, 120px, 1200px, 200px);
+    display: none;
+    position: absolute;
+    left: calc(-38% - 60px);
+}
+
+.motives_list-head {
+    font-size: 26px;
+    @include media-min(358px){
+        @include interpolate("font-size", 500px, 32px, 1200px, 72px);
+    }
+    @include interpolate("line-height", 500px, 48px, 1200px, 72px);
+    @include txt-outline($primary-color);
+    font-weight: 600;
+    @extend %font-montsrt;
+
+    &:hover {
+        -webkit-text-fill-color: unset;
+        /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 0;
+        -webkit-text-stroke-color: unset;
+        cursor: pointer;
+    }
+}
+
+.motives_list_item+.motives_list_item {
+    @include interpolate("margin-top", 360px, 4px, 1200px, 36px);
+}
+
+.motives_list_icon-show {
+    @include mobile {
+        display: block !important;
+    }
+}

@@ -1,0 +1,50 @@
+@mixin size($mwidth: null, $height: null, $width: null) {
+  max-width: $mwidth;
+  height: $height;
+  width: $width;
+}
+
+//flex mixin
+ @mixin  flex($jcontent: null, $aitems:null, $wrap:null) {
+   display: flex;
+   justify-content: $jcontent;
+   align-items: $aitems;
+   flex-wrap: $wrap;
+ }
+
+ //text elipsis
+ @mixin textellipsis($maxwidth) {
+  max-width: $maxwidth;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+//Responsive Web Desin Mixins
+@mixin media($mn-wdith) {
+    @media only screen and (min-width: $mn-wdith) {
+        @content;
+    }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tab-breakpoint) {
+    @content;
+  }
+}
+
+@mixin mobile {
+    @media only screen and (min-width: $mobile-breakpoint) {
+      @content;
+    }
+  }
+  
+
+

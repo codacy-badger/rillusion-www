@@ -1,0 +1,117 @@
+{{!-- layouts/base.hbs --}}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+   
+    <title>
+      {{#if title}}
+        {{title}}
+      {{else}}
+      Rillusion | A creative UI/UX design company bases in chennai
+      {{/if}}
+    </title>
+
+    <!-- Manifest code for new layout -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#ff2300" />
+    <meta name="application-name" content="Rillusion" />
+    <meta name="apple-mobile-web-app-title" content="Rillusion" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="msapplication-navbutton-color" content="#ff2300" />
+    <meta name="msapplication-starturl" content="/" />
+    
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="icon" href="/images/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <!-- Facebook Opengraph -->
+    <meta property="fb:app_id" content="" />
+    <meta property="fb:admins" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="Rillusion" />
+    <meta property="og:description"
+      content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="Rillusion" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@weareRillusion" />
+    <meta name="twitter:creator" content="@weareRillusion" />
+    
+    <!-- Noraml Card -->
+    <meta itemprop="name" content="Home" />
+    <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
+    <meta itemprop="image" content="" />
+
+    <!-- Veriification code -->
+    <meta name="google-site-verification" content=" " />
+
+    <!-- build:css styles/style.css -->
+    <link href="/node_modules/aos/dist/aos.css" rel="stylesheet" />
+    <link href="/styles/style.css" rel="stylesheet" />
+    <!-- endbuild -->
+
+    {{#> head-block}}
+      {{!-- Custom <head> content per page could be added --}}
+    {{/head-block}}
+  </head>
+
+  <body data-barba="wrapper">
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- page load -->
+    <div class="loading-container">
+      <div class="loading-screen"></div>
+      <div class="loading-screen"></div>
+      <div class="loading-screen"></div>
+      <div class="loading-screen"></div>
+    </div>
+
+    <!-- menu content -->
+    {{> partials/header }}
+
+    <main data-barba="container" data-barba-namespace="{{barbaNamesapce}}">
+      <div class="page--{{barbaNamesapce}}">
+      
+        <!-- page content -->
+        {{#> content-block}}
+          {{!-- Content goes here --}}
+        {{/content-block}}
+        
+        <!-- footer content -->
+        {{> partials/footer }}
+      
+      </div>
+    </main>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+          function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+        e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+      }(window, document, 'script', 'ga'));
+      ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- endbuild --> 
+  
+    {{#> scripts-block}}
+      {{!-- Custom scripts per page can be added --}}
+    {{/scripts-block}}
+
+  </body>
+
+</html>

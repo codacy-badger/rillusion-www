@@ -1,0 +1,111 @@
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include desktop {
+    @include size(1170px);
+    margin: auto;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+
+
+// text classes
+
+.page-head {
+  @include gradient-txt($cer-picblue);
+  font-weight: 600;
+  @include interpolate("font-size", 600px, 48px, 1200px, 64px);
+  @include interpolate("line-height", 600px, 65px, 1200px, 87px);
+}
+
+.page-tag {
+  font-weight: 600;
+  @include interpolate("font-size", 600px, 20px, 1200px, 24px);
+  @include interpolate("line-height", 600px, 30px, 1200px, 36px);
+
+}
+
+.content-head {
+  font-weight: 600;
+  color: $primary-color;
+  @include interpolate("font-size", 600px, 24px, 1200px, 32px);
+  @include interpolate("line-height", 600px, 36px, 1200px, 48px);
+}
+
+.content-txt {
+  color: $base-color;
+  line-height: 36px;
+}
+
+.content-tag{
+  font-weight: normal;
+  color: $base-color;
+  @include interpolate("font-size", 600px, 18px, 1200px, 32px);
+  @include interpolate("line-height", 600px, 36px, 1200px, 48px);
+}
+
+
+//picture tag
+
+picture {
+  max-width: 100%;
+  display: inline-block;
+  width: 100%;
+}
+
+//display
+
+.d-none {
+  display: none
+}
+
+//custom-content-display
+
+.custom-content-display {
+  @include flex($jcontent: center, $aitems: center);
+  flex-direction: column;
+
+  @include mobile {
+    text-align: unset;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+
+//custom-flex-order
+
+.flex-order-0 {
+  @include media-max(609px) {
+    order: 0;
+  }
+}
+
+.flex-order-1 {
+  @include media-max(609px) {
+    order: 1;
+  }
+}
+
+
+//box-shadows
+
+.primary-box-shadow{
+  box-shadow: $basic-boxshadow;
+  
+  @include mobile{
+    box-shadow: $primary-boxshadow;   
+  }
+}
+
+.secondary-box-shadow{
+  box-shadow: $basic-boxshadow;
+
+  @include mobile{
+    box-shadow: $secondary-boxshadow;
+  }
+}

@@ -1,0 +1,16 @@
+* {
+  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Esteban', serif;
+  font-size: 14px;
+  @include mobile {
+    font-size: 17px;
+  }
+}
+
+span{
+  font-size: inherit;
+  font-family: inherit;
+}
+
+
+

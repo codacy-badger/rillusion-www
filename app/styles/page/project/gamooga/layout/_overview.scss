@@ -1,0 +1,50 @@
+.overview {
+  @include interpolate("padding-top", 600px, 60px, 768px, 95.4px);
+  @include interpolate("padding-bottom", 600px, 60px, 768px, 95.4px);
+  h2,
+  p {
+    margin-bottom: 1.8rem;
+  }
+}
+
+.overview__content {
+  @include mobile {
+    flex-basis: 45%;
+  }
+  @include desktop {
+    flex-basis: 24.7rem;
+  }
+}
+
+.overview__banners {
+  > picture {
+    > img {
+      object-fit: contain;
+    }
+
+    @include mobile {
+      max-width: 43%;
+    }
+  }
+  @include flex($jContent: center, $wrap: wrap);
+  align-items: flex-start;
+  @include mobile {
+    flex-basis: 50%;
+    overflow: auto;
+  }
+  @include desktop {
+    flex-basis: 36.2rem;
+  }
+}
+
+.overview__banners-hero {
+  margin: 0 3rem 1.3rem;
+  align-self: flex-end;
+}
+
+.overview__banners-second {
+  margin:1rem 1.2rem 2rem 0 ;
+ @include desktop{
+  margin: 2.3rem 2.2rem 2rem 0;
+ }
+}

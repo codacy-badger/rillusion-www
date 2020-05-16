@@ -1,0 +1,126 @@
+.overview {
+    @extend %common-padding;
+    @extend %txt-center;
+
+    .page-head {
+        @include interpolate("margin-bottom", 600px, 50px, 1200px, 70px);
+    }
+
+    .content-head {
+        @include interpolate("margin-bottom", 600px, 32px, 1200px, 50px);
+        @include interpolate("max-width", 600px, 318px, 1200px, 582px);
+        @extend %m-x-auto;
+    }
+
+    .content-txt {
+        @include interpolate("max-width", 600px, 320px, 1200px, 796px);
+        @extend %m-x-auto;
+        @include interpolate("margin-bottom", 600px, 44px, 1200px, 150px);
+    }
+
+}
+
+
+.overview_list {
+    @include mobile {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    @include desktop {
+        justify-content: center;
+    }
+
+    @include interpolate("margin-bottom", 600px, 100px, 1200px, 275px);
+}
+
+.overview_list_item {
+    padding: 38px 25px;
+    background-color: $primary-color;
+    @include flex($jcontent:center, $aitems:center);
+    border-radius: 10px;
+    @include size($wdt: 320px);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+
+    @include mobile {
+        padding: 48px 25px;
+        @include size($wdt: 370px);
+    }
+
+    @media screen and (min-width: 600px) and (max-width:1199px) {
+        margin: 0 30px 30px;
+    }
+
+    .page-tag {
+        color: white;
+        text-align: left;
+        margin-left: 24px;
+
+        span {
+            display: block;
+            font-weight: 600;
+        }
+    }
+
+    .banner {
+        @include size(64px);
+
+        @include mobile {
+            @include size(85px);
+        }
+    }
+
+    .bubble {
+        display: block;
+    }
+
+    .primary-bubble {
+        @include square(112px);
+        top: -50px;
+        right: -81px;
+
+        @include mobile {
+            right: -57px;
+        }
+    }
+}
+
+.overview_list_item+.overview_list_item {
+    @include media-max(599px) {
+        margin: 30px 0 0 0;
+    }
+
+    @include desktop {
+        margin: 0 0 0 30px;
+    }
+}
+
+
+.overview_list_item:last-child {
+    margin-bottom: 0;
+}
+
+.overview_banner_full {
+    position: relative;
+    z-index: 10;
+
+    @include mobile {
+        margin-bottom: 50px;
+    }
+
+    .bubble {
+        display: none;
+
+        @include media-min(1300px) {
+            display: block;
+        }
+    }
+
+    .secondary-bubble {
+        @include square(110px);
+        bottom: -55px;
+        right: -55px;
+    }
+}

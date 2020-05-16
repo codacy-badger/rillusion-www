@@ -1,0 +1,41 @@
+.motive {
+  position: relative;
+  @include interpolate("padding-top", 600px, 100px, 1200px, 118px);
+  @include interpolate("padding-bottom", 600px, 100px, 1200px, 280px);
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.motive__banners {
+  order: 1;
+  margin-bottom: 2rem;
+  @include mobile {
+    width: 50%;
+  }
+
+  > picture {
+    box-shadow: 0px 20px 52px rgba(27, 19, 15, 0.12);
+    & + picture {
+      margin-top: 6.6rem;
+    }
+  }
+}
+
+.motive__content {
+  order: 0;
+  margin-bottom: 2rem;
+  @include mobile {
+    position: sticky;
+    @include size($mwidth: 40%);
+    top: 180px;
+  }
+  @include desktop {
+    @include size($mwidth: 19.4rem);
+    margin-right: 5rem;
+  }
+  h2{
+   margin-bottom: 2rem;
+  }
+}

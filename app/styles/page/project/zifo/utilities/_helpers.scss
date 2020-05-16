@@ -1,0 +1,103 @@
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include desktop {
+    @include size($mwidth: 1110px);
+    margin: auto;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
+.logo {
+  @include size($mwidth: 116px);
+}
+
+.float-l {
+  float: left;
+}
+
+.float-r {
+  float: right;
+}
+
+
+// text classes
+
+.page-main-head {
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 1rem;
+  @include interpolate("font-size", 600px, 30px, 1200px, 64px);
+  @include interpolate("line-height", 600px, 45px, 1200px, 77px);
+  @include desktop{
+    @include size($mwidth: 445px);
+  }
+}
+
+.content-head {
+  font-weight: 600;
+  line-height: 48px;
+  @include interpolate("font-size", 600px, 25px, 1200px, 40px);
+  @include interpolate("line-height", 600px, 35px, 1200px, 48px);
+}
+
+.content-txt {
+  color: $secondary-color;
+  line-height: 32px;
+}
+
+.txt-break{
+  display: none;
+  @include mobile{
+    display: block;
+  }
+}
+
+//picture tag
+
+picture {
+  max-width: inherit;
+  display: inline-block;
+  width: inherit;
+}
+
+//display
+
+.d-none {
+  display: none
+}
+
+//custom-content-display
+
+.custom-content-display {
+  @include flex($jcontent: center, $aitems: center);
+  flex-direction: column;
+  @include mobile {
+    flex-direction: row;
+    justify-content: space-between;
+    > *{
+      flex-basis: 45%;
+  }
+  }
+}
+
+//custom-flex-order
+
+.flex-order-0{
+  @include mobile{
+    order: 0;
+  }
+}
+
+.flex-order-1{
+  @include mobile{
+    order: 1;
+  }
+}
+
+//footer
+footer{
+  font-size: 0;
+}

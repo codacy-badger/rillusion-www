@@ -1,0 +1,19 @@
+.bubble{
+    display: none ;
+    @include square(100px);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    @include desktop{
+        display: block;
+    }
+}
+
+.primary-bubble{
+    background-image: $lg-primary;
+    
+}
+
+.secondary-bubble{
+    background-image: $lg-secondary;
+}

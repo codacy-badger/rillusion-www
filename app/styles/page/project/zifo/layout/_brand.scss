@@ -1,0 +1,31 @@
+.brand {
+  @include interpolate("padding-top", 600px, 60px, 1200px, 175px);
+  @include interpolate("padding-bottom", 600px, 60px, 1200px, 120px);
+  align-items: flex-start;
+}
+
+.brand_content {
+  @include desktop {
+    @include size($mwidth: 445px);
+  }
+
+  .content-txt {
+    margin-bottom: 32px;
+  }
+}
+
+.brand_content_list {
+  margin-top: 8px;
+  color: $secondary-color;
+}
+
+.brand_content_list-item:last-child {
+    @include interpolate("margin-right", 600px, 30px, 1200px, 85px);
+}
+
+.brand_content_list-item-head{
+     font-weight: 500;
+     margin-bottom: 8px;
+     line-height: 32px;
+     color: $primary-color;
+}

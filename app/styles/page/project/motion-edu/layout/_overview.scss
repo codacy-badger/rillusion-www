@@ -1,0 +1,88 @@
+.overview {
+    @include interpolate("padding-top", 576px, 107px, 1200px, 220px);
+    @include interpolate("padding-bottom", 576px, 70px, 1200px, 220px);
+    background-color: #F2BD61;
+    background-image: url("../images/motionedu-overview-bg.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: contain; 
+    .custom-content-display{
+        align-items: flex-start;
+        @include mobile{
+            justify-content: flex-start;
+        }
+
+    }
+
+    .content-wrapper {
+        @include interpolate("max-width", 576px, 321px, 1200px, 531px);
+
+        @include tablet {
+            margin-left: 8.5%;
+        }
+    }
+
+    .content-wrapper,
+    .content-txt {
+        color: $secondary-color;
+    }
+
+    .page-head {
+        @include interpolate("font-size", 576px, 28px, 1200px, 64px);
+        @include interpolate("line-height", 576px, 40px, 1200px, 84px);
+        margin-bottom: 32px;
+
+        span {
+            display: block;
+        }
+
+    }
+
+    .content-txt {
+        @include interpolate("font-size", 576px, 18px, 1200px, 20px);
+        @include interpolate("line-height", 576px, 28px, 1200px, 30px);
+
+        span {
+            @include tablet {
+                display: block;
+            }
+        }
+    }
+
+    .custom-underline{
+        &::after{
+             background-image: url("../images/motionedu-overview-underline.svg");
+             @include desktop{
+                left: -4px;
+                right: -13px;
+             }
+        }
+    }
+}
+
+.overview_list {
+    margin-top: 30px;
+    @include mobile{
+        margin-left: 12%;
+        margin-top: 0;
+    }
+
+    .list-head {
+        @extend %font-oswald;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 12px;
+        color: $secondary-color;
+    }
+
+    .list-txt{
+        font-size: 16px;
+        line-height: 24px;
+        color: $primary-color;
+    }
+}
+
+.overview_list_item{
+    @include interpolate("margin-bottom", 576px, 30px, 1200px, 56px);
+}

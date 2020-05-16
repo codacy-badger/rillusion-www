@@ -1,0 +1,19 @@
+.header {
+  text-align: center;
+  background-color: $bg-primary;
+  @include interpolate("padding-top", 600px, 130px, 1200px, 255px);  
+  .logo {
+    margin-bottom: 33px;
+    @include interpolate("max-width", 610px, 150px, 1200px, 296px);
+  }
+}
+
+.header-banner {
+  transform: translatey(20px);
+  @include mobile{
+    transform: translatey(47px);
+  }
+  @include desktop {
+    @include size($mwidth: 1132px);
+  }
+}

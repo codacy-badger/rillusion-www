@@ -1,0 +1,128 @@
+.footer_banners {
+    background-color: #EDF0F5;
+    overflow: hidden;
+    background-image: url("../images/motionedu-footer-banner-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 55% ;
+    @include mobile{
+        background-size: contain;
+        background-position-x: 0;
+    }
+    .container {
+        @include flex($jcontent: center, $aitems:flex-end);
+        @include interpolate("padding-top", 576px, 57px, 1200px, 180px);
+        @include interpolate("padding-bottom", 576px, 66px, 1200px, 291px);
+        position: relative;
+    }
+
+    .custom-left {
+        @include media-max(450px) {
+            margin-left: -25%;
+        }
+    }
+
+    .custom-right {
+        @include media-max(450px) {
+            margin-right: -23%;
+        }
+    }
+
+    .custom-mb {
+        @include interpolate("margin-bottom", 576px, 64px, 1200px, 134px);
+    }
+}
+
+.footer_banners_item {
+    @include interpolate("max-width", 576px, 115px, 1200px, 242px);
+    @extend %font-0;
+    >picture{
+        box-shadow: 0px 0px 100px rgba(0, 24, 63, 0.4);
+        border-radius: 34px;
+    }
+}
+
+.footer_banners_item+.footer_banners_item {
+    @include interpolate("margin-left", 576px, 53px, 1200px, 125px);
+}
+
+.footer_full_banner {
+    max-width: 972px;
+    @extend %m-x-auto;
+    @extend %font-0;
+    position: relative;
+    @include interpolate("top", 576px, 0px, 1200px, -106px);
+    box-shadow: 0px 0px 100px rgba(0, 18, 52, 0.25);
+}
+
+.footer-cross{
+    @extend %pos-abs;
+    left: 47%;
+    @include interpolate("max-width", 575px, 45px, 1200px, 117px);
+    @include interpolate("bottom", 768px, 75px, 1200px, 196px);
+}
+
+.footer-cap{
+    @extend %pos-abs;
+    left: 51%;
+    @include interpolate("max-width", 575px, 31px, 1200px, 81px);
+    @include interpolate("top", 768px, 18px, 1200px, 48px);
+}
+
+.footer-compass{
+    @extend %pos-abs;
+    left: 51px;
+    @include desktop{
+        left: 13%;
+    }
+    @include interpolate("max-width", 575px, 23px, 1200px, 61px);
+    @include interpolate("top", 768px, 48px, 1200px, 128px);
+}
+
+.footer-polygon{
+    @extend %pos-abs;
+    right: 0;
+    display: none;
+    @include mobile{
+        display: block;
+    }
+    @include interpolate("max-width", 575px, 23px, 1200px, 91px);
+    @include interpolate("top", 768px, 48px, 1200px, 67px);
+}
+
+.footer-hexagons{
+    @extend %pos-abs;
+    right: 0;
+    display: none;
+    @include mobile{
+        display: block;
+    }
+    @include desktop{
+        right: -30px;
+    }
+    @include interpolate("max-width", 575px, 40px, 1200px, 95px);
+    @include interpolate("bottom", 768px, 50px, 1200px, 240px);
+}
+
+
+.footer-atom {
+    @extend %pos-abs;
+    display: none;
+    @include mobile{
+        display: block;
+    }
+    @include interpolate("top", 576px, 200px, 1200px, 450px);
+    @include interpolate("left", 1100px, -30px, 1439px, -192px);
+    @include interpolate("max-width", 576px, 61px, 1200px, 106px);
+    @include media-min(1440px) {
+        left: -139px;
+    }
+}
+
+.footer-molecule{
+    @extend %pos-abs;
+    @include interpolate("top", 576px, 200px, 1200px, 529px);
+    @include interpolate("left", 1100px, -115px, 1439px, -466px);
+    @include interpolate("max-width", 576px, 23px, 1200px, 78px);
+    z-index: 0;
+}

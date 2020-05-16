@@ -1,0 +1,30 @@
+.header {
+    background-color: $bg-basic;
+    overflow: hidden;
+    @include interpolate("padding-top", 600px, 60px, 1200px, 147px);
+    @include interpolate("padding-bottom", 600px, 60px, 1200px, 129px);
+
+    .container {
+        @include flex($jcontent: center, $aitems: center);
+        flex-direction: column;
+
+        @include mobile {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .logo {
+        margin-bottom: 40px;
+        @include interpolate("margin-right", 600px, 10px, 1200px, 166px);
+    }
+}
+
+
+.header-banner {
+    @include size($mwidth: 892px);
+
+    @include desktop {
+        margin-right: -80px;
+    }
+}

@@ -1,0 +1,104 @@
+
+.features {
+    @include interpolate("padding-top", 576px, 110px, 1200px, 210px);
+    @include interpolate("padding-bottom", 576px, 120px, 1200px, 230px);
+    overflow: hidden;
+
+    .box-shadow-1{
+        box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25);
+        border-radius: 28px;
+    }
+
+    .box-shadow-2{
+        box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.25);
+        border-radius: 28px;
+    }
+
+    .custom-underline::after{
+     background-image: url("../images/motionedu-features-underline-1.svg");
+     left: -4px;
+
+     @include desktop{
+        right: -10px;
+     }
+    }
+
+    .underline-2{
+        .custom-underline::after{
+            background-image: url("../images/motionedu-features-underline-2.svg");
+            left: -3px;
+            right: -6px;
+           }
+    }
+}
+
+.features_item {
+    
+    @include media-max(575px){
+      text-align: center;
+    }
+    .content-wrapper {
+        @include media-max(575px) {
+            margin-bottom: 46px;
+        }
+    }
+    .content-head {
+        margin-bottom: 20px;
+        @include interpolate("max-width", 576px, 188px, 1200px, 322px);
+        @include media-max(575px){
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+    .content-txt {
+        @include interpolate("max-width", 576px, 258px, 1200px, 300px);
+        span{
+            display: block;
+        }
+    }
+    .content-txt-custom {
+        @include interpolate("max-width", 576px, 245px, 1200px, 275px);
+    }
+
+    .custom-left {
+        @include interpolate("margin-left", 576px, -221px, 1200px, -159px);
+        @include media-min(1440px) {
+            margin-left: -132px;
+        }
+    }
+
+    .custom-right {
+        margin-right: -190px;
+        @include media-min(1440px) {
+            margin-right: -132px;
+        }
+    }
+}
+
+.features_item + .features_item{
+    @include interpolate("margin-top", 576px, 120px, 1200px, 240px);
+}
+
+.features_item_banner {
+    position: relative;
+    @extend %font-0;
+    @include interpolate("max-width", 576px, 400px, 1200px, 802px);
+
+    .custom-child-1 {
+        @include interpolate("max-width", 576px, 137px, 1200px, 282px);
+        top: 47%;
+        right: -16%;
+        box-shadow: 25px 25px 100px rgba(57, 0, 72, 0.12);
+    }
+
+    .custom-child-2{
+        @include interpolate("max-width", 576px, 93px, 1200px, 182px);
+        top: 46.5%;
+    left: -7%;
+    box-shadow: -30px 30px 100px rgba(76, 0, 97, 0.12);
+    }
+}
+
+.features_item_banner-child {
+    position: absolute;
+}

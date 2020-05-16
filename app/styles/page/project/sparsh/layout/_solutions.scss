@@ -1,0 +1,186 @@
+.solutions {
+    overflow-x: hidden;
+    @include interpolate("padding-top", 600px, 130px, 1200px, 350px);
+    @include interpolate("padding-bottom", 600px, 130px, 1200px, 390px);
+    @include desktop{
+        background-image: url("../images/sparsh-solutions-bg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .page-head {
+        @include media-max(599px){
+            text-align: center;
+        }
+        @include media-max(1199px) {
+            padding-left: 20px;
+        }
+        @include interpolate("margin-bottom", 600px, 80px, 1200px, 130px);
+    }
+    .container {
+        padding: 0;
+    }
+
+    .custom-right{
+        @include mobile{
+            right: -8.5%;   
+        }
+        @include desktop{
+            @include interpolate("right", 1200px, -120px, 1439px, -240px)
+        }
+        @include media-min(1440px){
+            right: -11.5%;
+        }
+
+        .primary-bubble{
+            top:-40px;
+            right: 60px;
+            @include media-min(1440px){
+                right: -40px;
+            }
+        }
+
+        .secondary-bubble{
+            bottom: -40px;
+            left: -40px;
+        }
+    }
+
+    .custom-left{
+        @include mobile{
+          left: -6%;
+        }
+        @include desktop{
+            @include interpolate("left", 1200px, -88px, 1439px, -209px)
+        }
+        @include media-min(1440px){
+            left: -12%;
+        }
+
+        .primary-bubble{
+            bottom:-40px;
+            right: -40px;
+            
+        }
+
+        .secondary-bubble{
+            top: -40px;
+            left: 40px;
+            @include media-min(1440px){
+                left: -40px;
+            }
+        }
+    }
+
+    .custom-left-2{
+        @include mobile{
+           left: -4.5%;
+          }
+          @include desktop{
+            @include interpolate("left", 1200px, -69px, 1439px, -187px)
+        }
+          @include media-min(1440px){
+              left: -14.5%;
+          }
+          .primary-bubble{
+            bottom: 10px;
+            right: 4px;  
+          }
+
+        .secondary-bubble{
+            top: -15px;
+            left: 20px;
+            @include media-min(1440px){
+                left: -9px;
+            }
+        }
+    }
+
+}
+
+.solutions_item {
+    background-color: none;
+    @include media-max(599px){
+        text-align: center;
+    }
+    .content-wrapper {
+        @include media-max(599px){
+            margin-bottom: 80px;
+            padding-right: 20px;
+        }
+        @include media-max(1199px) {
+            padding-left: 20px;
+        }
+        @include interpolate("max-width", 600px, 360px, 1200px, 520px);
+    }
+
+    .content-head{
+        @include interpolate("margin-bottom", 600px, 40px, 1200px, 30px);
+    }
+
+    .solutions_item_banner {
+        @include size(100%);
+        font-size: 0;
+        position: relative;
+        z-index: 10;
+        @include mobile{
+           @include interpolate("max-width", 600px, 350px, 1200px, 644px);
+        }
+
+        .bubble{
+            @include square(80px);
+        }
+    }
+
+}
+
+.solutions_item + .solutions_item{
+    @include interpolate("margin-top", 600px, 130px, 1200px, 350px);
+}
+
+.solutions_full_banners_list{
+    @include flex($aitems: center);
+    flex-direction: column;
+    @include interpolate("padding-top", 600px, 48px, 1200px, 195px);
+    @include interpolate("padding-bottom", 600px, 130px, 1200px, 350px);
+    @include mobile{
+        flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    overflow: hidden;
+
+    .custom-m{
+        @include mobile{
+            margin-right: 48px;
+            margin-left: 48px;
+        }    
+    }
+
+    .custom-mr{
+        @media screen and (min-width: 600px) and (max-width: 1439px){
+            margin-right: -35%;
+        }
+
+    }
+
+    .custom-ml{
+        @media screen and (min-width: 600px) and (max-width: 1439px){
+            margin-left: -22%;
+        }
+
+    }
+}
+
+.solutions_full_banners_list-item{
+    @include interpolate("max-width", 600px, 320px, 1200px, 720px);
+    box-shadow: 0px 0px 20px rgba(0, 32, 102, 0.2);
+    @include mobile{
+        box-shadow: 7px 20px 50px rgba(0, 32, 102, 0.2);
+    }
+}
+
+.solutions_full_banners_list-item + .solutions_full_banners_list-item{
+        @include media-max(599px){
+            margin-top: 48px;
+        }       
+}

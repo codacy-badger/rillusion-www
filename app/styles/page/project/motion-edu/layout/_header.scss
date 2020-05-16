@@ -1,0 +1,124 @@
+.header {
+    @extend %txt-center;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+        @include interpolate("padding-top", 576px, 138px, 1200px, 264px);
+        @include interpolate("padding-bottom", 576px, 88px, 1200px, 118px);
+    }
+
+    .page-head {
+        font-size: 30px;
+       @include media-min(360px){
+        @include interpolate("font-size", 576px, 36px, 1200px, 72px);
+       }
+        @include interpolate("line-height", 576px, 48px, 1200px, 88px);
+        @include interpolate("max-width", 576px, 312px, 1200px, 642px);
+        @include interpolate("padding-bottom", 576px, 6px, 1200px, 12px);
+        @include interpolate("margin-bottom", 576px, 75px, 1200px, 165px);
+        @extend %m-x-auto;
+
+        span {
+            font-weight: 500;
+
+            @include media-max(359px) {
+                display: block;
+            }
+        }
+    }
+    .custom-underline::after{
+        background-image: url("../images/motionedu-header-underline.svg");  
+        bottom: -11px;
+        left: -4px;
+        @include desktop{
+            left: -4px;
+            right: -14px;
+        }
+       }
+}
+
+.header_banner {
+    box-shadow: 30px -40px 250px rgba(0, 0, 0, 0.12);
+    @include interpolate("max-width", 576px, 312px, 1200px, 972px);
+    @extend %m-x-auto;
+    @extend %font-0;
+}
+
+
+.header-molecule {
+    @extend %pos-abs;
+    @include interpolate("top", 576px, 70px, 1200px, 134px);
+    @include interpolate("left", 576px, 153px, 1200px, 304px);
+    @include interpolate("max-width", 576px, 42px, 1200px, 67px);
+
+}
+
+.header-atom {
+    @extend %pos-abs;
+    @include interpolate("top", 576px, 70px, 1200px, 160px);
+    @include interpolate("left", 576px, -30px, 1440px, -200px);
+    @include interpolate("max-width", 576px, 61px, 1200px, 131px);
+
+    @include media-min(1450px) {
+        left: -136px;
+    }
+}
+
+.header-flask {
+    @extend %pos-abs;
+    @include interpolate("top", 576px, 63px, 1200px, 160px);
+    @include interpolate("right", 576px, -39px, 1440px, -181px);
+    @include interpolate("max-width", 576px, 68px, 1200px, 95px);
+    @include media-min(1450px) {
+        right: -136px;
+    }
+}
+
+.header-hexagons {
+    @extend %pos-abs;
+    top: 257px;
+    right: -10px;
+    @include tablet {
+        top: calc(116px + 2%);
+        right: 0;
+    }
+    @include desktop{
+        top: calc(116px + 5%);
+    }
+
+    @include interpolate("max-width", 576px, 57px, 1200px, 95px);
+}
+
+.header-cap {
+    display: none;
+    @include mobile{
+        display: block;
+    }
+    @extend %pos-abs;
+    @include interpolate("top", 575px, 70px, 1200px, 116px );
+    right: 40%;
+    max-width: 46px;
+}
+
+.header-dna {
+    @extend %pos-abs;
+    top: 259px;
+    left: 0;
+    @include interpolate("max-width", 576px, 63px, 1200px, 83px);
+    @include tablet {
+        top: 355px;
+        left: 74%;
+    }
+}
+
+.header-compass{
+    @extend %pos-abs;
+    left: 36.5%;
+    @include interpolate("max-width", 576px, 42px, 1200px, 74px);
+    @include interpolate("top", 576px, 331px, 1200px, 530px);
+    z-index: -1;
+    @include media-max(359px){
+        top: 404px;
+    }
+}

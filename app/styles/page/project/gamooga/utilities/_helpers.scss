@@ -1,0 +1,101 @@
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+  @include desktop {
+    max-width: 1114px;
+    margin: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+
+.float-l {
+  float: left;
+}
+.float-r {
+  float: right;
+}
+
+
+.flex{
+    @include mobile{
+        @include flex($jContent: space-between);
+    }
+}
+
+//for services sticky scroll
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+// text classes
+
+.page-main-head{
+  @include interpolate("font-size", 610px, 40px,1200px, 64px);
+  @include interpolate("line-height", 610px, 48px, 1200px, 77px);
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 1rem;
+  word-spacing: 3px;
+}
+
+.content-head{
+  font-size: 1.6rem;
+  @include interpolate("font-size", 610px, 20px,1200px, 40px);
+  @include interpolate("line-height", 610px, 24px, 1200px, 48px);
+  font-weight: 600;
+}
+
+.content-txt{
+  color: $secondary-color;
+  line-height: 28px;
+  @include mobile{
+    line-height: 32px;
+  }
+}
+
+//margin classes
+
+.mr-neg-r{
+  @include desktop{
+    margin-right: -1.5rem;
+  }
+  @include media(1350px){
+    margin-right: -5.5rem;
+  }
+}
+
+.mr-neg-l{
+  @include desktop{
+    margin-left: -1.5rem;
+  }
+  @include media(1350px){
+    margin-left: -5.5rem;
+  }
+}
+
+
+//picture tag
+
+picture{
+  max-width: inherit;
+  display: inline-block;
+}
+
+//display
+
+.d-none{
+  display: none
+}

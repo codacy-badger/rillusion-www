@@ -1,0 +1,44 @@
+.blog{
+    background-image: linear-gradient(180deg, #F7F3FF 0%, rgba(229, 224, 239, 0) 100%);;
+    @include interpolate("padding-top", 610px, 130px, 1200px, 392px);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    position: relative;
+    @include mobile{
+        background-image: url("../images/wealthfund-blog-bg2.png") ;
+    }
+    .page-head{
+        margin-bottom: 80px;
+    }
+    .content-head{
+        @include interpolate("max-width", 575px,  350px, 1200px, 475px);
+        @extend %m-x-auto;
+        span{
+            font-weight: inherit;
+            font-size: inherit;
+            @include media-max(575px){
+                display: block;
+            }
+        }
+    }
+    .content-txt{
+        @include interpolate("max-width", 500px, 275px, 1200px, 490px);
+        @extend %m-x-auto;
+    }
+    .content-wrapper-center{
+        @include interpolate("margin-bottom", 610px, 60px, 1200px, 100px);
+    }
+}
+
+.blog_full-banner{
+    @include interpolate("margin-top", 600px, 80px, 1200px, 100px);
+}
+
+.blog_vector{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}

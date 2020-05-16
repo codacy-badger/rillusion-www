@@ -1,0 +1,42 @@
+.motive{
+    background-color: $zircon;
+    @include interpolate("padding-top", 600px, 130px, 1200px, 200px);
+    padding-bottom: 130px;
+    text-align: center;
+    @include mobile{
+        background-image: url("../images/sparsh-motive-bg.png");
+        background-repeat: no-repeat;
+        background-position: 0 70%;
+        background-size: contain;
+    }
+
+    .page-head{
+        margin-bottom: 50px;
+        @include gradient-txt($orange-red) ;
+    }
+
+    .content-tag{
+    @include interpolate("margin-bottom", 600px, 80px, 1200px, 150px);
+    @include interpolate("max-width", 600px, 320px, 1200px, 578px);
+    @extend %m-x-auto;
+    }
+}
+
+.motive_list_item{
+    .list-head{
+        @include interpolate("margin-bottom", 600px, 30px, 1200px, 90px);
+        @include interpolate("font-size", 600px, 32px, 1200px, 48px);
+        @include interpolate("line-height", 600px, 44px, 1200px, 65px);
+        font-weight: 600;
+        color: rgba(0, 32, 102, 0.2);
+        @include mobile{
+            text-align: left;
+        }
+    }
+        
+}
+
+
+.motive_list_item + .motive_list_item{
+    @include interpolate("margin-top", 600px, 80px, 1200px, 200px);
+}

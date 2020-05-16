@@ -1,0 +1,20 @@
+%bg-pos{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+%common-padding{
+    @include interpolate("padding-top", 600px, 130px, 1200px, 200px);
+    @include interpolate("padding-bottom", 600px, 130px, 1200px, 200px);
+}
+
+%m-x-auto{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+%txt-center{
+    text-align: center;
+}
