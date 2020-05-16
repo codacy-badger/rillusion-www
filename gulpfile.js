@@ -226,6 +226,7 @@ if (isDev) {
   serve = series(build, startDistServer);
 }
 
+exports.image = imagesWebp;
 exports.serve = serve;
 exports.build = build;
 exports.default = build;
