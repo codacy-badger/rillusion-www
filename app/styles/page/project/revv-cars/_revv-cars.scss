@@ -1,27 +1,24 @@
 @import "base/reset";
 @import "base/fonts";
-@import "rillusion_styles/helpers";
-@import "rillusion_styles/header";
-@import "rillusion_styles/footer";
 
-.casestudy-revvcars{
-@import "base/variables";
+.casestudy-revvcars {
+	@import "base/variables";
 
-@import "utilities/mixins";
+	@import "utilities/mixins";
 
-@import "vendors/interpolate";
+	@import "vendors/interpolate";
 
 
-@import "utilities/extends";
-@import "utilities/helpers";
+	@import "utilities/extends";
+	@import "utilities/helpers";
 
-@import "base/typography";
+	@import "base/typography";
 
-@import "layout/header";
-@import "layout/goals";
-@import "layout/services";
-@import "layout/motive";
-@import "layout/features";
-@import "layout/dashboard";
-@import "layout/footer";
+	@import "layout/header";
+	@import "layout/goals";
+	@import "layout/services";
+	@import "layout/motive";
+	@import "layout/features";
+	@import "layout/dashboard";
+	@import "layout/footer";
 }

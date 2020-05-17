@@ -24,7 +24,8 @@
 
 .header--navigation {
 	z-index : 5;
-	background : var(--white);
+	// background : var(--white);
+	background-color : red;
 	box-shadow : 0 0 10px rgba(0, 0, 0, 0.2);
 	position : fixed;
 	// position : relative;

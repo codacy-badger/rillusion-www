@@ -1,30 +1,26 @@
 @import "base/reset";
-@import "rillusion_styles/helpers";
-@import "rillusion_styles/header";
-@import "rillusion_styles/footer";
 
-.casestudy-wealthfund{
+.casestudy-wealthfund {
+	@import  "base/variables";
 
-@import  "base/variables";
+	@import "utilities/mixins";
 
- @import "utilities/mixins";
+	@import "base/typography";
 
- @import "base/typography";
-
-@import "vendors/interpolate";
+	@import "vendors/interpolate";
 
 
-@import "utilities/extends",
-        "utilities/helpers";
+	@import "utilities/extends",
+	"utilities/helpers";
 
 
 
-@import "layout/header",
-        "layout/stats",
-        "layout/overview",
-        "layout/services",
-        "layout/blog",
-        "layout/solutions",
-        "layout/features",
-        "layout/footer";
+	@import "layout/header",
+	"layout/stats",
+	"layout/overview",
+	"layout/services",
+	"layout/blog",
+	"layout/solutions",
+	"layout/features",
+	"layout/footer";
 }

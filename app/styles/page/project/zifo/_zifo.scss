@@ -1,27 +1,24 @@
 @import "base/reset";
-@import "rillusion_styles/helpers";
-@import "rillusion_styles/header";
-@import "rillusion_styles/footer";
 
 
-.casestudy-zifo{
-    @import "base/fonts",
-             "base/variables";
+.casestudy-zifo {
+	@import "base/fonts",
+	"base/variables";
 
- @import "utilities/mixins";
+	@import "utilities/mixins";
 
-@import "vendors/interpolate";
-
-
-@import "utilities/extends",
-        "utilities/helpers";
+	@import "vendors/interpolate";
 
 
-@import "base/typography";
+	@import "utilities/extends",
+	"utilities/helpers";
 
-@import "layout/header",
-        "layout/brand",
-        "layout/overview",
-        "layout/features",
-        "layout/footer";
+
+	@import "base/typography";
+
+	@import "layout/header",
+	"layout/brand",
+	"layout/overview",
+	"layout/features",
+	"layout/footer";
 }
