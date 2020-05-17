@@ -1,4 +1,4 @@
-# rillusion Studio [![Netlify Status](https://api.netlify.com/api/v1/badges/9b15e89a-8666-4eef-9d57-f323053c4ea8/deploy-status)](https://app.netlify.com/sites/werillusion/deploys)
+# Rillusion Studio [![Netlify Status](https://api.netlify.com/api/v1/badges/a59ec50e-c20a-4f1c-aec8-c94a43c5cf39/deploy-status)](https://app.netlify.com/sites/rillusion/deploys)
 
 ## Getting Started
 
