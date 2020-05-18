@@ -12,7 +12,7 @@
 
   function _assertThisInitialized(self) {
     if (self === void 0) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
     }
 
     return self;
@@ -29,10 +29,10 @@
   */
   var _config = {
     autoSleep: 120,
-    force3D: "auto",
+    force3D: 'auto',
     nullTargetWarn: 1,
     units: {
-      lineHeight: ""
+      lineHeight: ''
     }
   },
       _defaults = {
@@ -49,25 +49,25 @@
       _cos = Math.cos,
       _sin = Math.sin,
       _isString = function _isString(value) {
-    return typeof value === "string";
+    return typeof value === 'string';
   },
       _isFunction = function _isFunction(value) {
-    return typeof value === "function";
+    return typeof value === 'function';
   },
       _isNumber = function _isNumber(value) {
-    return typeof value === "number";
+    return typeof value === 'number';
   },
       _isUndefined = function _isUndefined(value) {
-    return typeof value === "undefined";
+    return typeof value === 'undefined';
   },
       _isObject = function _isObject(value) {
-    return typeof value === "object";
+    return typeof value === 'object';
   },
       _isNotFalse = function _isNotFalse(value) {
     return value !== false;
   },
       _windowExists = function _windowExists() {
-    return typeof window !== "undefined";
+    return typeof window !== 'undefined';
   },
       _isFuncOrString = function _isFuncOrString(value) {
     return _isFunction(value) || _isString(value);
@@ -91,7 +91,7 @@
     return (_installScope = _merge(scope, _globals)) && gsap;
   },
       _missingPlugin = function _missingPlugin(property, value) {
-    return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
+    return console.warn('Invalid property', property, 'set to', value, 'Missing plugin? gsap.registerPlugin()');
   },
       _warn = function _warn(message, suppress) {
     return !suppress && console.warn(message);
@@ -110,7 +110,7 @@
       _effects = {},
       _nextGCFrame = 30,
       _harnessPlugins = [],
-      _callbackNames = "",
+      _callbackNames = '',
       _harness = function _harness(targets) {
     var target = targets[0],
         harnessPlugin,
@@ -144,7 +144,7 @@
     return _isFunction(currentValue) ? target[property]() : _isUndefined(currentValue) && target.getAttribute(property) || currentValue;
   },
       _forEachName = function _forEachName(names, func) {
-    return (names = names.split(",")).forEach(func) || names;
+    return (names = names.split(',')).forEach(func) || names;
   },
       _round = function _round(value) {
     return Math.round(value * 100000) / 100000 || 0;
@@ -172,7 +172,7 @@
     if (type) {
       irVars = vars;
 
-      while (parent && !("immediateRender" in irVars)) {
+      while (parent && !('immediateRender' in irVars)) {
         irVars = parent.vars.defaults || {};
         parent = _isNotFalse(parent.vars.inherit) && parent.parent;
       }
@@ -218,7 +218,7 @@
   },
       _numericIfPossible = function _numericIfPossible(value) {
     var n = parseFloat(value);
-    return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : value;
+    return (n || n === 0) && (value + '').match(_delimitedValueExp).length < 2 ? n : value;
   },
       _passThrough = function _passThrough(p) {
     return p;
@@ -234,7 +234,7 @@
   },
       _setKeyframeDefaults = function _setKeyframeDefaults(obj, defaults) {
     for (var p in defaults) {
-      if (!(p in obj) && p !== "duration" && p !== "ease") {
+      if (!(p in obj) && p !== 'duration' && p !== 'ease') {
         obj[p] = defaults[p];
       }
     }
@@ -288,11 +288,11 @@
   },
       _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
     if (firstProp === void 0) {
-      firstProp = "_first";
+      firstProp = '_first';
     }
 
     if (lastProp === void 0) {
-      lastProp = "_last";
+      lastProp = '_last';
     }
 
     var prev = parent[lastProp],
@@ -326,11 +326,11 @@
   },
       _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
     if (firstProp === void 0) {
-      firstProp = "_first";
+      firstProp = '_first';
     }
 
     if (lastProp === void 0) {
-      lastProp = "_last";
+      lastProp = '_last';
     }
 
     var prev = child._prev,
@@ -422,7 +422,7 @@
     child._start = _round(position + child._delay);
     child._end = _round(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
 
-    _addLinkedListItem(timeline, child, "_first", "_last", timeline._sort ? "_start" : 0);
+    _addLinkedListItem(timeline, child, '_first', '_last', timeline._sort ? '_start' : 0);
 
     timeline._recent = child;
     skipChecks || _postAddChecks(timeline, child);
@@ -479,7 +479,7 @@
 
       tween._time = 0;
       tween._tTime = tTime;
-      suppressEvents || _callback(tween, "onStart");
+      suppressEvents || _callback(tween, 'onStart');
       pt = tween._pt;
 
       while (pt) {
@@ -491,17 +491,17 @@
         tween._startAt.render(totalTime, true, force);
       }
 
-      tween._onUpdate && (suppressEvents || _callback(tween, "onUpdate"));
+      tween._onUpdate && (suppressEvents || _callback(tween, 'onUpdate'));
 
       if (tTime && tween._repeat && !suppressEvents && tween.parent) {
-        _callback(tween, "onRepeat");
+        _callback(tween, 'onRepeat');
       }
 
       if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
         tween.ratio && _removeFromParent(tween, 1);
 
         if (!suppressEvents) {
-          _callback(tween, tween.ratio ? "onComplete" : "onReverseComplete", true);
+          _callback(tween, tween.ratio ? 'onComplete' : 'onReverseComplete', true);
 
           tween._prom && tween._prom();
         }
@@ -515,7 +515,7 @@
       child = animation._first;
 
       while (child && child._start <= time) {
-        if (!child._dur && child.data === "isPause" && child._start > prevTime) {
+        if (!child._dur && child.data === 'isPause' && child._start > prevTime) {
           return child;
         }
 
@@ -525,7 +525,7 @@
       child = animation._last;
 
       while (child && child._start >= time) {
-        if (!child._dur && child.data === "isPause" && child._start < prevTime) {
+        if (!child._dur && child.data === 'isPause' && child._start < prevTime) {
           return child;
         }
 
@@ -565,11 +565,11 @@
     if (_isString(position) && (isNaN(position) || position in labels)) {
       i = position.charAt(0);
 
-      if (i === "<" || i === ">") {
-        return (i === "<" ? recent._start : recent.endTime(recent._repeat >= 0)) + (parseFloat(position.substr(1)) || 0);
+      if (i === '<' || i === '>') {
+        return (i === '<' ? recent._start : recent.endTime(recent._repeat >= 0)) + (parseFloat(position.substr(1)) || 0);
       }
 
-      i = position.indexOf("=");
+      i = position.indexOf('=');
 
       if (i < 0) {
         if (!(position in labels)) {
@@ -592,7 +592,7 @@
     return value < min ? min : value > max ? max : value;
   },
       getUnit = function getUnit(value) {
-    return (value + "").substr((parseFloat(value) + "").length);
+    return (value + '').substr((parseFloat(value) + '').length);
   },
       clamp = function clamp(min, max, value) {
     return _conditionalReturn(value, function (v) {
@@ -601,7 +601,7 @@
   },
       _slice = [].slice,
       _isArrayLike = function _isArrayLike(value, nonEmpty) {
-    return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
+    return value && _isObject(value) && 'length' in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
   },
       _flatten = function _flatten(ar, leaveStrings, accumulator) {
     if (accumulator === void 0) {
@@ -665,7 +665,7 @@
           wrapAt;
 
       if (!distances) {
-        wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
+        wrapAt = vars.grid === 'auto' ? 0 : (vars.grid || [1, _bigNum])[1];
 
         if (!wrapAt) {
           max = -_bigNum;
@@ -684,7 +684,7 @@
         for (j = 0; j < l; j++) {
           x = j % wrapAt - originX;
           y = originY - (j / wrapAt | 0);
-          distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+          distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === 'y' ? y : x);
 
           if (d > max) {
             max = d;
@@ -695,10 +695,10 @@
           }
         }
 
-        from === "random" && shuffle(distances);
+        from === 'random' && shuffle(distances);
         distances.max = max - min;
         distances.min = min;
-        distances.v = l = (parseFloat(vars.amount) || parseFloat(vars.each) * (wrapAt > l ? l - 1 : !axis ? Math.max(wrapAt, l / wrapAt) : axis === "y" ? l / wrapAt : wrapAt) || 0) * (from === "edges" ? -1 : 1);
+        distances.v = l = (parseFloat(vars.amount) || parseFloat(vars.each) * (wrapAt > l ? l - 1 : !axis ? Math.max(wrapAt, l / wrapAt) : axis === 'y' ? l / wrapAt : wrapAt) || 0) * (from === 'edges' ? -1 : 1);
         distances.b = l < 0 ? base - l : base;
         distances.u = getUnit(vars.amount || vars.each) || 0;
         ease = ease && l < 0 ? _invertEase(ease) : ease;
@@ -709,7 +709,7 @@
     };
   },
       _roundModifier = function _roundModifier(v) {
-    var p = v < 1 ? Math.pow(10, (v + "").length - 2) : 1;
+    var p = v < 1 ? Math.pow(10, (v + '').length - 2) : 1;
     return function (raw) {
       return ~~(Math.round(parseFloat(raw) / v) * v * p) / p + (_isNumber(raw) ? 0 : getUnit(raw));
     };
@@ -766,7 +766,7 @@
   },
       random = function random(min, max, roundingIncrement, returnFunction) {
     return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function () {
-      return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + "").length - 2) : 1) && ~~(Math.round((min + Math.random() * (max - min)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
+      return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + '').length - 2) : 1) && ~~(Math.round((min + Math.random() * (max - min)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
     });
   },
       pipe = function pipe() {
@@ -809,15 +809,15 @@
   },
       _replaceRandom = function _replaceRandom(value) {
     var prev = 0,
-        s = "",
+        s = '',
         i,
         nums,
         end,
         isArray;
 
-    while (~(i = value.indexOf("random(", prev))) {
-      end = value.indexOf(")", i);
-      isArray = value.charAt(i + 7) === "[";
+    while (~(i = value.indexOf('random(', prev))) {
+      end = value.indexOf(')', i);
+      isArray = value.charAt(i + 7) === '[';
       nums = value.substr(i + 7, end - i - 7).match(isArray ? _delimitedValueExp : _strictNumExp);
       s += value.substr(prev, i - prev) + random(isArray ? nums : +nums[0], +nums[1], +nums[2] || 1e-5);
       prev = end + 1;
@@ -879,7 +879,7 @@
 
       if (!interpolators) {
         for (p in end) {
-          _addPropTween.call(master, start, p, "get", end[p]);
+          _addPropTween.call(master, start, p, 'get', end[p]);
         }
 
         func = function func(p) {
@@ -918,7 +918,7 @@
       return;
     }
 
-    params = v[type + "Params"];
+    params = v[type + 'Params'];
     scope = v.callbackScope || animation;
     executeLazyFirst && _lazyTweens.length && _lazyRender();
     return params ? callback.apply(scope, params) : callback.call(scope);
@@ -927,14 +927,14 @@
     _removeFromParent(animation);
 
     if (animation.progress() < 1) {
-      _callback(animation, "onInterrupt");
+      _callback(animation, 'onInterrupt');
     }
 
     return animation;
   },
       _quickTween,
       _createPlugin = function _createPlugin(config) {
-    config = !config.name && config["default"] || config;
+    config = !config.name && config['default'] || config;
 
     var name = config.name,
         isFunc = _isFunction(config),
@@ -976,7 +976,7 @@
         _reservedProps[name] = 1;
       }
 
-      name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin";
+      name = (name === 'css' ? 'CSS' : name.charAt(0).toUpperCase() + name.substr(1)) + 'Plugin';
     }
 
     _addGlobal(name, Plugin);
@@ -1025,23 +1025,23 @@
         wasHSL;
 
     if (!a) {
-      if (v.substr(-1) === ",") {
+      if (v.substr(-1) === ',') {
         v = v.substr(0, v.length - 1);
       }
 
       if (_colorLookup[v]) {
         a = _colorLookup[v];
-      } else if (v.charAt(0) === "#") {
+      } else if (v.charAt(0) === '#') {
         if (v.length === 4) {
           r = v.charAt(1);
           g = v.charAt(2);
           b = v.charAt(3);
-          v = "#" + r + r + g + g + b + b;
+          v = '#' + r + r + g + g + b + b;
         }
 
         v = parseInt(v.substr(1), 16);
         a = [v >> 16, v >> 8 & _255, v & _255];
-      } else if (v.substr(0, 3) === "hsl") {
+      } else if (v.substr(0, 3) === 'hsl') {
         a = wasHSL = v.match(_strictNumExp);
 
         if (!toHSL) {
@@ -1058,7 +1058,7 @@
           a[0] = _hue(h + 1 / 3, r, g);
           a[1] = _hue(h, r, g);
           a[2] = _hue(h - 1 / 3, r, g);
-        } else if (~v.indexOf("=")) {
+        } else if (~v.indexOf('=')) {
           a = v.match(_numExp);
           forceAlpha && a.length < 4 && (a[3] = 1);
           return a;
@@ -1108,9 +1108,9 @@
     return values;
   },
       _formatColors = function _formatColors(s, toHSL, orderMatchData) {
-    var result = "",
+    var result = '',
         colors = (s + result).match(_colorExp),
-        type = toHSL ? "hsla(" : "rgba(",
+        type = toHSL ? 'hsla(' : 'rgba(',
         i = 0,
         c,
         shell,
@@ -1122,7 +1122,7 @@
     }
 
     colors = colors.map(function (color) {
-      return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + "," + color[1] + "%," + color[2] + "%," + color[3] : color.join(",")) + ")";
+      return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + ',' + color[1] + '%,' + color[2] + '%,' + color[3] : color.join(',')) + ')';
     });
 
     if (orderMatchData) {
@@ -1130,11 +1130,11 @@
       c = orderMatchData.c;
 
       if (c.join(result) !== d.c.join(result)) {
-        shell = s.replace(_colorExp, "1").split(_numWithUnitExp);
+        shell = s.replace(_colorExp, '1').split(_numWithUnitExp);
         l = shell.length - 1;
 
         for (; i < l; i++) {
-          result += shell[i] + (~c.indexOf(i) ? colors.shift() || type + "0,0,0,0)" : (d.length ? d : colors.length ? colors : orderMatchData).shift());
+          result += shell[i] + (~c.indexOf(i) ? colors.shift() || type + '0,0,0,0)' : (d.length ? d : colors.length ? colors : orderMatchData).shift());
         }
       }
     }
@@ -1151,18 +1151,18 @@
     return result + shell[l];
   },
       _colorExp = function () {
-    var s = "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3}){1,2}\\b",
+    var s = '(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3}){1,2}\\b',
         p;
 
     for (p in _colorLookup) {
-      s += "|" + p + "\\b";
+      s += '|' + p + '\\b';
     }
 
-    return new RegExp(s + ")", "gi");
+    return new RegExp(s + ')', 'gi');
   }(),
       _hslExp = /hsl[a]?\(/,
       _colorStringFilter = function _colorStringFilter(a) {
-    var combined = a.join(" "),
+    var combined = a.join(' '),
         toHSL;
     _colorExp.lastIndex = 0;
 
@@ -1282,7 +1282,7 @@
       _quotesExp = /["']/g,
       _parseObjectInString = function _parseObjectInString(value) {
     var obj = {},
-        split = value.substr(1, value.length - 3).split(":"),
+        split = value.substr(1, value.length - 3).split(':'),
         key = split[0],
         i = 1,
         l = split.length,
@@ -1292,18 +1292,18 @@
 
     for (; i < l; i++) {
       val = split[i];
-      index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
+      index = i !== l - 1 ? val.lastIndexOf(',') : val.length;
       parsedVal = val.substr(0, index);
-      obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, "").trim() : +parsedVal;
+      obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, '').trim() : +parsedVal;
       key = val.substr(index + 1).trim();
     }
 
     return obj;
   },
       _configEaseFromString = function _configEaseFromString(name) {
-    var split = (name + "").split("("),
+    var split = (name + '').split('('),
         ease = _easeMap[split[0]];
-    return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf("{") ? [_parseObjectInString(split[1])] : _parenthesesExp.exec(name)[1].split(",").map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE("", name) : ease;
+    return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf('{') ? [_parseObjectInString(split[1])] : _parenthesesExp.exec(name)[1].split(',').map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE('', name) : ease;
   },
       _invertEase = function _invertEase(ease) {
     return function (p) {
@@ -1338,7 +1338,7 @@
       _easeMap[lowercaseName = name.toLowerCase()] = easeOut;
 
       for (var p in ease) {
-        _easeMap[lowercaseName + (p === "easeIn" ? ".in" : p === "easeOut" ? ".out" : ".inOut")] = _easeMap[name + "." + p] = ease[p];
+        _easeMap[lowercaseName + (p === 'easeIn' ? '.in' : p === 'easeOut' ? '.out' : '.inOut')] = _easeMap[name + '.' + p] = ease[p];
       }
     });
 
@@ -1356,7 +1356,7 @@
         easeOut = function easeOut(p) {
       return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
     },
-        ease = type === "out" ? easeOut : type === "in" ? function (p) {
+        ease = type === 'out' ? easeOut : type === 'in' ? function (p) {
       return 1 - easeOut(1 - p);
     } : _easeInOutFromOut(easeOut);
 
@@ -1376,7 +1376,7 @@
     var easeOut = function easeOut(p) {
       return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
     },
-        ease = type === "out" ? easeOut : type === "in" ? function (p) {
+        ease = type === 'out' ? easeOut : type === 'in' ? function (p) {
       return 1 - easeOut(1 - p);
     } : _easeInOutFromOut(easeOut);
 
@@ -1387,10 +1387,10 @@
     return ease;
   };
 
-  _forEachName("Linear,Quad,Cubic,Quart,Quint,Strong", function (name, i) {
+  _forEachName('Linear,Quad,Cubic,Quart,Quint,Strong', function (name, i) {
     var power = i < 5 ? i + 1 : i;
 
-    _insertEase(name + ",Power" + (power - 1), i ? function (p) {
+    _insertEase(name + ',Power' + (power - 1), i ? function (p) {
       return Math.pow(p, power);
     } : function (p) {
       return p;
@@ -1403,7 +1403,7 @@
 
   _easeMap.Linear.easeNone = _easeMap.none = _easeMap.Linear.easeIn;
 
-  _insertEase("Elastic", _configElastic("in"), _configElastic("out"), _configElastic());
+  _insertEase('Elastic', _configElastic('in'), _configElastic('out'), _configElastic());
 
   (function (n, c) {
     var n1 = 1 / c,
@@ -1413,24 +1413,24 @@
       return p < n1 ? n * p * p : p < n2 ? n * Math.pow(p - 1.5 / c, 2) + .75 : p < n3 ? n * (p -= 2.25 / c) * p + .9375 : n * Math.pow(p - 2.625 / c, 2) + .984375;
     };
 
-    _insertEase("Bounce", function (p) {
+    _insertEase('Bounce', function (p) {
       return 1 - easeOut(1 - p);
     }, easeOut);
   })(7.5625, 2.75);
 
-  _insertEase("Expo", function (p) {
+  _insertEase('Expo', function (p) {
     return p ? Math.pow(2, 10 * (p - 1)) : 0;
   });
 
-  _insertEase("Circ", function (p) {
+  _insertEase('Circ', function (p) {
     return -(_sqrt(1 - p * p) - 1);
   });
 
-  _insertEase("Sine", function (p) {
+  _insertEase('Sine', function (p) {
     return -_cos(p * _HALF_PI) + 1;
   });
 
-  _insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
+  _insertEase('Back', _configBack('in'), _configBack('out'), _configBack());
 
   _easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
     config: function config(steps, immediateStart) {
@@ -1447,10 +1447,10 @@
       };
     }
   };
-  _defaults.ease = _easeMap["quad.out"];
+  _defaults.ease = _easeMap['quad.out'];
 
-  _forEachName("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt", function (name) {
-    return _callbackNames += name + "," + name + "Params,";
+  _forEachName('onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt', function (name) {
+    return _callbackNames += name + ',' + name + 'Params,';
   });
 
   var GSCache = function GSCache(target, harness) {
@@ -1721,10 +1721,10 @@
           vars[type] = callback;
 
           if (params) {
-            vars[type + "Params"] = params;
+            vars[type + 'Params'] = params;
           }
 
-          if (type === "onUpdate") {
+          if (type === 'onUpdate') {
             this._onUpdate = callback;
           }
         }
@@ -1930,7 +1930,7 @@
             this.render(prevTime, suppressEvents, !dur)._lock = 0;
 
             if (!suppressEvents && this.parent) {
-              _callback(this, "onRepeat");
+              _callback(this, 'onRepeat');
             }
 
             this.vars.repeatRefresh && !isYoyo && (this.invalidate()._lock = 1);
@@ -1973,7 +1973,7 @@
         }
 
         if (!prevTime && time && !suppressEvents) {
-          _callback(this, "onStart");
+          _callback(this, 'onStart');
         }
 
         if (time >= prevTime && totalTime >= 0) {
@@ -2037,14 +2037,14 @@
         }
 
         if (this._onUpdate && !suppressEvents) {
-          _callback(this, "onUpdate", true);
+          _callback(this, 'onUpdate', true);
         }
 
         if (tTime === tDur && tDur >= this.totalDuration() || !tTime && this._ts < 0) if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) if (!this._lock) {
           (totalTime || !dur) && (totalTime && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1);
 
           if (!suppressEvents && !(totalTime < 0 && !prevTime)) {
-            _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+            _callback(this, tTime === tDur ? 'onComplete' : 'onReverseComplete', true);
 
             this._prom && this._prom();
           }
@@ -2184,7 +2184,7 @@
 
     _proto2.addPause = function addPause(position, callback, params) {
       var t = Tween.delayedCall(0, callback || _emptyFunc, params);
-      t.data = "isPause";
+      t.data = 'isPause';
       this._hasPause = 1;
       return _addToTimeline(this, t, _parsePosition(this, position));
     };
@@ -2194,7 +2194,7 @@
       position = _parsePosition(this, position);
 
       while (child) {
-        if (child._start === position && child.data === "isPause") {
+        if (child._start === position && child.data === 'isPause') {
           _removeFromParent(child);
         }
 
@@ -2221,7 +2221,7 @@
 
       while (child) {
         if (child instanceof Tween) {
-          if (_arrayContainsAny(child._targets, parsedTargets) && (!onlyActive || child.isActive(onlyActive === "started"))) {
+          if (_arrayContainsAny(child._targets, parsedTargets) && (!onlyActive || child.isActive(onlyActive === 'started'))) {
             a.push(child);
           }
         } else if ((children = child.getTweensOf(parsedTargets, onlyActive)).length) {
@@ -2244,10 +2244,10 @@
           _onStart = _vars.onStart,
           onStartParams = _vars.onStartParams,
           tween = Tween.to(tl, _setDefaults(vars, {
-        ease: "none",
+        ease: 'none',
         lazy: false,
         time: endTime,
-        duration: vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
+        duration: vars.duration || Math.abs((endTime - (startAt && 'time' in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
         onStart: function onStart() {
           tl.pause();
           var duration = vars.duration || Math.abs((endTime - tl._time) / tl.timeScale());
@@ -2468,10 +2468,10 @@
         a;
     pt.b = start;
     pt.e = end;
-    start += "";
-    end += "";
+    start += '';
+    end += '';
 
-    if (hasRandom = ~end.indexOf("random(")) {
+    if (hasRandom = ~end.indexOf('random(')) {
       end = _replaceRandom(end);
     }
 
@@ -2490,7 +2490,7 @@
 
       if (color) {
         color = (color + 1) % 5;
-      } else if (chunk.substr(-5) === "rgba(") {
+      } else if (chunk.substr(-5) === 'rgba(') {
         color = 1;
       }
 
@@ -2498,16 +2498,16 @@
         startNum = parseFloat(startNums[matchIndex - 1]) || 0;
         pt._pt = {
           _next: pt._pt,
-          p: chunk || matchIndex === 1 ? chunk : ",",
+          p: chunk || matchIndex === 1 ? chunk : ',',
           s: startNum,
-          c: endNum.charAt(1) === "=" ? parseFloat(endNum.substr(2)) * (endNum.charAt(0) === "-" ? -1 : 1) : parseFloat(endNum) - startNum,
+          c: endNum.charAt(1) === '=' ? parseFloat(endNum.substr(2)) * (endNum.charAt(0) === '-' ? -1 : 1) : parseFloat(endNum) - startNum,
           m: color && color < 4 ? Math.round : 0
         };
         index = _complexStringNumExp.lastIndex;
       }
     }
 
-    pt.c = index < end.length ? end.substring(index, end.length) : "";
+    pt.c = index < end.length ? end.substring(index, end.length) : '';
     pt.fp = funcParam;
 
     if (_relExp.test(end) || hasRandom) {
@@ -2523,23 +2523,23 @@
     }
 
     var currentValue = target[prop],
-        parsedStart = start !== "get" ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](),
+        parsedStart = start !== 'get' ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf('set') || !_isFunction(target['get' + prop.substr(3)]) ? prop : 'get' + prop.substr(3)](funcParam) : target[prop](),
         setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc,
         pt;
 
     if (_isString(end)) {
-      if (~end.indexOf("random(")) {
+      if (~end.indexOf('random(')) {
         end = _replaceRandom(end);
       }
 
-      if (end.charAt(1) === "=") {
-        end = parseFloat(parsedStart) + parseFloat(end.substr(2)) * (end.charAt(0) === "-" ? -1 : 1) + (getUnit(parsedStart) || 0);
+      if (end.charAt(1) === '=') {
+        end = parseFloat(parsedStart) + parseFloat(end.substr(2)) * (end.charAt(0) === '-' ? -1 : 1) + (getUnit(parsedStart) || 0);
       }
     }
 
     if (parsedStart !== end) {
       if (!isNaN(parsedStart + end)) {
-        pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
+        pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === 'boolean' ? _renderBoolean : _renderPlain, 0, setter);
 
         if (funcParam) {
           pt.fp = funcParam;
@@ -2610,8 +2610,8 @@
         prevStartAt = tween._startAt,
         targets = tween._targets,
         parent = tween.parent,
-        fullTargets = parent && parent.data === "nested" ? parent.parent._targets : targets,
-        autoOverwrite = tween._overwrite === "auto",
+        fullTargets = parent && parent.data === 'nested' ? parent.parent._targets : targets,
+        autoOverwrite = tween._overwrite === 'auto',
         tl = tween.timeline,
         cleanVars,
         i,
@@ -2627,7 +2627,7 @@
         harnessVars;
 
     if (tl && (!keyframes || !ease)) {
-      ease = "none";
+      ease = 'none';
     }
 
     tween._ease = _parseEase(ease, _defaults.ease);
@@ -2646,7 +2646,7 @@
 
       if (startAt) {
         _removeFromParent(tween._startAt = Tween.set(targets, _setDefaults({
-          data: "isStart",
+          data: 'isStart',
           overwrite: false,
           parent: parent,
           immediateRender: true,
@@ -2676,7 +2676,7 @@
 
           _removeFromParent(tween._startAt = Tween.set(targets, _merge(_copyExcluding(vars, _reservedProps), {
             overwrite: false,
-            data: "isFromStart",
+            data: 'isFromStart',
             lazy: immediateRender && _isNotFalse(lazy),
             immediateRender: immediateRender,
             stagger: 0,
@@ -2727,7 +2727,7 @@
                 hasPriority = 1;
               }
             } else {
-              ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index, fullTargets, 0, vars.stringFilter);
+              ptLookup[p] = pt = _addPropTween.call(tween, target, p, 'get', cleanVars[p], index, fullTargets, 0, vars.stringFilter);
             }
           }
         }
@@ -2739,7 +2739,7 @@
         if (autoOverwrite && tween._pt) {
           _overwritingTween = tween;
 
-          _globalTimeline.killTweensOf(target, ptLookup, "started");
+          _globalTimeline.killTweensOf(target, ptLookup, 'started');
 
           _overwritingTween = 0;
         }
@@ -2778,7 +2778,7 @@
 
     for (p in propertyAliases) {
       if (p in copy) {
-        aliases = propertyAliases[p].split(",");
+        aliases = propertyAliases[p].split(',');
         i = aliases.length;
 
         while (i--) {
@@ -2790,10 +2790,10 @@
     return copy;
   },
       _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
-    return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
+    return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf('random(') ? _replaceRandom(value) : value;
   },
-      _staggerTweenProps = _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase",
-      _staggerPropsToSkip = (_staggerTweenProps + ",id,stagger,delay,duration,paused").split(",");
+      _staggerTweenProps = _callbackNames + 'repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase',
+      _staggerPropsToSkip = (_staggerTweenProps + ',id,stagger,delay,duration,paused').split(',');
 
   var Tween = function (_Animation2) {
     _inheritsLoose(Tween, _Animation2);
@@ -2801,7 +2801,7 @@
     function Tween(targets, vars, time, skipInherit) {
       var _this3;
 
-      if (typeof vars === "number") {
+      if (typeof vars === 'number') {
         time.duration = vars;
         vars = time;
         time = null;
@@ -2817,7 +2817,7 @@
           keyframes = _this3$vars.keyframes,
           defaults = _this3$vars.defaults,
           parent = _this3.parent,
-          parsedTargets = (_isArray(targets) ? _isNumber(targets[0]) : "length" in vars) ? [targets] : toArray(targets),
+          parsedTargets = (_isArray(targets) ? _isNumber(targets[0]) : 'length' in vars) ? [targets] : toArray(targets),
           tl,
           i,
           copy,
@@ -2826,14 +2826,14 @@
           curTarget,
           staggerFunc,
           staggerVarsToMerge;
-      _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://greensock.com", !_config.nullTargetWarn) || [];
+      _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn('GSAP target ' + targets + ' not found. https://greensock.com', !_config.nullTargetWarn) || [];
       _this3._ptLookup = [];
       _this3._overwrite = overwrite;
 
       if (keyframes || stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
         vars = _this3.vars;
         tl = _this3.timeline = new Timeline({
-          data: "nested",
+          data: 'nested',
           defaults: defaults || {}
         });
         tl.kill();
@@ -2841,11 +2841,11 @@
 
         if (keyframes) {
           _setDefaults(tl.vars.defaults, {
-            ease: "none"
+            ease: 'none'
           });
 
           keyframes.forEach(function (frame) {
-            return tl.to(parsedTargets, frame, ">");
+            return tl.to(parsedTargets, frame, '>');
           });
         } else {
           l = parsedTargets.length;
@@ -2913,7 +2913,7 @@
 
       parent && _postAddChecks(parent, _assertThisInitialized(_this3));
 
-      if (immediateRender || !duration && !keyframes && _this3._start === parent._time && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
+      if (immediateRender || !duration && !keyframes && _this3._start === parent._time && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== 'nested') {
         _this3._tTime = -_tinyNum;
 
         _this3.render(Math.max(0, -delay));
@@ -3007,7 +3007,7 @@
         }
 
         if (!prevTime && time && !suppressEvents) {
-          _callback(this, "onStart");
+          _callback(this, 'onStart');
         }
 
         pt = this._pt;
@@ -3024,11 +3024,11 @@
             this._startAt.render(totalTime, true, force);
           }
 
-          _callback(this, "onUpdate");
+          _callback(this, 'onUpdate');
         }
 
         if (this._repeat) if (iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent) {
-          _callback(this, "onRepeat");
+          _callback(this, 'onRepeat');
         }
 
         if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
@@ -3039,7 +3039,7 @@
           (totalTime || !dur) && (totalTime && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1);
 
           if (!suppressEvents && !(totalTime < 0 && !prevTime) && !(tTime < tDur && this.timeScale() > 0)) {
-            _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+            _callback(this, tTime === tDur ? 'onComplete' : 'onReverseComplete', true);
 
             this._prom && this._prom();
           }
@@ -3062,10 +3062,10 @@
 
     _proto3.kill = function kill(targets, vars) {
       if (vars === void 0) {
-        vars = "all";
+        vars = 'all';
       }
 
-      if (!targets && (!vars || vars === "all")) {
+      if (!targets && (!vars || vars === 'all')) {
         this._lazy = 0;
 
         if (this.parent) {
@@ -3090,13 +3090,13 @@
           pt,
           i;
 
-      if ((!vars || vars === "all") && _arraysMatch(parsedTargets, killingTargets)) {
+      if ((!vars || vars === 'all') && _arraysMatch(parsedTargets, killingTargets)) {
         return _interrupt(this);
       }
 
       overwrittenProps = this._op = this._op || [];
 
-      if (vars !== "all") {
+      if (vars !== 'all') {
         if (_isString(vars)) {
           p = {};
 
@@ -3116,7 +3116,7 @@
         if (~killingTargets.indexOf(parsedTargets[i])) {
           curLookup = propTweenLookup[i];
 
-          if (vars === "all") {
+          if (vars === 'all') {
             overwrittenProps[i] = vars;
             props = curLookup;
             curOverwriteProps = {};
@@ -3129,14 +3129,14 @@
             pt = curLookup && curLookup[p];
 
             if (pt) {
-              if (!("kill" in pt.d) || pt.d.kill(p) === true) {
-                _removeLinkedListItem(this, pt, "_pt");
+              if (!('kill' in pt.d) || pt.d.kill(p) === true) {
+                _removeLinkedListItem(this, pt, '_pt');
               }
 
               delete curLookup[p];
             }
 
-            if (curOverwriteProps !== "all") {
+            if (curOverwriteProps !== 'all') {
               curOverwriteProps[p] = 1;
             }
           }
@@ -3197,12 +3197,12 @@
     _onInit: 0
   });
 
-  _forEachName("staggerTo,staggerFrom,staggerFromTo", function (name) {
+  _forEachName('staggerTo,staggerFrom,staggerFromTo', function (name) {
     Tween[name] = function () {
       var tl = new Timeline(),
           params = _slice.call(arguments, 0);
 
-      params.splice(name === "staggerFromTo" ? 5 : 4, 0, 0);
+      params.splice(name === 'staggerFromTo' ? 5 : 4, 0, 0);
       return tl[name].apply(tl, params);
     };
   });
@@ -3230,7 +3230,7 @@
   },
       _renderComplexString = function _renderComplexString(ratio, data) {
     var pt = data._pt,
-        s = "";
+        s = '';
 
     if (!ratio && data.b) {
       s = data.b;
@@ -3278,7 +3278,7 @@
       next = pt._next;
 
       if (pt.p === property && !pt.op || pt.op === property) {
-        _removeLinkedListItem(this, pt, "_pt");
+        _removeLinkedListItem(this, pt, '_pt');
       } else if (!pt.dep) {
         hasNonDependentRemaining = 1;
       }
@@ -3354,7 +3354,7 @@
     return PropTween;
   }();
 
-  _forEachName(_callbackNames + "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert", function (name) {
+  _forEachName(_callbackNames + 'parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert', function (name) {
     return _reservedProps[name] = 1;
   });
 
@@ -3364,7 +3364,7 @@
     sortChildren: false,
     defaults: _defaults,
     autoRemoveChildren: true,
-    id: "root",
+    id: 'root',
     smoothChildTiming: true
   });
   _config.stringFilter = _colorStringFilter;
@@ -3392,8 +3392,8 @@
       var getter = _getCache(target || {}).get,
           format = unit ? _passThrough : _numericIfPossible;
 
-      if (unit === "native") {
-        unit = "";
+      if (unit === 'native') {
+        unit = '';
       }
 
       return !target ? target : !property ? function (property, unit, uncache) {
@@ -3452,8 +3452,8 @@
           plugins = _ref.plugins,
           defaults = _ref.defaults,
           extendTimeline = _ref.extendTimeline;
-      (plugins || "").split(",").forEach(function (pluginName) {
-        return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + " effect requires " + pluginName + " plugin.");
+      (plugins || '').split(',').forEach(function (pluginName) {
+        return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + ' effect requires ' + pluginName + ' plugin.');
       });
 
       _effects[name] = function (targets, vars, tl) {
@@ -3539,7 +3539,7 @@
     }
   };
 
-  _forEachName("to,from,fromTo,delayedCall,set,killTweensOf", function (name) {
+  _forEachName('to,from,fromTo,delayedCall,set,killTweensOf', function (name) {
     return _gsap[name] = Tween[name];
   });
 
@@ -3615,16 +3615,16 @@
   };
 
   var gsap = _gsap.registerPlugin({
-    name: "attr",
+    name: 'attr',
     init: function init(target, vars, tween, index, targets) {
       for (var p in vars) {
-        this.add(target, "setAttribute", (target.getAttribute(p) || 0) + "", vars[p], index, targets, 0, 0, p);
+        this.add(target, 'setAttribute', (target.getAttribute(p) || 0) + '', vars[p], index, targets, 0, 0, p);
 
         this._props.push(p);
       }
     }
   }, {
-    name: "endArray",
+    name: 'endArray',
     init: function init(target, value) {
       var i = value.length;
 
@@ -3632,8 +3632,8 @@
         this.add(target, i, target[i] || 0, value[i]);
       }
     }
-  }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap;
-  Tween.version = Timeline.version = gsap.version = "3.2.6";
+  }, _buildModifierPlugin('roundProps', _roundModifier), _buildModifierPlugin('modifiers'), _buildModifierPlugin('snap', snap)) || _gsap;
+  Tween.version = Timeline.version = gsap.version = '3.2.6';
   _coreReady = 1;
 
   if (_windowExists()) {
@@ -3667,7 +3667,7 @@
       _tempDivStyler,
       _recentSetterPlugin,
       _windowExists$1 = function _windowExists() {
-    return typeof window !== "undefined";
+    return typeof window !== 'undefined';
   },
       _transformProps = {},
       _RAD2DEG = 180 / Math.PI,
@@ -3678,9 +3678,9 @@
       _horizontalExp = /(?:left|right|width|margin|padding|x)/i,
       _complexExp = /[\s,\(]\S/,
       _propertyAliases = {
-    autoAlpha: "opacity,visibility",
-    scale: "scaleX,scaleY",
-    alpha: "opacity"
+    autoAlpha: 'opacity,visibility',
+    scale: 'scaleX,scaleY',
+    alpha: 'opacity'
   },
       _renderCSSProp = function _renderCSSProp(ratio, data) {
     return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
@@ -3723,18 +3723,18 @@
     cache[property] = value;
     cache.renderTransform(ratio, cache);
   },
-      _transformProp = "transform",
-      _transformOriginProp = _transformProp + "Origin",
+      _transformProp = 'transform',
+      _transformOriginProp = _transformProp + 'Origin',
       _supports3D,
       _createElement = function _createElement(type, ns) {
-    var e = _doc$1.createElementNS ? _doc$1.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc$1.createElement(type);
+    var e = _doc$1.createElementNS ? _doc$1.createElementNS((ns || 'http://www.w3.org/1999/xhtml').replace(/^https/, 'http'), type) : _doc$1.createElement(type);
     return e.style ? e : _doc$1.createElement(type);
   },
       _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
     var cs = getComputedStyle(target);
-    return cs[property] || cs.getPropertyValue(property.replace(_capsExp, "-$1").toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || "";
+    return cs[property] || cs.getPropertyValue(property.replace(_capsExp, '-$1').toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || '';
   },
-      _prefixes = "O,Moz,ms,Ms,Webkit".split(","),
+      _prefixes = 'O,Moz,ms,Ms,Webkit'.split(','),
       _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
     var e = element || _tempDiv,
         s = e.style,
@@ -3748,26 +3748,26 @@
 
     while (i-- && !(_prefixes[i] + property in s)) {}
 
-    return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
+    return i < 0 ? null : (i === 3 ? 'ms' : i >= 0 ? _prefixes[i] : '') + property;
   },
       _initCore = function _initCore() {
     if (_windowExists$1()) {
       _win$1 = window;
       _doc$1 = _win$1.document;
       _docElement = _doc$1.documentElement;
-      _tempDiv = _createElement("div") || {
+      _tempDiv = _createElement('div') || {
         style: {}
       };
-      _tempDivStyler = _createElement("div");
+      _tempDivStyler = _createElement('div');
       _transformProp = _checkPropPrefix(_transformProp);
       _transformOriginProp = _checkPropPrefix(_transformOriginProp);
-      _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0";
-      _supports3D = !!_checkPropPrefix("perspective");
+      _tempDiv.style.cssText = 'border-width:0;line-height:0;position:absolute;padding:0';
+      _supports3D = !!_checkPropPrefix('perspective');
       _pluginInitted = 1;
     }
   },
       _getBBoxHack = function _getBBoxHack(swapIfPossible) {
-    var svg = _createElement("svg", this.ownerSVGElement && this.ownerSVGElement.getAttribute("xmlns") || "http://www.w3.org/2000/svg"),
+    var svg = _createElement('svg', this.ownerSVGElement && this.ownerSVGElement.getAttribute('xmlns') || 'http://www.w3.org/2000/svg'),
         oldParent = this.parentNode,
         oldSibling = this.nextSibling,
         oldCSS = this.style.cssText,
@@ -3776,7 +3776,7 @@
     _docElement.appendChild(svg);
 
     svg.appendChild(this);
-    this.style.display = "block";
+    this.style.display = 'block';
 
     if (swapIfPossible) {
       try {
@@ -3821,8 +3821,8 @@
 
     bounds && (bounds.width || bounds.height) || target.getBBox === _getBBoxHack || (bounds = _getBBoxHack.call(target, true));
     return bounds && !bounds.width && !bounds.x && !bounds.y ? {
-      x: +_getAttributeFallbacks(target, ["x", "cx", "x1"]) || 0,
-      y: +_getAttributeFallbacks(target, ["y", "cy", "y1"]) || 0,
+      x: +_getAttributeFallbacks(target, ['x', 'cx', 'x1']) || 0,
+      y: +_getAttributeFallbacks(target, ['y', 'cy', 'y1']) || 0,
       width: 0,
       height: 0
     } : bounds;
@@ -3839,11 +3839,11 @@
       }
 
       if (style.removeProperty) {
-        if (property.substr(0, 2) === "ms" || property.substr(0, 6) === "webkit") {
-          property = "-" + property;
+        if (property.substr(0, 2) === 'ms' || property.substr(0, 6) === 'webkit') {
+          property = '-' + property;
         }
 
-        style.removeProperty(property.replace(_capsExp, "-$1").toLowerCase());
+        style.removeProperty(property.replace(_capsExp, '-$1').toLowerCase());
       } else {
         style.removeAttribute(property);
       }
@@ -3866,14 +3866,14 @@
   },
       _convertToUnit = function _convertToUnit(target, property, value, unit) {
     var curValue = parseFloat(value) || 0,
-        curUnit = (value + "").trim().substr((curValue + "").length) || "px",
+        curUnit = (value + '').trim().substr((curValue + '').length) || 'px',
         style = _tempDiv.style,
         horizontal = _horizontalExp.test(property),
-        isRootSVG = target.tagName.toLowerCase() === "svg",
-        measureProperty = (isRootSVG ? "client" : "offset") + (horizontal ? "Width" : "Height"),
+        isRootSVG = target.tagName.toLowerCase() === 'svg',
+        measureProperty = (isRootSVG ? 'client' : 'offset') + (horizontal ? 'Width' : 'Height'),
         amount = 100,
-        toPixels = unit === "px",
-        toPercent = unit === "%",
+        toPixels = unit === 'px',
+        toPercent = unit === '%',
         px,
         parent,
         cache,
@@ -3883,15 +3883,15 @@
       return curValue;
     }
 
-    curUnit !== "px" && !toPixels && (curValue = _convertToUnit(target, property, value, "px"));
+    curUnit !== 'px' && !toPixels && (curValue = _convertToUnit(target, property, value, 'px'));
     isSVG = target.getCTM && _isSVG(target);
 
-    if (toPercent && (_transformProps[property] || ~property.indexOf("adius"))) {
-      return _round(curValue / (isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty]) * amount);
+    if (toPercent && (_transformProps[property] || ~property.indexOf('adius'))) {
+      return _round(curValue / (isSVG ? target.getBBox()[horizontal ? 'width' : 'height'] : target[measureProperty]) * amount);
     }
 
-    style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
-    parent = ~property.indexOf("adius") || unit === "em" && target.appendChild && !isRootSVG ? target : target.parentNode;
+    style[horizontal ? 'width' : 'height'] = amount + (toPixels ? curUnit : unit);
+    parent = ~property.indexOf('adius') || unit === 'em' && target.appendChild && !isRootSVG ? target : target.parentNode;
 
     if (isSVG) {
       parent = (target.ownerSVGElement || {}).parentNode;
@@ -3906,12 +3906,12 @@
     if (cache && toPercent && cache.width && horizontal && cache.time === _ticker.time) {
       return _round(curValue / cache.width * amount);
     } else {
-      (toPercent || curUnit === "%") && (style.position = _getComputedProperty(target, "position"));
-      parent === target && (style.position = "static");
+      (toPercent || curUnit === '%') && (style.position = _getComputedProperty(target, 'position'));
+      parent === target && (style.position = 'static');
       parent.appendChild(_tempDiv);
       px = _tempDiv[measureProperty];
       parent.removeChild(_tempDiv);
-      style.position = "absolute";
+      style.position = 'absolute';
 
       if (horizontal && toPercent) {
         cache = _getCache(parent);
@@ -3929,29 +3929,29 @@
       _initCore();
     }
 
-    if (property in _propertyAliases && property !== "transform") {
+    if (property in _propertyAliases && property !== 'transform') {
       property = _propertyAliases[property];
 
-      if (~property.indexOf(",")) {
-        property = property.split(",")[0];
+      if (~property.indexOf(',')) {
+        property = property.split(',')[0];
       }
     }
 
-    if (_transformProps[property] && property !== "transform") {
+    if (_transformProps[property] && property !== 'transform') {
       value = _parseTransform(target, uncache);
-      value = property !== "transformOrigin" ? value[property] : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + " " + value.zOrigin + "px";
+      value = property !== 'transformOrigin' ? value[property] : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + ' ' + value.zOrigin + 'px';
     } else {
       value = target.style[property];
 
-      if (!value || value === "auto" || uncache || ~(value + "").indexOf("calc(")) {
-        value = _specialProps[property] && _specialProps[property](target, property, unit) || _getComputedProperty(target, property) || _getProperty(target, property) || (property === "opacity" ? 1 : 0);
+      if (!value || value === 'auto' || uncache || ~(value + '').indexOf('calc(')) {
+        value = _specialProps[property] && _specialProps[property](target, property, unit) || _getComputedProperty(target, property) || _getProperty(target, property) || (property === 'opacity' ? 1 : 0);
       }
     }
 
-    return unit && !~(value + "").indexOf(" ") ? _convertToUnit(target, property, value, unit) + unit : value;
+    return unit && !~(value + '').indexOf(' ') ? _convertToUnit(target, property, value, unit) + unit : value;
   },
       _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
-    if (!start || start === "none") {
+    if (!start || start === 'none') {
       var p = _checkPropPrefix(prop, target, 1),
           s = p && _getComputedProperty(target, p, 1);
 
@@ -3979,10 +3979,10 @@
         endValues;
     pt.b = start;
     pt.e = end;
-    start += "";
-    end += "";
+    start += '';
+    end += '';
 
-    if (end === "auto") {
+    if (end === 'auto') {
       target.style[prop] = end;
       end = _getComputedProperty(target, prop) || end;
       target.style[prop] = start;
@@ -4004,21 +4004,21 @@
 
         if (color) {
           color = (color + 1) % 5;
-        } else if (chunk.substr(-5) === "rgba(" || chunk.substr(-5) === "hsla(") {
+        } else if (chunk.substr(-5) === 'rgba(' || chunk.substr(-5) === 'hsla(') {
           color = 1;
         }
 
-        if (endValue !== (startValue = startValues[matchIndex++] || "")) {
+        if (endValue !== (startValue = startValues[matchIndex++] || '')) {
           startNum = parseFloat(startValue) || 0;
-          startUnit = startValue.substr((startNum + "").length);
-          relative = endValue.charAt(1) === "=" ? +(endValue.charAt(0) + "1") : 0;
+          startUnit = startValue.substr((startNum + '').length);
+          relative = endValue.charAt(1) === '=' ? +(endValue.charAt(0) + '1') : 0;
 
           if (relative) {
             endValue = endValue.substr(2);
           }
 
           endNum = parseFloat(endValue);
-          endUnit = endValue.substr((endNum + "").length);
+          endUnit = endValue.substr((endNum + '').length);
           index = _numWithUnitExp.lastIndex - endUnit.length;
 
           if (!endUnit) {
@@ -4036,7 +4036,7 @@
 
           pt._pt = {
             _next: pt._pt,
-            p: chunk || matchIndex === 1 ? chunk : ",",
+            p: chunk || matchIndex === 1 ? chunk : ',',
             s: startNum,
             c: relative ? relative * endNum : endNum - startNum,
             m: color && color < 4 ? Math.round : 0
@@ -4044,9 +4044,9 @@
         }
       }
 
-      pt.c = index < end.length ? end.substring(index, end.length) : "";
+      pt.c = index < end.length ? end.substring(index, end.length) : '';
     } else {
-      pt.r = prop === "display" && end === "none" ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
+      pt.r = prop === 'display' && end === 'none' ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
     }
 
     if (_relExp.test(end)) {
@@ -4057,18 +4057,18 @@
     return pt;
   },
       _keywordToPercent = {
-    top: "0%",
-    bottom: "100%",
-    left: "0%",
-    right: "100%",
-    center: "50%"
+    top: '0%',
+    bottom: '100%',
+    left: '0%',
+    right: '100%',
+    center: '50%'
   },
       _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
-    var split = value.split(" "),
+    var split = value.split(' '),
         x = split[0],
-        y = split[1] || "50%";
+        y = split[1] || '50%';
 
-    if (x === "top" || x === "bottom" || y === "left" || y === "right") {
+    if (x === 'top' || x === 'bottom' || y === 'left' || y === 'right') {
       value = x;
       x = y;
       y = value;
@@ -4076,7 +4076,7 @@
 
     split[0] = _keywordToPercent[x] || x;
     split[1] = _keywordToPercent[y] || y;
-    return split.join(" ");
+    return split.join(' ');
   },
       _renderClearProps = function _renderClearProps(ratio, data) {
     if (data.tween && data.tween._time === data.tween._dur) {
@@ -4088,11 +4088,11 @@
           clearTransforms,
           i;
 
-      if (props === "all" || props === true) {
-        style.cssText = "";
+      if (props === 'all' || props === true) {
+        style.cssText = '';
         clearTransforms = 1;
       } else {
-        props = props.split(",");
+        props = props.split(',');
         i = props.length;
 
         while (--i > -1) {
@@ -4100,7 +4100,7 @@
 
           if (_transformProps[prop]) {
             clearTransforms = 1;
-            prop = prop === "transformOrigin" ? _transformOriginProp : _transformProp;
+            prop = prop === 'transformOrigin' ? _transformOriginProp : _transformProp;
           }
 
           _removeProperty(target, prop);
@@ -4111,7 +4111,7 @@
         _removeProperty(target, _transformProp);
 
         if (cache) {
-          cache.svg && target.removeAttribute("transform");
+          cache.svg && target.removeAttribute('transform');
 
           _parseTransform(target, 1);
 
@@ -4122,7 +4122,7 @@
   },
       _specialProps = {
     clearProps: function clearProps(plugin, target, property, endValue, tween) {
-      if (tween.data !== "isFromStart") {
+      if (tween.data !== 'isFromStart') {
         var pt = plugin._pt = new PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
         pt.u = endValue;
         pt.pr = -10;
@@ -4137,7 +4137,7 @@
       _identity2DMatrix = [1, 0, 0, 1, 0, 0],
       _rotationalProperties = {},
       _isNullTransform = function _isNullTransform(value) {
-    return value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value;
+    return value === 'matrix(1, 0, 0, 1, 0, 0)' || value === 'none' || !value;
   },
       _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
     var matrixString = _getComputedProperty(target, _transformProp);
@@ -4153,13 +4153,13 @@
         temp,
         addedToDOM;
 
-    if (cache.svg && target.getAttribute("transform")) {
+    if (cache.svg && target.getAttribute('transform')) {
       temp = target.transform.baseVal.consolidate().matrix;
       matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
-      return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
+      return matrix.join(',') === '1,0,0,1,0,0' ? _identity2DMatrix : matrix;
     } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
       temp = style.display;
-      style.display = "block";
+      style.display = 'block';
       parent = target.parentNode;
 
       if (!parent || !target.offsetParent) {
@@ -4174,7 +4174,7 @@
       if (temp) {
         style.display = temp;
       } else {
-        _removeProperty(target, "display");
+        _removeProperty(target, 'display');
       }
 
       if (addedToDOM) {
@@ -4203,7 +4203,7 @@
         d = matrix[3],
         tx = matrix[4],
         ty = matrix[5],
-        originSplit = origin.split(" "),
+        originSplit = origin.split(' '),
         xOrigin = parseFloat(originSplit[0]) || 0,
         yOrigin = parseFloat(originSplit[1]) || 0,
         bounds,
@@ -4213,8 +4213,8 @@
 
     if (!originIsAbsolute) {
       bounds = _getBBox(target);
-      xOrigin = bounds.x + (~originSplit[0].indexOf("%") ? xOrigin / 100 * bounds.width : xOrigin);
-      yOrigin = bounds.y + (~(originSplit[1] || originSplit[0]).indexOf("%") ? yOrigin / 100 * bounds.height : yOrigin);
+      xOrigin = bounds.x + (~originSplit[0].indexOf('%') ? xOrigin / 100 * bounds.width : xOrigin);
+      yOrigin = bounds.y + (~(originSplit[1] || originSplit[0]).indexOf('%') ? yOrigin / 100 * bounds.height : yOrigin);
     } else if (matrix !== _identity2DMatrix && (determinant = a * d - b * c)) {
       x = xOrigin * (d / determinant) + yOrigin * (-c / determinant) + (c * ty - d * tx) / determinant;
       y = xOrigin * (-b / determinant) + yOrigin * (a / determinant) - (a * ty - b * tx) / determinant;
@@ -4236,32 +4236,32 @@
     cache.smooth = !!smooth;
     cache.origin = origin;
     cache.originIsAbsolute = !!originIsAbsolute;
-    target.style[_transformOriginProp] = "0px 0px";
+    target.style[_transformOriginProp] = '0px 0px';
 
     if (pluginToAddPropTweensTo) {
-      _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOrigin", xOriginOld, xOrigin);
+      _addNonTweeningPT(pluginToAddPropTweensTo, cache, 'xOrigin', xOriginOld, xOrigin);
 
-      _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOrigin", yOriginOld, yOrigin);
+      _addNonTweeningPT(pluginToAddPropTweensTo, cache, 'yOrigin', yOriginOld, yOrigin);
 
-      _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOffset", xOffsetOld, cache.xOffset);
+      _addNonTweeningPT(pluginToAddPropTweensTo, cache, 'xOffset', xOffsetOld, cache.xOffset);
 
-      _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOffset", yOffsetOld, cache.yOffset);
+      _addNonTweeningPT(pluginToAddPropTweensTo, cache, 'yOffset', yOffsetOld, cache.yOffset);
     }
 
-    target.setAttribute("data-svg-origin", xOrigin + " " + yOrigin);
+    target.setAttribute('data-svg-origin', xOrigin + ' ' + yOrigin);
   },
       _parseTransform = function _parseTransform(target, uncache) {
     var cache = target._gsap || new GSCache(target);
 
-    if ("x" in cache && !uncache && !cache.uncache) {
+    if ('x' in cache && !uncache && !cache.uncache) {
       return cache;
     }
 
     var style = target.style,
         invertedScaleX = cache.scaleX < 0,
-        px = "px",
-        deg = "deg",
-        origin = _getComputedProperty(target, _transformOriginProp) || "0",
+        px = 'px',
+        deg = 'deg',
+        origin = _getComputedProperty(target, _transformOriginProp) || '0',
         x,
         y,
         z,
@@ -4300,7 +4300,7 @@
     matrix = _getMatrix(target, cache.svg);
 
     if (cache.svg) {
-      t1 = !cache.uncache && target.getAttribute("data-svg-origin");
+      t1 = !cache.uncache && target.getAttribute('data-svg-origin');
 
       _applySVGOrigin(target, t1 || origin, !!t1 || cache.originIsAbsolute, cache.smooth !== false, matrix);
     }
@@ -4397,9 +4397,9 @@
       }
 
       if (cache.svg) {
-        matrix = target.getAttribute("transform");
-        cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp));
-        matrix && target.setAttribute("transform", matrix);
+        matrix = target.getAttribute('transform');
+        cache.forceCSS = target.setAttribute('transform', '') || !_isNullTransform(_getComputedProperty(target, _transformProp));
+        matrix && target.setAttribute('transform', matrix);
       }
     }
 
@@ -4426,7 +4426,7 @@
     cache.skewY = skewY + deg;
     cache.transformPerspective = perspective + px;
 
-    if (cache.zOrigin = parseFloat(origin.split(" ")[2]) || 0) {
+    if (cache.zOrigin = parseFloat(origin.split(' ')[2]) || 0) {
       style[_transformOriginProp] = _firstTwoOnly(origin);
     }
 
@@ -4437,22 +4437,22 @@
     return cache;
   },
       _firstTwoOnly = function _firstTwoOnly(value) {
-    return (value = value.split(" "))[0] + " " + value[1];
+    return (value = value.split(' '))[0] + ' ' + value[1];
   },
       _addPxTranslate = function _addPxTranslate(target, start, value) {
     var unit = getUnit(start);
-    return _round(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+    return _round(parseFloat(start) + parseFloat(_convertToUnit(target, 'x', value + 'px', unit))) + unit;
   },
       _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
-    cache.z = "0px";
-    cache.rotationY = cache.rotationX = "0deg";
+    cache.z = '0px';
+    cache.rotationY = cache.rotationX = '0deg';
     cache.force3D = 0;
 
     _renderCSSTransforms(ratio, cache);
   },
-      _zeroDeg = "0deg",
-      _zeroPx = "0px",
-      _endParenthesis = ") ",
+      _zeroDeg = '0deg',
+      _zeroPx = '0px',
+      _endParenthesis = ') ',
       _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
     var _ref = cache || this,
         xPercent = _ref.xPercent,
@@ -4471,8 +4471,8 @@
         force3D = _ref.force3D,
         target = _ref.target,
         zOrigin = _ref.zOrigin,
-        transforms = "",
-        use3D = force3D === "auto" && ratio && ratio !== 1 || force3D === true;
+        transforms = '',
+        use3D = force3D === 'auto' && ratio && ratio !== 1 || force3D === true;
 
     if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
       var angle = parseFloat(rotationY) * _DEG2RAD,
@@ -4488,38 +4488,38 @@
     }
 
     if (transformPerspective !== _zeroPx) {
-      transforms += "perspective(" + transformPerspective + _endParenthesis;
+      transforms += 'perspective(' + transformPerspective + _endParenthesis;
     }
 
     if (xPercent || yPercent) {
-      transforms += "translate(" + xPercent + "%, " + yPercent + "%) ";
+      transforms += 'translate(' + xPercent + '%, ' + yPercent + '%) ';
     }
 
     if (use3D || x !== _zeroPx || y !== _zeroPx || z !== _zeroPx) {
-      transforms += z !== _zeroPx || use3D ? "translate3d(" + x + ", " + y + ", " + z + ") " : "translate(" + x + ", " + y + _endParenthesis;
+      transforms += z !== _zeroPx || use3D ? 'translate3d(' + x + ', ' + y + ', ' + z + ') ' : 'translate(' + x + ', ' + y + _endParenthesis;
     }
 
     if (rotation !== _zeroDeg) {
-      transforms += "rotate(" + rotation + _endParenthesis;
+      transforms += 'rotate(' + rotation + _endParenthesis;
     }
 
     if (rotationY !== _zeroDeg) {
-      transforms += "rotateY(" + rotationY + _endParenthesis;
+      transforms += 'rotateY(' + rotationY + _endParenthesis;
     }
 
     if (rotationX !== _zeroDeg) {
-      transforms += "rotateX(" + rotationX + _endParenthesis;
+      transforms += 'rotateX(' + rotationX + _endParenthesis;
     }
 
     if (skewX !== _zeroDeg || skewY !== _zeroDeg) {
-      transforms += "skew(" + skewX + ", " + skewY + _endParenthesis;
+      transforms += 'skew(' + skewX + ', ' + skewY + _endParenthesis;
     }
 
     if (scaleX !== 1 || scaleY !== 1) {
-      transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
+      transforms += 'scale(' + scaleX + ', ' + scaleY + _endParenthesis;
     }
 
-    target.style[_transformProp] = transforms || "translate(0, 0)";
+    target.style[_transformProp] = transforms || 'translate(0, 0)';
   },
       _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
     var _ref2 = cache || this,
@@ -4589,9 +4589,9 @@
       a21 = a12 = 0;
     }
 
-    if (tx && !~(x + "").indexOf("px") || ty && !~(y + "").indexOf("px")) {
-      tx = _convertToUnit(target, "x", x, "px");
-      ty = _convertToUnit(target, "y", y, "px");
+    if (tx && !~(x + '').indexOf('px') || ty && !~(y + '').indexOf('px')) {
+      tx = _convertToUnit(target, 'x', x, 'px');
+      ty = _convertToUnit(target, 'y', y, 'px');
     }
 
     if (xOrigin || yOrigin || xOffset || yOffset) {
@@ -4605,8 +4605,8 @@
       ty = _round(ty + yPercent / 100 * temp.height);
     }
 
-    temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
-    target.setAttribute("transform", temp);
+    temp = 'matrix(' + a11 + ',' + a21 + ',' + a12 + ',' + a22 + ',' + tx + ',' + ty + ')';
+    target.setAttribute('transform', temp);
 
     if (forceCSS) {
       target.style[_transformProp] = temp;
@@ -4615,16 +4615,16 @@
       _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue, relative) {
     var cap = 360,
         isString = _isString(endValue),
-        endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1),
+        endNum = parseFloat(endValue) * (isString && ~endValue.indexOf('rad') ? _RAD2DEG : 1),
         change = relative ? endNum * relative : endNum - startNum,
-        finalValue = startNum + change + "deg",
+        finalValue = startNum + change + 'deg',
         direction,
         pt;
 
     if (isString) {
-      direction = endValue.split("_")[1];
+      direction = endValue.split('_')[1];
 
-      if (direction === "short") {
+      if (direction === 'short') {
         change %= cap;
 
         if (change !== change % (cap / 2)) {
@@ -4632,16 +4632,16 @@
         }
       }
 
-      if (direction === "cw" && change < 0) {
+      if (direction === 'cw' && change < 0) {
         change = (change + cap * _bigNum$1) % cap - ~~(change / cap) * cap;
-      } else if (direction === "ccw" && change > 0) {
+      } else if (direction === 'ccw' && change > 0) {
         change = (change - cap * _bigNum$1) % cap - ~~(change / cap) * cap;
       }
     }
 
     plugin._pt = pt = new PropTween(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
     pt.e = finalValue;
-    pt.u = "deg";
+    pt.u = 'deg';
 
     plugin._props.push(property);
 
@@ -4650,7 +4650,7 @@
       _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
     var style = _tempDivStyler.style,
         startCache = target._gsap,
-        exclude = "perspective,force3D,transformOrigin,svgOrigin",
+        exclude = 'perspective,force3D,transformOrigin,svgOrigin',
         endCache,
         p,
         startValue,
@@ -4659,7 +4659,7 @@
         endNum,
         startUnit,
         endUnit;
-    style.cssText = getComputedStyle(target).cssText + ";position:absolute;display:block;";
+    style.cssText = getComputedStyle(target).cssText + ';position:absolute;display:block;';
     style[_transformProp] = transforms;
 
     _doc$1.body.appendChild(_tempDivStyler);
@@ -4685,27 +4685,27 @@
     _doc$1.body.removeChild(_tempDivStyler);
   };
 
-  _forEachName("padding,margin,Width,Radius", function (name, index) {
-    var t = "Top",
-        r = "Right",
-        b = "Bottom",
-        l = "Left",
+  _forEachName('padding,margin,Width,Radius', function (name, index) {
+    var t = 'Top',
+        r = 'Right',
+        b = 'Bottom',
+        l = 'Left',
         props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function (side) {
-      return index < 2 ? name + side : "border" + side + name;
+      return index < 2 ? name + side : 'border' + side + name;
     });
 
-    _specialProps[index > 1 ? "border" + name : name] = function (plugin, target, property, endValue, tween) {
+    _specialProps[index > 1 ? 'border' + name : name] = function (plugin, target, property, endValue, tween) {
       var a, vars;
 
       if (arguments.length < 4) {
         a = props.map(function (prop) {
           return _get(plugin, prop, property);
         });
-        vars = a.join(" ");
+        vars = a.join(' ');
         return vars.split(a[0]).length === 5 ? a[0] : vars;
       }
 
-      a = (endValue + "").split(" ");
+      a = (endValue + '').split(' ');
       vars = {};
       props.forEach(function (prop, i) {
         return vars[prop] = a[i] = a[i] || a[(i - 1) / 2 | 0];
@@ -4715,7 +4715,7 @@
   });
 
   var CSSPlugin = {
-    name: "css",
+    name: 'css',
     register: _initCore,
     targetTest: function targetTest(target) {
       return target.style && target.nodeType;
@@ -4744,7 +4744,7 @@
       }
 
       for (p in vars) {
-        if (p === "autoRound") {
+        if (p === 'autoRound') {
           continue;
         }
 
@@ -4757,12 +4757,12 @@
         type = typeof endValue;
         specialProp = _specialProps[p];
 
-        if (type === "function") {
+        if (type === 'function') {
           endValue = endValue.call(tween, index, target, targets);
           type = typeof endValue;
         }
 
-        if (type === "string" && ~endValue.indexOf("random(")) {
+        if (type === 'string' && ~endValue.indexOf('random(')) {
           endValue = _replaceRandom(endValue);
         }
 
@@ -4770,12 +4770,12 @@
           if (specialProp(this, target, p, endValue, tween)) {
             hasPriority = 1;
           }
-        } else if (p.substr(0, 2) === "--") {
-          this.add(style, "setProperty", getComputedStyle(target).getPropertyValue(p) + "", endValue + "", index, targets, 0, 0, p);
+        } else if (p.substr(0, 2) === '--') {
+          this.add(style, 'setProperty', getComputedStyle(target).getPropertyValue(p) + '', endValue + '', index, targets, 0, 0, p);
         } else {
           startValue = _get(target, p);
           startNum = parseFloat(startValue);
-          relative = type === "string" && endValue.charAt(1) === "=" ? +(endValue.charAt(0) + "1") : 0;
+          relative = type === 'string' && endValue.charAt(1) === '=' ? +(endValue.charAt(0) + '1') : 0;
 
           if (relative) {
             endValue = endValue.substr(2);
@@ -4784,19 +4784,19 @@
           endNum = parseFloat(endValue);
 
           if (p in _propertyAliases) {
-            if (p === "autoAlpha") {
-              if (startNum === 1 && _get(target, "visibility") === "hidden" && endNum) {
+            if (p === 'autoAlpha') {
+              if (startNum === 1 && _get(target, 'visibility') === 'hidden' && endNum) {
                 startNum = 0;
               }
 
-              _addNonTweeningPT(this, style, "visibility", startNum ? "inherit" : "hidden", endNum ? "inherit" : "hidden", !endNum);
+              _addNonTweeningPT(this, style, 'visibility', startNum ? 'inherit' : 'hidden', endNum ? 'inherit' : 'hidden', !endNum);
             }
 
-            if (p !== "scale" && p !== "transform") {
+            if (p !== 'scale' && p !== 'transform') {
               p = _propertyAliases[p];
 
-              if (~p.indexOf(",")) {
-                p = p.split(",")[0];
+              if (~p.indexOf(',')) {
+                p = p.split(',')[0];
               }
             }
           }
@@ -4812,27 +4812,27 @@
               transformPropTween.dep = 1;
             }
 
-            if (p === "scale") {
-              this._pt = new PropTween(this._pt, cache, "scaleY", cache.scaleY, relative ? relative * endNum : endNum - cache.scaleY);
-              props.push("scaleY", p);
-              p += "X";
-            } else if (p === "transformOrigin") {
+            if (p === 'scale') {
+              this._pt = new PropTween(this._pt, cache, 'scaleY', cache.scaleY, relative ? relative * endNum : endNum - cache.scaleY);
+              props.push('scaleY', p);
+              p += 'X';
+            } else if (p === 'transformOrigin') {
               endValue = _convertKeywordsToPercentages(endValue);
 
               if (cache.svg) {
                 _applySVGOrigin(target, endValue, 0, smooth, 0, this);
               } else {
-                endUnit = parseFloat(endValue.split(" ")[2]) || 0;
+                endUnit = parseFloat(endValue.split(' ')[2]) || 0;
 
                 if (endUnit !== cache.zOrigin) {
-                  _addNonTweeningPT(this, cache, "zOrigin", cache.zOrigin, endUnit);
+                  _addNonTweeningPT(this, cache, 'zOrigin', cache.zOrigin, endUnit);
                 }
 
                 _addNonTweeningPT(this, style, p, _firstTwoOnly(startValue), _firstTwoOnly(endValue));
               }
 
               continue;
-            } else if (p === "svgOrigin") {
+            } else if (p === 'svgOrigin') {
               _applySVGOrigin(target, endValue, 1, smooth, 0, this);
 
               continue;
@@ -4840,14 +4840,14 @@
               _addRotationalPropTween(this, cache, p, startNum, endValue, relative);
 
               continue;
-            } else if (p === "smoothOrigin") {
-              _addNonTweeningPT(this, cache, "smooth", cache.smooth, endValue);
+            } else if (p === 'smoothOrigin') {
+              _addNonTweeningPT(this, cache, 'smooth', cache.smooth, endValue);
 
               continue;
-            } else if (p === "force3D") {
+            } else if (p === 'force3D') {
               cache[p] = endValue;
               continue;
-            } else if (p === "transform") {
+            } else if (p === 'transform') {
               _addRawTransformPTs(this, endValue, target);
 
               continue;
@@ -4857,15 +4857,15 @@
           }
 
           if (isTransformRelated || (endNum || endNum === 0) && (startNum || startNum === 0) && !_complexExp.test(endValue) && p in style) {
-            startUnit = (startValue + "").substr((startNum + "").length);
+            startUnit = (startValue + '').substr((startNum + '').length);
             endNum || (endNum = 0);
-            endUnit = (endValue + "").substr((endNum + "").length) || (p in _config.units ? _config.units[p] : startUnit);
+            endUnit = (endValue + '').substr((endNum + '').length) || (p in _config.units ? _config.units[p] : startUnit);
 
             if (startUnit !== endUnit) {
               startNum = _convertToUnit(target, p, startValue, endUnit);
             }
 
-            this._pt = new PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, relative ? relative * endNum : endNum - startNum, endUnit === "px" && vars.autoRound !== false && !isTransformRelated ? _renderRoundedCSSProp : _renderCSSProp);
+            this._pt = new PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, relative ? relative * endNum : endNum - startNum, endUnit === 'px' && vars.autoRound !== false && !isTransformRelated ? _renderRoundedCSSProp : _renderCSSProp);
             this._pt.u = endUnit || 0;
 
             if (startUnit !== endUnit) {
@@ -4896,8 +4896,8 @@
     aliases: _propertyAliases,
     getSetter: function getSetter(target, property, plugin) {
       var p = _propertyAliases[property];
-      p && p.indexOf(",") < 0 && (property = p);
-      return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !_isUndefined(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : _getSetter(target, property);
+      p && p.indexOf(',') < 0 && (property = p);
+      return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, 'x')) ? plugin && _recentSetterPlugin === plugin ? property === 'scale' ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === 'scale' ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !_isUndefined(target.style[property]) ? _setterCSSStyle : ~property.indexOf('-') ? _setterCSSProp : _getSetter(target, property);
     },
     core: {
       _removeProperty: _removeProperty,
@@ -4907,25 +4907,25 @@
   gsap.utils.checkPrefix = _checkPropPrefix;
 
   (function (positionAndScale, rotation, others, aliases) {
-    var all = _forEachName(positionAndScale + "," + rotation + "," + others, function (name) {
+    var all = _forEachName(positionAndScale + ',' + rotation + ',' + others, function (name) {
       _transformProps[name] = 1;
     });
 
     _forEachName(rotation, function (name) {
-      _config.units[name] = "deg";
+      _config.units[name] = 'deg';
       _rotationalProperties[name] = 1;
     });
 
-    _propertyAliases[all[13]] = positionAndScale + "," + rotation;
+    _propertyAliases[all[13]] = positionAndScale + ',' + rotation;
 
     _forEachName(aliases, function (name) {
-      var split = name.split(":");
+      var split = name.split(':');
       _propertyAliases[split[1]] = all[split[0]];
     });
-  })("x,y,z,scale,scaleX,scaleY,xPercent,yPercent", "rotation,rotationX,rotationY,skewX,skewY", "transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective", "0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY");
+  })('x,y,z,scale,scaleX,scaleY,xPercent,yPercent', 'rotation,rotationX,rotationY,skewX,skewY', 'transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective', '0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY');
 
-  _forEachName("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", function (name) {
-    _config.units[name] = "px";
+  _forEachName('x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective', function (name) {
+    _config.units[name] = 'px';
   });
 
   gsap.registerPlugin(CSSPlugin);
