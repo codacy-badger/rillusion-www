@@ -40,7 +40,7 @@
 						font-weight : 500;
 						font-size : 16px;
 						line-height : 28px;
-						color : #231f20;
+						color : var(--text-black);
 
 						+ p {
 							margin-top : 30px;
@@ -79,7 +79,6 @@
 
 				.form-group {
 					position : relative;
-
 					label {
 						display : none;
 					}
@@ -91,11 +90,10 @@
 						font-family : var(--font);
 						font-weight : 500;
 						font-size : 14px;
-						font-size : 1rem;
 						color : var(--gray);
 						box-shadow : none;
 						border : 0;
-						border-bottom : 1px solid #cccccc;
+						border-bottom : 1px solid var(--gray-light);
 						padding-bottom : 15px;
 						padding-top : 12px;
 						padding-bottom : 12px;
@@ -106,7 +104,20 @@
 					}
 
 					&.input-inline {
+						display : grid;
+						column-gap : 15px;
+						grid-template-columns : 1fr 1fr;
+						@media(min-width: 576px) {
+							grid-template-columns : 1fr 1fr 1fr;
+						}
+						@media(min-width: $tablet) {
+							display : block;
+						}
 						label {
+							grid-column : span 2;
+							@media(min-width: 576px) {
+								grid-column : span 3;
+							}
 							display : block;
 							color : var(--gray);
 							font-weight : 500;
@@ -117,10 +128,11 @@
 
 						.form-check-inline {
 							display : inline-block;
+							position : relative;
 
 							input {
-								width : 0;
-								height : 0;
+								width : 100%;
+								height : 42px;
 								position : absolute;
 								opacity : 0;
 								padding : 0;
@@ -137,16 +149,23 @@
 								+ label {
 									font-family : var(--font);
 									cursor : pointer;
-									border : 1px solid #cccccc;
-									padding : 8px 10px;
+									border : 1px solid var(--gray-light);
+									padding : 8px 4px;
 									display : inline-block;
 									margin-bottom : 25px;
-									margin-right : 26px;
 									font-weight : 500;
-									font-size : 14px;
+									font-size : 12px;
 									line-height : 24px;
 									font-weight : 500;
 									color : var(--gray);
+									margin-right : 0;
+									width : 100%;
+									@media(min-width: $tablet) {
+										padding : 8px 10px;
+										font-size : 14px;
+										width : auto;
+										margin-right : 26px;
+									}
 								}
 							}
 						}
@@ -158,7 +177,7 @@
 						height : 85px;
 						font-family : var(--font);
 						border : 0;
-						border-bottom : 1px solid #cccccc;
+						border-bottom : 1px solid var(--gray-light);
 						font-style : normal;
 						font-weight : 500;
 						font-size : 14px;
@@ -168,12 +187,19 @@
 						padding-left : 0;
 					}
 
-					small {
+					label.error {
 						position : relative;
-						bottom : 45px;
-						padding-top : 10px;
+						bottom : 30px;
+						padding : 0;
+						margin : 0;
 						display : inline-block;
-						display : none;
+						@extend small;
+						color : var(--red);
+					}
+					.errorRadio label.error {
+						margin-top : 10px;
+						font-weight : 400;
+						font-size : 80%;
 					}
 
 					+ button {
@@ -216,7 +242,7 @@
 						font-weight : 700;
 						font-size : 32px;
 						line-height : 48px;
-						color : #231f20;
+						color : var(--text-black);
 					}
 				}
 			}

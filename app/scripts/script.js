@@ -4,8 +4,8 @@ AOS.init(
     once: true,
   }
 );
-
 const body = document.body;
+const navHeader = 'header';
 const triggerMenu = document.querySelector('.trigger-menu');
 const triggerMenuButton = document.querySelector('.menu--items_close button');
 const nav = document.querySelector('.header--navigation nav');
@@ -13,6 +13,15 @@ const menu = document.querySelector('.header--navigation + .menu--items');
 const scrollUp = 'scroll-up';
 const scrollDown = 'scroll-down';
 let lastScroll = 0;
+
+// window scroll down add class to menu
+$(window).scroll(function () {
+  if ($(this).scrollTop() > '500') {
+    $(navHeader).addClass('scroll-fix-top');
+  } else {
+    $(navHeader).removeClass('scroll-fix-top');
+  }
+});
 
 // menu items transition
 var t1 = new TimelineMax({ paused: true });

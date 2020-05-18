@@ -3,7 +3,7 @@
 
 .footer {
 	&--page {
-		background : #f5f5f5;
+		background : var(--white-light);
 		position : relative;
 		z-index : 1;
 		// margin-top: 182px;
@@ -24,7 +24,7 @@
 			left : -9999em;
 			right : -9999em;
 			z-index : -1;
-			background : #f5f5f5;
+			background : var(--white-light);
 		}
 
 		> div {
@@ -66,7 +66,9 @@
 					}
 
 					display : block;
-					@extend %heading\:2;
+					@extend .heading;
+					@include interpolate("font-size", 520px, 24px, 992px, 48px, "ease-in");
+					@include interpolate("line-height", 520px, 36px, 992px, 72px, "ease-in");
 					line-height : 150%;
 					color : var(--text-black);
 					@include interpolate("margin-bottom", 520px, 56px, 992px, 70px, "ease-in");

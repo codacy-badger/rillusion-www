@@ -194,7 +194,9 @@
 		}
 
 		&_title {
-			@extend %heading\:6;
+			@extend .heading;
+			@include interpolate("font-size", 520px, 18px, 992px, 20px, "ease-in");
+			@include interpolate("line-height", 520px, 30px, 992px, 28px, "ease-in");
 			/* NOTE: textarea auto height lead to increase the space after */
 			@include interpolate("margin-bottom", 520px, 17px, 992px, 30px, "ease-in");
 		}
@@ -220,7 +222,7 @@
 
 .block_bg {
 	z-index : -1;
-	background : #eeeeee;
+	background : var (--cultured);
 	// width: 100%;
 	// height : 340px;
 	height : 100vh;

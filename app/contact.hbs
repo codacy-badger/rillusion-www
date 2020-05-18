@@ -1,4 +1,4 @@
-{{#> layouts/base  title="Contact | Rillusion" barbaNamesapce="contact"}}
+{{#> layouts/base  title="Contact | Rillusion" barbaNamesapce="contact" hideCallToAction=true}}
 
   {{#*inline "content-block"}}
 
@@ -27,56 +27,55 @@
         <h1 class="hero--text">
           <span class="section__header-text_kicker">Hire us</span>
         </h1>
-        <form action="">
+        <form id="form" class="form" method="post" autocomplete="off" name="myForm">
           <div class="form-group">
             <label for="" class="sr-only">Name</label>
-            <input placeholder="Name" class="form-control" type="text">
-            <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name" autocomplete="off"
+              required>
           </div>
           <div class="form-group">
             <label for="" class="sr-only">Email</label>
-            <input placeholder="Email" class="form-control" type="email">
-            <small id="emailHelp" class=" form-text text-muted">We'll never share your email with anyone
-              else.</small>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off"
+              required>
           </div>
           <div class="form-group">
             <label for="" class="sr-only">Telephone</label>
-            <input placeholder="Telephone" class="form-control" type="tel">
-            <small id="phoneHelp" class="form-text text-muted">We'll never share your email with anyone
-              else.</small>
+            <input type="tel" class="form-group-control" name="phoneNumber" id="phoneNumber" placeholder="Telephone"
+              autocomplete="off" required minlength="10" maxlength="10" pattern="^\d{10}$">
           </div>
           <div class="form-group input-inline">
             <label for="">Select your Budget range for this project</label>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="5000">
-              <label class="form-check-label" for="inlineRadio1">$ 5,000 - $10,000</label>
+              <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio1" value="$ 5,000 - $10,000">
+              <label class="form-check-label" for="k5tok10">$ 5,000 - $10,000</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="10000">
-              <label class="form-check-label" for="inlineRadio2">$ 10,000 - $20,000</label>
+              <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio2" value="$ 10,000 - $20,000">
+              <label class="form-check-label" for="k10tok20">$ 10,000 - $20,000</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="20000">
-              <label class="form-check-label" for="inlineRadio3">$ 20,000 - $50,000</label>
+              <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio3" value="$ 20,000 - $50,000">
+              <label class="form-check-label" for="k20tok50">$ 20,000 - $50,000</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="50000">
-              <label class="form-check-label" for="inlineRadio4">$ 50,000 - $100,000</label>
+              <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio4" value="$ 50,000 - $100,000">
+              <label class="form-check-label" for="k50tok100">$ 50,000 - $100,000</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="100000">
-              <label class="form-check-label" for="inlineRadio5">More than $ 100,000</label>
+              <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio5" value="More than $ 100,000">
+              <label class="form-check-label" for="morek100">More than $ 100,000</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="disclose">
-              <label class="form-check-label" for="inlineRadio6">Can’t Disclose</label>
+              <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio6" value="Can’t Disclose">
+              <label class="form-check-label" for="cantdisclose">Can’t Disclose</label>
             </div>
+            <div class="errorRadio"></div>
           </div>
 
           <div class="form-group">
             <label for="" class="sr-only">Project Description</label>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Project Description"></textarea>
-            <small id="textarea" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <textarea name="projectDescription" id="projectDescription" cols="30" rows="10"
+              placeholder="Project Description"></textarea>
           </div>
           <button type="submit" class="form-group btn-primary">Get started</button>
 
@@ -85,6 +84,186 @@
     </section>
 
 
+        <footer>
+          <section class="page--content--contact__thankyou section--thankyou">
+            <div class="width-box ">
+              <h1 class="section--header">
+                <span class="section__header-text_kicker">Thank you</span>
+                <span class="section--header__title">
+                  <span>If you want to do something,</span>
+                  <span>energy in reaching out to us.</span>
+                </span>
+              </h1>
+
+              <div class="philosophy--lists">
+                <ol>
+                  <li class="philosophy--list">
+                    <strong>
+                      <span>Look forward</span>
+                      <span>to a call from us.</span>
+                    </strong>
+                    We are thrilled if you left us a message. Look forward to a call from our business team soon.
+                  </li>
+                  <li class="philosophy--list">
+                    <strong>
+                      <span>Understanding &</span>
+                      <span>gathering scope.</span>
+                    </strong>
+                    We take time over call or in person in trying to understand your needs and our role in it.
+                  </li>
+                  <li class="philosophy--list">
+                    <strong>
+                      <span>Delivery of</span>
+                      <span>proposal.</span>
+                    </strong>
+                    Based on the discussion, we prepare a proposal, best suited for your project.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <div class="width-box footer--nofollow">
+            <ul>
+              <li><a href="/index.html">rillusion</a></li>
+              <li>&copy; 2020. <a href="#">Privacy Policy</a></li>
+              <li>
+                <a href="">
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.1695 20.1445C4.64821 20.1445 0.156527 15.6587 0.15625 10.1445C0.156804 4.6304 4.64821 0.145085 10.1695 0.144531C15.6909 0.145085 20.1823 4.6304 20.1825 10.1445C20.1823 15.6587 15.6909 20.1445 10.1695 20.1445Z"
+                      fill="#666666" />
+                    <path
+                      d="M9.63024 7.34905C8.27537 4.95264 6.82723 2.93182 6.5355 2.53076C4.20607 3.64233 2.46148 5.78687 1.9021 8.36762C1.92535 8.36762 1.95303 8.36762 1.98486 8.36762C2.76429 8.36762 5.99383 8.30507 9.63024 7.34905Z"
+                      fill="white" />
+                    <path
+                      d="M15.7424 3.80813C14.2528 2.50225 12.3026 1.70898 10.1694 1.70898C9.51338 1.70898 8.87511 1.78455 8.26147 1.92737C8.60524 2.39182 10.0526 4.39076 11.3734 6.80738C14.2282 5.72792 15.5069 4.13031 15.7424 3.80813Z"
+                      fill="white" />
+                    <path
+                      d="M12.6155 9.34508C12.6731 9.48015 12.729 9.61494 12.7841 9.74891C13.4387 9.66836 14.0919 9.63709 14.7125 9.63709C16.6364 9.63709 18.2465 9.93823 18.6265 10.0149C18.5941 8.06827 17.8994 6.27995 16.7574 4.86475C16.462 5.24754 15.0333 6.94009 12.0728 8.15961C12.2629 8.54987 12.4453 8.94623 12.6155 9.34508Z"
+                      fill="white" />
+                    <path
+                      d="M10.7494 10.1844C10.8424 10.1545 10.9365 10.1271 11.0306 10.0995C10.8291 9.64747 10.6121 9.19493 10.3841 8.74902C6.62946 9.86364 2.98529 9.95083 1.936 9.95083C1.83912 9.95083 1.76522 9.95027 1.71429 9.94917C1.71263 10.0189 1.71069 10.0887 1.71069 10.1579C1.71097 12.3035 2.51614 14.2637 3.84001 15.7553C4.19734 15.1649 6.52179 11.5498 10.7494 10.1844Z"
+                      fill="white" />
+                    <path
+                      d="M13.3391 11.1842C14.3912 14.0861 14.847 16.4659 14.96 17.1163C16.8122 15.8409 18.1322 13.8472 18.5139 11.5416C18.1928 11.4436 16.8097 11.0566 15.0422 11.0566C14.5038 11.0566 13.9295 11.0935 13.3391 11.1842Z"
+                      fill="white" />
+                    <path
+                      d="M11.639 11.6024C7.00508 13.215 5.25137 16.3731 5.01001 16.8473C6.43933 17.9486 8.22848 18.6054 10.1699 18.6054C11.3277 18.6054 12.4317 18.3718 13.4376 17.9494C13.302 17.1625 12.8096 14.6244 11.6484 11.5991C11.6451 11.6002 11.6421 11.6013 11.639 11.6024Z"
+                      fill="white" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <svg width="30" height="19" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M19.3585 1.18293H26.6313V3.35354H19.3585V1.18293ZM15.6828 12.5679C15.6828 17.9479 10.0838 17.771 10.0838 17.771H4.9526H4.80193H0.911133V0.144531H4.80193H4.9526H10.0834C12.871 0.144531 15.0714 1.68344 15.0714 4.83758C15.0714 7.99212 12.3816 8.19209 12.3816 8.19209C15.9273 8.19209 15.6828 12.5679 15.6828 12.5679ZM23.2541 15.3479C26.184 15.3479 26.0803 13.4516 26.0803 13.4516H29.1823C29.1823 18.4842 23.1507 18.1395 23.1507 18.1395C15.9126 18.1395 16.3781 11.4011 16.3781 11.4011C16.3781 11.4011 16.3726 4.62927 23.15 4.62927C30.2847 4.62927 29.2857 12.2801 29.2857 12.2801H20.152C20.152 15.5555 23.2541 15.3479 23.2541 15.3479Z"
+                      fill="#666666" />
+                    <path
+                      d="M11.3305 5.11092C11.3305 3.27783 10.0834 3.27783 10.0834 3.27783H9.42306H4.95264V7.21117H9.76535C10.597 7.21077 11.3305 6.94481 11.3305 5.11092Z"
+                      fill="white" />
+                    <path
+                      d="M10.0838 9.92823H4.95264V14.6392H9.84685C10.5831 14.6181 11.9419 14.3875 11.9419 12.3493C11.9419 9.90358 10.0838 9.92823 10.0838 9.92823Z"
+                      fill="white" />
+                    <path
+                      d="M23.2196 7.21143C20.4968 7.21143 20.1172 9.92866 20.1172 9.92866H25.9075C25.9079 9.92866 25.9425 7.21143 23.2196 7.21143Z"
+                      fill="white" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M17.4943 20.1445H2.62875C1.2163 20.1445 0.0615234 19.0991 0.0615234 17.5779V2.71148C0.0615234 1.18964 1.2163 0.144531 2.62875 0.144531H17.4943C18.9065 0.144531 20.0615 1.18964 20.0615 2.71148V17.5779C20.0615 19.0991 18.9062 20.1445 17.4943 20.1445Z"
+                      fill="#666666" />
+                    <path
+                      d="M10.0803 13.9929C12.2984 13.9929 14.0966 12.2504 14.0966 10.1009C14.0966 7.95146 12.2984 6.20898 10.0803 6.20898C7.86214 6.20898 6.06396 7.95146 6.06396 10.1009C6.06396 12.2504 7.86214 13.9929 10.0803 13.9929Z"
+                      fill="white" />
+                    <path
+                      d="M16.2971 10.318C16.2971 13.6446 13.5139 16.3409 10.0806 16.3409C6.64737 16.3409 3.86412 13.6446 3.86412 10.318C3.86412 9.72185 3.95408 9.14598 4.12068 8.60205H2.28369V17.0504C2.28369 17.4879 2.64131 17.8453 3.07863 17.8453H17.0057C17.4433 17.8453 17.8012 17.4879 17.8012 17.0504V8.60205H16.0405C16.2069 9.14598 16.2971 9.72185 16.2971 10.318Z"
+                      fill="white" />
+                    <path
+                      d="M14.6312 6.32249H16.8916C17.3869 6.32249 17.7917 5.91767 17.7917 5.42233V3.26714C17.7917 2.77152 17.3869 2.3667 16.8916 2.3667H14.6312C14.1355 2.3667 13.7307 2.77152 13.7307 3.26714V5.42233C13.7304 5.91739 14.1355 6.32249 14.6312 6.32249Z"
+                      fill="white" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11.1751 3.46459L9.29238 3.46542C7.81602 3.46542 7.53055 4.16698 7.53055 5.19633V7.46615H11.0511L11.0495 11.0213H7.53083V20.1445H3.85874V11.0213H0.789062V7.46615H3.85874V4.8443C3.85874 1.80164 5.71777 0.144531 8.4318 0.144531L11.1753 0.148709L11.1751 3.46459Z"
+                      fill="#666666" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.38665 20.1445H1.23452V6.78521H5.38665V20.1445ZM3.31149 4.95906C1.98064 4.95906 0.90332 3.88023 0.90332 2.55119C0.903623 1.22336 1.98064 0.144531 3.31149 0.144531C4.63872 0.144531 5.71755 1.22336 5.71755 2.55119C5.71755 3.88054 4.63842 4.95906 3.31149 4.95906ZM20.9378 20.1445H16.789V13.6477C16.789 12.0984 16.7603 10.1057 14.6307 10.1057C12.4712 10.1057 12.1391 11.7931 12.1391 13.5356V20.1442H7.99064V6.78521H11.9729V8.61075H12.0288C12.5834 7.56033 13.9372 6.4531 15.9573 6.4531C20.1617 6.4531 20.9378 9.21997 20.9378 12.817V20.1445Z"
+                      fill="#666666" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M23.298 18.1445V17.7639L21.5294 16.0277C21.374 15.9095 21.2962 15.7135 21.3286 15.5208V2.76825C21.2962 2.57552 21.374 2.37955 21.5294 2.26132L23.3401 0.525133V0.144531H17.074L12.6072 11.2872L7.52493 0.144531H0.951062V0.525133L3.06947 3.07597C3.27678 3.26222 3.38367 3.53755 3.35452 3.81612V13.8381C3.41606 14.1992 3.30269 14.5685 3.04842 14.8325L0.666016 17.7218V18.1024H7.41966V17.7218L5.03726 14.8325C4.78137 14.5685 4.6599 14.2025 4.7101 13.8381V5.17008L10.6378 18.1024H11.3261L16.4164 5.17008V15.4787C16.4164 15.754 16.4164 15.8059 16.2366 15.9856L14.4065 17.7639V18.1445H23.298Z"
+                      fill="#666666" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+
+  {{/inline}}
+
+  {{#*inline "scripts-block"}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+    <script>
+      $(".form").validate({
+        errorPlacement: function (error, element) {
+         if (element.attr("name") == "budgetRange") {
+            $(".errorRadio").html(error);
+          } else {
+            // the default error placement for the rest
+            error.insertAfter(element);
+          }
+        },
+        rules: {
+          name: {
+            required: true,
+          },
+          email: {
+            required: true,
+            email: true,
+          },
+          phoneNumber: {
+            required: true,
+            number: true,
+          },
+        },
+        submitHandler: function (form) {
+          $.ajax({
+            type: "POST",
+            url: "./tryme.php",
+            data: $(form).serialize(),
+            success: function (data) {
+              $(form).append("<div id='message'></div>");
+              $("#message").html(data);
+              $("#form")[0].reset();
+            },
+          });
+          return false; // required to block normal submit since you used ajax
+        },
+      });
+    </script>
   {{/inline}}
 
   {{/layouts/base}}

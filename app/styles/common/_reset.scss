@@ -423,7 +423,9 @@ html {
 	--white : #ffffff;
 	--white-light : #f5f5f5;
 	--gray : #999999;
-	--gray-light : #c4c4c4;
+	--cultured : #eeeeee;
+	--gray-light : #cccccc;
+	--sliver-sand : #c4c4c4;
 	--gray-dark : #666666;
 	--red : #ff2300;
 	--redme : #ed1b2f;
@@ -437,12 +439,23 @@ html {
 	--desktop : 1200px;
 }
 
+/*  */
+
 $mobileM : 375px;
 $mobileL : 425px;
 $mobile : 576px;
 $tablet : 768px;
 $ptablet : 992px;
 $desktop : 1200px;
+
+/*  */
+
+$gutter : 30px;
+$spacing-8 : 8px;
+$spacing-16 : 16px;
+$spacing-24 : 24px;
+$spacing-32 : 32px;
+$spacing-64 : 64px;
 
 ::selection {
 	background : var(--redme);
@@ -458,52 +471,6 @@ $desktop : 1200px;
 p {
 	font-family : inherit;
 	font-weight : 500;
-}
-
-/*  */
-
-$gutter : 30px;
-$spacing-8 : 8px;
-$spacing-16 : 16px;
-$spacing-24 : 24px;
-$spacing-32 : 32px;
-$spacing-64 : 64px;
-
-
-%heading\:1 {
-	@extend .heading;
-	@include interpolate("font-size", 520px, 24px, 992px, 56px, "ease-in");
-	@include interpolate("line-height", 520px, 36px, 992px, 68px, "ease-in");
-}
-
-%heading\:2 {
-	@extend .heading;
-	@include interpolate("font-size", 520px, 24px, 992px, 48px, "ease-in");
-	@include interpolate("line-height", 520px, 36px, 992px, 72px, "ease-in");
-}
-
-%heading\:3 {
-	@extend .heading;
-	@include interpolate("font-size", 520px, 24px, 992px, 40px, "ease-in");
-	@include interpolate("line-height", 520px, 36px, 992px, 49px, "ease-in");
-}
-
-%heading\:4 {
-	@extend .heading;
-	@include interpolate("font-size", 520px, 24px, 992px, 32px, "ease-in");
-	@include interpolate("line-height", 520px, 36px, 992px, 48px, "ease-in");
-}
-
-%heading\:5 {
-	@extend .heading;
-	@include interpolate("font-size", 520px, 24px, 992px, 24px, "ease-in");
-	@include interpolate("line-height", 520px, 36px, 992px, 72px, "ease-in");
-}
-
-%heading\:6 {
-	@extend .heading;
-	@include interpolate("font-size", 520px, 18px, 992px, 20px, "ease-in");
-	@include interpolate("line-height", 520px, 30px, 992px, 28px, "ease-in");
 }
 
 %link {

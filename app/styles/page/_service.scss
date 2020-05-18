@@ -84,14 +84,19 @@
 .showcase {
 	display : flex;
 	justify-content : space-between;
-	> * {
-		outline : 1px solid yellow;
+	flex-direction : column;
+	@media(min-width: $tablet) {
+		flex-direction : row;
 	}
+	/* 	> * {
+		outline : 1px solid yellow;
+	} */
 
 	.text-side ,
 	.text-inner {
 		max-width : 460px;
 	}
+
 	.text-inner {
 		height : 100vh;
 	}
@@ -102,24 +107,46 @@
 			font-weight : 700;
 			font-size : 32px;
 			line-height : 48px;
-			color : #231f20;
+			color : var(--text-black);
 			margin-bottom : 25px;
 		}
+
 		p {
 			font-style : normal;
 			font-weight : 500;
 			font-size : 16px;
 			line-height : 28px;
-			color : #231f20;
+			color : var(--text-black);
 			margin-bottom : 22px;
 		}
+
 		ul {
 			li {
 				font-style : normal;
 				font-weight : 700;
 				font-size : 16px;
 				line-height : 36px;
-				color : #ff2300;
+				color : var(--red);
+
+				&:before {
+					content : "";
+					display : inline-block;
+					margin-right : 14px;
+					width : 14px;
+					height : 14px;
+					background : url("data:image/png;base64,iVBORw0KGg
+oAAAANSUhEUgAAABEAAAARCAYAAAA7bU f6AAAACXBIWXMAAAsTAAALEwEAmpwYAA AAAXNSR0IArs4c6QAAAARnQU1BAACxjw v8YQUAAAChSURBVHgB7dPNCQJBDAXgN7 sWMKN3Da6FaAd2oHZgB5ZgC1uKN71agD AVaBqQcf3B2yTZhb3tg8DAhI9ASAkhiy ntg/fncfDxwXzN9RUS8v9NqCuiTa6thJ A782USvGuey6bWuYlE5AedNEhFLJAJ0S AzIkHuvcbkcETHuCdWhbJkHRmB0TZzok M1o/Qpoi3aZgC+V2wBLFfMcNjdYqzRZ1 4ApVmdTnBqLAAAAABJRU5ErkJggg==") no-repeat center;
+					background-size : cover;
+				}
+			}
+
+			display : inline-block;
+			vertical-align : top;
+
+			@media(min-width: $tablet) {
+				+ ul {
+					margin-left : 30px;
+				}
 			}
 		}
 	}
@@ -128,5 +155,25 @@
 		height : 100vh;
 		// opacity : 0;
 		// visibility : hidden;
+		display : none;
+		@media(min-width: $tablet) {
+			display : block;
+		}
+	}
+}
+
+.section--indicator {
+	display : none;
+	li {
+		height : 24px;
+		width : 3px;
+		background-color : var(--gray-light);
+		margin-bottom : 10px;
+		&.active {
+			background-color : var(--red);
+		}
+		&:last-child {
+			margin-bottom : 0;
+		}
 	}
 }

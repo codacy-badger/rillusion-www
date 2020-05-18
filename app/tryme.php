@@ -1,15 +1,14 @@
 <?php
 // the message
-$service = ($_POST['service']);
 $name = ($_POST['name']);
 $email = ($_POST['email']);
 $mobile = ($_POST['phoneNumber']);
-$projectDetails = ($_POST['projectDetails']);
-$hearAboutus = ($_POST['hearAboutus']);
+$projectDescription = ($_POST['projectDescription']);
+$budgetRange = ($_POST['budgetRange']);
 
-$to = "business@rillusion.com";
+$to = "kavin@rillusion.com";
 
-$subject = "[rillusion.com form] Enquire by ". $name." for $service[0]";
+$subject = "[rillusion.com form] Enquire by ". $name." for the price of $budgetRange";
 
 $msg = "<html><body style='font-family:Lato,sans-serif;'>";
 $msg .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Enquire for rillusion.com</h2>\r\n";
@@ -19,7 +18,7 @@ $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-bottom:none;
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Phone Number</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $mobile . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Service</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $service[0] . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Project Detail</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $projectDetails . "</td></tr>";
-$msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>How did you hear about us</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $hearAboutus . "</td></tr>";
+$msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>How did you hear about us</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $budgetRange . "</td></tr>";
 $msg .= "</table>";
 $msg .= "</body></html>";
 

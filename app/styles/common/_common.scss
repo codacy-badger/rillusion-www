@@ -9,7 +9,7 @@ body {
 	position : relative;
 	overflow-x : hidden;
 	text-rendering : geometricPrecision;
-	@include interpolate("padding-top", 520px, 150px, 992px, 186px, "ease-in");
+	@include interpolate("padding-top", 520px, 132px, 992px, 186px, "ease-in");
 	padding-bottom : 76px;
 	@media(min-width: 620px) {
 		padding-bottom : 0;
@@ -158,6 +158,28 @@ main {
 	}
 }
 
+
+
+.page--second-header {
+	> .section--header .section {
+		&--header {
+			&__title {
+				display : block;
+				margin-bottom : 276px;
+				span {
+					color : var(--text-black);
+					display : block;
+					font-family : var(--font);
+					font-style : normal;
+					font-weight : 700;
+					@include interpolate("font-size", 576px, 20px, 992px, 32px, "ease-in");
+					@include interpolate("line-height", 576px, 32px, 992px, 48px, "ease-in");
+				}
+			}
+		}
+	}
+}
+
 a {
 	color : inherit;
 }
@@ -180,7 +202,7 @@ small {
 	font-weight : 400;
 	display : block;
 	margin-top : 0.25rem;
-	color : #6c757d !important;
+	color : #6c757d;
 }
 
 img {
