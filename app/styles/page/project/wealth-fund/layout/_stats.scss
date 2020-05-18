@@ -1,15 +1,15 @@
-.stats{
-    text-align: center;
-    background-color: rgba(0, 204, 150, 0.1);
-    background-image: url("../images/wealthfund-stats-bg.png");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    @include interpolate("padding-top", 600px, 46px, 1200px, 100px);
-    @include interpolate("padding-bottom", 600px, 46px, 1200px, 100px);
+.stats {
+	text-align : center;
+	background-color : rgba(0, 204, 150, 0.1);
+	background-image : url("../images/project/wealthfund-stats-bg.png");
+	background-position : bottom;
+	background-repeat : no-repeat;
+	background-size : contain;
+	@include interpolate("padding-top", 600px, 46px, 1200px, 100px);
+	@include interpolate("padding-bottom", 600px, 46px, 1200px, 100px);
 }
 
-.stats_banner{
-    max-width: 967px;
-    box-shadow: 10px 30px 60px rgba(9, 158, 96, 0.2);
+.stats_banner {
+	max-width : 967px;
+	box-shadow : 10px 30px 60px rgba(9, 158, 96, 0.2);
 }

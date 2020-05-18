@@ -1,13 +1,13 @@
 .container {
-  padding-left: 24px;
-  padding-right: 24px;
+	padding-left : 24px;
+	padding-right : 24px;
 
-  @include desktop {
-    max-width: 1170px;
-    margin: auto;
-    padding-left: 0rem;
-    padding-right: 0rem;
-  }
+	@include desktop {
+		max-width : 1170px;
+		margin : auto;
+		padding-left : 0rem;
+		padding-right : 0rem;
+	}
 }
 
 
@@ -16,45 +16,45 @@
 
 
 .page-tag {
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.08em;
-  padding: 7px 9px;
-  display: inline-block;
-  position: relative;
-  border: 0.75px solid $black;
-  background-color: $white;
-  margin-left: 6px;
-  @include interpolate("margin-bottom", 576px, 30px, 1200px, 62px);
+	font-size : 12px;
+	line-height : 14px;
+	letter-spacing : 0.08em;
+	padding : 7px 9px;
+	display : inline-block;
+	position : relative;
+	border : 0.75px solid $black;
+	background-color : $white;
+	margin-left : 6px;
+	@include interpolate("margin-bottom", 576px, 30px, 1200px, 62px);
 
-  &:after {
-    content: "";
-    @extend %pos-abs;
-    border: 0.75px solid $black;
-    width: 100%;
-    height: 100%;
-    left: -6px;
-    bottom: -6px;
-    z-index: -1;
-    background-color: $white;
-  }
+	&:after {
+		content : "";
+		@extend %pos-abs;
+		border : 0.75px solid $black;
+		width : 100%;
+		height : 100%;
+		left : -6px;
+		bottom : -6px;
+		z-index : -1;
+		background-color : $white;
+	}
 }
 
 .content-head {
-  @extend %font-primary;
-  margin-bottom: 18px;
-  @include interpolate("font-size", 576px, 24px, 1200px, 48px);
-  @include interpolate("line-height", 576px, 34px, 1200px, 58px);
+	@extend %font-primary;
+	margin-bottom : 18px;
+	@include interpolate("font-size", 576px, 24px, 1200px, 48px);
+	@include interpolate("line-height", 576px, 34px, 1200px, 58px);
 }
 
 .content-txt {
-  color: $base-color;
-  font-size: 16px;
-  line-height: 25px;
-  @include media-min(650px) {
-    font-size: 17px;
-    line-height: 30px;
-  }
+	color : $base-color;
+	font-size : 16px;
+	line-height : 25px;
+	@include media-min(650px) {
+		font-size : 17px;
+		line-height : 30px;
+	}
 }
 
 
@@ -62,72 +62,72 @@
 //picture tag
 
 picture {
-  max-width: 100%;
-  display: inline-block;
-  width: 100%;
+	max-width : 100%;
+	display : inline-block;
+	width : 100%;
 }
 
 
 //custom-content-display
 
 .custom-content-display {
-  @include flex($jcontent: center, $aitems: center);
-  flex-direction: column;
+	@include flex($jcontent : center, $aitems : center);
+	flex-direction : column;
 
-  @include mobile {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+	@include mobile {
+		flex-direction : row;
+		justify-content : space-between;
+	}
 }
 
 //custom-flex-order
 
 .flex-order-0 {
-  @include media-max(575px) {
-    order: 0;
-  }
+	@include media-max(575px) {
+		order : 0;
+	}
 }
 
 .flex-order-1 {
-  @include media-max(575px) {
-    order: 1;
-  }
+	@include media-max(575px) {
+		order : 1;
+	}
 }
 
 //borders
 
 .border {
-  border: 1px solid $black;
-  position: relative;
-  background-color: $white;
+	border : 1px solid $black;
+	position : relative;
+	background-color : $white;
 
-  &:after {
-    content: "";
-    @extend %pos-abs;
-    border: 1px solid $black;
-    width: 100%;
-    height: 100%;
-    @include interpolate("top", 767px, -10px, 1200px, -20px);
-    z-index: -1;
-  }
+	&:after {
+		content : "";
+		@extend %pos-abs;
+		border : 1px solid $black;
+		width : 100%;
+		height : 100%;
+		@include interpolate("top", 767px, -10px, 1200px, -20px);
+		z-index : -1;
+	}
 }
 
 .border-l {
-  &::after {
-    @include interpolate("left", 767px, -10px, 1200px, -20px);
-  }
+	&::after {
+		@include interpolate("left", 767px, -10px, 1200px, -20px);
+	}
 }
 
 .border-r {
-  &::after {
-    @include interpolate("right", 767px, -10px, 1200px, -20px);
-  }
+	&::after {
+		@include interpolate("right", 767px, -10px, 1200px, -20px);
+	}
 }
 
 //preloader
 
-.img-preloader{
-  background-image: url("../images/preloader.gif");
-  background-repeat: no-repeat;
-  background-position: center;
+.img-preloader {
+	background-image : url("../images/project/preloader.gif");
+	background-repeat : no-repeat;
+	background-position : center;
 }
