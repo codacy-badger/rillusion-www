@@ -7,6 +7,7 @@
 
 .motives_list {
     padding-left: 18px;
+    counter-reset: count;
     @include mobile{
         padding-left: 0;
         float: right;

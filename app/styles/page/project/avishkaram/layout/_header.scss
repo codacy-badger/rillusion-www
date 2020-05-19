@@ -2,7 +2,7 @@
     position: relative;
     .container {
         @include interpolate("padding-top", 699px, 66px, 1200px, 253px);
-        background: -webkit-linear-gradient(top, #0066B3 56.92%, #fff 31%);
+        background: -webkit-linear-gradient(top, #0066B3 58.6%, #fff 31%);
         text-align: center;
         
         @include media-min(700px) {
