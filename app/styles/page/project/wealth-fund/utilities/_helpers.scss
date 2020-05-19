@@ -58,6 +58,7 @@
 .content-txt {
   color: $base-color;
   @include interpolate("line-height", 600px, 28px, 1200px, 36px);
+  font-weight: normal;
 }
 
 

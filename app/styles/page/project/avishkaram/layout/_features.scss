@@ -191,7 +191,7 @@
         @include interpolate("margin-top", 600px, 56px, 1200px, 110px);
 
         @include media-min(900px){
-            background-image: url("../images/avishkaram-culture.svg"), url("../images/avishkaram-journey.svg");
+            background-image: url("../images/project/avishkaram/avishkaram-culture.svg"), url("../images/project/avishkaram/avishkaram-journey.svg");
             background-repeat: no-repeat;
             background-position: top 140px left 0px, bottom 190px right 0px;
             @include interpolate("background-size", 900px, 200px, 1200px, 310px );

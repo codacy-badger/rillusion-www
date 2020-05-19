@@ -134,12 +134,13 @@
   padding: 0 20px;
   z-index: 15;
   text-align: left;
-  height: 91px;
+  height: 93px;
   font-size: 7px;
-  line-height: 1;
+  line-height: 0.5;
   @include media(450px){
     @include interpolate("height", 767px, 150px, 1620px, 227px);
     font-size: 12px;
+    line-height: 1;
   }
 
   span{
@@ -182,6 +183,7 @@
 .code-card-header {
   @include flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 0;
   color: white;
   font-weight: bold;
@@ -199,7 +201,7 @@
   }
 
   .txt {
-    @include interpolate("font-size", 610px, 17px, 1200px, 25px);
+    @include interpolate("font-size", 450px, 14px, 1200px, 25px);
     margin-right: auto;
     margin-left: 10px;
   }
