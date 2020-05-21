@@ -1,213 +1,212 @@
 .services {
-  background-image: url("../images/wealthfund-service-bg.png");
-  background-position: 0px 46.5%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  @extend %common-padding;
-  overflow: hidden;
-  @include media-max(767px){
-    text-align: center;
-  }
-  .page-head {
-    @include media-max(767px) {
-      text-align: center;
-    }
-    @include interpolate("margin-bottom", 600px, 72px, 1200px, 109px);
-  }
+	background-image : url("../images/project/wealthfund-service-bg.png");
+	background-position : 0 46.5%;
+	background-size : contain;
+	background-repeat : no-repeat;
+	@extend %common-padding;
+	overflow : hidden;
+	@include media-max(767px) {
+		text-align : center;
+	}
+	.page-head {
+		@include media-max(767px) {
+			text-align : center;
+		}
+		@include interpolate("margin-bottom", 600px, 72px, 1200px, 109px);
+	}
 
-  .content-txt {
-    @include media-max(767px) {
-      margin-bottom: 60px;
-    }
-  }
+	.content-txt {
+		@include media-max(767px) {
+			margin-bottom : 60px;
+		}
+	}
 }
 
 .services_list {
-  // overflow: hidden;
+	// overflow: hidden;
 
-  .custom-content-display {
-    @include media-max(767px) {
-      flex-direction: column;
-    }
-  }
+	.custom-content-display {
+		@include media-max(767px) {
+			flex-direction : column;
+		}
+	}
 }
 
 .services_list_item {
-  .content-txt {
-      @include interpolate("max-width", 600px, 320px, 1200px, 520px);
-  }
+	.content-txt {
+		@include interpolate("max-width", 600px, 320px, 1200px, 520px);
+	}
 
-  .flex-order-0 {
-    @include media-max(767px) {
-      order: 0;
-    }
-  }
+	.flex-order-0 {
+		@include media-max(767px) {
+			order : 0;
+		}
+	}
 
-  .flex-order-1 {
-    @include media-max(767px) {
-      order: 1;
-    }
-  }
+	.flex-order-1 {
+		@include media-max(767px) {
+			order : 1;
+		}
+	}
 }
 
 .services_list_item-custom-1 {
-  .content-txt{
-    span{
-      @include media(1920px){
-        display: block;
-      }
-    }
-  }
-  .services_banner {
-    max-width: 100%;
+	.content-txt {
+		span {
+			@include media(1920px) {
+				display : block;
+			}
+		}
+	}
+	.services_banner {
+		max-width : 100%;
 
-    @include media(768px) {
-      max-width: 48%;
-      position: relative;
-      @include interpolate("left", 1200px, -20px, 1920px, -149px);
-    }
-  }
+		@include media(768px) {
+			max-width : 48%;
+			position : relative;
+			@include interpolate("left", 1200px, -20px, 1920px, -149px);
+		}
+	}
 }
 
 .services_list_item-custom-2 {
-
-  .content-txt{
-    @include interpolate("width", 360px, 320px, 1200px, 457px);
-  }
-  .services_banner {
-    width: 100%;
-    @include media-max(575px){
-      margin-left: -50%;
-      margin-right: -50%;
-      width: 638px;
-    }
-   @include tablet{
-     position: relative;
-    @include interpolate("width", 768px, 420px, 1920px, 1067px);
-    @include interpolate("right", 768px, -49px, 1199px, -190px);
-   }
-   @include desktop{
-    @include interpolate("right", 1200px, -200px, 1920px, -429px);
-   }
-   picture{
-     width: inherit;
-   }
-  }
+	.content-txt {
+		@include interpolate("width", 360px, 320px, 1200px, 457px);
+	}
+	.services_banner {
+		width : 100%;
+		@include media-max(575px) {
+			margin-left : -50%;
+			margin-right : -50%;
+			width : 638px;
+		}
+		@include tablet {
+			position : relative;
+			@include interpolate("width", 768px, 420px, 1920px, 1067px);
+			@include interpolate("right", 768px, -49px, 1199px, -190px);
+		}
+		@include desktop {
+			@include interpolate("right", 1200px, -200px, 1920px, -429px);
+		}
+		picture {
+			width : inherit;
+		}
+	}
 }
 
-.services_list_item-custom-3{
-  .content-txt{
-    max-width: 320px;
-   @include tablet{
-    @include interpolate("max-width", 768px, 300px, 1200px, 520px);
-   }
-  }
+.services_list_item-custom-3 {
+	.content-txt {
+		max-width : 320px;
+		@include tablet {
+			@include interpolate("max-width", 768px, 300px, 1200px, 520px);
+		}
+	}
 }
 
-.services_list_item+.services_list_item {
-  @include interpolate("margin-top", 768px, 130px, 1200px, 220px);
+.services_list_item + .services_list_item {
+	@include interpolate("margin-top", 768px, 130px, 1200px, 220px);
 }
 
 .services_list_item:last-child {
-  @include interpolate("margin-top", 768px, 130px, 1200px, 499px);
-  @include interpolate("margin-bottom", 600px, 172px, 1200px, 385px);
+	@include interpolate("margin-top", 768px, 130px, 1200px, 499px);
+	@include interpolate("margin-bottom", 600px, 172px, 1200px, 385px);
 }
 
 //code-cards
 
 .code-card-wrapper {
-  position: relative;
- width: 70%;
- margin-top: 70px;
+	position : relative;
+	width : 70%;
+	margin-top : 70px;
 
-  @include tablet{
-    @include interpolate("width", 768px, 250px, 1920px, 482px);
-    margin-left: 6%;
-    margin-top: 0;
-  }
+	@include tablet {
+		@include interpolate("width", 768px, 250px, 1920px, 482px);
+		margin-left : 6%;
+		margin-top : 0;
+	}
 }
 
 .code-card {
-  background: #1d1e22;
-  border-radius: 10px;
-  box-shadow: 10px 20px 30px rgba(82, 41, 186, 0.2);
-  padding: 0 20px;
-  z-index: 15;
-  text-align: left;
-  height: 93px;
-  font-size: 7px;
-  line-height: 0.5;
-  @include media(450px){
-    @include interpolate("height", 767px, 150px, 1620px, 227px);
-    font-size: 12px;
-    line-height: 1;
-  }
+	background : #1d1e22;
+	border-radius : 10px;
+	box-shadow : 10px 20px 30px rgba(82, 41, 186, 0.2);
+	padding : 0 20px;
+	z-index : 15;
+	text-align : left;
+	height : 93px;
+	font-size : 7px;
+	line-height : 0.5;
+	@include media(450px) {
+		@include interpolate("height", 767px, 150px, 1620px, 227px);
+		font-size : 12px;
+		line-height : 1;
+	}
 
-  span{
-    line-height: 1;
-    font-size: 7px;
-    @include media(450px){
-      font-size: 12px;
-    }
-  }
+	span {
+		line-height : 1;
+		font-size : 7px;
+		@include media(450px) {
+			font-size : 12px;
+		}
+	}
 }
 
-.code-card-1{
-  position: absolute;
-  width: 100%;
-  top: -57px;
-  left: -48px;
-  @include media(450px){
-    @include interpolate("top", 767px, -90px, 1200px, -153px);
-    @include interpolate("left", 767px, -39px, 1200px, -97px);
-  }
+.code-card-1 {
+	position : absolute;
+	width : 100%;
+	top : -57px;
+	left : -48px;
+	@include media(450px) {
+		@include interpolate("top", 767px, -90px, 1200px, -153px);
+		@include interpolate("left", 767px, -39px, 1200px, -97px);
+	}
 }
 
 .code-card-2 {
-  opacity: 0.98;
+	opacity : 0.98;
 }
 
 .code-card-3 {
-  z-index: -1;
-  position: absolute;
-  width: 100%;
-  top: 72px;
-  left: 48px;
-  @include media(450px){
-    @include interpolate("left", 767px, 87px, 1200px, 216px);
-    @include interpolate("top", 767px, 120px, 1200px, 172px);
-  }
-  opacity: 0.97;
+	z-index : -1;
+	position : absolute;
+	width : 100%;
+	top : 72px;
+	left : 48px;
+	@include media(450px) {
+		@include interpolate("left", 767px, 87px, 1200px, 216px);
+		@include interpolate("top", 767px, 120px, 1200px, 172px);
+	}
+	opacity : 0.97;
 }
 
 .code-card-header {
-  @include flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  color: white;
-  font-weight: bold;
-  font-family: 'Work Sans', sans-serif;
+	@include flex;
+	justify-content : space-between;
+	align-items : center;
+	padding : 10px 0;
+	color : white;
+	font-weight : bold;
+	font-family : "Work Sans", sans-serif;
 
-  svg {
-    @include interpolate("width", 610px, 17px, 1200px, 25px);
-    @include interpolate("height", 610px, 15px, 1200px, 25px);
-    vertical-align: text-top;
-  }
+	svg {
+		@include interpolate("width", 610px, 17px, 1200px, 25px);
+		@include interpolate("height", 610px, 15px, 1200px, 25px);
+		vertical-align : text-top;
+	}
 
-  .down_arrow {
-    @include interpolate("width", 610px, 15px, 1200px, 18px);
-    @include interpolate("height", 610px, 12px, 1200px, 18px);
-  }
+	.down_arrow {
+		@include interpolate("width", 610px, 15px, 1200px, 18px);
+		@include interpolate("height", 610px, 12px, 1200px, 18px);
+	}
 
-  .txt {
-    @include interpolate("font-size", 450px, 14px, 1200px, 25px);
-    margin-right: auto;
-    margin-left: 10px;
-  }
+	.txt {
+		@include interpolate("font-size", 450px, 14px, 1200px, 25px);
+		margin-right : auto;
+		margin-left : 10px;
+	}
 }
 
 
 .services_banner_full {
-  @extend %txt-center;
+	@extend %txt-center;
 }

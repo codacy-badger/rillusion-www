@@ -10,6 +10,8 @@ const cssnano = require('cssnano');
 const { argv } = require('yargs');
 const handlebars = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
+const critical = require('critical').stream;
+const workboxBuild = require('workbox-build');
 
 const $ = gulpLoadPlugins();
 const server = browserSync.create();
@@ -21,7 +23,7 @@ const isTest = process.env.NODE_ENV === 'test';
 const isDev = !isProd && !isTest;
 
 function styles() {
-  return src('app/styles/**/*.scss')
+  return src('app/styles/style.scss')
     .pipe($.plumber())
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.sass.sync({
@@ -33,7 +35,8 @@ function styles() {
       autoprefixer()
     ]))
     .pipe($.if(!isProd, $.sourcemaps.write()))
-    .pipe(dest('.tmp/styles'))
+    // .pipe(dest('.tmp/styles'))
+    .pipe($.if(!isProd, dest('.tmp/styles'), dest('dist/styles')))
     .pipe(server.reload({stream: true}));
 }
 
@@ -43,7 +46,8 @@ function scripts() {
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
-    .pipe(dest('.tmp/scripts'))
+    // .pipe(dest('.tmp/scripts'))
+    .pipe($.if(!isProd, dest('.tmp/scripts'), dest('dist/scripts')))
     .pipe(server.reload({stream: true}));
 }
 
@@ -61,7 +65,7 @@ function lint() {
 }
 
 function html() {
-  return src('app/**/*.hbs')
+  return src('app/*.hbs')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe(handlebars({}, {
       ignorePartials: false,
@@ -94,7 +98,7 @@ function images() {
 function imagesWebp() {
   return src('app/images/**/*.{jpg,png}', { since: lastRun(images) })
     .pipe($.webp())
-  .pipe(dest("app/images"));
+  .pipe(dest('app/images'));
 }
 
 function fonts() {
@@ -108,8 +112,8 @@ function criticalCss() {
     {
       inline: true,
       minify: true,
-      ignore: ["font-face"],
-      base: "dist/",
+      ignore: ['font-face'],
+      base: 'dist/',
       dimensions: [
         {
           height: 200,
@@ -125,7 +129,7 @@ function criticalCss() {
       if (err) {
         console.error(err);
       } else if (output) {
-        console.log("Generated critical CSS");
+        console.log('Generated critical CSS');
       }
     }
   )
@@ -158,7 +162,7 @@ function extras() {
 }
 
 function clean() {
-  return del(['.tmp', 'dist']);
+  return del(['.tmp', 'dist', 'dist.zip']);
 }
 
 function measureSize() {
@@ -175,7 +179,10 @@ const build = series(
     fonts,
     extras
   ),
-  measureSize
+  criticalCss,
+  serviceWorker,
+  measureSize,
+  compressZip
 );
 
 function startAppServer() {
@@ -226,7 +233,7 @@ if (isDev) {
   serve = series(build, startDistServer);
 }
 
-exports.image = imagesWebp;
+
 exports.serve = serve;
 exports.build = build;
 exports.default = build;

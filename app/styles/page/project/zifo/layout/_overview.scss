@@ -1,28 +1,28 @@
 .overview_wrapper {
-    @include interpolate("padding-top", 600px, 60px, 1200px, 120px);
-  @include interpolate("padding-bottom", 600px, 60px, 1200px, 159px);
-    @include mobile {
-        @include size($mwidth: 475px);
-    }
-    .content-head{
-        @include interpolate("margin-bottom", 600px, 16px, 991px, 32px)
-    }
+	@include interpolate("padding-top", 600px, 60px, 1200px, 120px);
+	@include interpolate("padding-bottom", 600px, 60px, 1200px, 159px);
+	@include mobile {
+		@include size($mwidth : 475px);
+	}
+	.content-head {
+		@include interpolate("margin-bottom", 600px, 16px, 991px, 32px);
+	}
 }
 
-.overview_list{
-    margin-top: 40px;
-    color: $secondary-color;
-    &-item{
-        margin-bottom: 10px;
-    }
+.overview_list {
+	margin-top : 40px;
+	color : $secondary-color;
+	&-item {
+		margin-bottom : 10px;
+	}
 }
 
-.overview_list-item{
-    font-weight: 600;
+.overview_list-item {
+	font-weight : 600;
 }
 
-.overview_banner{
-    background-image: url(../images/zifo-overview-banner.png);
-    @include interpolate("height", 600px, 200px, 1200px, 800px);
-    @extend %bg-pos;
+.overview_banner {
+	background-image : url("../images/zifo-overview-banner.png");
+	@include interpolate("height", 600px, 200px, 1200px, 800px);
+	@extend %bg-pos;
 }

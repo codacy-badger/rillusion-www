@@ -19,84 +19,70 @@
         }
     }
 
-    .content-wrapper{
-        @include media-max(575px){
-            text-align: center;
-            width: 100%;
-        }
-    }
+	.content-wrapper {
+		@include media-max(575px) {
+			text-align : center;
+			width : 100%;
+		}
+	}
 
-    .content-txt {
-        color: $white;
-        @include interpolate("max-width", 575px, 280px, 1200px, 400px);
-        margin: 14px 0 0 0;
-        @include mobile{
-            margin: 0 0 0 10px;
-        }
+	.content-txt {
+		color : $white;
+		@include interpolate("max-width", 575px, 280px, 1200px, 400px);
+		margin : 14px 0 0 0;
+		@include mobile {
+			margin : 0 0 0 10px;
+		}
 
-        @include media-min(900px) {
-            margin: 0 0 0 100px;
-        }
-    }
+		@include media-min(900px) {
+			margin : 0 0 0 100px;
+		}
+	}
 }
 
 .goals_full-banner {
-    @extend %txt-center;
+	@extend %txt-center;
 }
 
 
 
-.goals_content-head,
+.goals_content-head ,
 .goals_content-outline-head {
-    font-weight: 500;
-    color: $white;
-    @extend %font-montsrt;
-    @include interpolate("font-size", 360px, 24px, 1200px, 48px);
-    @include interpolate("line-height", 360px, 36px, 1200px, 56px);
+	font-weight : 500;
+	color : $white;
+	@extend %font-montsrt;
+	@include interpolate("font-size", 360px, 24px, 1200px, 48px);
+	@include interpolate("line-height", 360px, 36px, 1200px, 56px);
 }
 
 .goals_content-outline-head {
-    font-weight: 600;
-    @include txt-outline($white);
-    -webkit-text-fill-color: transparent;
-    margin-top: 2px;
-        -webkit-text-stroke-width: 0.5px;
-        @include desktop{
-            -webkit-text-stroke-width: 1px; 
-        }
-    @include media-min(650px) {
-        margin-top: 12px;
-    }
+	font-weight : 600;
+	@include txt-outline($white);
+	-webkit-text-fill-color : transparent;
+	margin-top : 2px;
+	-webkit-text-stroke-width : 0.5px;
+	@include desktop {
+		-webkit-text-stroke-width : 1px;
+	}
+	@include media-min(650px) {
+		margin-top : 12px;
+	}
 }
 
 .goals_footer {
-    @extend %txt-center;
-    @include interpolate("margin-top", 600px, 56px, 1200px, 128px);
-    
-    .page-tag {
-        color: rgba(107, 107, 107, 0.8);
-        @extend %txt-center;
-        @include media-max(575px){
-            max-width: 227px;
-        }
-        @extend %m-x-auto;
-        @include interpolate("margin-top", 600px, 10px, 1200px, 30px);
-        @include interpolate("margin-bottom", 600px, 18px, 1200px, 24px);
-    }
+	@extend %txt-center;
+	@include interpolate("margin-top", 600px, 56px, 1200px, 128px);
 
-    &-head {
-        color: $primary-color;
-        @extend %font-montsrt;
-        @include interpolate("font-size", 600px, 20px, 1200px, 32px);
-        @include interpolate("line-height", 600px, 30px, 1200px, 48px);
-        @include interpolate("max-width", 600px, 279px, 1200px, 600px);
-        @extend %m-x-auto;
-    span{
-        font-weight: 600;
-        @include media-min(1013px){
-            display: block;
-        }
-    }
+	.page-tag {
+		color : rgba(107, 107, 107, 0.8);
+		@extend %txt-center;
+		@include media-max(575px) {
+			max-width : 227px;
+		}
+		@extend %m-x-auto;
+		@include interpolate("margin-top", 600px, 10px, 1200px, 30px);
+		@include interpolate("margin-bottom", 600px, 18px, 1200px, 24px);
+	}
 
     }
 }

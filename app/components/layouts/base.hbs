@@ -15,7 +15,7 @@
     </title>
 
     <!-- Manifest code for new layout -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#ff2300" />
     <meta name="application-name" content="Rillusion" />
@@ -26,8 +26,8 @@
     <meta name="msapplication-starturl" content="/" />
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="/images/favicon.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="icon" href="./images/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
 
     <!-- Facebook Opengraph -->
     <meta property="fb:app_id" content="" />
@@ -59,10 +59,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- build:css styles/style.css -->
-    <link href="/styles/vendor/aos.css" rel="stylesheet" />
-    <link href="/styles/style.css" rel="stylesheet" />
-    <!-- endbuild -->
+    {{!--
+      <!-- build:css styles/style.css -->
+      <link href="./styles/vendor/aos.css" rel="stylesheet" />
+      <link href="./styles/style.css" rel="stylesheet" />
+      <!-- endbuild -->
+    --}}
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <link href="./styles/style.css" rel="stylesheet" />
 
     {{#> head-block}}
       {{!-- Custom <head> content per page could be added --}}
@@ -124,7 +129,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"></script>
-<script src="scripts/script.js"></script>
+<script src="./scripts/script.js"></script>
 
     {{#> scripts-block}}
       {{!-- Custom scripts per page can be added --}}

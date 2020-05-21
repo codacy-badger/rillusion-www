@@ -1,123 +1,123 @@
 .features {
-    @extend %common-padding;
+	@extend %common-padding;
 
-    @include media-max(599px) {
-        padding-top: 80px;
-    }
+	@include media-max(599px) {
+		padding-top : 80px;
+	}
 
-    .custom-1 {
-        margin-right: -30%;
-        margin-left: -20%;
-        padding-bottom: 130px;
+	.custom-1 {
+		margin-right : -30%;
+		margin-left : -20%;
+		padding-bottom : 130px;
 
-        @include mobile {
-            margin-right: -18.5%;
-        }
+		@include mobile {
+			margin-right : -18.5%;
+		}
 
-        @include desktop {
-            padding: 120px 0 230px;
-        }
+		@include desktop {
+			padding : 120px 0 230px;
+		}
 
-        @include media-min(1440px) {
-            margin-right: 0;
-            margin-left: 0;
-        }
-    }
+		@include media-min(1440px) {
+			margin-right : 0;
+			margin-left : 0;
+		}
+	}
 
-    .custom-bg-1 {
-        @include desktop {
-            background-image: url("../images/sparsh-features-bg1.png");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-        }
-    }
+	.custom-bg-1 {
+		@include desktop {
+			background-image : url("../images/project/sparsh-features-bg1.png");
+			background-repeat : no-repeat;
+			background-size : 100% 100%;
+		}
+	}
 
-    .custom-bg-2 {
-        @include desktop {
-            background-image: url("../images/sparsh-features-bg2.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-    }
+	.custom-bg-2 {
+		@include desktop {
+			background-image : url("../images/project/sparsh-features-bg2.png");
+			background-repeat : no-repeat;
+			background-size : cover;
+			background-position : center;
+		}
+	}
 }
 
 
 .features_item {
-    overflow: hidden;
-    @extend %txt-center;
+	overflow : hidden;
+	@extend %txt-center;
 
-    .page-head {
-        @include interpolate("margin-bottom", 600px, 40px, 1200px, 50px);
-        span{
-            font-size: inherit;
-            font-weight: 600;
-            @include media-max(599px){
-                display: block;
-            }
-        }
-    }
+	.page-head {
+		@include interpolate("margin-bottom", 600px, 40px, 1200px, 50px);
+		span {
+			font-size : inherit;
+			font-weight : 600;
+			@include media-max(599px) {
+				display : block;
+			}
+		}
+	}
 
-    .content-tag {
-        @include interpolate("margin-bottom", 600px, 100px, 1200px, 150px);
-        @include interpolate("max-width", 600px, 320px, 1200px, 770px);
-        @extend %m-x-auto;
-    }
+	.content-tag {
+		@include interpolate("margin-bottom", 600px, 100px, 1200px, 150px);
+		@include interpolate("max-width", 600px, 320px, 1200px, 770px);
+		@extend %m-x-auto;
+	}
 }
 
 
 .features_item-wrapper {
-    background-color: $serenade;
+	background-color : $serenade;
 
-    .features_item {
-        @include interpolate("padding-top", 600px, 130px, 1200px, 230px);
-    }
+	.features_item {
+		@include interpolate("padding-top", 600px, 130px, 1200px, 230px);
+	}
 
-    .features_item:last-child{
-        @include interpolate("padding-bottom", 600px, 300px, 1200px, 600px)
-    }
+	.features_item:last-child {
+		@include interpolate("padding-bottom", 600px, 300px, 1200px, 600px);
+	}
 
-    .page-head {
-        @include gradient-txt($orange-red);
-        @include interpolate("margin-bottom", 600px, 72px, 1200px, 170px);
-    }
+	.page-head {
+		@include gradient-txt($orange-red);
+		@include interpolate("margin-bottom", 600px, 72px, 1200px, 170px);
+	}
 
-    .custom-2 {
-        margin-left: -25%;
-        margin-right: -24%;
+	.custom-2 {
+		margin-left : -25%;
+		margin-right : -24%;
 
-        @include mobile {
-            margin-left: -11%;
-            margin-right: -13%;
-        }
+		@include mobile {
+			margin-left : -11%;
+			margin-right : -13%;
+		}
 
-        @include media-min(1440px) {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
+		@include media-min(1440px) {
+			margin-left : 0;
+			margin-right : 0;
+		}
+	}
 
-    .custom-3 {
-        margin-left: -5%;
-        margin-right: -5%;
+	.custom-3 {
+		margin-left : -5%;
+		margin-right : -5%;
 
-        @include mobile {
-            margin-left: -2%;
-            margin-right: -2%;
-        }
+		@include mobile {
+			margin-left : -2%;
+			margin-right : -2%;
+		}
 
-        @include media-min(1440px) {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
+		@include media-min(1440px) {
+			margin-left : 0;
+			margin-right : 0;
+		}
+	}
 }
 
-.features_banners_full{
-   @extend %txt-center;
-   @include interpolate ("margin-top", 600px, -170px, 1200px, -370px);
+.features_banners_full {
+	@extend %txt-center;
+	@include interpolate ("margin-top", 600px, -170px, 1200px, -370px);
 }
 
-.features_banners_full_item + .features_banners_full_item{
-    margin-top: 100px;
+.features_banners_full_item + .features_banners_full_item {
+	margin-top : 100px;
 }
