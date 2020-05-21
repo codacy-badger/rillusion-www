@@ -1,23 +1,23 @@
 .goals_item {
-    position: relative;
-    background-image: url("../images/project/avishkaram/avishkaram-goals-full-banner.png");
-    background-repeat: no-repeat;
-    background-size: 300% 100%;
-    padding-bottom: 93%;
-    background-position: center;
+	position : relative;
+	background-image : url("../images/project/avishkaram/avishkaram-goals-full-banner.png");
+	background-repeat : no-repeat;
+	background-size : 300% 100%;
+	padding-bottom : 93%;
+	background-position : center;
 
-    @include interpolate("padding-top", 360px, 35px, 1200px, 123px);
-    @include mobile{
-        padding-bottom: 41%;
-        background-size: cover;
-    }
+	@include interpolate("padding-top", 360px, 35px, 1200px, 123px);
+	@include mobile {
+		padding-bottom : 41%;
+		background-size : cover;
+	}
 
-    .custom-content-display{
-        width: 100%;
-        @include media-min(900px){
-          justify-content: center;
-        }
-    }
+	.custom-content-display {
+		width : 100%;
+		@include media-min(900px) {
+			justify-content : center;
+		}
+	}
 
 	.content-wrapper {
 		@include media-max(575px) {
@@ -83,12 +83,11 @@
 		@include interpolate("margin-top", 600px, 10px, 1200px, 30px);
 		@include interpolate("margin-bottom", 600px, 18px, 1200px, 24px);
 	}
-
-    }
 }
 
-.goals-arrow-icon{
-    width: 70px;
-    margin-right: auto;
-    margin-left: auto;
+
+.goals-arrow-icon {
+	width : 70px;
+	margin-right : auto;
+	margin-left : auto;
 }
