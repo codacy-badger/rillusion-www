@@ -35,7 +35,6 @@ function styles() {
       autoprefixer()
     ]))
     .pipe($.if(!isProd, $.sourcemaps.write()))
-    // .pipe(dest('.tmp/styles'))
     .pipe($.if(!isProd, dest('.tmp/styles'), dest('dist/styles')))
     .pipe(server.reload({stream: true}));
 }
@@ -46,7 +45,6 @@ function scripts() {
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
-    // .pipe(dest('.tmp/scripts'))
     .pipe($.if(!isProd, dest('.tmp/scripts'), dest('dist/scripts')))
     .pipe(server.reload({stream: true}));
 }
@@ -77,7 +75,7 @@ function html() {
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
     .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
     .pipe($.if(/\.html$/, $.htmlmin({
-      collapseWhitespace: true,
+      collapseWhitespace: false,
       minifyCSS: true,
       minifyJS: {compress: {drop_console: true}},
       processConditionalComments: true,
