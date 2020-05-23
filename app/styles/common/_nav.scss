@@ -22,6 +22,9 @@
 
 .header--navigation {
 	z-index : 1500;
+	.menu-open & {
+		z-index : 0;
+	}
 	background : var(--white);
 	// background-color : red;
 	box-shadow : 0 0 10px rgba(0, 0, 0, 0.2);
