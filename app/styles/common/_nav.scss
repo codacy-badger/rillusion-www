@@ -53,8 +53,8 @@
 		transition : all 1s ease-in-out;
 
 		@media(min-width: 768px) {
-			padding-top : 30px;
-			padding-bottom : 30px;
+			padding-top : 20px;
+			// padding-bottom : 30px;
 			justify-content : initial;
 		}
 
@@ -85,13 +85,13 @@
 
 				i {
 					@media(min-width: 768px) {
-						display : none;
+						display : block;
 					}
 				}
 
-				span {
-					display : inline-block;
-				}
+				// span {
+				// 	display : inline-block;
+				// }
 			}
 
 			text-align : center;
@@ -103,7 +103,7 @@
 			@media(min-width: 768px) {
 				font-size : 16px;
 				line-height : 20px;
-				margin-right : 20px;
+				margin-right : 45px;
 			}
 
 			i {
@@ -296,6 +296,12 @@
 				@include interpolate("line-height", 520px, 60px, 992px, 72px, "ease-in");
 				color : var(--text-black);
 			}
+
+			&:not(:first-child){
+				a:hover{
+					color: var(--red);
+				}
+			}
 		}
 
 		&:nth-child(2) {
@@ -306,8 +312,18 @@
 						font-size : 20px;
 						line-height : 72px;
 						color : var(--gray-dark);
+						&:hover{
+							color: var(--red);
+						}
 					}
 				}
+			}
+		}
+
+		.link-disabled{
+			display: inline-block;
+			&, &:hover{
+				color : var(--gray-dark) !important;
 			}
 		}
 	}
@@ -340,6 +356,17 @@
 				margin-right : 0;
 				margin-bottom : 36px;
 			}
+
+			&:hover{
+				a{
+					svg {
+						path:first-child{
+						  fill : var(--red);
+						}
+					 }
+				}
+			}
+			
 		}
 	}
 }

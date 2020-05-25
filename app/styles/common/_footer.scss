@@ -166,6 +166,10 @@
 						line-height : 150%;
 						color : var(--text-black);
 						margin-right : 0;
+
+						&:hover{
+							color: var(--red);
+						}
 					}
 				}
 
@@ -190,6 +194,7 @@
 					a {
 						&:hover {
 							text-decoration : underline;
+							color: var(--red);
 						}
 					}
 				}
@@ -197,6 +202,17 @@
 				&:last-child {
 					margin-right : 0;
 				}
+
+				&:hover{
+					a{
+						svg {
+							path:first-child{
+							  fill : var(--red);
+							}
+						 }
+					}
+				}
+				
 			}
 		}
 	}
