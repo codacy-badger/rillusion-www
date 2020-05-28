@@ -160,4 +160,4 @@ img {
 }
 
 /* let's clear some floats */
-.clearfix:after { content: " "; display: block; clear: both; }
+.clearfix::after { content: " "; display: block; clear: both; }

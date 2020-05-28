@@ -4,6 +4,8 @@ AOS.init(
     once: true,
   }
 );
+
+
 const body = document.body;
 const navHeader = 'header';
 const triggerMenu = document.querySelector('.trigger-menu');
@@ -93,3 +95,5 @@ function contentAnimation() {
     '-=1.5'
   );
 }
+
+

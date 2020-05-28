@@ -494,3 +494,14 @@ p {
 	@include interpolate("font-size", 520px, 24px, 992px, 32px, "ease-in");
 	@include interpolate("line-height", 520px, 36px, 992px, 72px, "ease-in");
 }
+
+//clearing floats
+ .clearfix {
+	overflow: auto;
+  }
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: block;
+  }

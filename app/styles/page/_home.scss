@@ -58,6 +58,7 @@
 
 						span {
 							display : block;
+							overflow: hidden;
 
 							@media(min-width: $tablet) {
 								display : inline;
@@ -80,6 +81,7 @@
 				&__title {
 					span {
 						display : block;
+						overflow: hidden;
 						color : var(--text-black);
 						font-family : var(--font);
 						font-weight : 700;
@@ -138,22 +140,55 @@
 						}
 
 						.swiper {
+							&-container{
+								overflow: visible;
+							}
+							 
+						    &-slide{
+								.section--content{
+									visibility: hidden;
+									pointer-events: none;
+								}
+
+								&-active{
+									.section--content{
+										visibility: visible;
+										pointer-events: visible;
+									}
+
+									//adding animation
+									.section--image{
+										-webkit-animation-name: fade;
+	                                    -webkit-animation-duration: 1.5s;
+	                                    animation-name: fade;
+	                                    animation-duration: 0.7s;
+										transform-origin: center;
+									    animation-fill-mode: forwards;
+									}
+									@keyframes fade {
+										from {opacity: .4; transform: matrix(0.2,0,0,1,55,0)} 
+										to {opacity: 1; transform: matrix(1,0,0,1,0,0)}
+									  }
+								}
+							}
+
 							&-pagination {
 								text-align : left;
 								@media(min-width: $tablet) {
-									top : 0;
-									width : 4px;
-									height : 126px;
+									bottom: -50px;
+									left: 50%;
 									display : flex;
-									flex-direction : column;
+									flex-direction : row;
+									width: 100%;
+									height: 3px;
 								}
 
 								&-custom {
 									text-align : left;
 								}
-								/*
+								
 								&-bullet {
-									html & {
+									html body & {
 										margin : 0;
 										margin-right : 10px;
 										width : 24px;
@@ -165,14 +200,14 @@
 
 										@media(min-width: $tablet) {
 											margin : 0;
-											margin-bottom : 10px;
-											height : 24px;
-											width : 3px;
+											margin-right: 10px;
+											height : 3px;
+											width : 36px;
 										}
 									}
 
 									&-active {
-										background : var(--red);
+										background : var(--red) !important;
 									}
 
 									&:last-child {
@@ -182,7 +217,7 @@
 											margin-bottom : 0;
 										}
 									}
-								} */
+								} 
 							}
 
 							&-slide {
@@ -284,6 +319,7 @@
 					display : block;
 
 					span {
+						overflow: hidden;
 						@media(min-width: $tablet) {
 							display : block;
 						}
@@ -326,6 +362,7 @@
 					display : flex;
 					flex-direction : column;
 					justify-content : flex-start;
+					overflow: hidden;
 
 					@media(min-width: 960px) {
 						&:nth-child(1) {
@@ -675,6 +712,7 @@
 						font-size : 32px;
 						line-height : 48px;
 						color : var(--text-black);
+						overflow: hidden;
 					}
 				}
 			}
@@ -714,10 +752,10 @@
 				text-align : left;
 				@media(min-width: $tablet) {
 					top : 0;
-					width : 4px;
-					height : 126px;
+					// width : 4px;
+					// height : 126px;
 					display : flex;
-					flex-direction : column;
+					flex-direction : row;
 				}
 
 				&-custom {
@@ -737,7 +775,7 @@
 					@media(min-width: $tablet) {
 						margin : 0;
 						margin-bottom : 10px;
-						height : 24px;
+						height : 36px;
 						width : 3px;
 					}
 
@@ -758,3 +796,10 @@
 		}
 	}
 }
+
+
+
+  
+  
+
+  

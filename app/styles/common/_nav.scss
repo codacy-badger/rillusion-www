@@ -173,7 +173,7 @@
 		display : flex;
 		justify-content : space-between;
 		align-items : center;
-		@include interpolate("margin-bottom", 520px, 74px, 992px, 90px, "ease-in");
+		@include interpolate("margin-bottom", 520px, 44px, 992px, 54px, "ease-in");
 
 		@media(min-width: 960px) {
 			order : 0;
@@ -322,7 +322,10 @@
 
 		.link-disabled{
 			display: inline-block;
-			&, &:hover{
+			&{
+				color : var(--gray);
+			}
+			 &:hover{
 				color : var(--gray-dark) !important;
 			}
 		}

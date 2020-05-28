@@ -87,6 +87,32 @@ function html() {
     .pipe($.if(!isProd, dest('.tmp'), dest('dist')));
 }
 
+//changes venkat
+function html2() {
+  return src('app/projects/*.hbs')
+    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe(handlebars({}, {
+      ignorePartials: false,
+      batch: ['./app/components']
+    }))
+    .pipe(rename({
+			extname: '.html'
+    }))
+    .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
+    .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
+    .pipe($.if(/\.html$/, $.htmlmin({
+      collapseWhitespace: false,
+      minifyCSS: true,
+      minifyJS: {compress: {drop_console: true}},
+      processConditionalComments: true,
+      removeComments: true,
+      removeEmptyAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    })))
+    .pipe($.if(!isProd, dest('.tmp/projects'), dest('dist/projects')));
+}
+
 function images() {
   return src('app/images/**/*', { since: lastRun(images) })
     .pipe($.imagemin())
@@ -105,7 +131,7 @@ function fonts() {
 }
 
 function criticalCss() {
-  return src('dist/*.html')
+  return src('dist/**/*.html') //changes--venkat
   .pipe(critical(
     {
       inline: true,
@@ -172,7 +198,7 @@ const build = series(
   clean,
   parallel(
     lint,
-    series(parallel(styles, scripts, imagesWebp), html),
+    series(parallel(styles, scripts, imagesWebp), html, html2),
     images,
     fonts,
     extras
@@ -201,7 +227,7 @@ function startAppServer() {
     '.tmp/fonts/**/*'
   ]).on('change', server.reload);
 
-  watch('app/**/*.hbs', html);
+  watch('app/**/*.hbs', html, html2); //changes--venkat
   watch('app/images/**/*.{jpg,png}', imagesWebp);
   watch('app/styles/**/*.scss', styles);
   watch('app/scripts/**/*.js', scripts);
@@ -224,7 +250,7 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-  serve = series(clean, parallel(styles, scripts, fonts, html), startAppServer);
+  serve = series(clean, parallel(styles, scripts, fonts, html, html2), startAppServer);
 } else if (isTest) {
   serve = series(clean, scripts);
 } else if (isProd) {

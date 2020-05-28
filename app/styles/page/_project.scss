@@ -93,6 +93,7 @@
 						&-title {
 							/* NOTE: heading 4 mobile style is not matching */
 							@extend .heading;
+							overflow: hidden;
 							@include interpolate("font-size", 520px, 18px, 992px, 32px, "ease-in");
 							@include interpolate("line-height", 520px, 30px, 992px, 48px, "ease-in");
 							/* NOTE: textarea auto height lead to increase the space after */
@@ -100,6 +101,7 @@
 						}
 
 						&-text {
+							overflow: hidden;
 							font-weight : 500;
 							font-size : 16px;
 							line-height : 28px;
@@ -113,6 +115,7 @@
 						}
 
 						&-link {
+							overflow: hidden;
 							a {
 								display : block;
 								@extend %link;
@@ -124,6 +127,7 @@
 				.image {
 					z-index : 1;
 					position : relative;
+					overflow: hidden;
 					.cover {
 						width : 100%;
 						height : 100%;
@@ -165,6 +169,7 @@
 	}
 
 	&--card {
+	    overflow: hidden;
 		&_image {
 			margin-bottom : 30px;
 			a {
