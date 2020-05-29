@@ -26,6 +26,7 @@
 							span {
 								display : block;
 								font-style : normal;
+								overflow: hidden;
 								font-weight : 700;
 								font-size : 48px;
 								line-height : 72px;
@@ -60,6 +61,7 @@
 		}
 
 		.right {
+			overflow: hidden;
 			@include interpolate("margin-top", 520px, 60px, 992px, 60px, "ease-in");
 
 			@media(min-width: 768px) {
@@ -164,7 +166,7 @@
 										padding : 8px 10px;
 										font-size : 14px;
 										width : auto;
-										margin-right : 26px;
+										margin-right : 22px;
 									}
 								}
 							}
@@ -237,6 +239,7 @@
 					margin-top : 20px;
 					span {
 						display : block;
+						overflow: hidden;
 						font-family : var(--font);
 						font-style : normal;
 						font-weight : 700;
@@ -278,6 +281,7 @@
 			ol {
 				counter-reset : my-awesome-counter;
 				display : grid;
+				overflow: hidden;
 				row-gap : 30px;
 				column-gap : 30px;
 				grid-template-columns : 1fr;
