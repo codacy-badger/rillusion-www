@@ -22,7 +22,7 @@
 }
 
 .overview_banner {
-	background-image : url("../images/zifo-overview-banner.png");
+	background-image : url("../images/project/zifo/zifo-overview-banner.png");
 	@include interpolate("height", 600px, 200px, 1200px, 800px);
 	@extend %bg-pos;
 }

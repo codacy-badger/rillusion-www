@@ -8,6 +8,7 @@
 
 					span {
 						display : block;
+						overflow: hidden;
 						font-family : var(--font);
 						font-style : normal;
 						font-weight : 700;
@@ -30,6 +31,7 @@
 
 				> div {
 					padding-bottom : 60px;
+					
 
 					@media(min-width: 768px) {
 						padding-bottom : 0;
@@ -65,7 +67,7 @@
 
 					> div {
 						max-width : 126px;
-
+                        overflow: hidden;
 						@media(min-width: 768px) {
 							max-width : 196px;
 						}
@@ -95,6 +97,9 @@
 
 					@media(min-width: 520px) {
 						grid-template-columns : repeat(2, 1fr);
+					}
+					>div{
+						overflow: hidden;
 					}
 
 					p {
@@ -150,34 +155,40 @@
 							grid-template-areas : "one two three ."". four five six";
 						}
 					}
+					li{
+						overflow: hidden;
+						@media(min-width: 960px) {
+							&:nth-child(1) {
+								grid-area : one;
+							}
+	
+							&:nth-child(2) {
+								grid-area : two;
+							}
+	
+							&:nth-child(3) {
+								grid-area : three;
+							}
+	
+							&:nth-child(4) {
+								grid-area : four;
+							}
+	
+							&:nth-child(5) {
+								grid-area : five;
+							}
+	
+							&:nth-child(6) {
+								grid-area : six;
+							}
+						}
+					}
 				}
 
 				&--list {
-					@media(min-width: 960px) {
-						&:nth-child(1) {
-							grid-area : one;
-						}
+					overflow: hidden;
 
-						&:nth-child(2) {
-							grid-area : two;
-						}
-
-						&:nth-child(3) {
-							grid-area : three;
-						}
-
-						&:nth-child(4) {
-							grid-area : four;
-						}
-
-						&:nth-child(5) {
-							grid-area : five;
-						}
-
-						&:nth-child(6) {
-							grid-area : six;
-						}
-					}
+					
 
 					&:before {
 						content : counter(my-awesome-counter, decimal-leading-zero) ".";
@@ -219,6 +230,7 @@
 
 					span {
 						display : block;
+						overflow: hidden;
 						font-family : var(--font);
 						font-style : normal;
 						font-weight : 700;

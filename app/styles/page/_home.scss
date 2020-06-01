@@ -159,15 +159,14 @@
 									//adding animation
 									.section--image{
 										-webkit-animation-name: fade;
-	                                    -webkit-animation-duration: 1.5s;
+	                                    -webkit-animation-duration: 1s;
 	                                    animation-name: fade;
 	                                    animation-duration: 0.7s;
-										transform-origin: center;
-									    animation-fill-mode: forwards;
+										// transform-origin: center;
 									}
 									@keyframes fade {
-										from {opacity: .4; transform: matrix(0.2,0,0,1,55,0)} 
-										to {opacity: 1; transform: matrix(1,0,0,1,0,0)}
+										from {opacity: .4; transform: scaleX(0)} 
+										to {opacity: 1; transform: scaleX(1)}
 									  }
 								}
 							}
@@ -176,7 +175,7 @@
 								text-align : left;
 								@media(min-width: $tablet) {
 									bottom: -50px;
-									left: 50%;
+									left: 51.5%;
 									display : flex;
 									flex-direction : row;
 									width: 100%;
@@ -235,7 +234,7 @@
 
 								.section {
 									&--content {
-										max-width : 460px;
+										max-width : 407px;
 										&__link {
 											display : inline-block;
 										}
@@ -734,6 +733,7 @@
 
 					&_image {
 						text-align : center;
+						overflow: hidden;
 						img {
 							width : auto;
 						}
