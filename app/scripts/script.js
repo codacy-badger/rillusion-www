@@ -16,14 +16,15 @@ const scrollUp = 'scroll-up';
 const scrollDown = 'scroll-down';
 let lastScroll = 0;
 
-// window scroll down add class to menu
-$(window).scroll(function () {
-  if ($(this).scrollTop() > '500') {
-    $(navHeader).addClass('scroll-fix-top');
-  } else {
-    $(navHeader).removeClass('scroll-fix-top');
-  }
-});
+// // window scroll down add class to menu
+// $(window).scroll(function () {
+//   if ($(this).scrollTop() > '500') {
+//     $(navHeader).addClass('scroll-fix-top');
+//   } else {
+//     $(navHeader).removeClass('scroll-fix-top');
+//   }
+// });
+
 
 // menu items transition
 var t1 = new TimelineMax({ paused: true });

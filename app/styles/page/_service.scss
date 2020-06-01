@@ -39,6 +39,10 @@
 						grid-template-columns : initial;
 						grid-template-columns : 1fr 1fr 1fr 1fr;
 					}
+
+					li{
+						overflow: hidden;
+					}
 				}
 			}
 
@@ -124,20 +128,23 @@
 		ul {
 			li {
 				overflow: hidden;
-				font-weight : 700;
-				font-size : 16px;
-				line-height : 36px;
-				color : var(--red);
 
-				&:before {
-					content : "";
-					display : inline-block;
-					margin-right : 14px;
-					width : 14px;
-					height : 14px;
-					background : url("data:image/png;base64,iVBORw0KGg
-oAAAANSUhEUgAAABEAAAARCAYAAAA7bU f6AAAACXBIWXMAAAsTAAALEwEAmpwYAA AAAXNSR0IArs4c6QAAAARnQU1BAACxjw v8YQUAAAChSURBVHgB7dPNCQJBDAXgN7 sWMKN3Da6FaAd2oHZgB5ZgC1uKN71agD AVaBqQcf3B2yTZhb3tg8DAhI9ASAkhiy ntg/fncfDxwXzN9RUS8v9NqCuiTa6thJ A782USvGuey6bWuYlE5AedNEhFLJAJ0S AzIkHuvcbkcETHuCdWhbJkHRmB0TZzok M1o/Qpoi3aZgC+V2wBLFfMcNjdYqzRZ1 4ApVmdTnBqLAAAAABJRU5ErkJggg==") no-repeat center;
-					background-size : cover;
+				span{
+				    font-weight : 700;
+				    font-size : 16px;
+				    line-height : 36px;
+					color : var(--red);
+					margin-bottom: 0;
+					&:before {
+						content : "";
+						display : inline-block;
+						margin-right : 14px;
+						width : 14px;
+						height : 14px;
+						background : url("data:image/png;base64,iVBORw0KGg
+	oAAAANSUhEUgAAABEAAAARCAYAAAA7bU f6AAAACXBIWXMAAAsTAAALEwEAmpwYAA AAAXNSR0IArs4c6QAAAARnQU1BAACxjw v8YQUAAAChSURBVHgB7dPNCQJBDAXgN7 sWMKN3Da6FaAd2oHZgB5ZgC1uKN71agD AVaBqQcf3B2yTZhb3tg8DAhI9ASAkhiy ntg/fncfDxwXzN9RUS8v9NqCuiTa6thJ A782USvGuey6bWuYlE5AedNEhFLJAJ0S AzIkHuvcbkcETHuCdWhbJkHRmB0TZzok M1o/Qpoi3aZgC+V2wBLFfMcNjdYqzRZ1 4ApVmdTnBqLAAAAABJRU5ErkJggg==") no-repeat center;
+						background-size : cover;
+					}
 				}
 			}
 
