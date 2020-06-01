@@ -13,7 +13,8 @@
     "modernizr": "^3.7.1",
     "nodemon": "^2.0.4",
     "scrollmagic": "^2.0.7",
-    "swiper": "^5.3.8"
+    "swiper": "^5.3.8",
+    "vivus": "^0.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

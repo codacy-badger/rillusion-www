@@ -22,6 +22,10 @@ if (screen.width > 620) {
   });
 }
 
+/* footer rillusion logo animation  */
+new Vivus('footer-logo', {duration: 200});
+
+/* header nav */
 const body = document.body;
 const navHeader = document.getElementsByTagName('header');
 
