@@ -40,8 +40,8 @@
 						grid-template-columns : 1fr 1fr 1fr 1fr;
 					}
 
-					li{
-						overflow: hidden;
+					li {
+						overflow : hidden;
 					}
 				}
 			}
@@ -92,18 +92,19 @@
 	@media(min-width: $tablet) {
 		flex-direction : row;
 	}
-	/* 	> * {
-		outline : 1px solid yellow;
-	} */
-
 	.text-side ,
 	.text-inner {
 		max-width : 460px;
-		overflow: hidden;
+		overflow : hidden;
 	}
 
 	.text-inner {
-		height : 100vh;
+		margin-bottom : 65px;
+
+		@media(min-width: 768px) {
+			margin-bottom : 0;
+			height : 100vh;
+		}
 	}
 
 	.content {
@@ -127,31 +128,30 @@
 
 		ul {
 			li {
-				overflow: hidden;
-
-				span{
-				    font-weight : 700;
-				    font-size : 16px;
-				    line-height : 36px;
-					color : var(--red);
-					margin-bottom: 0;
-					&:before {
-						content : "";
-						display : inline-block;
-						margin-right : 14px;
-						width : 14px;
-						height : 14px;
-						background : url("data:image/png;base64,iVBORw0KGg
+				overflow : hidden;
+				font-weight : 700;
+				font-size : 16px;
+				line-height : 36px;
+				color : var(--red);
+				margin-bottom : 0;
+				&:before {
+					content : "";
+					display : inline-block;
+					margin-right : 14px;
+					width : 14px;
+					height : 14px;
+					background : url("data:image/png;base64,iVBORw0KGg
 	oAAAANSUhEUgAAABEAAAARCAYAAAA7bU f6AAAACXBIWXMAAAsTAAALEwEAmpwYAA AAAXNSR0IArs4c6QAAAARnQU1BAACxjw v8YQUAAAChSURBVHgB7dPNCQJBDAXgN7 sWMKN3Da6FaAd2oHZgB5ZgC1uKN71agD AVaBqQcf3B2yTZhb3tg8DAhI9ASAkhiy ntg/fncfDxwXzN9RUS8v9NqCuiTa6thJ A782USvGuey6bWuYlE5AedNEhFLJAJ0S AzIkHuvcbkcETHuCdWhbJkHRmB0TZzok M1o/Qpoi3aZgC+V2wBLFfMcNjdYqzRZ1 4ApVmdTnBqLAAAAABJRU5ErkJggg==") no-repeat center;
-						background-size : cover;
-					}
+					background-size : cover;
 				}
 			}
 
-			display : inline-block;
+
 			vertical-align : top;
+			display : block;
 
 			@media(min-width: $tablet) {
+				display : inline-block;
 				+ ul {
 					margin-left : 30px;
 				}
