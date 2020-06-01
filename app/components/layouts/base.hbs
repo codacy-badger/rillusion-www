@@ -26,7 +26,7 @@
     <meta name="msapplication-starturl" content="/" />
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="./images/favicon.png" sizes="32x32" />
+    <link rel="icon" href="./images/favicon-2.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
 
     <!-- Facebook Opengraph -->
@@ -106,17 +106,14 @@
       </div>
     </main>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    {{!-- <script>
-      (function (b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l; b[l] || (b[l] =
-          function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
-        e = o.createElement(i); r = o.getElementsByTagName(i)[0];
-        e.src = 'https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-      }(window, document, 'script', 'ga'));
-      ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
-    </script> --}}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3693359-8"></script>
+     <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'UA-3693359-8');
+     </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- endbuild -->

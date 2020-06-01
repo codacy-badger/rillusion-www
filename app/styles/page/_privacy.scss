@@ -17,7 +17,7 @@
     text-align: left !important;
     padding: 10px 0px;
     font-family: 14px;
-    line-height: 20px;
+    line-height: 1.7;
     font-weight: 300;
   }
 
@@ -26,5 +26,9 @@
       &:hover{
           color: var(--red);
       }
+  }
+
+  li{
+    line-height: 1.5;
   }
 }
