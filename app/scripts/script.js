@@ -23,7 +23,7 @@ if (screen.width > 620) {
 }
 
 /* footer rillusion logo animation  */
-if (document.getElementById("footer-logo")) {
+if (document.getElementById('footer-logo')) {
   new Vivus('footer-logo', {duration: 200});
 }
 /* header nav */
