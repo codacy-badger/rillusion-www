@@ -1,36 +1,40 @@
-AOS.init(
-  {
-    duration: 700,
-    once: true,
-  }
-);
+AOS.init({
+  duration: 700,
+  once: true,
+});
 
+/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+if (screen.width > 620) {
+  var previousScroll = 0,
+    headerOrgOffset = $('header').height();
+  $(window).scroll(function () {
+    var currentScroll = $(this).scrollTop();
+    if (currentScroll > headerOrgOffset) {
+      if (currentScroll > previousScroll) {
+        $('header').slideUp();
+      } else {
+        $('header').slideDown();
+      }
+    } else {
+      $('header').slideDown();
+    }
+    previousScroll = currentScroll;
+  });
+}
 
+/* footer rillusion logo animation  */
+if (document.getElementById("footer-logo")) {
+  new Vivus('footer-logo', {duration: 200});
+}
+/* header nav */
 const body = document.body;
-const navHeader = 'header';
-const triggerMenu = document.querySelector('.trigger-menu');
-const triggerMenuButton = document.querySelector('.menu--items_close button');
-const nav = document.querySelector('.header--navigation nav');
-const menu = document.querySelector('.header--navigation + .menu--items');
-const scrollUp = 'scroll-up';
-const scrollDown = 'scroll-down';
-let lastScroll = 0;
-
-// // window scroll down add class to menu
-// $(window).scroll(function () {
-//   if ($(this).scrollTop() > '500') {
-//     $(navHeader).addClass('scroll-fix-top');
-//   } else {
-//     $(navHeader).removeClass('scroll-fix-top');
-//   }
-// });
-
+const navHeader = document.getElementsByTagName('header');
 
 // menu items transition
 var t1 = new TimelineMax({ paused: true });
 t1.to('.menu--items', 0.5, {
   top: '0%',
-  ease: Expo.easeInOut
+  ease: Expo.easeInOut,
 });
 
 t1.staggerFrom(
@@ -42,12 +46,11 @@ t1.staggerFrom(
 
 t1.reverse();
 
-
 // menu transition and action on click
 $(document).on(
   'click',
   '.trigger-menu, .menu--items_close, .menu--items ul li a',
-  function() {
+  function () {
     body.classList.toggle('menu-open');
     t1.reversed(!t1.reversed());
     console.log('demo');
@@ -57,7 +60,7 @@ $(document).on(
 // page transition
 function delay(n) {
   n = n || 2000;
-  return new Promise(done => {
+  return new Promise((done) => {
     setTimeout(() => {
       done();
     }, n);
@@ -76,7 +79,7 @@ function pageTransition() {
       skewX: 0,
       transformOrigin: 'top left',
       ease: 'power1.out',
-      delay: 0.5
+      delay: 0.5,
     });
   });
 }
@@ -96,5 +99,3 @@ function contentAnimation() {
     '-=1.5'
   );
 }
-
-
