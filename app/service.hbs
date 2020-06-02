@@ -143,7 +143,7 @@
     <section class="width-box section--our_approach page--second-header">
       <h1 class="section--header">
         <span class="section__header-text_kicker">Our Approach</span>
-        <span class="section--header__title">
+        <span class="section--header__title mb:0">
           <span>Backed by industry process, we tailor</span>
           <span>project steps based on your needs.</span>
         </span>
@@ -226,51 +226,16 @@
   {{#*inline "scripts-block"}}
     <script>
 
-      new Vivus('uxconsulting', { duration: 05 });
-      new Vivus('uxdesign', { duration: 05 });
-      new Vivus('uidevelopment', { duration: 05 });
+      new Vivus('uxconsulting', {
+        type: 'oneByOne'
+      });
+      new Vivus('uxdesign', {
+        type: 'oneByOne'
+      });
+      new Vivus('uidevelopment', {
+        type: 'oneByOne'
+      });
 
-      (function ($) {
-        var wh = window.innerHeight,
-          $iphone = $(".image-side"),
-          $innerS1 = $(".innerS1"),
-          $innerS2 = $(".innerS2"),
-          $innerS3 = $(".innerS3"),
-          $innerS4 = $(".innerS4"),
-          $screenA = $(".screenA"),
-          $screenB = $(".screenB"),
-          $screenC = $(".screenC");
-
-        // init
-        var ctrl = new ScrollMagic.Controller({
-          globalSceneOptions: {
-            triggerHook: 0.3,
-          },
-        }); // Create scene
-
-        $("article").each(function () {
-          new ScrollMagic.Scene({
-            triggerElement: this,
-            duration: "100%",
-
-          })
-            .setPin(this)
-            .addTo(ctrl);
-        });
-
-
-        $(".image-container").each(function () {
-          new ScrollMagic.Scene({
-            triggerElement: this,
-            duration: "100%",
-
-          })
-            .setPin(this)
-            .addTo(ctrl);
-        });
-
-
-      })(jQuery);
 
     </script>
   {{/inline}}
