@@ -238,8 +238,9 @@ img {
   /* Position tooltip above the element */
   [data-tooltip]:before {
 	position: absolute;
-    right: -130px;
-    top: 28%;
+	top: 78%;
+	right: 0;
+	left: 0;
     margin-bottom: 5px;
     padding: 7px;
     border-radius: 3px;
@@ -249,24 +250,36 @@ img {
     color: #fff;
     content: attr(data-tooltip);
     text-align: center;
-    font-size: 14px;
+    font-size: 10px;
 	line-height: 1.2;
-	transform: translate(-100%);
+	transform: translateY(-100%);
+	@media(min-width: 1050px){
+	   right: -130px;
+	   left: unset;
+	   top: 28%;
+	   transform: translate(-100%);
+	   font-size: 14px;
+	}
   }
   
   /* Triangle hack to make tooltip look like a speech bubble */
   [data-tooltip]:after {
 	position: absolute;
-    top: 42%;
-    right: -20px;
+    top: 66%;
+    right: 48%;
     width: 0;
     border-top: 8px solid var(--red);
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     content: " ";
     font-size: 0;
-    transform: translate(-100%) rotate(90deg);
+    transform: translateY(-100%) rotate(180deg);
 	line-height: 0;
+	@media(min-width: 1050px){
+		right: -20px;
+		top: 42%;
+		transform: translate(-100%) rotate(90deg);
+	 }
   }
   
   /* Show tooltip content on hover */
@@ -277,11 +290,14 @@ img {
   }
 
   [data-tooltip]:hover:before{
-	  transform: translate(0);
+		transform: translate(0);
   }
 
   [data-tooltip]:hover:after{
-	transform: translate(0) rotate(90deg);
+	transform: translate(0) rotate(180deg);
+	@media (min-width: 1050px) {
+		transform: translate(0) rotate(90deg);
+	}
   }
 
 //custom--margin-neg
