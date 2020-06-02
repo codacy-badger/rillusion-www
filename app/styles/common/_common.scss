@@ -14,6 +14,9 @@ body {
 	@media(min-width: 620px) {
 		padding-bottom : 0;
 	}
+	&.page-project {
+		padding-top : 92px;
+	}
 }
 
 main {
@@ -56,7 +59,7 @@ main {
 	font-size : 16px;
 	line-height : 24px;
 	color : var(--gray);
-	overflow: hidden;
+	overflow : hidden;
 
 	@media(min-width: $tablet) {
 		margin-bottom : 60px;
@@ -149,7 +152,7 @@ main {
 					font-family : var(--font);
 					font-style : normal;
 					font-weight : 700;
-					overflow: hidden;
+					overflow : hidden;
 					// font-size : 48px;
 					// line-height : 72px;
 					@include interpolate("font-size", 576px, 24px, 992px, 48px, "ease-in");
@@ -174,7 +177,7 @@ main {
 					font-family : var(--font);
 					font-style : normal;
 					font-weight : 700;
-					overflow: hidden;
+					overflow : hidden;
 					@include interpolate("font-size", 576px, 20px, 992px, 32px, "ease-in");
 					@include interpolate("line-height", 576px, 32px, 992px, 48px, "ease-in");
 				}
@@ -219,72 +222,72 @@ img {
 
 /* Add this attribute to the element that needs a tooltip */
 [data-tooltip] {
-	position: relative;
-	z-index: 2;   
-  }
-  
-  /* Hide the tooltip content by default */
-  [data-tooltip]:before,
-  [data-tooltip]:after {
-	visibility: hidden;
-  /*   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	position : relative;
+	z-index : 2;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before ,
+[data-tooltip]:after {
+	visibility : hidden;
+	/*   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0); */
-	opacity: 0;
-	pointer-events: none;
-	transition-duration: 0.4s;
-	transition-timing-function: ease-in-out;
-  }
-  
-  /* Position tooltip above the element */
-  [data-tooltip]:before {
-	position: absolute;
-    right: -130px;
-    top: 28%;
-    margin-bottom: 5px;
-    padding: 7px;
-    border-radius: 3px;
-    // background-color: #000;
-	background-color: var(--red);
+	opacity : 0;
+	pointer-events : none;
+	transition-duration : 0.4s;
+	transition-timing-function : ease-in-out;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+	position : absolute;
+	right : -130px;
+	top : 28%;
+	margin-bottom : 5px;
+	padding : 7px;
+	border-radius : 3px;
+	// background-color: #000;
+	background-color : var(--red);
 	// box-shadow: -5px 5px 10px rgba(51,51,51,0.4);
-    color: #fff;
-    content: attr(data-tooltip);
-    text-align: center;
-    font-size: 14px;
-	line-height: 1.2;
-	transform: translate(-100%);
-  }
-  
-  /* Triangle hack to make tooltip look like a speech bubble */
-  [data-tooltip]:after {
-	position: absolute;
-    top: 42%;
-    right: -20px;
-    width: 0;
-    border-top: 8px solid var(--red);
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    content: " ";
-    font-size: 0;
-    transform: translate(-100%) rotate(90deg);
-	line-height: 0;
-  }
-  
-  /* Show tooltip content on hover */
-  [data-tooltip]:hover:before,
-  [data-tooltip]:hover:after {
-	visibility: visible;
-	opacity: 1;
-  }
+	color : #ffffff;
+	content : attr(data-tooltip);
+	text-align : center;
+	font-size : 14px;
+	line-height : 1.2;
+	transform : translate(-100%);
+}
 
-  [data-tooltip]:hover:before{
-	  transform: translate(0);
-  }
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+	position : absolute;
+	top : 42%;
+	right : -20px;
+	width : 0;
+	border-top : 8px solid var(--red);
+	border-right : 5px solid transparent;
+	border-left : 5px solid transparent;
+	content : " ";
+	font-size : 0;
+	transform : translate(-100%) rotate(90deg);
+	line-height : 0;
+}
 
-  [data-tooltip]:hover:after{
-	transform: translate(0) rotate(90deg);
-  }
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before ,
+[data-tooltip]:hover:after {
+	visibility : visible;
+	opacity : 1;
+}
+
+[data-tooltip]:hover:before {
+	transform : translate(0);
+}
+
+[data-tooltip]:hover:after {
+	transform : translate(0) rotate(90deg);
+}
 
 //custom--margin-neg
-.custom-m-neg{
-	margin-top: -186px;
+.custom-m-neg {
+	margin-top : -186px;
 }

@@ -141,6 +141,10 @@
 			justify-content : space-between;
 
 			li {
+				&.footer-logo\:68 svg {
+					width : 68px;
+					height : auto;
+				}
 				margin-right : 30px;
 				margin-bottom : 40px;
 
@@ -167,8 +171,8 @@
 						color : var(--text-black);
 						margin-right : 0;
 
-						&:hover{
-							color: var(--red);
+						&:hover {
+							color : var(--red);
 						}
 					}
 				}
@@ -194,7 +198,7 @@
 					a {
 						&:hover {
 							text-decoration : underline;
-							color: var(--red);
+							color : var(--red);
 						}
 					}
 				}
@@ -203,16 +207,15 @@
 					margin-right : 0;
 				}
 
-				&:hover{
-					a{
+				&:hover {
+					a {
 						svg {
-							path:first-child{
-							  fill : var(--red);
+							path:first-child {
+								fill : var(--red);
 							}
-						 }
+						}
 					}
 				}
-				
 			}
 		}
 	}
