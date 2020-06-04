@@ -142,8 +142,11 @@
 
 			li {
 				&.footer-logo\:68 svg {
-					width : 68px;
+					width: 100px;
 					height : auto;
+					@media (min-width: 500px) {
+						width : 150px;
+					}
 				}
 				margin-right : 30px;
 				margin-bottom : 40px;

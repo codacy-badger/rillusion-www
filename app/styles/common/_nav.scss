@@ -134,6 +134,11 @@
     padding-right: 30px;
   }
 
+  @media(min-width: 1200px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
   >div {
     flex: 1 0 100%;
     display: flex;
@@ -302,6 +307,7 @@
       flex-direction: column;
       flex-wrap: nowrap;
       margin-top: 74px;
+      justify-content: flex-start;
     }
 
     li {
@@ -342,7 +348,7 @@ body.menu-open {
 }
 
 #navbar {
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15);
+  // box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15);
   position: fixed;
   left: 0;
   right: 0;
@@ -362,7 +368,7 @@ body.menu-open {
     top: initial;
 
     .header--navigation {
-      box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, 0.15);
+      // box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, 0.15);
       position: fixed;
       bottom: 0;
       width: 100%;

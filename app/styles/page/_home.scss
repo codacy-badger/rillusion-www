@@ -279,6 +279,7 @@
 												margin-bottom : 0;
 											}
 
+
 											.link-text {
 												font-family : var(--font);
 												font-style : normal;
@@ -287,6 +288,27 @@
 												line-height : 28px;
 												color : var(--red);
 												margin-right : 19px;
+												
+											}
+
+											&:hover{
+												.link-text{
+													color:var(--text-black-light);
+												}
+												svg{
+													animation-name: tonfro;
+													animation-duration: 1s;
+													animation-iteration-count: infinite;
+													animation-timing-function: ease-in-out;
+													animation-delay: 0.5;
+													@keyframes tonfro {
+														from{transform:translateX(10px)}
+                                                        to {transform:translateX(0px)}														
+													}
+													path{
+														stroke: var(--red);
+													}
+												}
 											}
 										}
 									}
@@ -456,6 +478,25 @@
 						display : inline-block;
 					}
 				}
+				&:hover{
+					a{
+						color:var(--text-black-light);
+					}
+					svg{
+						animation-name: tonfro;
+						animation-duration: 1s;
+						animation-iteration-count: infinite;
+						animation-timing-function: ease-in-out;
+						animation-delay: 0.5;
+						@keyframes tonfro {
+							from{transform:translateX(10px)}
+							to {transform:translateX(0px)}														
+						}
+						path{
+							stroke: var(--red);
+						}
+					}
+				}
 			}
 		}
 
@@ -546,35 +587,35 @@
 									text-align : left;
 								}
 
-								&-bullet {
-									// margin : 0;
-									// margin-right : 10px;
-									// width : 24px;
-									// height : 3px;
-									// display : inline-block;
-									// border-radius : 0;
-									// background : var(--gray-light);
-									// opacity : 1;
+								// &-bullet {
+								// 	// margin : 0;
+								// 	// margin-right : 10px;
+								// 	// width : 24px;
+								// 	// height : 3px;
+								// 	// display : inline-block;
+								// 	// border-radius : 0;
+								// 	// background : var(--gray-light);
+								// 	// opacity : 1;
 
-									// @media(min-width: $tablet) {
-									// 	margin : 0;
-									// 	margin-bottom : 10px;
-									// 	height : 24px;
-									// 	width : 3px;
-									// }
+								// 	// @media(min-width: $tablet) {
+								// 	// 	margin : 0;
+								// 	// 	margin-bottom : 10px;
+								// 	// 	height : 24px;
+								// 	// 	width : 3px;
+								// 	// }
 
-									// &-active {
-									// 	background : var(--red);
-									// }
+								// 	// &-active {
+								// 	// 	background : var(--red);
+								// 	// }
 
-									// &:last-child {
-									// 	margin-right : 0;
+								// 	// &:last-child {
+								// 	// 	margin-right : 0;
 
-									// 	@media(min-width: $tablet) {
-									// 		margin-bottom : 0;
-									// 	}
-									// }
-								}
+								// 	// 	@media(min-width: $tablet) {
+								// 	// 		margin-bottom : 0;
+								// 	// 	}
+								// 	// }
+								// }
 							}
 							&-wrapper {
 								overflow : visible;
