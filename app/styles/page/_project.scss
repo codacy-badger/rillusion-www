@@ -8,7 +8,7 @@
 	&--project {
 		.grid {
 			// + & {
-			@include interpolate("margin-bottom", 520px, 95px, 992px, 362px, "ease-in");
+			@include interpolate("margin-bottom", 520px, 95px, 992px, 180px, "ease-in");
 			// }
 			&:last-child {
 				margin-bottom : 0;
@@ -164,6 +164,30 @@
 						}
 					}
 				}
+
+				&:hover{
+					.block-title{
+						color: var(--red);
+					  }
+
+					  .block-link{
+						color:var(--text-black-light); 
+						svg{
+							animation-name: tonfro;
+							animation-duration: 1s;
+							animation-iteration-count: infinite;
+							animation-timing-function: ease-in-out;
+							animation-delay: 0.5;
+							@keyframes tonfro {
+								from{transform:translateX(10px)}
+								to {transform:translateX(0px)}														
+							}
+							path{
+								stroke: var(--red);
+							}
+						}
+					  }
+				  }
 			}
 		}
 	}
@@ -221,6 +245,10 @@
 					}
 				}
 			}
+		}
+
+		&:hover &_title{
+		  color: var(--red);
 		}
 	}
 }
