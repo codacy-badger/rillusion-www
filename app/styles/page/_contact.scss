@@ -26,7 +26,7 @@
 							span {
 								display : block;
 								font-style : normal;
-								overflow: hidden;
+								overflow : hidden;
 								font-weight : 700;
 								font-size : 48px;
 								line-height : 72px;
@@ -61,7 +61,7 @@
 		}
 
 		.right {
-			overflow: hidden;
+			overflow : hidden;
 			@include interpolate("margin-top", 520px, 60px, 992px, 60px, "ease-in");
 
 			@media(min-width: 768px) {
@@ -81,22 +81,24 @@
 
 				.form-group {
 					position : relative;
-					// label {
-					// 	top: 12px;
-					// }
-
-					.sr-only{
-						clip: unset;
-						height: auto;
-						width: auto;
-						font-size: 14px;
-						top: 12px;
-						left: 0;
-						transition-duration: 0.4s;
-
-						&:hover{
-							cursor: text;
-						}
+					label {
+						width : 100%;
+						font-family : var(--font-600);
+						font-size : 18px;
+						line-height : 30px;
+						color : var(--black-coral);
+						text-align : left;
+						text-overflow : ellipsis;
+						// white-space : nowrap;
+						cursor : text;
+						will-change : transform;
+						position : absolute;
+						top : 10px;
+						left : 0;
+						transition : all 150ms ease-in-out;
+						overflow : hidden;
+						pointer-events : none;
+						opacity : 1;
 					}
 
 					input {
@@ -104,9 +106,9 @@
 						background-color : var(--white);
 						margin : 0;
 						font-family : var(--font);
-						color: var(--text-black-light);
 						font-weight : 500;
 						font-size : 14px;
+						color : var(--gray);
 						box-shadow : none;
 						border : 0;
 						border-bottom : 1px solid var(--gray-light);
@@ -117,16 +119,6 @@
 						margin-bottom : 35px;
 						width : 100%;
 						box-sizing : border-box;
-
-						&:focus{
-							outline: 0;
-							color: var(--text-black-light);
-							border-bottom: 2px solid var(--text-black-light);
-						}
-					}
-
-					input:focus + .sr-only, textarea:focus + .sr-only{
-						top: -14px;
 					}
 
 					&.input-inline {
@@ -139,7 +131,6 @@
 						@media(min-width: $tablet) {
 							display : block;
 						}
-
 						label {
 							grid-column : span 2;
 							@media(min-width: 576px) {
@@ -167,9 +158,8 @@
 
 								&:checked {
 									+ label {
-										border-width: 2px;
-										border-color : var(--text-black-light);
-										color : var(--text-black-light);
+										border-color : var(--red);
+										color : var(--red);
 										cursor : pointer;
 									}
 								}
@@ -188,8 +178,6 @@
 									color : var(--gray);
 									margin-right : 0;
 									width : 100%;
-									
-
 									@media(min-width: $tablet) {
 										padding : 8px 10px;
 										font-size : 14px;
@@ -198,11 +186,6 @@
 									}
 								}
 							}
-
-						 input:hover{
-							 cursor: pointer;
-						 }
-							
 						}
 					}
 
@@ -211,21 +194,15 @@
 						width : 100%;
 						height : 85px;
 						font-family : var(--font);
-						color: var(--text-black-light);
 						border : 0;
 						border-bottom : 1px solid var(--gray-light);
 						font-style : normal;
 						font-weight : 500;
 						font-size : 14px;
 						line-height : 20px;
+						color : var(--gray);
 						padding : 12px;
 						padding-left : 0;
-                        transition-duration: 0.4s;
-						&:focus{
-							outline: 0;
-							margin-top: 10px;
-							border-bottom: 2px solid var(--text-black-light);
-						}
 					}
 
 					label.error {
@@ -278,7 +255,7 @@
 					margin-top : 20px;
 					span {
 						display : block;
-						overflow: hidden;
+						overflow : hidden;
 						font-family : var(--font);
 						font-style : normal;
 						font-weight : 700;
@@ -320,7 +297,7 @@
 			ol {
 				counter-reset : my-awesome-counter;
 				display : grid;
-				overflow: hidden;
+				overflow : hidden;
 				row-gap : 30px;
 				column-gap : 30px;
 				grid-template-columns : 1fr;
