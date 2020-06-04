@@ -1,12 +1,12 @@
-
-
 .page--content {
 	&--home {
 		&__jumbo {
 			flex-direction : column;
 			@include interpolate("margin-bottom", 576px, 132px, 992px, 278px, "ease-in");
+
 			@media(min-width: $tablet) {
 				flex-direction : row;
+
 				.section--content ,
 				.section--image {
 					flex : 0 0 50%;
@@ -26,9 +26,11 @@
 						width : auto;
 						order : 1;
 					}
+
 					@media(min-width: $desktop) {
 						padding-left : 126px;
 					}
+
 					svg {
 						width : 100%;
 						height : 100%;
@@ -58,11 +60,12 @@
 
 						span {
 							display : block;
-							overflow: hidden;
+							overflow : hidden;
 
 							@media(min-width: $tablet) {
 								display : inline;
 							}
+
 							@media(min-width: $desktop) {
 								display : block;
 							}
@@ -81,7 +84,7 @@
 				&__title {
 					span {
 						display : block;
-						overflow: hidden;
+						overflow : hidden;
 						color : var(--text-black);
 						font-family : var(--font);
 						font-weight : 700;
@@ -140,52 +143,71 @@
 						}
 
 						.swiper {
-							&-container{
-								overflow: visible;
+							&-container {
+								overflow : visible;
 							}
-							 
-						    &-slide{
-								.section--content{
-									visibility: hidden;
-									pointer-events: none;
+
+							&-slide {
+								.section--content {
+									visibility : hidden;
+									pointer-events : none;
 								}
 
-								&-active{
-									.section--content{
-										visibility: visible;
-										pointer-events: visible;
+								&-active {
+									.section--content {
+										visibility : visible;
+										pointer-events : visible;
 									}
 
+									&:hover {
+										.section--content .section--content__read-more {
+											.link-text {
+												color : yellow;
+											}
+											.link-icon svg path {
+												stroke : yellow;
+											}
+										}
+									}
 									//adding animation
-									.section--image{
-										-webkit-animation-name: fade;
-	                                    -webkit-animation-duration: 1s;
-	                                    animation-name: fade;
-	                                    animation-duration: 0.7s;
+									.section--image {
+										-webkit-animation-name : fade;
+										-webkit-animation-duration : 1s;
+										        animation-name : fade;
+										        animation-duration : 0.7s;
 										// transform-origin: center;
 									}
+
 									@keyframes fade {
-										from {opacity: .4; transform: scaleX(0)} 
-										to {opacity: 1; transform: scaleX(1)}
-									  }
+										from {
+											opacity : 0.4;
+											transform : scaleX(0);
+										}
+
+										to {
+											opacity : 1;
+											transform : scaleX(1);
+										}
+									}
 								}
 							}
 
 							&-pagination {
 								text-align : left;
+
 								@media(min-width: $tablet) {
-									bottom: -50px;
-									left: 51.5%;
+									bottom : -50px;
+									left : 51.5%;
 									display : flex;
 									flex-direction : row;
-									width: 100%;
-									height: 3px;
+									width : 100%;
+									height : 3px;
 								}
 
 								&-custom {
 									text-align : left;
 								}
-								
+
 								&-bullet {
 									html body & {
 										margin : 0;
@@ -199,7 +221,7 @@
 
 										@media(min-width: $tablet) {
 											margin : 0;
-											margin-right: 10px;
+											margin-right : 10px;
 											height : 3px;
 											width : 36px;
 										}
@@ -216,7 +238,7 @@
 											margin-bottom : 0;
 										}
 									}
-								} 
+								}
 							}
 
 							&-slide {
@@ -226,6 +248,7 @@
 
 								display : flex;
 								flex-direction : column;
+
 								@media(min-width: $tablet) {
 									flex-direction : row;
 									align-items : flex-end;
@@ -235,6 +258,7 @@
 								.section {
 									&--content {
 										max-width : 407px;
+
 										&__link {
 											display : inline-block;
 										}
@@ -295,8 +319,10 @@
 										a {
 											width : 100%;
 										}
+
 										width : 100%;
 										height : auto;
+
 										@media(min-width: $tablet) {
 											order : 1;
 											@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
@@ -318,10 +344,12 @@
 					display : block;
 
 					span {
-						overflow: hidden;
+						overflow : hidden;
+
 						@media(min-width: $tablet) {
 							display : block;
 						}
+
 						font-family : var(--font);
 						font-style : normal;
 						font-weight : 700;
@@ -361,7 +389,7 @@
 					display : flex;
 					flex-direction : column;
 					justify-content : flex-start;
-					overflow: hidden;
+					overflow : hidden;
 
 					@media(min-width: 960px) {
 						&:nth-child(1) {
@@ -382,10 +410,12 @@
 						margin-bottom : 50px;
 						width : 60px;
 						height : 60px;
+
 						@media(min-width: $tablet) {
 							width : 74px;
 							height : 74px;
 						}
+
 						svg {
 							width : 100%;
 							height : 100%;
@@ -433,9 +463,11 @@
 			.readmoreLink {
 				display : block;
 				margin-top : 56px;
+
 				@media(min-width: 960px) {
 					display : grid;
 				}
+
 				grid-template-columns : repeat(4, 1fr);
 				grid-template-areas : ". one";
 
@@ -464,10 +496,13 @@
 			.swiper-container {
 				overflow : visible;
 			}
+
 			padding-top : 44px;
+
 			@media(min-width: $tablet) {
 				padding-top : 0;
 			}
+
 			@include interpolate("margin-bottom", 576px, 60px, 992px, 100px, "ease-in");
 
 			.section--header {
@@ -531,6 +566,7 @@
 						.swiper {
 							&-pagination {
 								text-align : left;
+
 								@media(min-width: $tablet) {
 									top : 148px;
 									left : initial;
@@ -576,9 +612,11 @@
 									// }
 								}
 							}
+
 							&-wrapper {
 								overflow : visible;
 							}
+
 							&-slide {
 								// * {
 								// 	outline : 1px solid red;
@@ -592,6 +630,7 @@
 								visibility : hidden;
 								display : flex;
 								flex-direction : column;
+
 								@media(min-width: $tablet) {
 									flex-direction : row;
 									align-items : flex-end;
@@ -602,7 +641,18 @@
 								&-active {
 									opacity : 1;
 									visibility : visible;
+									&:hover {
+										.section--content .section--content__read-more {
+											.link-text {
+												color : yellow;
+											}
+											.link-icon svg path {
+												stroke : yellow;
+											}
+										}
+									}
 								}
+
 								.section {
 									&--content {
 										max-width : 460px;
@@ -627,6 +677,7 @@
 												}
 											}
 										}
+
 										&__text {
 											a {
 												color : var(--text-black-light);
@@ -680,7 +731,9 @@
 										a {
 											width : 100%;
 										}
+
 										order : 1;
+
 										@media(min-width: $tablet) {
 											@include interpolate("width", 576px, 300px, 992px, 558px, "ease-in");
 											@include interpolate("height", 576px, 226px, 992px, 420px, "ease-in");
@@ -711,7 +764,7 @@
 						font-size : 32px;
 						line-height : 48px;
 						color : var(--text-black);
-						overflow: hidden;
+						overflow : hidden;
 					}
 				}
 			}
@@ -733,7 +786,8 @@
 
 					&_image {
 						text-align : center;
-						overflow: hidden;
+						overflow : hidden;
+
 						img {
 							width : auto;
 						}
@@ -750,6 +804,7 @@
 		&-pagination {
 			html & {
 				text-align : left;
+
 				@media(min-width: $tablet) {
 					top : 0;
 					// width : 4px;
@@ -796,10 +851,3 @@
 		}
 	}
 }
-
-
-
-  
-  
-
-  
