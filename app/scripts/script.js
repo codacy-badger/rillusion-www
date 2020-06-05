@@ -49,7 +49,7 @@ t1.reverse();
 // menu transition and action on click
 $(document).on(
   'click',
-  '.trigger-menu, .menu--items_close, .menu--items ul li a',
+  '.trigger-menu, .menu--items_close',
   function () {
     body.classList.toggle('menu-open');
     t1.reversed(!t1.reversed());
@@ -85,17 +85,18 @@ function pageTransition() {
 }
 
 // Function to animate the header of each page
-function contentAnimation() {
-  var tl = gsap.timeline();
-  tl.from(
-    '.header--page .hero--text_title span, .header--page .section__header-text_kicker',
-    1,
-    { duration: 0.5, translateY: 10, opacity: 0, stagger: 0.4 }
-  );
-  tl.from(
-    '.header--navigation',
-    1,
-    { duration: 0.5, translateY: -10, opacity: 0 },
-    '-=1.5'
-  );
-}
+// function contentAnimation() {
+//   var tl = gsap.timeline();
+//   tl.from(
+//     '.header--page .hero--text_title span, .header--page .section__header-text_kicker',
+//     1,
+//     { duration: 0.5, translateY: 10, opacity: 0, stagger: 0.4 }
+//   );
+//   tl.from(
+//     '.header--navigation',
+//     1,
+//     { duration: 0.5, translateY: -10, opacity: 0 },
+//     '-=1.5'
+//   );
+// }
+// contentAnimation();
