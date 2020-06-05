@@ -9,6 +9,7 @@
 		justify-content : space-between;
 		flex-direction : column;
 		margin-bottom : 105px;
+
 		@media(min-width: 768px) {
 			align-items : flex-start;
 			flex-direction : row;
@@ -16,6 +17,7 @@
 
 		.left {
 			max-width : 360px;
+
 			.section--content {
 				&__title {
 					.hero--text {
@@ -35,8 +37,10 @@
 						}
 					}
 				}
+
 				&__text {
 					margin-top : 92px;
+
 					p {
 						font-weight : 500;
 						font-size : 16px;
@@ -72,78 +76,98 @@
 				margin-bottom : 30px;
 			}
 
-			form {
-				margin : 0 auto;
+			.form {
+				width : 530px;
 
 				@media(min-width: 768px) {
+					margin : 0 auto;
 					@include interpolate("max-width", 520px, 280px, 992px, 530px, "ease-in");
 				}
 
-				.form-group {
+				/* form input cover / group [label + input] */
+				&-group {
 					position : relative;
-					label {
+					margin-bottom : 34px;
+
+					// label default position
+					&-label {
 						width : 100%;
-						font-family : var(--font-600);
-						font-size : 18px;
-						line-height : 30px;
-						color : var(--black-coral);
 						text-align : left;
 						text-overflow : ellipsis;
-						// white-space : nowrap;
 						cursor : text;
 						will-change : transform;
 						position : absolute;
-						top : 10px;
+						top : 5px;
 						left : 0;
 						transition : all 150ms ease-in-out;
 						overflow : hidden;
 						pointer-events : none;
 						opacity : 1;
+						font-family : var(--font-600);
+						font-size : 18px;
+						line-height : 30px;
+						color : var(--gray);
 					}
 
-					input {
-						transition : all 0.2s;
-						background-color : var(--white);
-						margin : 0;
+					/* input */
+					&-control {
+						box-shadow : none;
+						border : 0;
+						padding : 10px 0;
+						box-sizing : border-box;
+						width : 100%;
+						height : 100%;
+						font-weight : 400;
+						width : 100%;
+						transition : all 0.25s ease-in-out;
+						border-bottom : 1px solid var(--gray-light);
 						font-family : var(--font);
 						font-weight : 500;
 						font-size : 14px;
 						color : var(--gray);
-						box-shadow : none;
-						border : 0;
-						border-bottom : 1px solid var(--gray-light);
-						padding-bottom : 15px;
-						padding-top : 12px;
-						padding-bottom : 12px;
-						padding-right : 15px;
-						margin-bottom : 35px;
-						width : 100%;
-						box-sizing : border-box;
+						background-color : var(--white);
+
+						&:hover ,
+						&:focus ,
+						&.valid {
+							border-bottom : 2px solid var(--text-black-light);
+							color : #000000;
+							& + label.form-group-label ,
+							& + label + label.form-group-label {
+								font-weight : 500;
+								opacity : 1;
+								top : -20px;
+								font-size : 12px;
+								line-height : 21px;
+							}
+						}
+
+						&.error {
+							border-color : var(--red);
+							color : var(--red);
+
+							& + label + label {
+								font-weight : 500;
+								color : var(--red);
+								opacity : 1;
+								top : -20px;
+								font-size : 12px;
+								line-height : 21px;
+							}
+						}
 					}
 
 					&.input-inline {
 						display : grid;
-						column-gap : 15px;
+						gap : 25px;
+						grid-template-columns : 1fr 1fr 1fr;
 						grid-template-columns : 1fr 1fr;
-						@media(min-width: 576px) {
-							grid-template-columns : 1fr 1fr 1fr;
-						}
-						@media(min-width: $tablet) {
-							display : block;
-						}
-						label {
+						> label {
+							grid-column : span 3;
 							grid-column : span 2;
-							@media(min-width: 576px) {
-								grid-column : span 3;
-							}
 							display : block;
-							color : var(--gray);
-							font-weight : 500;
-							font-size : 14px;
-							line-height : 24px;
-							margin-bottom : 15px;
+							width : 100%;
 						}
-
 						.form-check-inline {
 							display : inline-block;
 							position : relative;
@@ -155,11 +179,12 @@
 								opacity : 0;
 								padding : 0;
 								margin : 0;
+								cursor : pointer;
 
 								&:checked {
 									+ label {
-										border-color : var(--red);
-										color : var(--red);
+										border : 2px solid var(--text-black-light);
+										color : var(--text-black-light);
 										cursor : pointer;
 									}
 								}
@@ -170,7 +195,6 @@
 									border : 1px solid var(--gray-light);
 									padding : 8px 4px;
 									display : inline-block;
-									margin-bottom : 25px;
 									font-weight : 500;
 									font-size : 12px;
 									line-height : 24px;
@@ -178,50 +202,29 @@
 									color : var(--gray);
 									margin-right : 0;
 									width : 100%;
-									@media(min-width: $tablet) {
-										padding : 8px 10px;
-										font-size : 14px;
-										width : auto;
-										margin-right : 22px;
-									}
+									text-align : center;
 								}
 							}
 						}
 					}
 
-					textarea {
-						display : block;
-						width : 100%;
-						height : 85px;
-						font-family : var(--font);
-						border : 0;
-						border-bottom : 1px solid var(--gray-light);
-						font-style : normal;
-						font-weight : 500;
-						font-size : 14px;
-						line-height : 20px;
-						color : var(--gray);
-						padding : 12px;
-						padding-left : 0;
-					}
-
+					/* input status */
 					label.error {
-						position : relative;
-						bottom : 30px;
-						padding : 0;
-						margin : 0;
-						display : inline-block;
-						@extend small;
-						color : var(--red);
-					}
-					.errorRadio label.error {
-						margin-top : 10px;
-						font-weight : 400;
-						font-size : 80%;
+						font-family : var(--font-600);
+						font-size : 14px;
+						line-height : 21px;
+						color : var(--white);
+						position : absolute;
+						bottom : -30px;
+						left : 0;
+						opacity : 1;
+						visibility : visible;
 					}
 
-					+ button {
-						margin-top : 40px;
+					/* button */
+
+					&.btn-primary {
+						margin : 0;
 						display : inline-block;
 						border : 2px solid var(--red);
 						background-color : transparent;
@@ -240,6 +243,40 @@
 						}
 					}
 				}
+
+				// project detail
+				textarea {
+					resize : none;
+					max-height : 100px;
+					padding-top : 30px;
+					display : block;
+					width : 100%;
+					height : 85px;
+					font-family : var(--font);
+					border : 0;
+					border-bottom : 1px solid var(--gray-light);
+					font-style : normal;
+					font-weight : 500;
+					font-size : 14px;
+					line-height : 20px;
+					color : var(--gray);
+					padding : 12px;
+					padding-left : 0;
+
+					&:hover ,
+					&:focus ,
+					&.valid {
+						border-bottom : 2px solid var(--text-black-light);
+
+						& + label.form-group-label ,
+						& + label + label.form-group-label {
+							opacity : 1;
+							top : -20px;
+							font-size : 14px;
+							line-height : 21px;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -253,6 +290,7 @@
 				&__title {
 					display : block;
 					margin-top : 20px;
+
 					span {
 						display : block;
 						overflow : hidden;
