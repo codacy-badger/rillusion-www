@@ -77,7 +77,7 @@
 			}
 
 			.form {
-				width : 530px;
+				max-width : 530px;
 
 				@media(min-width: 768px) {
 					margin : 0 auto;
@@ -159,12 +159,17 @@
 
 					&.input-inline {
 						display : grid;
-						gap : 25px;
-						grid-template-columns : 1fr 1fr 1fr;
+						gap : 20px;
 						grid-template-columns : 1fr 1fr;
+						@media(min-width: $ptablet) {
+							gap : 25px;
+							grid-template-columns : 1fr 1fr 1fr;
+						}
 						> label {
-							grid-column : span 3;
 							grid-column : span 2;
+							@media(min-width: $ptablet) {
+								grid-column : span 3;
+							}
 							display : block;
 							width : 100%;
 						}
