@@ -485,6 +485,7 @@
 			.readmoreLink {
 				display : block;
 				margin-top : 56px;
+				overflow: hidden;
 
 				@media(min-width: 960px) {
 					display : grid;
@@ -521,8 +522,9 @@
 						animation-timing-function: ease-in-out;
 						animation-delay: 0.5;
 						@keyframes tonfro {
-							from{transform:translateX(10px)}
-							to {transform:translateX(0px)}														
+							0%{transform:translateX(0px)}
+							50%{transform:translateX(10px)}
+							100%{transform:translateX(0px)}														
 						}
 						path{
 							stroke: var(--red);
@@ -534,6 +536,7 @@
 
 
 		&__focus-industries {
+			// display: none;
 			.swiper-container {
 				overflow : visible;
 			}
