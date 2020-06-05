@@ -77,7 +77,7 @@
 			}
 
 			.form {
-				width : 530px;
+				max-width : 530px;
 
 				@media(min-width: 768px) {
 					margin : 0 auto;
@@ -159,12 +159,23 @@
 
 					&.input-inline {
 						display : grid;
-						gap : 25px;
-						grid-template-columns : 1fr 1fr 1fr;
+						gap : 20px;
 						grid-template-columns : 1fr 1fr;
-						> label {
-							grid-column : span 3;
+						@media(min-width: $ptablet) {
+							gap : 25px;
+							grid-template-columns : 1fr 1fr 1fr;
+						}
+						.errorRadio {
 							grid-column : span 2;
+							@media(min-width: $ptablet) {
+								grid-column : span 3;
+							}
+						}
+						> label {
+							grid-column : span 2;
+							@media(min-width: $ptablet) {
+								grid-column : span 3;
+							}
 							display : block;
 							width : 100%;
 						}
@@ -212,13 +223,13 @@
 					label.error {
 						font-family : var(--font-600);
 						font-size : 14px;
-						line-height : 21px;
-						color : var(--white);
-						position : absolute;
-						bottom : -30px;
-						left : 0;
 						opacity : 1;
 						visibility : visible;
+						color : var(--red);
+						position : absolute;
+						position : relative;
+						bottom : -5px;
+						left : 0;
 					}
 
 					/* button */
