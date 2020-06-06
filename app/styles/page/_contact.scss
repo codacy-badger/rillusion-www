@@ -65,6 +65,7 @@
 		}
 
 		.right {
+			flex : 0 0 calc(100% - 586px);
 			overflow : hidden;
 			@include interpolate("margin-top", 520px, 60px, 992px, 60px, "ease-in");
 
@@ -291,6 +292,59 @@
 				}
 			}
 		}
+	}
+}
+
+.form-status {
+	display : flex;
+	justify-content : center;
+	.checkmark {
+		margin-bottom : 43px;
+	}
+	.message {
+		&--title {
+			font-weight : 700;
+			font-size : 32px;
+			line-height : 48px;
+			color : #2e2e2e;
+			margin-bottom : 13px;
+		}
+		&--content {
+			span {
+				display : block;
+			}
+
+			font-weight : 500;
+			font-size : 14px;
+			line-height : 28px;
+			color : #666666;
+		}
+	}
+}
+
+.checkmark svg #circle {
+	transform-origin : 50% 50%;
+	stroke-dasharray : 556.06;
+	stroke-dashoffset : 556.06;
+	animation : stroke 0.7s ease-in forwards;
+}
+
+@keyframes stroke {
+	100% {
+		stroke-dashoffset : 0;
+	}
+}
+
+.checkmark svg #tick {
+	transform-origin : 50% 50%;
+	stroke-dasharray : 120;
+	stroke-dashoffset : 120;
+	animation : stroke 0.3s ease-in 0.8s forwards;
+}
+
+@keyframes stroke {
+	100% {
+		stroke-dashoffset : 0;
 	}
 }
 
