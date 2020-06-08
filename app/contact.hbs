@@ -30,41 +30,41 @@
         <form id="form" class="form" data-aos="fade-right" data-aos-delay="1100" method="post" autocomplete="off"
           name="myForm">
           <div class="form-group">
-            <input type="text" class="form-control" name="name" id="name" placeholder="" autocomplete="off"
+            <input type="text" class="form-group-control" name="name" id="name" placeholder="" autocomplete="off"
               required>
-            <label for="name" class="sr-only">Name</label>
+            <label for="name" class="form-group-label">Name</label>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" name="" id="email" placeholder="" autocomplete="off"
+            <input type="email" class="form-group-control" name="email" id="email" placeholder="" autocomplete="off"
               required>
-            <label for="email" class="sr-only">Email</label>
+            <label for="email" class="form-group-label">Email</label>
           </div>
           <div class="form-group">
             <input type="tel" class="form-group-control" name="phoneNumber" id="phoneNumber" placeholder=""
               autocomplete="off" required minlength="10" maxlength="10" pattern="^\d{10}$">
-            <label for="phoneNumber" class="sr-only">Telephone</label>
+            <label for="phoneNumber" class="form-group-label">Telephone</label>
           </div>
           <div class="form-group input-inline">
             <label for="">Select your Budget range for this project</label>
             <div class="form-check form-check-inline">
               <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio1"
                 value="$ 5,000 - $10,000">
-              <label class="form-check-label" for="k5tok10">$ 5,000 - $10,000</label>
+              <label class="form-check-label" for="k5tok10">$ 5,000 - $ 10,000</label>
             </div>
             <div class="form-check form-check-inline">
               <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio2"
                 value="$ 10,000 - $20,000">
-              <label class="form-check-label" for="k10tok20">$ 10,000 - $20,000</label>
+              <label class="form-check-label" for="k10tok20">$ 10,000 - $ 20,000</label>
             </div>
             <div class="form-check form-check-inline">
               <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio3"
                 value="$ 20,000 - $50,000">
-              <label class="form-check-label" for="k20tok50">$ 20,000 - $50,000</label>
+              <label class="form-check-label" for="k20tok50">$ 20,000 - $ 50,000</label>
             </div>
             <div class="form-check form-check-inline">
               <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio4"
                 value="$ 50,000 - $100,000">
-              <label class="form-check-label" for="k50tok100">$ 50,000 - $100,000</label>
+              <label class="form-check-label" for="k50tok100">$ 50,000 - $ 100,000</label>
             </div>
             <div class="form-check form-check-inline">
               <input required class="form-check-input" type="radio" name="budgetRange" id="inlineRadio5"
@@ -80,14 +80,33 @@
           </div>
 
           <div class="form-group">
-            <textarea name="projectDescription" id="projectDescription" cols="30" rows="10"
-              placeholder=""></textarea>
-            <label for="projectDescription" class="sr-only">Project Description</label>       
+            <textarea name="projectDescription" id="projectDescription" cols="30" rows="10" placeholder=""></textarea>
+            <label for="projectDescription" class="form-group-label">Project Description</label>
           </div>
           <button type="submit" class="form-group btn-primary">Get started</button>
 
         </form>
+
+        <div class="form-status hidden">
+          <div class="form-status-success">
+          <div class="checkmark">
+              <svg width="181" height="181" viewBox="0 0 181 181" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle id="circle" cx="90.1396" cy="90.624" r="88.5" stroke="#2E2E2E" stroke-width="3" />
+                <path id="tick" d="M54 93L76 115L127 64" stroke="#2E2E2E" stroke-width="8"/>
+              </svg>
+          </div>
+          <div class="message">
+            <div class="message--title">
+              Thank you!
+            </div>
+            <div class="message--content">
+              <span>We will contact you shortly. </span>
+              <span>Scroll down to see the next steps </span>
+            </div>
+          </div>
+        </div>
       </div>
+          </div>
     </section>
 
 
@@ -275,6 +294,12 @@
             error.insertAfter(element);
           }
         },
+        messages: {
+          name: { required: 'Your Name is required' },
+          email: { required: 'Your Email is required' },
+          phoneNumber: { required: 'Your telephone is required' },
+          budgetRange: { required: 'Kindly select the budget' },
+        },
         rules: {
           name: {
             required: true,
@@ -294,9 +319,9 @@
             url: "./tryme.php",
             data: $(form).serialize(),
             success: function (data) {
-              $(form).append("<div id='message'></div>");
-              $("#message").html(data);
               $("#form")[0].reset();
+              $(".form").toggleClass('hidden');
+              $(".form-status").toggleClass('hidden');
             },
           });
           return false; // required to block normal submit since you used ajax
