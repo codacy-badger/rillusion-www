@@ -148,14 +148,31 @@
 										pointer-events : visible;
 									}
 
-									&:hover {
-										.section--content .section--content__read-more {
-											.link-text {
-												color : yellow;
-											}
-											.link-icon svg path {
-												stroke : yellow;
-											}
+									.section--content:hover .section--content__read-more {
+										.link-text {
+											color : var(--text-black);
+										}
+										.link-icon svg {
+											transition : all 0.25s;
+											animation-name : arrowMove;
+											animation-duration : 0.7s;
+											animation-iteration-count : 1;
+										}
+										.link-icon svg path {
+											stroke : var(--red);
+										}
+									}
+
+
+									@keyframes arrowMove {
+										from {
+											transform : translateX(0px);
+										}
+										50% {
+											transform : translateX(17px);
+										}
+										to {
+											transform : translateX(0px);
 										}
 									}
 
@@ -232,9 +249,9 @@
 							}
 
 							&-slide {
-								> * {
-									outline : 1px solid blue;
-								}
+								// > * {
+								// 	outline : 1px solid blue;
+								// }
 
 								display : flex;
 								flex-direction : column;
