@@ -375,3 +375,14 @@ body.menu-open {
 		}
 	}
 }
+
+
+//add header-class
+.navbar-fixed{
+ top: 0 !important;
+}
+
+.navbar-drop-shadow{
+  box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, 0.15);
+  top: 0 !important;
+}
