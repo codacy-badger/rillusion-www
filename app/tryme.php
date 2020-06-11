@@ -20,7 +20,7 @@ $mobile = ($_POST['phoneNumber']);
 $projectDescription = ($_POST['projectDescription']);
 $budgetRange = ($_POST['budgetRange']);
 
-$to = "sikavinraj@gmail.com";
+$to = "interact@rillusion.com";
 
 $subject = "[rillusion.com] Enquire by ". $name." for the price of $budgetRange";
 

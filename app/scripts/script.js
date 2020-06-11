@@ -33,16 +33,15 @@ const navHeader = document.getElementsByTagName('header');
 
 // menu items transition
 var t1 = new TimelineMax({ paused: true });
-t1.to('.menu--items', 0.5, {
-  top: '0%',
-  ease: Expo.easeInOut,
-});
+// t1.staggerFrom('.menu--items', 0.2, {
+//   x: '0%',
+//   ease: Expo.easeInOut,
+// });
 
 t1.staggerFrom(
-  '.menu--items ul li, .menu--items > div',
-  1,
-  { x: -200, opacity: 0, ease: Expo.easeOut },
-  0.1
+  '.menu--items ul li',
+  0.2,
+  { x: -200, opacity: 0, ease: Expo.easeOut }
 );
 
 t1.reverse();
@@ -84,8 +83,10 @@ function pageTransition() {
     });
   });
 }
+pageTransition();
 
-// Function to animate the header of each page
+
+// // Function to animate the header of each page
 // function contentAnimation() {
 //   var tl = gsap.timeline();
 //   tl.from(
