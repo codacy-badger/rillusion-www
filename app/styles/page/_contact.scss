@@ -10,7 +10,7 @@
 		flex-direction : column;
 		margin-bottom : 105px;
 
-		@media(min-width: 768px) {
+		@media(min-width: $tablet) {
 			align-items : flex-start;
 			flex-direction : row;
 		}
@@ -69,7 +69,7 @@
 			overflow : hidden;
 			@include interpolate("margin-top", 520px, 60px, 992px, 60px, "ease-in");
 
-			@media(min-width: 768px) {
+			@media(min-width: $tablet) {
 				margin-top : 0;
 			}
 
@@ -80,12 +80,11 @@
 			.form {
 				max-width : 530px;
 
-				@media(min-width: 768px) {
-					// margin : 0 auto;
+				@media(min-width: $tablet) {
 					@include interpolate("max-width", 520px, 280px, 992px, 530px, "ease-in");
 				}
 
-				/* form input cover / group [label + input] */
+				// form input cover / group [label + input]
 				&-group {
 					position : relative;
 					margin-bottom : 30px;
@@ -134,6 +133,7 @@
 						&.valid {
 							border-bottom : 2px solid var(--text-black-light);
 							color : #000000;
+
 							& + label.form-group-label ,
 							& + label + label.form-group-label {
 								opacity : 1;
@@ -150,7 +150,6 @@
 
 							& + label + label {
 								font-weight : 500;
-								// color : var(--red);
 								opacity : 1;
 								top : -20px;
 								font-size : 12px;
@@ -163,16 +162,20 @@
 						display : grid;
 						gap : 20px;
 						grid-template-columns : 1fr 1fr;
+
 						@media(min-width: $ptablet) {
 							gap : 25px;
 							grid-template-columns : 1fr 1fr 1fr;
 						}
+
 						.errorRadio {
 							grid-column : span 2;
+
 							@media(min-width: $ptablet) {
 								grid-column : span 3;
 							}
 						}
+
 						> label {
 							font-family : var(--font);
 							font-size : 14px;
@@ -180,12 +183,15 @@
 							color : #999999;
 							font-weight : 500;
 							grid-column : span 2;
+
 							@media(min-width: $ptablet) {
 								grid-column : span 3;
 							}
+
 							display : block;
 							width : 100%;
 						}
+
 						.form-check-inline {
 							display : inline-block;
 							position : relative;
@@ -198,6 +204,7 @@
 								padding : 0;
 								margin : 0;
 								cursor : pointer;
+
 								&:hover ,
 								&:focus ,
 								&:checked {
@@ -255,10 +262,33 @@
 						color : var(--red);
 						cursor : pointer;
 						transition : 0.2s ease;
+						position : relative;
+						overflow : hidden;
+
+						i {
+							position : absolute;
+							top : -76px;
+							left : -33px;
+							right : 0;
+							text-align : center;
+							margin : 0 auto;
+							bottom : 0;
+							height : 200px;
+							width : 200px;
+							border-radius : 50%;
+							background-color : var(--red);
+							transition : transform 1s;
+							will-change : transform;
+							transform : scale3d(0.01, 0.01, 0);
+							z-index : -1;
+						}
+
 						&:hover {
-							transition : 0.2s ease;
 							color : var(--white);
-							background : var(--red);
+
+							i {
+								transform : scale3d(1, 1, 1);
+							}
 						}
 					}
 				}
@@ -306,9 +336,11 @@
 	margin-top : 112px;
 	display : flex;
 	justify-content : center;
+
 	.checkmark {
 		margin-bottom : 43px;
 	}
+
 	.message {
 		&--title {
 			font-weight : 700;
@@ -317,6 +349,7 @@
 			color : #2e2e2e;
 			margin-bottom : 13px;
 		}
+
 		&--content {
 			span {
 				display : block;
@@ -386,14 +419,13 @@
 	padding-top : 60px;
 	margin-top : 60px;
 
-	@media (min-width: 768px) {
+	@media (min-width: $tablet) {
 		margin-top : 0;
 	}
 
 	.hero--text_title {
 		max-width : none;
 		margin-bottom : 0;
-		// @include interpolate('margin-bottom', 520px, 60px, 992px, 70px, 'ease-in');
 	}
 
 	.philosophy {
@@ -401,7 +433,7 @@
 			@include interpolate("padding-top", 520px, 60px, 992px, 100px, "ease-in");
 			@include interpolate("padding-bottom", 520px, 60px, 992px, 77px, "ease-in");
 
-			@media(min-width: 768px) {
+			@media(min-width: $tablet) {
 				@include interpolate("margin-left", 520px, 77px, 992px, 294px, "ease-in");
 			}
 
@@ -417,7 +449,7 @@
 					grid-template-columns : 1fr 1fr;
 				}
 
-				@media(min-width: 768px) {
+				@media(min-width: $tablet) {
 					grid-template-columns : 1fr 1fr 1fr;
 				}
 
