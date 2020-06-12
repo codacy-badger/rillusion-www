@@ -1,5 +1,6 @@
 // body
 body {
+	cursor : none;
 	scroll-behavior : smooth;
 	font-family : var(--font);
 	line-height : 1.5;
@@ -92,7 +93,7 @@ main {
 		padding-right : 30px;
 	}
 
-	@media(min-width: 1200px) {
+	@media(min-width: $desktop) {
 		max-width : 1146px;
 		padding-left : 0;
 		padding-right : 0;
@@ -103,7 +104,7 @@ main {
 		margin-left : auto;
 		margin-right : auto;
 
-		@media(min-width: 1200px) {
+		@media(min-width: $desktop) {
 			padding-left : 0;
 			padding-right : 0;
 		}
@@ -137,7 +138,6 @@ main {
 	}
 
 	&-template-column\:3fr {
-		// grid-template-columns: repeat(3, 1fr);
 		grid-template-columns : repeat(auto-fit, minmax(280px, 1fr));
 		grid-template-columns : repeat(auto-fit, minmax(290px, 1fr));
 	}
@@ -157,8 +157,6 @@ main {
 					font-style : normal;
 					font-weight : 700;
 					overflow : hidden;
-					// font-size : 48px;
-					// line-height : 72px;
 					@include interpolate("font-size", 576px, 24px, 992px, 48px, "ease-in");
 					@include interpolate("line-height", 576px, 36px, 992px, 72px, "ease-in");
 				}
@@ -238,8 +236,6 @@ img {
 [data-tooltip]:before ,
 [data-tooltip]:after {
 	visibility : hidden;
-	/*   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0); */
 	opacity : 0;
 	pointer-events : none;
 	transition-duration : 0.5s;
@@ -319,9 +315,23 @@ img {
 	}
 }
 
-
-
 //custom--margin-neg
 .custom-m-neg {
 	margin-top : -186px;
+}
+
+/* cursor */
+#cursor {
+	will-change : left, top;
+	transition : width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
+	width : 6px;
+	height : 6px;
+	background : var(--red);
+	border : 1px solid var(--red);
+	border-radius : 50%;
+	position : absolute;
+	position : fixed;
+	transform : translate(-50%, -50%);
+	pointer-events : none;
+	z-index : 1505;
 }

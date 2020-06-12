@@ -37,13 +37,13 @@
 		will-change : transition;
 		transition : all 1s ease-in-out;
 
-		@media(min-width: 768px) {
+		@media(min-width: $tablet) {
 			padding-top : 20px;
 			padding-bottom : 15px;
 			justify-content : initial;
 		}
 
-		@media(min-width: 1200px) {
+		@media(min-width: $desktop) {
 			padding-left : 0;
 			padding-right : 0;
 		}
@@ -58,7 +58,7 @@
 					overflow : hidden;
 				}
 
-				@media(min-width: 768px) {
+				@media(min-width: $tablet) {
 					flex : 1 0;
 					width : auto;
 					text-align : left;
@@ -69,7 +69,7 @@
 				margin-right : 0;
 
 				i {
-					@media(min-width: 768px) {
+					@media(min-width: $tablet) {
 						display : block;
 					}
 				}
@@ -81,7 +81,7 @@
 			font-weight : 500;
 			color : var(--gray);
 
-			@media(min-width: 768px) {
+			@media(min-width: $tablet) {
 				font-size : 16px;
 				line-height : 20px;
 				margin-right : 45px;
@@ -91,7 +91,7 @@
 				display : block;
 				margin-bottom : 3px;
 
-				@media(min-width: 768px) {
+				@media(min-width: $tablet) {
 					display : none;
 				}
 			}
@@ -113,10 +113,8 @@
 
 
 .menu--items {
-	// display : none;
 	position : fixed;
 	top : -100%;
-	// top : 0;
 	left : 0;
 	width : 100%;
 	height : 0;
@@ -147,7 +145,7 @@
 			display : none;
 		}
 
-		@media(min-width: 768px) {
+		@media(min-width: $tablet) {
 			.mobile {
 				display : none;
 			}
@@ -211,7 +209,7 @@
 			width : auto;
 		}
 
-		@media(min-width: 768px) {
+		@media(min-width: $tablet) {
 			padding : 0 15px 0;
 			padding : 0;
 		}
@@ -256,7 +254,7 @@
 		}
 
 		&:nth-child(4) {
-			@media(min-width: 768px) {
+			@media(min-width: $tablet) {
 				li:not(:first-child) {
 					a {
 						font-weight : 700;
@@ -293,7 +291,7 @@
 		flex-wrap : wrap;
 		justify-content : space-between;
 
-		@media(min-width: 768px) {
+		@media(min-width: $tablet) {
 			order : 4;
 			flex : initial;
 			flex-direction : column;
@@ -309,7 +307,7 @@
 				margin-right : 34px;
 			}
 
-			@media(min-width: 768px) {
+			@media(min-width: $tablet) {
 				margin-right : 0;
 				margin-bottom : 35px;
 			}
@@ -344,7 +342,7 @@ body.menu-open {
 			padding-right : 30px;
 		}
 
-		@media(min-width: 1200px) {
+		@media(min-width: $desktop) {
 			padding-left : 100px;
 			padding-right : 100px;
 		}
@@ -352,7 +350,6 @@ body.menu-open {
 }
 
 #navbar {
-	// box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15);
 	position : fixed;
 	left : 0;
 	right : 0;
@@ -372,7 +369,6 @@ body.menu-open {
 		top : initial;
 
 		.header--navigation {
-			// box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, 0.15);
 			position : fixed;
 			bottom : 0;
 			width : 100%;

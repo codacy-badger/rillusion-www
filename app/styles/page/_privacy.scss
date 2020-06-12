@@ -1,34 +1,35 @@
 .page--content--privacy {
-  .hero--text_title {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 31px;
-    line-height: 1.25em;
-    font-weight: bold;
-  }
+	.hero--text_title {
+		text-align : center;
+		margin-bottom : 50px;
+		font-size : 31px;
+		line-height : 1.25em;
+		font-weight : bold;
+	}
 
-  h4{
-    font-size: 20px;
-    line-height: 1.2;
-    font-weight: bold;
-  }
-  
-  p{
-    text-align: left !important;
-    padding: 10px 0px;
-    font-family: 14px;
-    line-height: 1.7;
-    font-weight: 300;
-  }
+	h4 {
+		font-size : 20px;
+		line-height : 1.2;
+		font-weight : bold;
+	}
 
-  a{
-      color: #a0a0f9;
-      &:hover{
-          color: var(--red);
-      }
-  }
+	p {
+		text-align : left !important;
+		padding : 10px 0;
+		font-family : 14px;
+		line-height : 1.7;
+		font-weight : 300;
+	}
 
-  li{
-    line-height: 1.5;
-  }
+	a {
+		color : #a0a0f9;
+
+		&:hover {
+			color : var(--red);
+		}
+	}
+
+	li {
+		line-height : 1.5;
+	}
 }

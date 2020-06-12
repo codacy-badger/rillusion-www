@@ -22,9 +22,31 @@ if (screen.width > 620) {
   });
 }
 
+/* cursor  */
+let cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', function (e) {
+  let x = e.clientX,
+    y = e.clientY;
+  cursor.style.left = x + 'px';
+  cursor.style.top = y + 'px';
+});
+
+document.querySelectorAll('a').forEach(function (el) {
+  el.addEventListener('mouseover', function (e) {
+    cursor.style.width = '40px';
+    cursor.style.height = '40px';
+    cursor.style.opacity = '0.3';
+  });
+  el.addEventListener('mouseout', function (e) {
+    cursor.style.width = '6px';
+    cursor.style.height = '6px';
+    cursor.style.opacity = '1';
+  });
+});
+
 /* footer rillusion logo animation  */
 if (document.getElementById('footer-logo')) {
-  new Vivus('footer-logo', {duration: 200});
+  new Vivus('footer-logo', { duration: 200 });
 }
 
 /* header nav */
@@ -38,24 +60,20 @@ var t1 = new TimelineMax({ paused: true });
 //   ease: Expo.easeInOut,
 // });
 
-t1.staggerFrom(
-  '.menu--items ul li',
-  0.2,
-  { x: -200, opacity: 0, ease: Expo.easeOut }
-);
+t1.staggerFrom('.menu--items ul li', 0.2, {
+  x: -200,
+  opacity: 0,
+  ease: Expo.easeOut,
+});
 
 t1.reverse();
 
 // menu transition and action on click
-$(document).on(
-  'click',
-  '.trigger-menu, .menu--items_close',
-  function () {
-    body.classList.toggle('menu-open');
-    t1.reversed(!t1.reversed());
-    console.log('demo');
-  }
-);
+$(document).on('click', '.trigger-menu, .menu--items_close', function () {
+  body.classList.toggle('menu-open');
+  t1.reversed(!t1.reversed());
+  console.log('demo');
+});
 
 // page transition
 function delay(n) {
@@ -84,7 +102,6 @@ function pageTransition() {
   });
 }
 pageTransition();
-
 
 // // Function to animate the header of each page
 // function contentAnimation() {
