@@ -75,6 +75,25 @@
         position: relative;
     }
 
+    &::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(to right,  rgba(0,0,0,0.25) 50%, transparent 50%);
+        background-size: 20px 100%;
+        background-repeat: repeat;
+
+        @include media-min(600px){
+            display: none;
+        }
+
+        }
+
+
     .list-head-wrapper {
         @include media-min(600px) {
             border-right: solid 1px $mercury;
@@ -123,6 +142,25 @@
 
         @include media-min(900px) {
             width: 45%;
+        }
+
+        &::before{
+
+         display: none;
+
+         @include media-min(600px){
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(to right,  rgba(0,0,0,0.25) 50%, transparent 50%);
+            background-size: 20px 100%;
+            background-repeat: repeat;
+            }
+
         }
 
         span {
