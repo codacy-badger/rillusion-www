@@ -324,10 +324,10 @@ img {
 #cursor {
 	will-change : left, top;
 	transition : width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
-	width : 6px;
-	height : 6px;
-	background : var(--red);
-	border : 1px solid var(--red);
+	width : 8px;
+	height : 8px;
+	background : var(--text-black);
+	border : 1px solid var(--text-black);
 	border-radius : 50%;
 	position : absolute;
 	position : fixed;
