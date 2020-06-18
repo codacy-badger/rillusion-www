@@ -38,11 +38,11 @@
 	&--list {
 		@media(min-width: $tablet) {
 			&:nth-child(odd) {
-				margin-top : 120px;
+				margin-top : 60px;
 			}
 
 			&:nth-child(even) {
-				padding-bottom : 120px;
+				padding-bottom : 60px;
 			}
 		}
 
