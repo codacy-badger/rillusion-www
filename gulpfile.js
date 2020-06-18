@@ -120,7 +120,7 @@ function imagesWebp() {
     }
   )
     .pipe($.webp())
-    .pipe(dest("app/images"));
+    .pipe(dest("dist/images"));
 }
 
 function fonts() {
@@ -219,7 +219,6 @@ function startAppServer() {
   );
 
   watch("app/**/*.hbs", html);
-  watch("app/images/**/*.{jpg,png}", imagesWebp);
   watch("app/styles/**/*.scss", styles);
   watch("app/scripts/**/*.js", scripts);
   watch("app/fonts/**/*", fonts);

@@ -15,7 +15,6 @@
     </title>
 
     <!-- Manifest code for new layout -->
-    <link rel="manifest" href="./manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#ff2300" />
     <meta name="application-name" content="Rillusion" />
@@ -27,9 +26,11 @@
 
     <!-- Place favicon.ico in the root directory -->
     {{#if project}}
+      <link rel="manifest" href="../manifest.json" />
       <link rel="icon" href="../images/favicon.png" sizes="32x32" />
       <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
     {{else}}
+      <link rel="manifest" href="./manifest.json" />
       <link rel="icon" href="./images/favicon.png" sizes="32x32" />
       <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
     {{/if}}
