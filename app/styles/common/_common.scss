@@ -324,8 +324,8 @@ img {
 #cursor {
 	will-change : left, top;
 	transition : width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
-	width : 8px;
-	height : 8px;
+	width : 10px;
+	height : 10px;
 	background : var(--text-black);
 	border : 1px solid var(--text-black);
 	border-radius : 50%;
