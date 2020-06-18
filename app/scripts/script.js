@@ -91,13 +91,39 @@ function pageTransition() {
     var tl = gsap.timeline();
     tl.set('.loading-screen', { transformOrigin: 'bottom left' });
     tl.to('.loading-screen', { duration: 0.5, scaleY: 1 });
-    tl.to('.loading-screen', {
+    tl.to('.loading-screen:nth-child(1)', {
       duration: 0.5,
       scaleY: 0,
       skewX: 0,
       transformOrigin: 'top left',
       ease: 'power1.out',
       delay: 0.5,
+    });
+    tl.to('.loading-screen:nth-child(2)', {
+      duration: 0.5,
+      scaleY: 0,
+      skewX: 0,
+      transformOrigin: 'top left',
+      ease: 'power1.out',
+      delay: 0.6,
+    });
+
+    tl.to('.loading-screen:nth-child(3)', {
+      duration: 0.5,
+      scaleY: 0,
+      skewX: 0,
+      transformOrigin: 'top left',
+      ease: 'power1.out',
+      delay: 0.6,
+    });
+
+    tl.to('.loading-screen:nth-child(4)', {
+      duration: 0.5,
+      scaleY: 0,
+      skewX: 0,
+      transformOrigin: 'top left',
+      ease: 'power1.out',
+      delay: 0.6,
     });
   });
 }
