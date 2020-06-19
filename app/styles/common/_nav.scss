@@ -126,8 +126,17 @@
 	padding-left : 15px;
 	padding-right : 15px;
 	transition : all 0.25s ease-in;
-	padding : 0;
+	// padding : 0;
 
+	@media(min-width: 360px) {
+		padding-left : 30px;
+		padding-right : 30px;
+	}
+
+	@media(min-width: $desktop) {
+		padding-left : 100px;
+		padding-right : 100px;
+	}
 	> div {
 		flex : 1 0 100%;
 		display : flex;
@@ -336,16 +345,6 @@ body.menu-open {
 		flex-wrap : wrap;
 		justify-content : space-between;
 		transition : all 0.25s ease-in;
-
-		@media(min-width: 360px) {
-			padding-left : 30px;
-			padding-right : 30px;
-		}
-
-		@media(min-width: $desktop) {
-			padding-left : 100px;
-			padding-right : 100px;
-		}
 	}
 }
 
