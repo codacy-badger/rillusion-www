@@ -1,8 +1,9 @@
 # MotionEdu
 
 ## Fonts
-  Added in [variables.scss]
-  link -- https://fonts.googleapis.com/css2?family=Esteban&family=Montserrat:wght@300;400;500;600;700&display=swap
+   Added in [variables.scss]
+   link -- https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@200;400;500&family=Work+Sans&family=Montserrat:ital,wght@0,400;0,600;1,300;1,500;1,700&display=swap
+
   
        font-family: 'Open Sans', sans-serif;
        font-family: 'Oswald', sans-serif;
@@ -33,4 +34,9 @@
       display: inline-block;
       width: 100%;
     }
+
+## media queries
+  `$desktop-breakpoint: 1200px;`
+  `$tab-breakpoint: 768px;`
+  `$mobile-breakpoint: 576px;`
   

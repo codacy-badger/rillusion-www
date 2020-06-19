@@ -2,10 +2,9 @@
 
 ## Fonts
    Added in [variables.scss]
-   link -- https://fonts.googleapis.com/css2?family=Esteban&family=Montserrat:wght@300;400;500;600;700&display=swap
+   link -- https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap
   
-        font-family: 'Montserrat', sans-serif;
-        font-family: 'Esteban', serif;
+        font-family: 'Open Sans', sans-serif;
    
 
 ## Container
@@ -17,10 +16,13 @@
   - page-tag
   - content-head
   - content-txt
+  - content-tag
   - d-none
   - custom-content-display
   - flex-order-0
   - flex-order-1
+  - primary-box-shadow
+  - secondary-box-shadow
  
  and also added default prop for picture tag which says like below
 
@@ -31,6 +33,6 @@
     }
 
 ## media queries
-   `$desktop-breakpoint: 1200px;`
-   `$tab-breakpoint: 768px;`
-   `$mobile-breakpoint: 576px;`
+  `$desktop-breakpoint: 1200px;`
+  `$tab-breakpoint: 768px;`
+  `$mobile-breakpoint: 600px;`
