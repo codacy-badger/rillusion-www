@@ -75,16 +75,16 @@ let t1 = new TimelineMax({
   paused: true
 });
 
-// t1.staggerFrom('.menu--items', 0.2, {
-//   x: '0%',
-//   ease: Expo.easeInOut,
-// });
+t1.staggerFrom('.menu--items', 0.2, {
+  x: '0%',
+  ease: Expo.easeInOut,
+});
 
-// t1.staggerFrom('.menu--items ul li', 0.2, {
-//   x: -200,
-//   opacity: 0,
-//   ease: Expo.easeOut,
-// });
+t1.staggerFrom('.menu--items ul li', 0.2, {
+  x: -200,
+  opacity: 0,
+  ease: Expo.easeOut,
+});
 
 t1.reverse();
 
