@@ -12,22 +12,25 @@
 ## Container
   `max-width : 1170px`
 
-## helper-classes
+## Helper-classes
   - container
-  - paged-head
-  - page-tag
+  - page-head
   - content-head
   - content-txt
   - d-none
   - custom-content-display
   - flex-order-0
   - flex-order-1
+  - custom-underline
+  - col-curiousblue
+  - col-electviolet
+  - col-mysin
  
  and also added default prop for picture tag which says like below
 
     picture {
       max-width: 100%;
-     display: inline-block;
-     width: 100%;
+      display: inline-block;
+      width: 100%;
     }
   
