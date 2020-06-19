@@ -89,11 +89,3 @@ picture {
 }
 
 
-.clearfix {
-  overflow: auto;
-  &::after{
-  content: "";
-  clear: both;
-  display: block;
-  }
-}
