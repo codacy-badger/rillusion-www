@@ -29,19 +29,24 @@ function pageTransition() {
       opacity: 0
     });
     tl.set('.loading-screen', {
-      transformOrigin: 'bottom left'
+      transformOrigin: 'right left',
+      width: '0%',
+      translateX: '0'
     });
     tl.to('.loading-screen', {
       duration: ' .5',
-      scaleY: 1
+      scaleX: 1
     });
     tl.to('.loading-screen', {
       duration: '.5',
-      scaleY: 0,
-      skewX: 0,
-      transformOrigin: 'top left',
+      width: '100%',
+      transformOrigin: 'right left',
       ease: 'power1.out',
-      delay: 0,
+    });
+    tl.to('.loading-screen', {
+      duration: '.5',
+      translateX: '100%',
+      ease: 'power1.out',
     });
     tl.from(
       '.header--navigation .width-box a',
