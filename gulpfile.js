@@ -119,7 +119,7 @@ function imagesWebp() {
     }
   )
     .pipe($.webp({quality: 90}))
-    .pipe(dest('dist/images'));
+    .pipe(dest('app/images'));
 }
 
 function fonts() {
@@ -221,6 +221,7 @@ function startAppServer() {
   watch('app/styles/**/*.scss', styles);
   watch('app/scripts/**/*.js', scripts);
   watch('app/fonts/**/*', fonts);
+  watch('app/images/**/*', imagesWebp);
 }
 
 function startDistServer() {
@@ -246,6 +247,7 @@ if (isDev) {
   serve = series(build, startDistServer);
 }
 
+exports.image = imagesWebp;
 exports.html = html;
 exports.serve = serve;
 exports.build = build;
