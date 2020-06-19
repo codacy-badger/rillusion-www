@@ -10,7 +10,7 @@
 
     .custom-underline{
         &::after{
-            background-image: url('../images/motionedu-motives-underline.svg');
+            background-image: url('../images/project/motion-edu/motionedu-motives-underline.svg');
             bottom: -15px;
            @include desktop{
             right: -8px

@@ -15,7 +15,7 @@
 	}
 
 	.custom-underline::after {
-		background-image : url("../images/project/motionedu-features-underline-1.svg");
+		background-image : url("../images/project/motion-edu/motionedu-features-underline-1.svg");
 		left : -4px;
 
 		@include desktop {
@@ -25,7 +25,7 @@
 
 	.underline-2 {
 		.custom-underline::after {
-			background-image : url("../images/project/motionedu-features-underline-2.svg");
+			background-image : url("../images/project/motion-edu/motionedu-features-underline-2.svg");
 			left : -3px;
 			right : -6px;
 		}

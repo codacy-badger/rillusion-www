@@ -90,12 +90,12 @@
 	display : flex;
 	justify-content : space-between;
 	flex-direction : column;
-	margin-bottom : 65px;
+	// margin-bottom : 65px;
 
 	@media(min-width: $tablet) {
 		flex-direction : row;
 		align-items : center;
-		margin-bottom : 120px;
+		// margin-bottom : 120px;
 	}
 
 	@media(min-width: $tablet) {

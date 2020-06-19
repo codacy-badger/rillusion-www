@@ -388,6 +388,7 @@ a {
 	& ,
 	&:hover ,
 	&:focus {
+		cursor : none !important;
 		text-decoration : none;
 	}
 
