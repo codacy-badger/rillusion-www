@@ -390,10 +390,20 @@ a {
 	&:focus {
 		cursor : none !important;
 		text-decoration : none;
+		color : inherit;
 	}
 
 	& {
 		display : inline-block;
+	}
+}
+
+input ,
+textarea ,
+button {
+	& ,
+	&:focus {
+		outline : 0;
 	}
 }
 
