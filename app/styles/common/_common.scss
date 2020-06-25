@@ -219,6 +219,18 @@ small {
 
 img {
 	width : 100%;
+	&::after {
+		font-size : 0.875em;
+		font-style : normal;
+		content : "Oops, seems this one's broken. Sorry. =(";
+		display : block;
+		margin-top : 1em;
+	}
+	&::before {
+		content : "(url:'attr(src)')";
+		display : block;
+		font-size : 12px;
+	}
 }
 
 .mb\:0 {
