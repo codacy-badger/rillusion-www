@@ -137,6 +137,7 @@
 							& + label.form-group-label ,
 							& + label + label.form-group-label {
 								transform : translateY(-106%) scale(0.75);
+								left : -1px;
 							}
 						}
 
@@ -149,6 +150,7 @@
 								opacity : 1;
 								top : 20px;
 								transform : translateY(-106%) scale(0.75);
+								left : -1px;
 							}
 						}
 					}
