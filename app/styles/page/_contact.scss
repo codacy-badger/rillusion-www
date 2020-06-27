@@ -87,18 +87,15 @@
 				// form input cover / group [label + input]
 				&-group {
 					position : relative;
-					margin-bottom : 30px;
+					margin-bottom : 25px;
+					left : 1px;
+
 
 					// label default position
 					&-label {
-						width : 100%;
-						text-align : left;
 						text-overflow : ellipsis;
-						cursor : text;
+						cursor : none;
 						will-change : transform;
-						position : absolute;
-						top : 10px;
-						left : 0;
 						transition : all 150ms ease-in-out;
 						overflow : hidden;
 						pointer-events : none;
@@ -106,29 +103,31 @@
 						font-family : var(--font);
 						font-size : 14px;
 						line-height : 20px;
-						color : var(--gray);
 						font-weight : 500;
+						color : var(--gray);
+						position : absolute;
+						left : 0;
+						right : initial;
+						top : 50%;
+						transform : translateY(-50%);
 					}
 
 					/* input */
 					&-control {
+						will-change : border;
+						transition : all 0.25s ease-in-out;
 						box-shadow : none;
-						border : 0;
-						padding : 10px 0;
-						padding : 10px 0 5px;
 						box-sizing : border-box;
 						width : 100%;
 						height : 100%;
-						font-weight : 400;
-						width : 100%;
-						transition : all 0.25s ease-in-out;
+						border : 0;
 						border-bottom : 2px solid var(--gray-light);
 						font-family : var(--font);
 						font-weight : 500;
 						font-size : 14px;
 						color : var(--gray);
 						background-color : var(--white);
-
+						padding : 16px 16px 6px 6px;
 						&:hover ,
 						&:focus ,
 						&.valid {
@@ -137,11 +136,8 @@
 
 							& + label.form-group-label ,
 							& + label + label.form-group-label {
-								opacity : 1;
-								top : -20px;
-								top : -7px;
-								font-size : 12px;
-								line-height : 21px;
+								transform : translateY(-106%) scale(0.75);
+								left : -1px;
 							}
 						}
 
@@ -152,9 +148,9 @@
 							& + label + label {
 								font-weight : 500;
 								opacity : 1;
-								top : -20px;
-								font-size : 12px;
-								line-height : 21px;
+								top : 20px;
+								transform : translateY(-106%) scale(0.75);
+								left : -1px;
 							}
 						}
 					}
@@ -165,7 +161,8 @@
 						grid-template-columns : 1fr 1fr;
 
 						@media(min-width: $ptablet) {
-							gap : 25px;
+							gap : 0;
+							column-gap : 25px;
 							grid-template-columns : 1fr 1fr 1fr;
 						}
 
@@ -184,7 +181,7 @@
 							color : #999999;
 							font-weight : 500;
 							grid-column : span 2;
-
+							margin-bottom : 20px;
 							@media(min-width: $ptablet) {
 								grid-column : span 3;
 							}
@@ -197,6 +194,11 @@
 							display : inline-block;
 							position : relative;
 							font-family : var(--font);
+							&:nth-child(1) ,
+							&:nth-child(2) ,
+							&:nth-child(3) {
+								margin-bottom : 25px;
+							}
 							input {
 								font-family : var(--font);
 								width : 100%;
@@ -312,8 +314,7 @@
 					font-size : 14px;
 					line-height : 20px;
 					color : #000000;
-					padding : 12px;
-					padding-left : 0;
+					padding : 16px 16px 6px 6px;
 
 					&:hover ,
 					&:focus ,
@@ -322,8 +323,10 @@
 
 						& + label.form-group-label ,
 						& + label + label.form-group-label {
+							transform : translateY(-116%) scale(0.75);
 							opacity : 1;
-							top : -20px;
+							top : 20px;
+							left : -6px;
 							font-weight : 500;
 							font-size : 12px;
 							line-height : 21px;

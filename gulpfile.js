@@ -64,17 +64,62 @@ function lint() {
 }
 
 function html() {
+  var templateData = {
+      firstName: 'World',
+      project: [
+
+        {
+          title: 'A better way to create & manage wealth for individuals.',
+          content: '',
+          tag: ['Wealthfund', 'UX & UI Design'],
+          image: './images/project/feature/wealthfund.png',
+          link: './projects/wealth-fund.html',
+        },
+        {
+          title: 'Helping manage the complex research lab system for Zifo.',
+          content: '',
+          tag: ['Zifo', 'UX &UI Design'],
+          image: './images/project/feature/zifo.png',
+          link: './projects/zifo.html',
+        },
+        {
+          title: 'Increasing employee engagement with Intranet portal',
+          content: '',
+          tag: ['Sparsh', 'UX & UI Design'],
+          image: './images/project/feature/sparsh.png',
+          link: './projects/sparsh.html'
+        },
+        {
+          title: 'Powering businesses with a smarter way to marketing',
+          content: '',
+          tag: ['Gamooga', 'UX & UI Design'],
+          image: './images/project/feature/gamooga.png',
+          link: './projects/gamooga.html'
+        },
+        {
+          title: 'Defining the web identity for a IT Services company',
+          content: '',
+          tag: ['Avishkaram', 'Website Design'],
+          image: './images/project/feature/avishkaram.png',
+          link: './projects/avishkaram.html'
+        },
+        {
+          title: 'Envisioning a new disruptor car buying experience for Revv-cars.',
+          content: '',
+          tag: ['Revv Cars', 'UX & UI Design'],
+          image: './images/project/feature/revv-cars.png',
+          link: './projects/revv-car.html'
+        }
+      ],
+    },
+    options = {
+      ignorePartials: true,
+      batch: ['./app/components']
+    };
+
   return src(['app/**/*.hbs', '!app/components/**/*.hbs'])
     .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
-    .pipe(
-      handlebars(
-        {},
-        {
-          ignorePartials: false,
-          batch: ['./app/components'],
-        }
-      )
-    )
+    .pipe(handlebars(templateData, options))
     .pipe(
       rename({
         extname: '.html',
@@ -103,8 +148,9 @@ function html() {
 }
 
 function images() {
-  return src('app/images/**/*', { since: lastRun(images) })
-    .pipe(dest('dist/images'));
+  return src('app/images/**/*', { since: lastRun(images) }).pipe(
+    dest('dist/images')
+  );
 }
 
 function imagesWebp() {
@@ -118,7 +164,7 @@ function imagesWebp() {
       since: lastRun(images),
     }
   )
-    .pipe($.webp({quality: 90}))
+    .pipe($.webp({ quality: 90 }))
     .pipe(dest('app/images'));
 }
 
@@ -221,7 +267,6 @@ function startAppServer() {
   watch('app/styles/**/*.scss', styles);
   watch('app/scripts/**/*.js', scripts);
   watch('app/fonts/**/*', fonts);
-  watch('app/images/**/*', imagesWebp);
 }
 
 function startDistServer() {
@@ -247,7 +292,6 @@ if (isDev) {
   serve = series(build, startDistServer);
 }
 
-exports.image = imagesWebp;
 exports.html = html;
 exports.serve = serve;
 exports.build = build;
