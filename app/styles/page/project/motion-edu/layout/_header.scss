@@ -115,7 +115,7 @@
 	@extend %pos-abs;
 	left : 36.5%;
 	@include interpolate("max-width", 576px, 42px, 1200px, 74px);
-	@include interpolate("top", 576px, 331px, 1200px, 530px);
+	@include interpolate("top", 576px, 331px, 1200px, 630px);
 	z-index : -1;
 	@include media-max(359px) {
 		top : 404px;
