@@ -40,7 +40,7 @@
 
 .header_banner {
 	box-shadow : 30px -40px 250px rgba(0, 0, 0, 0.12);
-	@include interpolate("max-width", 576px, 312px, 1200px, 972px);
+	// @include interpolate("max-width", 576px, 312px, 1200px, 972px);
 	@extend %m-x-auto;
 	@extend %font-0;
 }

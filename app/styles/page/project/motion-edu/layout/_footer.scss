@@ -47,10 +47,9 @@
 }
 
 .footer_full_banner {
-	max-width : 972px;
-	@extend %m-x-auto;
-	@extend %font-0;
 	position : relative;
+	left: 50%;
+	transform: translateX(-50%) !important;
 	@include interpolate("top", 576px, 0px, 1200px, -106px);
 	box-shadow : 0 0 100px rgba(0, 18, 52, 0.25);
 }
