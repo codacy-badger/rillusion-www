@@ -65,53 +65,174 @@ function lint() {
 
 function html() {
   var templateData = {
-      firstName: 'World',
-      project: [
-
-        {
-          title: 'A better way to create & manage wealth for individuals.',
-          content: '',
-          tag: ['Wealthfund', 'UX & UI Design'],
-          image: './images/project/feature/wealthfund.png',
-          link: './projects/wealth-fund.html',
-        },
-        {
-          title: 'Helping manage the complex research lab system for Zifo.',
-          content: '',
-          tag: ['Zifo', 'UX &UI Design'],
-          image: './images/project/feature/zifo.png',
-          link: './projects/zifo.html',
-        },
-        {
-          title: 'Increasing employee engagement with Intranet portal',
-          content: '',
-          tag: ['Sparsh', 'UX & UI Design'],
-          image: './images/project/feature/sparsh.png',
-          link: './projects/sparsh.html'
-        },
-        {
-          title: 'Powering businesses with a smarter way to marketing',
-          content: '',
-          tag: ['Gamooga', 'UX & UI Design'],
-          image: './images/project/feature/gamooga.png',
-          link: './projects/gamooga.html'
-        },
-        {
-          title: 'Defining the web identity for a IT Services company',
-          content: '',
-          tag: ['Avishkaram', 'Website Design'],
-          image: './images/project/feature/avishkaram.png',
-          link: './projects/avishkaram.html'
-        },
-        {
-          title: 'Envisioning a new disruptor car buying experience for Revv-cars.',
-          content: '',
-          tag: ['Revv Cars', 'UX & UI Design'],
-          image: './images/project/feature/revv-cars.png',
-          link: './projects/revv-car.html'
-        }
-      ],
-    },
+    'firstName':'World',
+    'service':[
+       {
+          'title':'Services1',
+          'page_intro':'',
+          'services':[
+             {
+                'title':'',
+                'content':'',
+                'tag':[
+                   '',
+                   ''
+                ]
+             },
+             {
+                'title':'',
+                'content':'',
+                'tag':[
+                   '',
+                   ''
+                ]
+             },
+             {
+                'title':'',
+                'content':'',
+                'tag':[
+                   '',
+                   ''
+                ]
+             }
+          ],
+          'approach':[
+             {
+                'title':'',
+                'section_intro':'',
+                'image':'',
+                'approach_list':[
+                   {
+                      'title':'',
+                      'content':''
+                   },
+                   {
+                      'title':'',
+                      'content':''
+                   },
+                   {
+                      'title':'',
+                      'content':''
+                   }
+                ]
+             }
+          ]
+       }
+    ],
+    'project':[
+       {
+          'title':'A better way to create & manage wealth for individuals.',
+          'content':'',
+          'tag':[
+             'Wealthfund',
+             'UX & UI Design'
+          ],
+          'image':'./images/project/feature/wealthfund.png',
+          'link':'./projects/wealth-fund.html'
+       },
+       {
+          'title':'Helping manage the complex research lab system for Zifo.',
+          'content':'',
+          'tag':[
+             'Zifo',
+             'UX &UI Design'
+          ],
+          'image':'./images/project/feature/zifo.png',
+          'link':'./projects/zifo.html'
+       },
+       {
+          'title':'Increasing employee engagement with Intranet portal',
+          'content':'',
+          'tag':[
+             'Sparsh',
+             'UX & UI Design'
+          ],
+          'image':'./images/project/feature/sparsh.png',
+          'link':'./projects/sparsh.html'
+       },
+       {
+          'title':'Powering businesses with a smarter way to marketing',
+          'content':'',
+          'tag':[
+             'Gamooga',
+             'UX & UI Design'
+          ],
+          'image':'./images/project/feature/gamooga.png',
+          'link':'./projects/gamooga.html'
+       },
+       {
+          'title':'Defining the web identity for a IT Services company',
+          'content':'',
+          'tag':[
+             'Avishkaram',
+             'Website Design'
+          ],
+          'image':'./images/project/feature/avishkaram.png',
+          'link':'./projects/avishkaram.html'
+       },
+       {
+          'title':'Envisioning a new disruptor car buying experience for Revv-cars.',
+          'content':'',
+          'tag':[
+             'Revv Cars',
+             'UX & UI Design'
+          ],
+          'image':'./images/project/feature/revv-cars.png',
+          'link':'./projects/revv-car.html'
+       }
+    ],
+    'contact':[
+       {
+          'title':'Contact',
+          'page_intro':'Let’s work together.',
+          'content':'Nothing excites us more than great ideas. We’d love to hear from you.',
+          'form':[
+             {
+                'name':'Hire Us',
+                'message':[
+                   {
+                      'type':true,
+                      'title':'Thank you!',
+                      'message':'We will contact you shortly.  Scroll down to see the next steps'
+                   },
+                   {
+                      'type':false,
+                      'title':'we are sorry',
+                      'message':'We are working on it issue. Thankyou for the patient'
+                   }
+                ],
+                'what_we_do':[
+                   {
+                      'title':'Our team works out a swift response with a 3-step process',
+                      'content':[
+                         {
+                            'title':'A quick initial call to get started.',
+                            'content':' We are thrilled if you left us a message. Look forward to a call from our business team soon.'
+                         },
+                         {
+                            'title':'Understanding & gathering scope.',
+                            'content':' We take time over call or in person in trying to understand your needs and our role in it.'
+                         },
+                         {
+                            'title':'Delivery of proposal.',
+                            'content':' Based on the discussion, we prepare a proposal, best suited for your project.'
+                         }
+                      ]
+                   }
+                ]
+             }
+          ]
+       }
+    ],
+    'email':'interact@rillusion.com',
+    'phone':'+91 9500 007 094',
+    'dribbble':'https://dribbble.com/rillusion',
+    'behance':'https://www.behance.net/Rillusion-ux-ui',
+    'instagram':'https://www.instagram.com/rillusion_ux_ui_design/',
+    'facebook':'http://www.facebook.com/Rillusion/',
+    'linkedin':'https://www.linkedin.com/company/rillusion',
+    'medium':'https://medium.com/@rillusionagency'
+ },
     options = {
       ignorePartials: true,
       batch: ['./app/components']
@@ -239,7 +360,6 @@ const build = series(
     fonts,
     extras
   ),
-  criticalCss,
   serviceWorker,
   measureSize,
   compressZip
