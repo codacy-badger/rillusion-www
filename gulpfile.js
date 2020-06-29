@@ -288,7 +288,7 @@ function imagesWebp() {
       since: lastRun(images),
     }
   )
-    .pipe($.webp({ quality: 90 }))
+    .pipe($.webp({ lossless: true }))
     .pipe(dest('app/images'));
 }
 
