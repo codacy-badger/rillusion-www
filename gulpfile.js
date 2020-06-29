@@ -360,7 +360,6 @@ const build = series(
     fonts,
     extras
   ),
-  criticalCss,
   serviceWorker,
   measureSize,
   compressZip
