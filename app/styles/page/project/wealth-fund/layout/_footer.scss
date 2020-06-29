@@ -20,25 +20,25 @@
 
 .footer_banners{
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     @include mobile{
         flex-direction: row;
+        justify-content: center;
     }
 }
 
 .footer_banner_full {
-    font-size: 0;
     @include media-max(575px) {
         margin-bottom: 64px;
     }
     @include mobile{
-        max-width: 47.5%;
+        // max-width: 47.5%;
         align-self: stretch;
+        margin-right: 50px;
     }
-    @include media(1920px){
-        max-width: 942px;
-    }
+    // @include media(1920px){
+    //     max-width: 942px;
+    // }
 
     img{
         @include media(1920px){
@@ -50,15 +50,14 @@
 
 
 .footer_banner_twin_wrapper {
-    font-size: 0;
     @include flex($jcontent: space-between);
     flex-direction: column;
-    @include mobile{
-        max-width: 47.5%;
-    }
-    @include media(1920px){
-        max-width: 913px;
-    }
+    // @include mobile{
+    //     max-width: 47.5%;
+    // }
+    // @include media(1920px){
+    //     max-width: 913px;
+    // }
 }
 
 
