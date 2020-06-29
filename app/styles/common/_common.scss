@@ -1,6 +1,6 @@
 // body
 body {
-	cursor : none;
+	// cursor : none;
 	scroll-behavior : smooth;
 	font-family : var(--font);
 	line-height : 1.5;
@@ -217,21 +217,21 @@ small {
 	color : #6c757d;
 }
 
-img {
-	width : 100%;
-	&::after {
-		font-size : 0.875em;
-		font-style : normal;
-		content : "Oops, seems this one's broken. Sorry. =(";
-		display : block;
-		margin-top : 1em;
-	}
-	&::before {
-		content : "(url:'attr(src)')";
-		display : block;
-		font-size : 12px;
-	}
-}
+// img {
+// 	width : 100%;
+// 	&::after {
+// 		font-size : 0.875em;
+// 		font-style : normal;
+// 		content : "Oops, seems this one's broken. Sorry. =(";
+// 		display : block;
+// 		margin-top : 1em;
+// 	}
+// 	&::before {
+// 		content : "(url:'attr(src)')";
+// 		display : block;
+// 		font-size : 12px;
+// 	}
+// }
 
 .mb\:0 {
 	margin-bottom : 0 !important;
