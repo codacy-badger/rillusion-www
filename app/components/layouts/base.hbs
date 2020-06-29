@@ -63,8 +63,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {{!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Montserrat:300,400,500,600,700', 'Open Sans', 'Oswald','Work Sans', 'Playfair Display', 'Esteban']
+        }
+      });
+      (function (d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+    </script>
 
     {{#if project}}
       <link href="../styles/style.css" rel="stylesheet" />
@@ -142,7 +159,17 @@
     {{#> scripts-block}}
       {{!-- Custom scripts per page can be added --}}
     {{/scripts-block}}
+    <script>
+      (function () {
+        if (sessionStorage.fonts) {
+          console.log("Fonts installed.");
+          document.documentElement.classList.add('wf-active');
+        } else {
+          console.log("No fonts installed.");
+        }
+      })();
 
+    </script>
   </body>
 
 </html>

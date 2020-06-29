@@ -1,25 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
-$base-color: #485777;
-$primary-color: #002066;
-$secondary-color: #161723;
-$zircon: #F2F7FF;
-$linkwater: #E3EBF8;
-$serenade: #FFF5E8; 
+$base-color : #485777;
+$primary-color : #002066;
+$secondary-color : #161723;
+$zircon : #f2f7ff;
+$linkwater : #e3ebf8;
+$serenade : #fff5e8;
 
 //linear-gradients
 
-$lg-primary: linear-gradient(314.99deg, #FBBC09 14.65%, #F1511B 85.37%);
-$lg-secondary:linear-gradient(315deg, #3163B7 3.64%, #4EBDEF 74.36%);
-$orange-red: linear-gradient(344.85deg, #E53121 20.19%, #F57C14 96.77%);
-$cer-picblue:  linear-gradient(#3163B7 15.53%, #4EBDEF 98.39%);
+$lg-primary : linear-gradient(314.99deg, #fbbc09 14.65%, #f1511b 85.37%);
+$lg-secondary : linear-gradient(315deg, #3163b7 3.64%, #4ebdef 74.36%);
+$orange-red : linear-gradient(344.85deg, #e53121 20.19%, #f57c14 96.77%);
+$cer-picblue : linear-gradient(#3163b7 15.53%, #4ebdef 98.39%);
 
 //box-shadows
 $basic-boxshadow : 10px 10px 30px rgba(72, 75, 108, 0.2);
-$primary-boxshadow: -30px 20px 60px rgba(72, 75, 108, 0.2);
-$secondary-boxshadow: 30px 20px 60px rgba(72, 75, 108, 0.2);
+$primary-boxshadow : -30px 20px 60px rgba(72, 75, 108, 0.2);
+$secondary-boxshadow : 30px 20px 60px rgba(72, 75, 108, 0.2);
 
 // media queries
-$desktop-breakpoint: 1200px;
-$tab-breakpoint: 768px;
-$mobile-breakpoint: 600px;
+$desktop-breakpoint : 1200px;
+$tab-breakpoint : 768px;
+$mobile-breakpoint : 600px;
