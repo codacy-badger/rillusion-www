@@ -54,7 +54,7 @@
 .blog_banners {
 	@include flex;
 	position : relative;
-	@extend %font-0;
+	
 	.blog-custom-width-1 {
 		@include interpolate("max-width", 576px, 132px, 1200px, 232px);
 	}

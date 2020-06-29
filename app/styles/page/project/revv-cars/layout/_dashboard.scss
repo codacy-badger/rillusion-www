@@ -34,7 +34,7 @@
 
 .dashboard-banner{
     width: 100%;
-    @extend %font-0;
+    
     @include mobile{
         width: 50%;
     }

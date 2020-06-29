@@ -120,7 +120,6 @@
     @include media-min(666px) {
         @include interpolate("width", 576px, 250px, 1200px, 384px);
     }
-    font-size: 0;
     display: inline-block;
 }
 
@@ -163,7 +162,7 @@
     }
 
     .services_item-banner {
-        @extend %font-0;
+        
         max-width: 100%;
         margin-right: 15px;
         @include media-max(767px){

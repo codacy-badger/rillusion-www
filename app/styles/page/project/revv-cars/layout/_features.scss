@@ -181,7 +181,7 @@
 }
 
 .features_banners-list-item{
-    @extend %font-0;
+    
     width: 100px;
    @include media-min(350px){
     @include interpolate("width", 350px, 120px, 800px, 300px);

@@ -98,7 +98,7 @@
 }
 
 .goals_list_item-banner{
-    @extend %font-0;
+    
     max-width: calc(100% - 20px);
     margin-left: 20px;
     @include interpolate("margin-top", 576px, 55px, 1200px, 89px);

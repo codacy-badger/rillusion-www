@@ -35,7 +35,7 @@
 
 .footer_banners_item {
 	@include interpolate("max-width", 576px, 115px, 1200px, 242px);
-	@extend %font-0;
+	
 	> picture {
 		box-shadow : 0 0 100px rgba(0, 24, 63, 0.4);
 		border-radius : 34px;

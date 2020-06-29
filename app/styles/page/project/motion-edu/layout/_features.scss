@@ -81,7 +81,7 @@
 
 .features_item_banner {
 	position : relative;
-	@extend %font-0;
+	
 	@include interpolate("max-width", 576px, 400px, 1200px, 869px);
 
 	.custom-child-1 {
