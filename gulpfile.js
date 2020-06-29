@@ -124,8 +124,9 @@ function html() {
           'title':'A better way to create & manage wealth for individuals.',
           'content':'',
           'tag':[
-             'Wealthfund',
-             'UX & UI Design'
+             'Research',
+             'UX & UI Design',
+             'Front end Development'
           ],
           'image':'./images/project/feature/wealthfund.png',
           'link':'./projects/wealth-fund.html'
@@ -134,8 +135,9 @@ function html() {
           'title':'Helping manage the complex research lab system for Zifo.',
           'content':'',
           'tag':[
-             'Zifo',
-             'UX &UI Design'
+            'Research',
+            'Ideation workshop',
+            'UX & UI Design'
           ],
           'image':'./images/project/feature/zifo.png',
           'link':'./projects/zifo.html'
@@ -144,7 +146,7 @@ function html() {
           'title':'Increasing employee engagement with Intranet portal',
           'content':'',
           'tag':[
-             'Sparsh',
+             'Research',
              'UX & UI Design'
           ],
           'image':'./images/project/feature/sparsh.png',
@@ -154,7 +156,8 @@ function html() {
           'title':'Powering businesses with a smarter way to marketing',
           'content':'',
           'tag':[
-             'Gamooga',
+            'Research',
+            'Ideation workshop',
              'UX & UI Design'
           ],
           'image':'./images/project/feature/gamooga.png',
