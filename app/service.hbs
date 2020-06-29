@@ -216,24 +216,24 @@
         </ol>
       </div>
     </section>
-
-    {{#*inline "scripts-block"}}
-    <script>
-        new Vivus('uxconsulting', { duration: 05 });
-        new Vivus('uxdesign', { duration: 05 });
-        new Vivus('uidevelopment', { duration: 05 });
-
-        new Vivus('uxconsulting', {
-          type: 'oneByOne'
-        });
-        new Vivus('uxdesign', {
-          type: 'oneByOne'
-        });
-        new Vivus('uidevelopment', {
-          type: 'oneByOne'
-        });
-      </script>
-    {{/inline}}
-
   {{/inline}}
+
+  {{#*inline "scripts-block"}}
+    <script>
+      new Vivus('uxconsulting', { duration: 05 });
+      new Vivus('uxdesign', { duration: 05 });
+      new Vivus('uidevelopment', { duration: 05 });
+
+      new Vivus('uxconsulting', {
+        type: 'oneByOne'
+      });
+      new Vivus('uxdesign', {
+        type: 'oneByOne'
+      });
+      new Vivus('uidevelopment', {
+        type: 'oneByOne'
+      });
+    </script>
+  {{/inline}}
+
   {{/layouts/base}}
