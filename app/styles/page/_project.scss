@@ -1,40 +1,50 @@
-/*
-   *  project block
-   *  project hightlight card
-   *  project card
-   */
-
 .page {
 	&--project {
-		.grid {
+		.grid.project-colum\:1fr {
 			@include interpolate("margin-bottom", 520px, 95px, 992px, 180px, "ease-in");
 
 			&:last-child {
 				margin-bottom : 0;
 			}
 		}
+
+		.block_bg {
+			z-index : -1;
+			background : var (--cultured);
+			height : 100vh;
+			margin : 0 -5vw;
+			position : absolute;
+			left : 0;
+			right : 0;
+			bottom : -45px;
+
+			@media (min-width: $tablet) {
+				bottom : initial;
+				left : initial;
+				top : -180px;
+				right : -208px;
+				margin : 0;
+				@include interpolate("width", 520px, 320px, 992px, 374px, "ease-in");
+				@include interpolate("height", 520px, 320px, 992px, 780px, "ease-in");
+			}
+		}
+		.grid.project-colum\:3 {
+			row-gap : 0;
+			grid-template-columns : repeat(auto-fit, minmax(260px, 1fr));
+			margin-top : 40px;
+			@media(min-width: $tablet) {
+				grid-template-columns : repeat(auto-fit, minmax(364px, 1fr));
+				row-gap : 30px;
+				column-gap : 60px;
+				margin-top : 362px;
+			}
+		}
 	}
 }
 
 
-.grid.project-colum\:3 {
-	row-gap : 50px;
-	grid-template-columns : repeat(auto-fit, minmax(260px, 1fr));
-
-	@media(min-width: $tablet) {
-		grid-template-columns : repeat(auto-fit, minmax(364px, 1fr));
-		row-gap : 30px;
-		column-gap : 60px;
-	}
-}
 
 .project {
-	&--lists {
-		display : grid;
-		@include interpolate("row-gap", 520px, 95px, 992px, 362px, "ease-in");
-		@include interpolate("margin-bottom", 520px, 95px, 992px, 362px, "ease-in");
-	}
-
 	&--list {
 		@media(min-width: $tablet) {
 			&:nth-child(odd) {
@@ -110,6 +120,9 @@
 							@include interpolate("line-height", 520px, 30px, 992px, 48px, "ease-in");
 							/* NOTE: textarea auto height lead to increase the space after */
 							@include interpolate("margin-bottom", 520px, 17px, 992px, 70px, "ease-in");
+							&:hover {
+								color : var(--red);
+							}
 						}
 
 						&-text {
@@ -131,8 +144,33 @@
 
 							a {
 								display : inline-block;
-								@extend %link;
+								color : var(--red);
+								font-style : normal;
+								font-weight : 700;
+								@include interpolate("font-size", 520px, 14px, 992px, 18px, "ease-in");
+								line-height : 28px;
+
+								svg {
+									margin-left : 20px;
+								}
 								transition : all 0.25s;
+							}
+
+							&:hover {
+								a {
+									color : var(--text-black-light);
+
+									svg {
+										transition : all 0.25s;
+										animation-name : arrowMove;
+										animation-duration : 0.7s;
+										animation-iteration-count : 1;
+
+										path {
+											stroke : var(--red);
+										}
+									}
+								}
 							}
 						}
 					}
@@ -164,7 +202,6 @@
 						order : 1;
 					}
 
-
 					@media(hover: hover) and (pointer: fine) {
 						will-change : transform;
 						transition : transform 2.3s ease-out;
@@ -179,41 +216,6 @@
 						}
 					}
 				}
-
-				&:hover {
-					.block-title {
-						color : var(--red);
-					}
-
-					.block-link a {
-						color : var(--text-black-light);
-
-						svg {
-							transition : all 0.25s;
-							animation-name : arrowMove;
-							animation-duration : 0.7s;
-							animation-iteration-count : 1;
-
-							@keyframes arrowMove {
-								0% {
-									transform : translateX(0px);
-								}
-
-								50% {
-									transform : translateX(17px);
-								}
-
-								100% {
-									transform : translateX(0px);
-								}
-							}
-
-							path {
-								stroke : var(--red);
-							}
-						}
-					}
-				}
 			}
 		}
 	}
@@ -223,18 +225,6 @@
 
 		&_image {
 			margin-bottom : 30px;
-
-			a {
-				width : 100%;
-			}
-
-			img {
-				@media(min-width: $tablet) {
-					// width : 360px;
-					// height : 270px;
-				}
-			}
-
 			@media(hover: hover) and (pointer: fine) {
 				will-change : transform;
 				transition : transform 2.3s ease-out;
@@ -254,7 +244,6 @@
 			@extend .heading;
 			@include interpolate("font-size", 520px, 18px, 992px, 20px, "ease-in");
 			@include interpolate("line-height", 520px, 30px, 992px, 28px, "ease-in");
-			/* NOTE: textarea auto height lead to increase the space after */
 			@include interpolate("margin-bottom", 520px, 17px, 992px, 30px, "ease-in");
 		}
 
@@ -264,7 +253,8 @@
 				display : inline-block;
 				position : relative;
 				font-weight : 500;
-				@extend %para;
+				@include interpolate("font-size", 520px, 14px, 992px, 16px, "ease-in");
+				@include interpolate("line-height", 520px, 24px, 992px, 28px, "ease-in");
 
 				&:not(:last-child) {
 					&:after {
@@ -274,30 +264,10 @@
 				}
 			}
 		}
-
-		&:hover &_title {
-			color : var(--red);
+		&:hover {
+			.project--card_title {
+				color : var(--red);
+			}
 		}
-	}
-}
-
-.block_bg {
-	z-index : -1;
-	background : var (--cultured);
-	height : 100vh;
-	margin : 0 -5vw;
-	position : absolute;
-	left : 0;
-	right : 0;
-	bottom : -45px;
-
-	@media (min-width: $tablet) {
-		bottom : initial;
-		left : initial;
-		top : -180px;
-		right : -208px;
-		margin : 0;
-		@include interpolate("width", 520px, 320px, 992px, 374px, "ease-in");
-		@include interpolate("height", 520px, 320px, 992px, 780px, "ease-in");
 	}
 }

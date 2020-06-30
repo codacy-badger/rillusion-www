@@ -18,3 +18,18 @@
 @import "page/project/sparsh/sparsh";
 @import "page/project/wealth-fund/wealth-fund";
 @import "page/project/zifo/zifo";
+
+
+@keyframes arrowMove {
+	0% {
+		transform : translateX(0px);
+	}
+
+	50% {
+		transform : translateX(17px);
+	}
+
+	100% {
+		transform : translateX(0px);
+	}
+}
