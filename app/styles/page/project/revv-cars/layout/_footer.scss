@@ -1,4 +1,5 @@
 .footer{
+    text-align: center;
     @include interpolate("padding-top", 576px, 49px, 1200px, 100px);
     @include interpolate("padding-bottom", 576px, 49px, 1200px, 100px);
 }

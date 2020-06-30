@@ -34,7 +34,7 @@
 }
 
 .footer_banners_item {
-	@include interpolate("max-width", 576px, 115px, 1200px, 242px);
+	// @include interpolate("max-width", 576px, 115px, 1200px, 242px);
 	
 	> picture {
 		box-shadow : 0 0 100px rgba(0, 24, 63, 0.4);
@@ -47,81 +47,84 @@
 }
 
 .footer_full_banner {
-	position : relative;
-	left: 50%;
-	transform: translateX(-50%) !important;
+	position : relative; 
+	text-align: center;
 	@include interpolate("top", 576px, 0px, 1200px, -106px);
-	box-shadow : 0 0 100px rgba(0, 18, 52, 0.25);
-}
-
-.footer-cross {
-	@extend %pos-abs;
-	left : 47%;
-	@include interpolate("max-width", 575px, 45px, 1200px, 117px);
-	@include interpolate("bottom", 768px, 75px, 1200px, 196px);
-}
-
-.footer-cap {
-	@extend %pos-abs;
-	left : 51%;
-	@include interpolate("max-width", 575px, 31px, 1200px, 81px);
-	@include interpolate("top", 768px, 18px, 1200px, 48px);
-}
-
-.footer-compass {
-	@extend %pos-abs;
-	left : 51px;
-	@include desktop {
-		left : 13%;
+	
+	picture{
+		box-shadow : 0 0 100px rgba(0, 18, 52, 0.25);
 	}
-	@include interpolate("max-width", 575px, 23px, 1200px, 61px);
-	@include interpolate("top", 768px, 48px, 1200px, 128px);
+
 }
 
-.footer-polygon {
-	@extend %pos-abs;
-	right : 0;
-	display : none;
-	@include mobile {
-		display : block;
-	}
-	@include interpolate("max-width", 575px, 23px, 1200px, 91px);
-	@include interpolate("top", 768px, 48px, 1200px, 67px);
-}
+// .footer-cross {
+// 	@extend %pos-abs;
+// 	left : 47%;
+// 	@include interpolate("max-width", 575px, 45px, 1200px, 117px);
+// 	@include interpolate("bottom", 768px, 75px, 1200px, 196px);
+// }
 
-.footer-hexagons {
-	@extend %pos-abs;
-	right : 0;
-	display : none;
-	@include mobile {
-		display : block;
-	}
-	@include desktop {
-		right : -30px;
-	}
-	@include interpolate("max-width", 575px, 40px, 1200px, 95px);
-	@include interpolate("bottom", 768px, 50px, 1200px, 240px);
-}
+// .footer-cap {
+// 	@extend %pos-abs;
+// 	left : 51%;
+// 	@include interpolate("max-width", 575px, 31px, 1200px, 81px);
+// 	@include interpolate("top", 768px, 18px, 1200px, 48px);
+// }
+
+// .footer-compass {
+// 	@extend %pos-abs;
+// 	left : 51px;
+// 	@include desktop {
+// 		left : 13%;
+// 	}
+// 	@include interpolate("max-width", 575px, 23px, 1200px, 61px);
+// 	@include interpolate("top", 768px, 48px, 1200px, 128px);
+// }
+
+// .footer-polygon {
+// 	@extend %pos-abs;
+// 	right : 0;
+// 	display : none;
+// 	@include mobile {
+// 		display : block;
+// 	}
+// 	@include interpolate("max-width", 575px, 23px, 1200px, 91px);
+// 	@include interpolate("top", 768px, 48px, 1200px, 67px);
+// }
+
+// .footer-hexagons {
+// 	@extend %pos-abs;
+// 	right : 0;
+// 	display : none;
+// 	@include mobile {
+// 		display : block;
+// 	}
+// 	@include desktop {
+// 		right : -30px;
+// 	}
+// 	@include interpolate("max-width", 575px, 40px, 1200px, 95px);
+// 	@include interpolate("bottom", 768px, 50px, 1200px, 240px);
+// }
 
 
-.footer-atom {
-	@extend %pos-abs;
-	display : none;
-	@include mobile {
-		display : block;
-	}
-	@include interpolate("top", 576px, 200px, 1200px, 450px);
-	@include interpolate("left", 1100px, -30px, 1439px, -192px);
-	@include interpolate("max-width", 576px, 61px, 1200px, 106px);
-	@include media-min(1440px) {
-		left : -139px;
-	}
-}
+// .footer-atom {
+// 	@extend %pos-abs;
+// 	display : none;
+// 	@include mobile {
+// 		display : block;
+// 	}
+// 	@include interpolate("top", 576px, 200px, 1200px, 450px);
+// 	@include interpolate("left", 1100px, -30px, 1439px, -192px);
+// 	@include interpolate("max-width", 576px, 61px, 1200px, 106px);
+// 	@include media-min(1440px) {
+// 		left : -139px;
+// 	}
+// }
 
-.footer-molecule {
-	@extend %pos-abs;
-	@include interpolate("top", 576px, 200px, 1200px, 529px);
-	@include interpolate("left", 1100px, -115px, 1439px, -466px);
-	@include interpolate("max-width", 576px, 23px, 1200px, 78px);
-	z-index : 0;
-}
+// .footer-molecule {
+// 	@extend %pos-abs;
+// 	@include interpolate("top", 576px, 200px, 1200px, 529px);
+// 	@include interpolate("left", 1100px, -115px, 1439px, -466px);
+// 	@include interpolate("max-width", 576px, 23px, 1200px, 78px);
+// 	z-index : 0;
+// }

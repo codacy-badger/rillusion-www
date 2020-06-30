@@ -182,13 +182,11 @@
 
 .features_banners-list-item{
     
-    width: 100px;
-   @include media-min(350px){
-    @include interpolate("width", 350px, 120px, 800px, 300px);
-   }
-   @include media-min(901px){
-    @include interpolate("width", 901px, 180px, 1200px, 278px);
-   }
+//     width: 100px;
+//    @include media-min(350px){
+//     @include interpolate("width", 350px, 120px, 800px, 300px);
+//    }
+
    & + .features_banners-list-item{
     margin: 0 0 0 40px;
     @include mobile{
