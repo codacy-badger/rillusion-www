@@ -132,15 +132,14 @@ function html() {
           'link':'./projects/wealth-fund.html'
        },
        {
-          'title':'Helping manage the complex research lab system for Zifo.',
+          'title':'Defining the web identity for a IT Services company',
           'content':'',
           'tag':[
-            'Research',
-            'Ideation workshop',
-            'UX & UI Design'
+             'Avishkaram',
+             'Website Design'
           ],
-          'image':'./images/project/feature/zifo.png',
-          'link':'./projects/zifo.html'
+          'image':'./images/project/feature/avishkaram.png',
+          'link':'./projects/avishkaram.html'
        },
        {
           'title':'Increasing employee engagement with Intranet portal',
@@ -162,16 +161,6 @@ function html() {
           ],
           'image':'./images/project/feature/gamooga.png',
           'link':'./projects/gamooga.html'
-       },
-       {
-          'title':'Defining the web identity for a IT Services company',
-          'content':'',
-          'tag':[
-             'Avishkaram',
-             'Website Design'
-          ],
-          'image':'./images/project/feature/avishkaram.png',
-          'link':'./projects/avishkaram.html'
        },
        {
           'title':'Envisioning a new disruptor car buying experience for Revv-cars.',
