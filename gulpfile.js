@@ -171,6 +171,17 @@ function html() {
           ],
           'image':'./images/project/feature/revv-cars.png',
           'link':'./projects/revv-car.html'
+       },
+       {
+          'title':'Helping manage the complex research lab system for Zifo.',
+          'content':'',
+          'tag':[
+            'Research',
+            'Ideation workshop',
+             'UX & UI Design'
+          ],
+          'image':'./images/project/feature/zifo.png',
+          'link':'./projects/zifo.html'
        }
     ],
     'contact':[
@@ -238,7 +249,7 @@ function html() {
         extname: '.html',
       })
     )
-    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
+    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: false } })))
     .pipe(
       $.if(/\.css$/, $.postcss([cssnano({ safe: true, autoprefixer: false })]))
     )
@@ -248,7 +259,7 @@ function html() {
         $.htmlmin({
           collapseWhitespace: false,
           minifyCSS: true,
-          minifyJS: { compress: { drop_console: true } },
+          minifyJS: { compress: { drop_console: false } },
           processConditionalComments: true,
           removeComments: true,
           removeEmptyAttributes: true,
