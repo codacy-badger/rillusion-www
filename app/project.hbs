@@ -1,4 +1,4 @@
-{{#> layouts/base  project=false  title="Project | Rillusion" barbaNamesapce="project"}}
+{{#> layouts/base  project=false title="Project | Rillusion" barbaNamesapce="project"}}
   {{#*inline "content-block"}}
     <section class="width-box page--content--home__project page--intro">
       <h1 class="section--header">
@@ -55,7 +55,7 @@
       <div class="grid grid-template-column:3fr project-colum:3">
 
 
-        {{#each project}}
+        {{#each page_project}}
           <div class="project--list">
             <div class="project--card">
               <div data-aos="fade-down">
@@ -79,4 +79,5 @@
 
       </div>
     </div>
-  {{/inline}} {{/layouts/base}}
+  {{/inline}}
+  {{/layouts/base}}
