@@ -1,5 +1,12 @@
 // generated on 2020-04-09 using generator-webapp 4.0.0-7
-const { src, dest, watch, series, parallel, lastRun } = require('gulp');
+const {
+  src,
+  dest,
+  watch,
+  series,
+  parallel,
+  lastRun
+} = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
@@ -7,7 +14,9 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const { argv } = require('yargs');
+const {
+  argv
+} = require('yargs');
 const handlebars = require('gulp-compile-handlebars');
 const rename = require('gulp-rename');
 const critical = require('critical').stream;
@@ -28,17 +37,19 @@ function styles() {
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe(
       $.sass
-        .sync({
-          outputStyle: 'expanded',
-          precision: 10,
-          includePaths: ['.'],
-        })
-        .on('error', $.sass.logError)
+      .sync({
+        outputStyle: 'expanded',
+        precision: 10,
+        includePaths: ['.'],
+      })
+      .on('error', $.sass.logError)
     )
     .pipe($.postcss([autoprefixer()]))
     .pipe($.if(!isProd, $.sourcemaps.write()))
     .pipe($.if(!isProd, dest('.tmp/styles'), dest('dist/styles')))
-    .pipe(server.reload({ stream: true }));
+    .pipe(server.reload({
+      stream: true
+    }));
 }
 
 function scripts() {
@@ -48,13 +59,20 @@ function scripts() {
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('.')))
     .pipe($.if(!isProd, dest('.tmp/scripts'), dest('dist/scripts')))
-    .pipe(server.reload({ stream: true }));
+    .pipe(server.reload({
+      stream: true
+    }));
 }
 
 const lintBase = (files) => {
   return src(files)
-    .pipe($.eslint({ fix: true }))
-    .pipe(server.reload({ stream: true, once: true }))
+    .pipe($.eslint({
+      fix: true
+    }))
+    .pipe(server.reload({
+      stream: true,
+      once: true
+    }))
     .pipe($.eslint.format())
     .pipe($.if(!server.active, $.eslint.failAfterError()));
 };
@@ -65,193 +83,189 @@ function lint() {
 
 function html() {
   var templateData = {
-    'firstName':'World',
-    'service':[
-       {
-          'title':'Services1',
-          'page_intro':'',
-          'services':[
-             {
-                'title':'',
-                'content':'',
-                'tag':[
-                   '',
-                   ''
-                ]
-             },
-             {
-                'title':'',
-                'content':'',
-                'tag':[
-                   '',
-                   ''
-                ]
-             },
-             {
-                'title':'',
-                'content':'',
-                'tag':[
-                   '',
-                   ''
-                ]
-             }
-          ],
-          'approach':[
-             {
-                'title':'',
-                'section_intro':'',
-                'image':'',
-                'approach_list':[
-                   {
-                      'title':'',
-                      'content':''
-                   },
-                   {
-                      'title':'',
-                      'content':''
-                   },
-                   {
-                      'title':'',
-                      'content':''
-                   }
-                ]
-             }
+      'firstName': 'World',
+      'service': [{
+        'title': 'Services1',
+        'page_intro': '',
+        'services': [{
+            'title': '',
+            'content': '',
+            'tag': [
+              '',
+              ''
+            ]
+          },
+          {
+            'title': '',
+            'content': '',
+            'tag': [
+              '',
+              ''
+            ]
+          },
+          {
+            'title': '',
+            'content': '',
+            'tag': [
+              '',
+              ''
+            ]
+          }
+        ],
+        'approach': [{
+          'title': '',
+          'section_intro': '',
+          'image': '',
+          'approach_list': [{
+              'title': '',
+              'content': ''
+            },
+            {
+              'title': '',
+              'content': ''
+            },
+            {
+              'title': '',
+              'content': ''
+            }
           ]
-       }
-    ],
-    'project':[
-       {
-          'title':'A better way to create & manage wealth for individuals.',
-          'content':'',
-          'tag':[
-             'Research',
-             'UX & UI Design',
-             'Front end Development'
+        }]
+      }],
+      'project': [{
+          'title': 'A better way to create & manage wealth for individuals.',
+          'content': '',
+          'tag': [
+            'Fin Tech',
+            'UX & UI Design',
+            'UI Development'
           ],
-          'image':'./images/project/feature/wealthfund.png',
-          'link':'./projects/wealth-fund.html'
-       },
-       {
-          'title':'Defining the web identity for a IT Services company',
-          'content':'',
-          'tag':[
-             'Avishkaram',
-             'Website Design'
+          'image': './images/project/feature/wealthfund.png',
+          'link': './projects/ux-ui-design-mutual-fund-wealth-fund.html'
+        },
+        {
+          'title': 'Defining the web identity for a IT Services company',
+          'content': '',
+          'tag': [
+            'IT',
+            'Web Design',
+            'Web Development',
           ],
-          'image':'./images/project/feature/avishkaram.png',
-          'link':'./projects/avishkaram.html'
-       },
-       {
-          'title':'Increasing employee engagement with Intranet portal',
-          'content':'',
-          'tag':[
-             'Research',
-             'UX & UI Design'
+          'image': './images/project/feature/avishkaram.png',
+          'link': './projects/website-design-avishkaram.html'
+        },
+        {
+          'title': 'Increasing employee engagement with Intranet portal',
+          'content': '',
+          'tag': [
+            'Enterprise',
+            'UX Consulting',
+            'UX & UI Design'
           ],
-          'image':'./images/project/feature/sparsh.png',
-          'link':'./projects/sparsh.html'
-       },
-       {
-          'title':'Powering businesses with a smarter way to marketing',
-          'content':'',
-          'tag':[
-            'Research',
-            'Ideation workshop',
-             'UX & UI Design'
+          'image': './images/project/feature/sparsh.png',
+          'link': './projects/enterprise-ux-ui-design-intranet-portal-sparsh.html'
+        },
+        {
+          'title': 'Powering businesses with a smarter way to marketing',
+          'content': '',
+          'tag': [
+            'Saas',
+            'UX Consulting',
+            'UX & UI Design'
           ],
-          'image':'./images/project/feature/gamooga.png',
-          'link':'./projects/gamooga.html'
-       },
-       {
-          'title':'Envisioning a new disruptor car buying experience for Revv-cars.',
-          'content':'',
-          'tag':[
-             'Revv Cars',
-             'UX & UI Design'
+          'image': './images/project/feature/gamooga.png',
+          'link': './projects/ux-ui-design-saas-gamooga.html'
+        },
+        {
+          'title': 'Envisioning a new disruptor car buying experience for Revv-cars.',
+          'content': '',
+          'tag': [
+            'Automotive',
+            'UX & UI Design'
           ],
-          'image':'./images/project/feature/revv-cars.png',
-          'link':'./projects/revv-car.html'
-       },
-       {
-          'title':'Helping manage the complex research lab system for Zifo.',
-          'content':'',
-          'tag':[
-            'Research',
-            'Ideation workshop',
-             'UX & UI Design'
+          'image': './images/project/feature/revv-cars.png',
+          'link': './projects/ux-ui-design-car-leasing-revv-cars.html'
+        },
+        {
+          'title': 'Helping manage the complex research lab system for Zifo.',
+          'content': '',
+          'tag': [
+            'Enterprise',
+            'UX Consulting',
+            'UX & UI Design'
           ],
-          'image':'./images/project/feature/zifo.png',
-          'link':'./projects/zifo.html'
-       }
-    ],
-    'contact':[
-       {
-          'title':'Contact',
-          'page_intro':'Let’s work together.',
-          'content':'Nothing excites us more than great ideas. We’d love to hear from you.',
-          'form':[
-             {
-                'name':'Hire Us',
-                'message':[
-                   {
-                      'type':true,
-                      'title':'Thank you!',
-                      'message':'We will contact you shortly.  Scroll down to see the next steps'
-                   },
-                   {
-                      'type':false,
-                      'title':'we are sorry',
-                      'message':'We are working on it issue. Thankyou for the patient'
-                   }
-                ],
-                'what_we_do':[
-                   {
-                      'title':'Our team works out a swift response with a 3-step process',
-                      'content':[
-                         {
-                            'title':'A quick initial call to get started.',
-                            'content':' We are thrilled if you left us a message. Look forward to a call from our business team soon.'
-                         },
-                         {
-                            'title':'Understanding & gathering scope.',
-                            'content':' We take time over call or in person in trying to understand your needs and our role in it.'
-                         },
-                         {
-                            'title':'Delivery of proposal.',
-                            'content':' Based on the discussion, we prepare a proposal, best suited for your project.'
-                         }
-                      ]
-                   }
-                ]
-             }
-          ]
-       }
-    ],
-    'email':'interact@rillusion.com',
-    'phone':'+91 9500 007 094',
-    'dribbble':'https://dribbble.com/rillusion',
-    'behance':'https://www.behance.net/Rillusion-ux-ui',
-    'instagram':'https://www.instagram.com/rillusion_ux_ui_design/',
-    'facebook':'http://www.facebook.com/Rillusion/',
-    'linkedin':'https://www.linkedin.com/company/rillusion',
-    'medium':'https://medium.com/@rillusionagency'
- },
+          'image': './images/project/feature/zifo.png',
+          'link': './projects/enterprise-ux-ui-design-project-management-zifo.html'
+        }
+      ],
+      'contact': [{
+        'title': 'Contact',
+        'page_intro': 'Let’s work together.',
+        'content': 'Nothing excites us more than great ideas. We’d love to hear from you.',
+        'form': [{
+          'name': 'Hire Us',
+          'message': [{
+              'type': true,
+              'title': 'Thank you!',
+              'message': 'We will contact you shortly.  Scroll down to see the next steps'
+            },
+            {
+              'type': false,
+              'title': 'we are sorry',
+              'message': 'We are working on it issue. Thankyou for the patient'
+            }
+          ],
+          'what_we_do': [{
+            'title': 'Our team works out a swift response with a 3-step process',
+            'content': [{
+                'title': 'A quick initial call to get started.',
+                'content': ' We are thrilled if you left us a message. Look forward to a call from our business team soon.'
+              },
+              {
+                'title': 'Understanding & gathering scope.',
+                'content': ' We take time over call or in person in trying to understand your needs and our role in it.'
+              },
+              {
+                'title': 'Delivery of proposal.',
+                'content': ' Based on the discussion, we prepare a proposal, best suited for your project.'
+              }
+            ]
+          }]
+        }]
+      }],
+      'email': 'interact@rillusion.com',
+      'phone': '+91 9500 007 094',
+      'dribbble': 'https://dribbble.com/rillusion',
+      'behance': 'https://www.behance.net/Rillusion-ux-ui',
+      'instagram': 'https://www.instagram.com/rillusion_ux_ui_design/',
+      'facebook': 'http://www.facebook.com/Rillusion/',
+      'linkedin': 'https://www.linkedin.com/company/rillusion',
+      'medium': 'https://medium.com/@rillusionagency'
+    },
     options = {
       ignorePartials: true,
       batch: ['./app/components']
     };
 
   return src(['app/**/*.hbs', '!app/components/**/*.hbs'])
-    .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
+    .pipe($.useref({
+      searchPath: ['.tmp', 'app', '.']
+    }))
     .pipe(handlebars(templateData, options))
     .pipe(
       rename({
         extname: '.html',
       })
     )
-    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: false } })))
+    .pipe($.if(/\.js$/, $.uglify({
+      compress: {
+        drop_console: false
+      }
+    })))
     .pipe(
-      $.if(/\.css$/, $.postcss([cssnano({ safe: true, autoprefixer: false })]))
+      $.if(/\.css$/, $.postcss([cssnano({
+        safe: true,
+        autoprefixer: false
+      })]))
     )
     .pipe(
       $.if(
@@ -259,7 +273,11 @@ function html() {
         $.htmlmin({
           collapseWhitespace: false,
           minifyCSS: true,
-          minifyJS: { compress: { drop_console: false } },
+          minifyJS: {
+            compress: {
+              drop_console: false
+            }
+          },
           processConditionalComments: true,
           removeComments: true,
           removeEmptyAttributes: true,
@@ -272,23 +290,26 @@ function html() {
 }
 
 function images() {
-  return src('app/images/**/*', { since: lastRun(images) }).pipe(
+  return src('app/images/**/*', {
+    since: lastRun(images)
+  }).pipe(
     dest('dist/images')
   );
 }
 
 function imagesWebp() {
   return src(
-    [
-      'app/images/**/*.{jpg,png}',
-      '!app/images/apple-touch-icon.png',
-      '!app/images/favicon.png',
-    ],
-    {
-      since: lastRun(images),
-    }
-  )
-    .pipe($.webp({ lossless: true }))
+      [
+        'app/images/**/*.{jpg,png}',
+        '!app/images/apple-touch-icon.png',
+        '!app/images/favicon.png',
+      ], {
+        since: lastRun(images),
+      }
+    )
+    .pipe($.webp({
+      lossless: true
+    }))
     .pipe(dest('app/images'));
 }
 
@@ -306,8 +327,7 @@ function criticalCss() {
         minify: true,
         ignore: ['font-face'],
         base: 'dist/',
-        dimensions: [
-          {
+        dimensions: [{
             height: 200,
             width: 500,
           },
@@ -351,7 +371,10 @@ function clean() {
 }
 
 function measureSize() {
-  return src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
+  return src('dist/**/*').pipe($.size({
+    title: 'build',
+    gzip: true
+  }));
 }
 
 const build = series(
