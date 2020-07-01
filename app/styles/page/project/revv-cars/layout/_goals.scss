@@ -98,14 +98,12 @@
 }
 
 .goals_list_item-banner{
-    
-    max-width: calc(100% - 20px);
     margin-left: 20px;
     @include interpolate("margin-top", 576px, 55px, 1200px, 89px);
-    max-width: 100%;
-    @include media-min(871px){
-        max-width: 270px;
-    }
+    // max-width: 100%;
+    // @include media-min(871px){
+    //     max-width: 270px;
+    // }
 }
 
 .goals_full-banner {
