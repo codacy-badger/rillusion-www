@@ -32,6 +32,7 @@
         }
         @include tablet{
             width: 418px;
+            max-width: none;
         }
     }
 
