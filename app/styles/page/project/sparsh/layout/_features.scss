@@ -7,14 +7,14 @@
 
 	.custom-1 {
 		padding-bottom : 130px;
-		width: 141%;
-        max-width: 2033px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+		width : 141%;
+		max-width : 2033px;
+		position : relative;
+		left : 50%;
+		transform : translateX(-50%);
 
 		@include desktop {
-			padding : 120px 0 230px;
+			padding : 120px 0 0;
 		}
 	}
 
