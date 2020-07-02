@@ -32,7 +32,7 @@
     top: 180px;
   }
   @include desktop {
-    @include size($mwidth: 19.4rem);
+    @include size($mwidth: 350px);
     margin-right: 5rem;
   }
   h2{

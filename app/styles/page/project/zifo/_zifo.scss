@@ -1,24 +1,23 @@
 // @import "base/reset";
 
+@import "base/fonts";
 
 .casestudy-zifo {
-	@import "base/fonts",
-	"base/variables";
-
+	
+	@import "base/variables";
 	@import "utilities/mixins";
-
 	@import "vendors/interpolate";
 
 
 	@import "utilities/extends",
-	"utilities/helpers";
+        	"utilities/helpers";
 
 
 	@import "base/typography";
 
 	@import "layout/header",
-	"layout/brand",
-	"layout/overview",
-	"layout/features",
-	"layout/footer";
+        	"layout/brand",
+        	"layout/overview",
+        	"layout/features",
+        	"layout/footer";
 }

@@ -8,12 +8,41 @@
 }
 
 .overview__content {
-  @include mobile {
-    flex-basis: 45%;
+  
+  .content-head{
+    max-width: 400px;
   }
-  @include desktop {
-    flex-basis: 24.7rem;
+
+  .content-txt{
+    max-width: 450px;
+    padding-right: 10px;
+
+   >span{
+      display: block;
+      font-weight: bold;
+    }
+
+    >span{
+      margin-top: 20px;
+    }
+
+   >span + span{
+      margin-top: 0;
+    }
+
+
+    br{
+      display: none;
+
+      @include desktop{
+        display: block;
+      }
+
+    }
+
   }
+
+
 }
 
 .overview__banners {

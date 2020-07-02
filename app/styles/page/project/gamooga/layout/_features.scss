@@ -5,18 +5,25 @@
 
 .features__content {
   margin-bottom: 2rem;
+  
   @include mobile {
     @include size($mwidth: 45%);
   }
-  @include tablet {
-    h2 {
+
+  h2 {
+    margin-bottom: 20px;
+    @include tablet{
       @include size($mwidth: 24.72rem);
-      margin-bottom: 2.2rem;
-    }
-    p {
-      @include size($mwidth: 19.4rem);
+      margin-bottom: 40px;
     }
   }
+
+  p {
+    @include tablet{
+      @include size($mwidth: 350px);
+    }
+  }
+
 }
 
 .features__tags {
