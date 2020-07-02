@@ -335,7 +335,7 @@ function criticalCss() {
             base: 'dist/',
             dimensions: [
               {
-                height: 200,
+                height: 320,
                 width: 500,
               },
               {
@@ -358,7 +358,7 @@ function criticalCss() {
 function serviceWorker() {
   return workboxBuild.generateSW({
     globDirectory: 'dist',
-    globPatterns: ['**/*.{html,json,js,css}'],
+    globPatterns: ['**/*.{html,json,js,css,png,jpg,svg}'],
     swDest: 'dist/sw.js',
   });
 }
@@ -393,6 +393,7 @@ const build = series(
         series(parallel(styles, scripts, imagesWebp), html),
         images,
         fonts,
+        criticalCss,
         extras
     ),
     serviceWorker,
