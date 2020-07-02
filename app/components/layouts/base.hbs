@@ -56,6 +56,10 @@
     <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
     <meta itemprop="image" content="" />
 
+    {{#> head-block}}
+      {{!-- Custom <head> content per page could be added --}}
+    {{/head-block}}
+
     <!-- Veriification code -->
     <meta name="google-site-verification" content=" " />
 
@@ -72,7 +76,7 @@
     <script>
       WebFont.load({
         google: {
-          families: ['Montserrat:300,400,500,600,700', 'Open Sans', 'Oswald','Work Sans', 'Playfair Display', 'Esteban']
+          families: ['Montserrat:300,400,500,600,700', 'Open Sans', 'Oswald', 'Work Sans', 'Playfair Display', 'Esteban']
         }
       });
       (function (d) {
@@ -88,46 +92,46 @@
     {{else}}
       <link href="./styles/style.css" rel="stylesheet" />
     {{/if}}
-
-
-    {{#> head-block}}
-      {{!-- Custom <head> content per page could be added --}}
-    {{/head-block}}
   </head>
 
-  <body data-barba="wrapper" {{#if project}} class="page-project" {{/if}}>
-    <!--[if IE]>
+  {{#if project}}
+    <body data-barba="wrapper" class="page-project">
+  {{else}}
+    <body data-barba="wrapper" class="">
+  {{/if}}
+
+  <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- page load -->
-    <div class="loading-container">
-      <div class="loading-screen"></div>
+  <!-- page load -->
+  <div class="loading-container">
+    <div class="loading-screen"></div>
+  </div>
+
+  <!-- cursor -->
+  <div id="cursor"></div>
+
+  <!-- menu content -->
+  {{> partials/header }}
+
+  <main data-barba="container" data-barba-namespace="{{barbaNamesapce}}">
+    <div class="page--{{barbaNamesapce}}">
+
+      <!-- page content -->
+      {{#> content-block}}
+        {{!-- Content goes here --}}
+      {{/content-block}}
+      {{#unless hideCallToAction}}
+
+        <!-- footer content -->
+        {{> partials/footer }}
+      {{/unless}}
+
     </div>
+  </main>
 
-    <!-- cursor -->
-    <div id="cursor"></div>
-
-    <!-- menu content -->
-    {{> partials/header }}
-
-    <main data-barba="container" data-barba-namespace="{{barbaNamesapce}}">
-      <div class="page--{{barbaNamesapce}}">
-
-        <!-- page content -->
-        {{#> content-block}}
-          {{!-- Content goes here --}}
-        {{/content-block}}
-        {{#unless hideCallToAction}}
-
-          <!-- footer content -->
-          {{> partials/footer }}
-        {{/unless}}
-
-      </div>
-    </main>
-
-    {{!-- <!-- Global site tag (gtag.js) - Google Analytics -->
+  {{!-- <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3693359-8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -136,40 +140,40 @@
       gtag('config', 'UA-3693359-8');
     </script> --}}
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor.js -->
+  <!-- endbuild -->
 
-    <script crossorigin="anonymous"
-      src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js"></script>
-    {{#if project}}
-      <script src="../scripts/script.js"></script>
-    {{else}}
-      <script src="./scripts/script.js"></script>
-    {{/if}}
+  <script crossorigin="anonymous"
+    src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js"></script>
+  {{#if project}}
+    <script src="../scripts/script.js"></script>
+  {{else}}
+    <script src="./scripts/script.js"></script>
+  {{/if}}
 
-    {{#> scripts-block}}
-      {{!-- Custom scripts per page can be added --}}
-    {{/scripts-block}}
-    <script>
-      (function () {
-        if (sessionStorage.fonts) {
-          console.log("Fonts installed.");
-          document.documentElement.classList.add('wf-active');
-        } else {
-          console.log("No fonts installed.");
-        }
-      })();
+  {{#> scripts-block}}
+    {{!-- Custom scripts per page can be added --}}
+  {{/scripts-block}}
+  <script>
+    (function () {
+      if (sessionStorage.fonts) {
+        console.log("Fonts installed.");
+        document.documentElement.classList.add('wf-active');
+      } else {
+        console.log("No fonts installed.");
+      }
+    })();
 
-    </script>
+  </script>
   </body>
 
 </html>

@@ -92,7 +92,8 @@
 			display : flex;
 			flex-wrap : wrap;
 			justify-content : space-between;
-			margin-bottom : 150px;
+			// margin-bottom : 200px;
+			@include interpolate("margin-bottom", 520px, 60px, 992px, 200px, "ease-in");
 		}
 		&--text {
 			max-width : 460px;
@@ -155,6 +156,11 @@ oAAAANSUhEUgAAABEAAAARCAYAAAA7bU f6AAAACXBIWXMAAAsTAAALEwEAmpwYAA AAAXNSR0IArs4c
 			flex : 1 0 auto;
 			text-align : center;
 			margin-top : 36px;
+			@media(min-width: $desktop) {
+				svg {
+					margin-left : 70px;
+				}
+			}
 		}
 	}
 }

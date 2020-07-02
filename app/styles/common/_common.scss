@@ -336,19 +336,22 @@ small {
 }
 
 /* cursor */
-#cursor {
-	will-change : left, top;
-	transition : width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
-	width : 10px;
-	height : 10px;
-	background : var(--text-black);
-	border : 1px solid var(--text-black);
-	border-radius : 50%;
-	position : absolute;
-	position : fixed;
-	top : calc(50vh - 5px);
-	left : calc(50vw - 5px);
-	transform : translate(-50%, -50%);
-	pointer-events : none;
-	z-index : 1505;
+
+@media (pointer: fine) {
+	#cursor {
+		will-change : left, top;
+		transition : width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
+		width : 10px;
+		height : 10px;
+		background : var(--text-black);
+		border : 1px solid var(--text-black);
+		border-radius : 50%;
+		position : absolute;
+		position : fixed;
+		top : calc(50vh - 5px);
+		left : calc(50vw - 5px);
+		transform : translate(-50%, -50%);
+		pointer-events : none;
+		z-index : 1505;
+	}
 }

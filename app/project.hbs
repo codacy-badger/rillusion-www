@@ -1,4 +1,4 @@
-{{#> layouts/base  title="Project | Rillusion" barbaNamesapce="project"}}
+{{#> layouts/base  project=false title="Project | Rillusion" barbaNamesapce="project"}}
   {{#*inline "content-block"}}
     <section class="width-box page--content--home__project page--intro">
       <h1 class="section--header">
@@ -17,20 +17,21 @@
           <div class="project--card">
             <div class="text">
               <div data-aos="fade-right" class="block-tag section__header-text_kicker">
-                <span>Research</span>
+                <span>Edu-Tech</span>
+                <span>UX Consulting</span>
                 <span>UX & UI Design</span>
               </div>
               <div class="block-title">
-                <a href="./projects/motion-edu.html" data-aos="fade-right">Personalizing the e-learning experiences for
+                <a href="./projects/ux-ui-design-edu-tech-platform-vidyatri.html" data-aos="fade-right">Personalizing the e-learning experiences for
                   school students</a>
               </div>
               <div class="block-text">
-                <a href="./projects/motion-edu.html" data-aos="fade-right" data-aos-delay="400">Explore how we equipped
+                <a href="./projects/ux-ui-design-edu-tech-platform-vidyatri.html" data-aos="fade-right" data-aos-delay="400">Explore how we equipped
                   school students with an easy and effective
                   learning journey.</a>
               </div>
               <div class="block-link">
-                <a href="./projects/motion-edu.html" data-aos="fade-right" data-aos-delay="800">
+                <a href="./projects/ux-ui-design-edu-tech-platform-vidyatri.html" data-aos="fade-right" data-aos-delay="800">
                   View Case Study
                   <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.37109 8H15.3711" stroke="#231F20" stroke-width="2" stroke-linecap="round"
@@ -42,7 +43,7 @@
               </div>
             </div>
             <div class="image">
-              <a href="./projects/motion-edu.html" data-aos="fade-right" data-aos-delay="1000">
+              <a href="./projects/ux-ui-design-edu-tech-platform-vidyatri.html" data-aos="fade-right" data-aos-delay="1000">
                 <img loading="lazy" class="lazyload" data-src="./images/project/feature/motion-edu.png"
                   alt="motion-edu" /></a>
               <div class="cover" data-aos="fade-right" data-aos-delay="1000" style="background-color: #fec746;"></div>
@@ -54,7 +55,7 @@
       <div class="grid grid-template-column:3fr project-colum:3">
 
 
-        {{#each project}}
+        {{#each page_project}}
           <div class="project--list">
             <div class="project--card">
               <div data-aos="fade-down">
@@ -78,4 +79,5 @@
 
       </div>
     </div>
-  {{/inline}} {{/layouts/base}}
+  {{/inline}}
+  {{/layouts/base}}

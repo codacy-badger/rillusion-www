@@ -1,8 +1,9 @@
-(function (global, factory) {
+(function(global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = global || self, factory(global.window = global.window || {}));
-}(this, (function (exports) { 'use strict';
+}(this, (function(exports) {
+  'use strict';
 
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
@@ -18,7 +19,7 @@
     return self;
   }
 
-  /*!
+  /* !
    * GSAP 3.2.6
    * https://greensock.com
    *
@@ -27,94 +28,94 @@
    * Club GreenSock members, the agreement issued with that membership.
    * @author: Jack Doyle, jack@greensock.com
   */
-  var _config = {
+  const _config = {
     autoSleep: 120,
     force3D: 'auto',
     nullTargetWarn: 1,
     units: {
-      lineHeight: ''
-    }
-  },
-      _defaults = {
+      lineHeight: '',
+    },
+  };
+  const _defaults = {
     duration: .5,
     overwrite: false,
-    delay: 0
-  },
-      _bigNum = 1e8,
-      _tinyNum = 1 / _bigNum,
-      _2PI = Math.PI * 2,
-      _HALF_PI = _2PI / 4,
-      _gsID = 0,
-      _sqrt = Math.sqrt,
-      _cos = Math.cos,
-      _sin = Math.sin,
-      _isString = function _isString(value) {
+    delay: 0,
+  };
+  const _bigNum = 1e8;
+  const _tinyNum = 1 / _bigNum;
+  const _2PI = Math.PI * 2;
+  const _HALF_PI = _2PI / 4;
+  let _gsID = 0;
+  const _sqrt = Math.sqrt;
+  const _cos = Math.cos;
+  const _sin = Math.sin;
+  const _isString = function _isString(value) {
     return typeof value === 'string';
-  },
-      _isFunction = function _isFunction(value) {
+  };
+  const _isFunction = function _isFunction(value) {
     return typeof value === 'function';
-  },
-      _isNumber = function _isNumber(value) {
+  };
+  const _isNumber = function _isNumber(value) {
     return typeof value === 'number';
-  },
-      _isUndefined = function _isUndefined(value) {
+  };
+  const _isUndefined = function _isUndefined(value) {
     return typeof value === 'undefined';
-  },
-      _isObject = function _isObject(value) {
+  };
+  const _isObject = function _isObject(value) {
     return typeof value === 'object';
-  },
-      _isNotFalse = function _isNotFalse(value) {
+  };
+  const _isNotFalse = function _isNotFalse(value) {
     return value !== false;
-  },
-      _windowExists = function _windowExists() {
+  };
+  const _windowExists = function _windowExists() {
     return typeof window !== 'undefined';
-  },
-      _isFuncOrString = function _isFuncOrString(value) {
+  };
+  const _isFuncOrString = function _isFuncOrString(value) {
     return _isFunction(value) || _isString(value);
-  },
-      _isArray = Array.isArray,
-      _strictNumExp = /(?:-?\.?\d|\.)+/gi,
-      _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-\+]*\d*/g,
-      _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g,
-      _complexStringNumExp = /[-+=.]*\d+(?:\.|e-|e)*\d*/gi,
-      _parenthesesExp = /\(([^()]+)\)/i,
-      _relExp = /[+-]=-?[\.\d]+/,
-      _delimitedValueExp = /[#\-+.]*\b[a-z\d-=+%.]+/gi,
-      _globalTimeline,
-      _win,
-      _coreInitted,
-      _doc,
-      _globals = {},
-      _installScope = {},
-      _coreReady,
-      _install = function _install(scope) {
+  };
+  const _isArray = Array.isArray;
+  const _strictNumExp = /(?:-?\.?\d|\.)+/gi;
+  const _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-\+]*\d*/g;
+  const _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g;
+  const _complexStringNumExp = /[-+=.]*\d+(?:\.|e-|e)*\d*/gi;
+  const _parenthesesExp = /\(([^()]+)\)/i;
+  const _relExp = /[+-]=-?[\.\d]+/;
+  const _delimitedValueExp = /[#\-+.]*\b[a-z\d-=+%.]+/gi;
+  let _globalTimeline;
+  let _win;
+  let _coreInitted;
+  let _doc;
+  const _globals = {};
+  let _installScope = {};
+  let _coreReady;
+  const _install = function _install(scope) {
     return (_installScope = _merge(scope, _globals)) && gsap;
-  },
-      _missingPlugin = function _missingPlugin(property, value) {
+  };
+  const _missingPlugin = function _missingPlugin(property, value) {
     return console.warn('Invalid property', property, 'set to', value, 'Missing plugin? gsap.registerPlugin()');
-  },
-      _warn = function _warn(message, suppress) {
+  };
+  const _warn = function _warn(message, suppress) {
     return !suppress && console.warn(message);
-  },
-      _addGlobal = function _addGlobal(name, obj) {
+  };
+  const _addGlobal = function _addGlobal(name, obj) {
     return name && (_globals[name] = obj) && _installScope && (_installScope[name] = obj) || _globals;
-  },
-      _emptyFunc = function _emptyFunc() {
+  };
+  const _emptyFunc = function _emptyFunc() {
     return 0;
-  },
-      _reservedProps = {},
-      _lazyTweens = [],
-      _lazyLookup = {},
-      _lastRenderedFrame,
-      _plugins = {},
-      _effects = {},
-      _nextGCFrame = 30,
-      _harnessPlugins = [],
-      _callbackNames = '',
-      _harness = function _harness(targets) {
-    var target = targets[0],
-        harnessPlugin,
-        i;
+  };
+  const _reservedProps = {};
+  const _lazyTweens = [];
+  let _lazyLookup = {};
+  let _lastRenderedFrame;
+  const _plugins = {};
+  const _effects = {};
+  let _nextGCFrame = 30;
+  const _harnessPlugins = [];
+  let _callbackNames = '';
+  const _harness = function _harness(targets) {
+    const target = targets[0];
+    let harnessPlugin;
+    let i;
 
     if (!_isObject(target) && !_isFunction(target)) {
       targets = [targets];
@@ -135,33 +136,33 @@
     }
 
     return targets;
-  },
-      _getCache = function _getCache(target) {
+  };
+  const _getCache = function _getCache(target) {
     return target._gsap || _harness(toArray(target))[0]._gsap;
-  },
-      _getProperty = function _getProperty(target, property) {
-    var currentValue = target[property];
+  };
+  const _getProperty = function _getProperty(target, property) {
+    const currentValue = target[property];
     return _isFunction(currentValue) ? target[property]() : _isUndefined(currentValue) && target.getAttribute(property) || currentValue;
-  },
-      _forEachName = function _forEachName(names, func) {
+  };
+  const _forEachName = function _forEachName(names, func) {
     return (names = names.split(',')).forEach(func) || names;
-  },
-      _round = function _round(value) {
+  };
+  const _round = function _round(value) {
     return Math.round(value * 100000) / 100000 || 0;
-  },
-      _arrayContainsAny = function _arrayContainsAny(toSearch, toFind) {
-    var l = toFind.length,
-        i = 0;
+  };
+  const _arrayContainsAny = function _arrayContainsAny(toSearch, toFind) {
+    const l = toFind.length;
+    let i = 0;
 
     for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l;) {}
 
     return i < l;
-  },
-      _parseVars = function _parseVars(params, type, parent) {
-    var isLegacy = _isNumber(params[1]),
-        varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1),
-        vars = params[varsIndex],
-        irVars;
+  };
+  const _parseVars = function _parseVars(params, type, parent) {
+    const isLegacy = _isNumber(params[1]);
+    const varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1);
+    const vars = params[varsIndex];
+    let irVars;
 
     if (isLegacy) {
       vars.duration = params[1];
@@ -187,12 +188,12 @@
     }
 
     return vars;
-  },
-      _lazyRender = function _lazyRender() {
-    var l = _lazyTweens.length,
-        a = _lazyTweens.slice(0),
-        i,
-        tween;
+  };
+  const _lazyRender = function _lazyRender() {
+    const l = _lazyTweens.length;
+    const a = _lazyTweens.slice(0);
+    let i;
+    let tween;
 
     _lazyLookup = {};
     _lazyTweens.length = 0;
@@ -204,8 +205,8 @@
         tween.render(tween._lazy[0], tween._lazy[1], true)._lazy = 0;
       }
     }
-  },
-      _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
+  };
+  const _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
     if (_lazyTweens.length) {
       _lazyRender();
     }
@@ -215,47 +216,47 @@
     if (_lazyTweens.length) {
       _lazyRender();
     }
-  },
-      _numericIfPossible = function _numericIfPossible(value) {
-    var n = parseFloat(value);
+  };
+  const _numericIfPossible = function _numericIfPossible(value) {
+    const n = parseFloat(value);
     return (n || n === 0) && (value + '').match(_delimitedValueExp).length < 2 ? n : value;
-  },
-      _passThrough = function _passThrough(p) {
+  };
+  const _passThrough = function _passThrough(p) {
     return p;
-  },
-      _setDefaults = function _setDefaults(obj, defaults) {
-    for (var p in defaults) {
+  };
+  const _setDefaults = function _setDefaults(obj, defaults) {
+    for (const p in defaults) {
       if (!(p in obj)) {
         obj[p] = defaults[p];
       }
     }
 
     return obj;
-  },
-      _setKeyframeDefaults = function _setKeyframeDefaults(obj, defaults) {
-    for (var p in defaults) {
+  };
+  const _setKeyframeDefaults = function _setKeyframeDefaults(obj, defaults) {
+    for (const p in defaults) {
       if (!(p in obj) && p !== 'duration' && p !== 'ease') {
         obj[p] = defaults[p];
       }
     }
-  },
-      _merge = function _merge(base, toMerge) {
-    for (var p in toMerge) {
+  };
+  var _merge = function _merge(base, toMerge) {
+    for (const p in toMerge) {
       base[p] = toMerge[p];
     }
 
     return base;
-  },
-      _mergeDeep = function _mergeDeep(base, toMerge) {
-    for (var p in toMerge) {
+  };
+  const _mergeDeep = function _mergeDeep(base, toMerge) {
+    for (const p in toMerge) {
       base[p] = _isObject(toMerge[p]) ? _mergeDeep(base[p] || (base[p] = {}), toMerge[p]) : toMerge[p];
     }
 
     return base;
-  },
-      _copyExcluding = function _copyExcluding(obj, excluding) {
-    var copy = {},
-        p;
+  };
+  const _copyExcluding = function _copyExcluding(obj, excluding) {
+    const copy = {};
+    let p;
 
     for (p in obj) {
       if (!(p in excluding)) {
@@ -264,10 +265,10 @@
     }
 
     return copy;
-  },
-      _inheritDefaults = function _inheritDefaults(vars) {
-    var parent = vars.parent || _globalTimeline,
-        func = vars.keyframes ? _setKeyframeDefaults : _setDefaults;
+  };
+  const _inheritDefaults = function _inheritDefaults(vars) {
+    let parent = vars.parent || _globalTimeline;
+    const func = vars.keyframes ? _setKeyframeDefaults : _setDefaults;
 
     if (_isNotFalse(vars.inherit)) {
       while (parent) {
@@ -277,16 +278,16 @@
     }
 
     return vars;
-  },
-      _arraysMatch = function _arraysMatch(a1, a2) {
-    var i = a1.length,
-        match = i === a2.length;
+  };
+  const _arraysMatch = function _arraysMatch(a1, a2) {
+    let i = a1.length;
+    const match = i === a2.length;
 
     while (match && i-- && a1[i] === a2[i]) {}
 
     return i < 0;
-  },
-      _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
+  };
+  const _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
     if (firstProp === void 0) {
       firstProp = '_first';
     }
@@ -295,8 +296,8 @@
       lastProp = '_last';
     }
 
-    var prev = parent[lastProp],
-        t;
+    let prev = parent[lastProp];
+    let t;
 
     if (sortBy) {
       t = child[sortBy];
@@ -323,8 +324,8 @@
     child._prev = prev;
     child.parent = child._dp = parent;
     return child;
-  },
-      _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
+  };
+  const _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
     if (firstProp === void 0) {
       firstProp = '_first';
     }
@@ -333,8 +334,8 @@
       lastProp = '_last';
     }
 
-    var prev = child._prev,
-        next = child._next;
+    const prev = child._prev;
+    const next = child._next;
 
     if (prev) {
       prev._next = next;
@@ -349,16 +350,16 @@
     }
 
     child._next = child._prev = child.parent = null;
-  },
-      _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
+  };
+  const _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
     if (child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren)) {
       child.parent.remove(child);
     }
 
     child._act = 0;
-  },
-      _uncache = function _uncache(animation) {
-    var a = animation;
+  };
+  const _uncache = function _uncache(animation) {
+    let a = animation;
 
     while (a) {
       a._dirty = 1;
@@ -366,9 +367,9 @@
     }
 
     return animation;
-  },
-      _recacheAncestors = function _recacheAncestors(animation) {
-    var parent = animation.parent;
+  };
+  const _recacheAncestors = function _recacheAncestors(animation) {
+    let parent = animation.parent;
 
     while (parent && parent.parent) {
       parent._dirty = 1;
@@ -377,24 +378,24 @@
     }
 
     return animation;
-  },
-      _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
+  };
+  const _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
     return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
-  },
-      _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
+  };
+  const _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
     return animation._repeat ? _animationCycle(animation._tTime, animation = animation.duration() + animation._rDelay) * animation : 0;
-  },
-      _animationCycle = function _animationCycle(tTime, cycleDuration) {
+  };
+  var _animationCycle = function _animationCycle(tTime, cycleDuration) {
     return (tTime /= cycleDuration) && ~~tTime === tTime ? ~~tTime - 1 : ~~tTime;
-  },
-      _parentToChildTotalTime = function _parentToChildTotalTime(parentTime, child) {
+  };
+  const _parentToChildTotalTime = function _parentToChildTotalTime(parentTime, child) {
     return (parentTime - child._start) * child._ts + (child._ts >= 0 ? 0 : child._dirty ? child.totalDuration() : child._tDur);
-  },
-      _setEnd = function _setEnd(animation) {
+  };
+  const _setEnd = function _setEnd(animation) {
     return animation._end = _round(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
-  },
-      _postAddChecks = function _postAddChecks(timeline, child) {
-    var t;
+  };
+  const _postAddChecks = function _postAddChecks(timeline, child) {
+    let t;
 
     if (child._time || child._initted && !child._dur) {
       t = _parentToChildTotalTime(timeline.rawTime(), child);
@@ -416,8 +417,8 @@
 
       timeline._zTime = -_tinyNum;
     }
-  },
-      _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
+  };
+  const _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
     child.parent && _removeFromParent(child);
     child._start = _round(position + child._delay);
     child._end = _round(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
@@ -427,8 +428,8 @@
     timeline._recent = child;
     skipChecks || _postAddChecks(timeline, child);
     return timeline;
-  },
-      _attemptInitTween = function _attemptInitTween(tween, totalTime, force, suppressEvents) {
+  };
+  const _attemptInitTween = function _attemptInitTween(tween, totalTime, force, suppressEvents) {
     _initTween(tween, totalTime);
 
     if (!tween._initted) {
@@ -441,15 +442,15 @@
       tween._lazy = [totalTime, suppressEvents];
       return 1;
     }
-  },
-      _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, suppressEvents, force) {
-    var prevRatio = tween._zTime < 0 ? 0 : 1,
-        ratio = totalTime < 0 ? 0 : 1,
-        repeatDelay = tween._rDelay,
-        tTime = 0,
-        pt,
-        iteration,
-        prevIteration;
+  };
+  const _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, suppressEvents, force) {
+    let prevRatio = tween._zTime < 0 ? 0 : 1;
+    let ratio = totalTime < 0 ? 0 : 1;
+    const repeatDelay = tween._rDelay;
+    let tTime = 0;
+    let pt;
+    let iteration;
+    let prevIteration;
 
     if (repeatDelay && tween._repeat) {
       tTime = _clamp(0, tween._tDur, totalTime);
@@ -507,9 +508,9 @@
         }
       }
     }
-  },
-      _findNextPauseTween = function _findNextPauseTween(animation, prevTime, time) {
-    var child;
+  };
+  const _findNextPauseTween = function _findNextPauseTween(animation, prevTime, time) {
+    let child;
 
     if (time > prevTime) {
       child = animation._first;
@@ -532,10 +533,10 @@
         child = child._prev;
       }
     }
-  },
-      _setDuration = function _setDuration(animation, duration, skipUncache) {
-    var repeat = animation._repeat,
-        dur = _round(duration) || 0;
+  };
+  const _setDuration = function _setDuration(animation, duration, skipUncache) {
+    const repeat = animation._repeat;
+    const dur = _round(duration) || 0;
     animation._dur = dur;
     animation._tDur = !repeat ? dur : repeat < 0 ? 1e12 : _round(dur * (repeat + 1) + animation._rDelay * repeat);
 
@@ -547,20 +548,20 @@
     !skipUncache && _uncache(animation.parent);
     animation.parent && _setEnd(animation);
     return animation;
-  },
-      _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
+  };
+  const _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
     return animation instanceof Timeline ? _uncache(animation) : _setDuration(animation, animation._dur);
-  },
-      _zeroPosition = {
+  };
+  const _zeroPosition = {
     _start: 0,
-    endTime: _emptyFunc
-  },
-      _parsePosition = function _parsePosition(animation, position) {
-    var labels = animation.labels,
-        recent = animation._recent || _zeroPosition,
-        clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur,
-        i,
-        offset;
+    endTime: _emptyFunc,
+  };
+  const _parsePosition = function _parsePosition(animation, position) {
+    const labels = animation.labels;
+    const recent = animation._recent || _zeroPosition;
+    const clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur;
+    let i;
+    let offset;
 
     if (_isString(position) && (isNaN(position) || position in labels)) {
       i = position.charAt(0);
@@ -584,85 +585,85 @@
     }
 
     return position == null ? clippedDuration : +position;
-  },
-      _conditionalReturn = function _conditionalReturn(value, func) {
+  };
+  const _conditionalReturn = function _conditionalReturn(value, func) {
     return value || value === 0 ? func(value) : func;
-  },
-      _clamp = function _clamp(min, max, value) {
+  };
+  var _clamp = function _clamp(min, max, value) {
     return value < min ? min : value > max ? max : value;
-  },
-      getUnit = function getUnit(value) {
+  };
+  const getUnit = function getUnit(value) {
     return (value + '').substr((parseFloat(value) + '').length);
-  },
-      clamp = function clamp(min, max, value) {
-    return _conditionalReturn(value, function (v) {
+  };
+  const clamp = function clamp(min, max, value) {
+    return _conditionalReturn(value, function(v) {
       return _clamp(min, max, v);
     });
-  },
-      _slice = [].slice,
-      _isArrayLike = function _isArrayLike(value, nonEmpty) {
+  };
+  const _slice = [].slice;
+  const _isArrayLike = function _isArrayLike(value, nonEmpty) {
     return value && _isObject(value) && 'length' in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
-  },
-      _flatten = function _flatten(ar, leaveStrings, accumulator) {
+  };
+  const _flatten = function _flatten(ar, leaveStrings, accumulator) {
     if (accumulator === void 0) {
       accumulator = [];
     }
 
-    return ar.forEach(function (value) {
-      var _accumulator;
+    return ar.forEach(function(value) {
+      let _accumulator;
 
       return _isString(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
     }) || accumulator;
-  },
-      toArray = function toArray(value, leaveStrings) {
+  };
+  var toArray = function toArray(value, leaveStrings) {
     return _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call(_doc.querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
-  },
-      shuffle = function shuffle(a) {
-    return a.sort(function () {
+  };
+  const shuffle = function shuffle(a) {
+    return a.sort(function() {
       return .5 - Math.random();
     });
-  },
-      distribute = function distribute(v) {
+  };
+  const distribute = function distribute(v) {
     if (_isFunction(v)) {
       return v;
     }
 
-    var vars = _isObject(v) ? v : {
-      each: v
-    },
-        ease = _parseEase(vars.ease),
-        from = vars.from || 0,
-        base = parseFloat(vars.base) || 0,
-        cache = {},
-        isDecimal = from > 0 && from < 1,
-        ratios = isNaN(from) || isDecimal,
-        axis = vars.axis,
-        ratioX = from,
-        ratioY = from;
+    const vars = _isObject(v) ? v : {
+      each: v,
+    };
+    let ease = _parseEase(vars.ease);
+    const from = vars.from || 0;
+    const base = parseFloat(vars.base) || 0;
+    const cache = {};
+    const isDecimal = from > 0 && from < 1;
+    const ratios = isNaN(from) || isDecimal;
+    const axis = vars.axis;
+    let ratioX = from;
+    let ratioY = from;
 
     if (_isString(from)) {
       ratioX = ratioY = {
         center: .5,
         edges: .5,
-        end: 1
+        end: 1,
       }[from] || 0;
     } else if (!isDecimal && ratios) {
       ratioX = from[0];
       ratioY = from[1];
     }
 
-    return function (i, target, a) {
-      var l = (a || vars).length,
-          distances = cache[l],
-          originX,
-          originY,
-          x,
-          y,
-          d,
-          j,
-          max,
-          min,
-          wrapAt;
+    return function(i, target, a) {
+      let l = (a || vars).length;
+      let distances = cache[l];
+      let originX;
+      let originY;
+      let x;
+      let y;
+      let d;
+      let j;
+      let max;
+      let min;
+      let wrapAt;
 
       if (!distances) {
         wrapAt = vars.grid === 'auto' ? 0 : (vars.grid || [1, _bigNum])[1];
@@ -707,17 +708,17 @@
       l = (distances[i] - distances.min) / distances.max || 0;
       return _round(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u;
     };
-  },
-      _roundModifier = function _roundModifier(v) {
-    var p = v < 1 ? Math.pow(10, (v + '').length - 2) : 1;
-    return function (raw) {
+  };
+  const _roundModifier = function _roundModifier(v) {
+    const p = v < 1 ? Math.pow(10, (v + '').length - 2) : 1;
+    return function(raw) {
       return ~~(Math.round(parseFloat(raw) / v) * v * p) / p + (_isNumber(raw) ? 0 : getUnit(raw));
     };
-  },
-      snap = function snap(snapTo, value) {
-    var isArray = _isArray(snapTo),
-        radius,
-        is2D;
+  };
+  const snap = function snap(snapTo, value) {
+    let isArray = _isArray(snapTo);
+    let radius;
+    let is2D;
 
     if (!isArray && _isObject(snapTo)) {
       radius = isArray = snapTo.radius || _bigNum;
@@ -733,17 +734,17 @@
       }
     }
 
-    return _conditionalReturn(value, !isArray ? _roundModifier(snapTo) : _isFunction(snapTo) ? function (raw) {
+    return _conditionalReturn(value, !isArray ? _roundModifier(snapTo) : _isFunction(snapTo) ? function(raw) {
       is2D = snapTo(raw);
       return Math.abs(is2D - raw) <= radius ? is2D : raw;
-    } : function (raw) {
-      var x = parseFloat(is2D ? raw.x : raw),
-          y = parseFloat(is2D ? raw.y : 0),
-          min = _bigNum,
-          closest = 0,
-          i = snapTo.length,
-          dx,
-          dy;
+    } : function(raw) {
+      const x = parseFloat(is2D ? raw.x : raw);
+      const y = parseFloat(is2D ? raw.y : 0);
+      let min = _bigNum;
+      let closest = 0;
+      let i = snapTo.length;
+      let dx;
+      let dy;
 
       while (i--) {
         if (is2D) {
@@ -763,57 +764,57 @@
       closest = !radius || min <= radius ? snapTo[closest] : raw;
       return is2D || closest === raw || _isNumber(raw) ? closest : closest + getUnit(raw);
     });
-  },
-      random = function random(min, max, roundingIncrement, returnFunction) {
-    return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function () {
+  };
+  const random = function random(min, max, roundingIncrement, returnFunction) {
+    return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function() {
       return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + '').length - 2) : 1) && ~~(Math.round((min + Math.random() * (max - min)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
     });
-  },
-      pipe = function pipe() {
+  };
+  const pipe = function pipe() {
     for (var _len = arguments.length, functions = new Array(_len), _key = 0; _key < _len; _key++) {
       functions[_key] = arguments[_key];
     }
 
-    return function (value) {
-      return functions.reduce(function (v, f) {
+    return function(value) {
+      return functions.reduce(function(v, f) {
         return f(v);
       }, value);
     };
-  },
-      unitize = function unitize(func, unit) {
-    return function (value) {
+  };
+  const unitize = function unitize(func, unit) {
+    return function(value) {
       return func(parseFloat(value)) + (unit || getUnit(value));
     };
-  },
-      normalize = function normalize(min, max, value) {
+  };
+  const normalize = function normalize(min, max, value) {
     return mapRange(min, max, 0, 1, value);
-  },
-      _wrapArray = function _wrapArray(a, wrapper, value) {
-    return _conditionalReturn(value, function (index) {
+  };
+  const _wrapArray = function _wrapArray(a, wrapper, value) {
+    return _conditionalReturn(value, function(index) {
       return a[~~wrapper(index)];
     });
-  },
-      wrap = function wrap(min, max, value) {
-    var range = max - min;
-    return _isArray(min) ? _wrapArray(min, wrap(0, min.length), max) : _conditionalReturn(value, function (value) {
+  };
+  const wrap = function wrap(min, max, value) {
+    const range = max - min;
+    return _isArray(min) ? _wrapArray(min, wrap(0, min.length), max) : _conditionalReturn(value, function(value) {
       return (range + (value - min) % range) % range + min;
     });
-  },
-      wrapYoyo = function wrapYoyo(min, max, value) {
-    var range = max - min,
-        total = range * 2;
-    return _isArray(min) ? _wrapArray(min, wrapYoyo(0, min.length - 1), max) : _conditionalReturn(value, function (value) {
+  };
+  const wrapYoyo = function wrapYoyo(min, max, value) {
+    const range = max - min;
+    const total = range * 2;
+    return _isArray(min) ? _wrapArray(min, wrapYoyo(0, min.length - 1), max) : _conditionalReturn(value, function(value) {
       value = (total + (value - min) % total) % total;
       return min + (value > range ? total - value : value);
     });
-  },
-      _replaceRandom = function _replaceRandom(value) {
-    var prev = 0,
-        s = '',
-        i,
-        nums,
-        end,
-        isArray;
+  };
+  const _replaceRandom = function _replaceRandom(value) {
+    let prev = 0;
+    let s = '';
+    let i;
+    let nums;
+    let end;
+    let isArray;
 
     while (~(i = value.indexOf('random(', prev))) {
       end = value.indexOf(')', i);
@@ -824,36 +825,36 @@
     }
 
     return s + value.substr(prev, value.length - prev);
-  },
-      mapRange = function mapRange(inMin, inMax, outMin, outMax, value) {
-    var inRange = inMax - inMin,
-        outRange = outMax - outMin;
-    return _conditionalReturn(value, function (value) {
+  };
+  var mapRange = function mapRange(inMin, inMax, outMin, outMax, value) {
+    const inRange = inMax - inMin;
+    const outRange = outMax - outMin;
+    return _conditionalReturn(value, function(value) {
       return outMin + (value - inMin) / inRange * outRange;
     });
-  },
-      interpolate = function interpolate(start, end, progress, mutate) {
-    var func = isNaN(start + end) ? 0 : function (p) {
+  };
+  const interpolate = function interpolate(start, end, progress, mutate) {
+    let func = isNaN(start + end) ? 0 : function(p) {
       return (1 - p) * start + p * end;
     };
 
     if (!func) {
-      var isString = _isString(start),
-          master = {},
-          p,
-          i,
-          interpolators,
-          l,
-          il;
+      const isString = _isString(start);
+      const master = {};
+      let p;
+      let i;
+      let interpolators;
+      let l;
+      let il;
 
       progress === true && (mutate = 1) && (progress = null);
 
       if (isString) {
         start = {
-          p: start
+          p: start,
         };
         end = {
-          p: end
+          p: end,
         };
       } else if (_isArray(start) && !_isArray(end)) {
         interpolators = [];
@@ -868,7 +869,7 @@
 
         func = function func(p) {
           p *= l;
-          var i = Math.min(il, ~~p);
+          const i = Math.min(il, ~~p);
           return interpolators[i](p - i);
         };
 
@@ -889,13 +890,13 @@
     }
 
     return _conditionalReturn(progress, func);
-  },
-      _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
-    var labels = timeline.labels,
-        min = _bigNum,
-        p,
-        distance,
-        label;
+  };
+  const _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
+    const labels = timeline.labels;
+    let min = _bigNum;
+    let p;
+    let distance;
+    let label;
 
     for (p in labels) {
       distance = labels[p] - fromTime;
@@ -907,12 +908,12 @@
     }
 
     return label;
-  },
-      _callback = function _callback(animation, type, executeLazyFirst) {
-    var v = animation.vars,
-        callback = v[type],
-        params,
-        scope;
+  };
+  var _callback = function _callback(animation, type, executeLazyFirst) {
+    const v = animation.vars;
+    const callback = v[type];
+    let params;
+    let scope;
 
     if (!callback) {
       return;
@@ -922,8 +923,8 @@
     scope = v.callbackScope || animation;
     executeLazyFirst && _lazyTweens.length && _lazyRender();
     return params ? callback.apply(scope, params) : callback.call(scope);
-  },
-      _interrupt = function _interrupt(animation) {
+  };
+  const _interrupt = function _interrupt(animation) {
     _removeFromParent(animation);
 
     if (animation.progress() < 1) {
@@ -931,30 +932,30 @@
     }
 
     return animation;
-  },
-      _quickTween,
-      _createPlugin = function _createPlugin(config) {
+  };
+  let _quickTween;
+  const _createPlugin = function _createPlugin(config) {
     config = !config.name && config['default'] || config;
 
-    var name = config.name,
-        isFunc = _isFunction(config),
-        Plugin = name && !isFunc && config.init ? function () {
+    let name = config.name;
+    const isFunc = _isFunction(config);
+    const Plugin = name && !isFunc && config.init ? function() {
       this._props = [];
-    } : config,
-        instanceDefaults = {
+    } : config;
+    const instanceDefaults = {
       init: _emptyFunc,
       render: _renderPropTweens,
       add: _addPropTween,
       kill: _killPropTweensOf,
       modifier: _addPluginModifier,
-      rawVars: 0
-    },
-        statics = {
+      rawVars: 0,
+    };
+    const statics = {
       targetTest: 0,
       get: 0,
       getSetter: _getSetter,
       aliases: {},
-      register: 0
+      register: 0,
     };
 
     _wake();
@@ -984,9 +985,9 @@
     if (config.register) {
       config.register(gsap, Plugin, PropTween);
     }
-  },
-      _255 = 255,
-      _colorLookup = {
+  };
+  const _255 = 255;
+  const _colorLookup = {
     aqua: [0, _255, _255],
     lime: [0, _255, 0],
     silver: [192, 192, 192],
@@ -1005,24 +1006,24 @@
     red: [_255, 0, 0],
     pink: [_255, 192, 203],
     cyan: [0, _255, _255],
-    transparent: [_255, _255, _255, 0]
-  },
-      _hue = function _hue(h, m1, m2) {
+    transparent: [_255, _255, _255, 0],
+  };
+  const _hue = function _hue(h, m1, m2) {
     h = h < 0 ? h + 1 : h > 1 ? h - 1 : h;
     return (h * 6 < 1 ? m1 + (m2 - m1) * h * 6 : h < .5 ? m2 : h * 3 < 2 ? m1 + (m2 - m1) * (2 / 3 - h) * 6 : m1) * _255 + .5 | 0;
-  },
-      splitColor = function splitColor(v, toHSL, forceAlpha) {
-    var a = !v ? _colorLookup.black : _isNumber(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0,
-        r,
-        g,
-        b,
-        h,
-        s,
-        l,
-        max,
-        min,
-        d,
-        wasHSL;
+  };
+  const splitColor = function splitColor(v, toHSL, forceAlpha) {
+    let a = !v ? _colorLookup.black : _isNumber(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0;
+    let r;
+    let g;
+    let b;
+    let h;
+    let s;
+    let l;
+    let max;
+    let min;
+    let d;
+    let wasHSL;
 
     if (!a) {
       if (v.substr(-1) === ',') {
@@ -1094,34 +1095,34 @@
 
     forceAlpha && a.length < 4 && (a[3] = 1);
     return a;
-  },
-      _colorOrderData = function _colorOrderData(v) {
-    var values = [],
-        c = [],
-        i = -1;
-    v.split(_colorExp).forEach(function (v) {
-      var a = v.match(_numWithUnitExp) || [];
+  };
+  const _colorOrderData = function _colorOrderData(v) {
+    const values = [];
+    const c = [];
+    let i = -1;
+    v.split(_colorExp).forEach(function(v) {
+      const a = v.match(_numWithUnitExp) || [];
       values.push.apply(values, a);
       c.push(i += a.length + 1);
     });
     values.c = c;
     return values;
-  },
-      _formatColors = function _formatColors(s, toHSL, orderMatchData) {
-    var result = '',
-        colors = (s + result).match(_colorExp),
-        type = toHSL ? 'hsla(' : 'rgba(',
-        i = 0,
-        c,
-        shell,
-        d,
-        l;
+  };
+  const _formatColors = function _formatColors(s, toHSL, orderMatchData) {
+    let result = '';
+    let colors = (s + result).match(_colorExp);
+    const type = toHSL ? 'hsla(' : 'rgba(';
+    let i = 0;
+    let c;
+    let shell;
+    let d;
+    let l;
 
     if (!colors) {
       return s;
     }
 
-    colors = colors.map(function (color) {
+    colors = colors.map(function(color) {
       return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + ',' + color[1] + '%,' + color[2] + '%,' + color[3] : color.join(',')) + ')';
     });
 
@@ -1149,21 +1150,21 @@
     }
 
     return result + shell[l];
-  },
-      _colorExp = function () {
-    var s = '(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3}){1,2}\\b',
-        p;
+  };
+  var _colorExp = function() {
+    let s = '(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3}){1,2}\\b';
+    let p;
 
     for (p in _colorLookup) {
       s += '|' + p + '\\b';
     }
 
     return new RegExp(s + ')', 'gi');
-  }(),
-      _hslExp = /hsl[a]?\(/,
-      _colorStringFilter = function _colorStringFilter(a) {
-    var combined = a.join(' '),
-        toHSL;
+  }();
+  const _hslExp = /hsl[a]?\(/;
+  const _colorStringFilter = function _colorStringFilter(a) {
+    const combined = a.join(' ');
+    let toHSL;
     _colorExp.lastIndex = 0;
 
     if (_colorExp.test(combined)) {
@@ -1172,26 +1173,26 @@
       a[0] = _formatColors(a[0], toHSL, _colorOrderData(a[1]));
       return true;
     }
-  },
-      _tickerActive,
-      _ticker = function () {
-    var _getTime = Date.now,
-        _lagThreshold = 500,
-        _adjustedLag = 33,
-        _startTime = _getTime(),
-        _lastUpdate = _startTime,
-        _gap = 1 / 240,
-        _nextTime = _gap,
-        _listeners = [],
-        _id,
-        _req,
-        _raf,
-        _self,
-        _tick = function _tick(v) {
-      var elapsed = _getTime() - _lastUpdate,
-          manual = v === true,
-          overlap,
-          dispatch;
+  };
+  let _tickerActive;
+  var _ticker = function() {
+    const _getTime = Date.now;
+    let _lagThreshold = 500;
+    let _adjustedLag = 33;
+    let _startTime = _getTime();
+    let _lastUpdate = _startTime;
+    let _gap = 1 / 240;
+    let _nextTime = _gap;
+    const _listeners = [];
+    let _id;
+    let _req;
+    let _raf;
+    let _self;
+    const _tick = function _tick(v) {
+      const elapsed = _getTime() - _lastUpdate;
+      const manual = v === true;
+      let overlap;
+      let dispatch;
 
       if (elapsed > _lagThreshold) {
         _startTime += elapsed - _adjustedLag;
@@ -1212,7 +1213,7 @@
       }
 
       if (dispatch) {
-        _listeners.forEach(function (l) {
+        _listeners.forEach(function(l) {
           return l(_self.time, elapsed, _self.frame, v);
         });
       }
@@ -1239,7 +1240,7 @@
 
           _id && _self.sleep();
 
-          _req = _raf || function (f) {
+          _req = _raf || function(f) {
             return setTimeout(f, (_nextTime - _self.time) * 1000 + 1 | 0);
           };
 
@@ -1267,28 +1268,28 @@
         _wake();
       },
       remove: function remove(callback) {
-        var i;
+        let i;
         ~(i = _listeners.indexOf(callback)) && _listeners.splice(i, 1);
       },
-      _listeners: _listeners
+      _listeners: _listeners,
     };
     return _self;
-  }(),
-      _wake = function _wake() {
+  }();
+  var _wake = function _wake() {
     return !_tickerActive && _ticker.wake();
-  },
-      _easeMap = {},
-      _customEaseExp = /^[\d.\-M][\d.\-,\s]/,
-      _quotesExp = /["']/g,
-      _parseObjectInString = function _parseObjectInString(value) {
-    var obj = {},
-        split = value.substr(1, value.length - 3).split(':'),
-        key = split[0],
-        i = 1,
-        l = split.length,
-        index,
-        val,
-        parsedVal;
+  };
+  const _easeMap = {};
+  const _customEaseExp = /^[\d.\-M][\d.\-,\s]/;
+  const _quotesExp = /["']/g;
+  const _parseObjectInString = function _parseObjectInString(value) {
+    const obj = {};
+    const split = value.substr(1, value.length - 3).split(':');
+    let key = split[0];
+    let i = 1;
+    const l = split.length;
+    let index;
+    let val;
+    let parsedVal;
 
     for (; i < l; i++) {
       val = split[i];
@@ -1299,21 +1300,21 @@
     }
 
     return obj;
-  },
-      _configEaseFromString = function _configEaseFromString(name) {
-    var split = (name + '').split('('),
-        ease = _easeMap[split[0]];
+  };
+  const _configEaseFromString = function _configEaseFromString(name) {
+    const split = (name + '').split('(');
+    const ease = _easeMap[split[0]];
     return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf('{') ? [_parseObjectInString(split[1])] : _parenthesesExp.exec(name)[1].split(',').map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE('', name) : ease;
-  },
-      _invertEase = function _invertEase(ease) {
-    return function (p) {
+  };
+  var _invertEase = function _invertEase(ease) {
+    return function(p) {
       return 1 - ease(1 - p);
     };
-  },
-      _parseEase = function _parseEase(ease, defaultEase) {
+  };
+  var _parseEase = function _parseEase(ease, defaultEase) {
     return !ease ? defaultEase : (_isFunction(ease) ? ease : _easeMap[ease] || _configEaseFromString(ease)) || defaultEase;
-  },
-      _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
+  };
+  const _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
     if (easeOut === void 0) {
       easeOut = function easeOut(p) {
         return 1 - easeIn(1 - p);
@@ -1326,77 +1327,77 @@
       };
     }
 
-    var ease = {
+    const ease = {
       easeIn: easeIn,
       easeOut: easeOut,
-      easeInOut: easeInOut
-    },
-        lowercaseName;
+      easeInOut: easeInOut,
+    };
+    let lowercaseName;
 
-    _forEachName(names, function (name) {
+    _forEachName(names, function(name) {
       _easeMap[name] = _globals[name] = ease;
       _easeMap[lowercaseName = name.toLowerCase()] = easeOut;
 
-      for (var p in ease) {
+      for (const p in ease) {
         _easeMap[lowercaseName + (p === 'easeIn' ? '.in' : p === 'easeOut' ? '.out' : '.inOut')] = _easeMap[name + '.' + p] = ease[p];
       }
     });
 
     return ease;
-  },
-      _easeInOutFromOut = function _easeInOutFromOut(easeOut) {
-    return function (p) {
+  };
+  const _easeInOutFromOut = function _easeInOutFromOut(easeOut) {
+    return function(p) {
       return p < .5 ? (1 - easeOut(1 - p * 2)) / 2 : .5 + easeOut((p - .5) * 2) / 2;
     };
-  },
-      _configElastic = function _configElastic(type, amplitude, period) {
-    var p1 = amplitude >= 1 ? amplitude : 1,
-        p2 = (period || (type ? .3 : .45)) / (amplitude < 1 ? amplitude : 1),
-        p3 = p2 / _2PI * (Math.asin(1 / p1) || 0),
-        easeOut = function easeOut(p) {
+  };
+  const _configElastic = function _configElastic(type, amplitude, period) {
+    const p1 = amplitude >= 1 ? amplitude : 1;
+    let p2 = (period || (type ? .3 : .45)) / (amplitude < 1 ? amplitude : 1);
+    const p3 = p2 / _2PI * (Math.asin(1 / p1) || 0);
+    const easeOut = function easeOut(p) {
       return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
-    },
-        ease = type === 'out' ? easeOut : type === 'in' ? function (p) {
+    };
+    const ease = type === 'out' ? easeOut : type === 'in' ? function(p) {
       return 1 - easeOut(1 - p);
     } : _easeInOutFromOut(easeOut);
 
     p2 = _2PI / p2;
 
-    ease.config = function (amplitude, period) {
+    ease.config = function(amplitude, period) {
       return _configElastic(type, amplitude, period);
     };
 
     return ease;
-  },
-      _configBack = function _configBack(type, overshoot) {
+  };
+  const _configBack = function _configBack(type, overshoot) {
     if (overshoot === void 0) {
       overshoot = 1.70158;
     }
 
-    var easeOut = function easeOut(p) {
+    const easeOut = function easeOut(p) {
       return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
-    },
-        ease = type === 'out' ? easeOut : type === 'in' ? function (p) {
+    };
+    const ease = type === 'out' ? easeOut : type === 'in' ? function(p) {
       return 1 - easeOut(1 - p);
     } : _easeInOutFromOut(easeOut);
 
-    ease.config = function (overshoot) {
+    ease.config = function(overshoot) {
       return _configBack(type, overshoot);
     };
 
     return ease;
   };
 
-  _forEachName('Linear,Quad,Cubic,Quart,Quint,Strong', function (name, i) {
-    var power = i < 5 ? i + 1 : i;
+  _forEachName('Linear,Quad,Cubic,Quart,Quint,Strong', function(name, i) {
+    const power = i < 5 ? i + 1 : i;
 
-    _insertEase(name + ',Power' + (power - 1), i ? function (p) {
+    _insertEase(name + ',Power' + (power - 1), i ? function(p) {
       return Math.pow(p, power);
-    } : function (p) {
+    } : function(p) {
       return p;
-    }, function (p) {
+    }, function(p) {
       return 1 - Math.pow(1 - p, power);
-    }, function (p) {
+    }, function(p) {
       return p < .5 ? Math.pow(p * 2, power) / 2 : 1 - Math.pow((1 - p) * 2, power) / 2;
     });
   });
@@ -1405,28 +1406,28 @@
 
   _insertEase('Elastic', _configElastic('in'), _configElastic('out'), _configElastic());
 
-  (function (n, c) {
-    var n1 = 1 / c,
-        n2 = 2 * n1,
-        n3 = 2.5 * n1,
-        easeOut = function easeOut(p) {
+  (function(n, c) {
+    const n1 = 1 / c;
+    const n2 = 2 * n1;
+    const n3 = 2.5 * n1;
+    const easeOut = function easeOut(p) {
       return p < n1 ? n * p * p : p < n2 ? n * Math.pow(p - 1.5 / c, 2) + .75 : p < n3 ? n * (p -= 2.25 / c) * p + .9375 : n * Math.pow(p - 2.625 / c, 2) + .984375;
     };
 
-    _insertEase('Bounce', function (p) {
+    _insertEase('Bounce', function(p) {
       return 1 - easeOut(1 - p);
     }, easeOut);
   })(7.5625, 2.75);
 
-  _insertEase('Expo', function (p) {
+  _insertEase('Expo', function(p) {
     return p ? Math.pow(2, 10 * (p - 1)) : 0;
   });
 
-  _insertEase('Circ', function (p) {
+  _insertEase('Circ', function(p) {
     return -(_sqrt(1 - p * p) - 1);
   });
 
-  _insertEase('Sine', function (p) {
+  _insertEase('Sine', function(p) {
     return -_cos(p * _HALF_PI) + 1;
   });
 
@@ -1438,18 +1439,18 @@
         steps = 1;
       }
 
-      var p1 = 1 / steps,
-          p2 = steps + (immediateStart ? 0 : 1),
-          p3 = immediateStart ? 1 : 0,
-          max = 1 - _tinyNum;
-      return function (p) {
+      const p1 = 1 / steps;
+      const p2 = steps + (immediateStart ? 0 : 1);
+      const p3 = immediateStart ? 1 : 0;
+      const max = 1 - _tinyNum;
+      return function(p) {
         return ((p2 * _clamp(0, max, p) | 0) + p3) * p1;
       };
-    }
+    },
   };
   _defaults.ease = _easeMap['quad.out'];
 
-  _forEachName('onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt', function (name) {
+  _forEachName('onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt', function(name) {
     return _callbackNames += name + ',' + name + 'Params,';
   });
 
@@ -1461,9 +1462,9 @@
     this.get = harness ? harness.get : _getProperty;
     this.set = harness ? harness.getSetter : _getSetter;
   };
-  var Animation = function () {
+  const Animation = function() {
     function Animation(vars, time) {
-      var parent = vars.parent || _globalTimeline;
+      const parent = vars.parent || _globalTimeline;
       this.vars = vars;
       this._delay = +vars.delay || 0;
 
@@ -1483,7 +1484,7 @@
       vars.paused && this.paused(true);
     }
 
-    var _proto = Animation.prototype;
+    const _proto = Animation.prototype;
 
     _proto.delay = function delay(value) {
       if (value || value === 0) {
@@ -1515,7 +1516,7 @@
         return this._tTime;
       }
 
-      var parent = this.parent || this._dp;
+      let parent = this.parent || this._dp;
 
       if (parent && parent.smoothChildTiming && this._ts) {
         this._start = _round(parent._time - (this._ts > 0 ? _totalTime / this._ts : ((this._dirty ? this.totalDuration() : this._tDur) - _totalTime) / -this._ts));
@@ -1561,7 +1562,7 @@
     };
 
     _proto.iteration = function iteration(value, suppressEvents) {
-      var cycleDuration = this.duration() + this._rDelay;
+      const cycleDuration = this.duration() + this._rDelay;
 
       return arguments.length ? this.totalTime(this._time + (value - 1) * cycleDuration, suppressEvents) : this._repeat ? _animationCycle(this._tTime, cycleDuration) + 1 : 1;
     };
@@ -1575,7 +1576,7 @@
         return this;
       }
 
-      var tTime = this.parent && this._ts ? _parentToChildTotalTime(this.parent._time, this) : this._tTime;
+      const tTime = this.parent && this._ts ? _parentToChildTotalTime(this.parent._time, this) : this._tTime;
       this._rts = +value || 0;
       this._ts = this._ps || value === -_tinyNum ? 0 : this._rts;
       return _recacheAncestors(this.totalTime(_clamp(0, this._tDur, tTime), true));
@@ -1606,7 +1607,7 @@
     _proto.startTime = function startTime(value) {
       if (arguments.length) {
         this._start = value;
-        var parent = this.parent || this._dp;
+        const parent = this.parent || this._dp;
         parent && (parent._sort || !this.parent) && _addToTimeline(parent, this, value - this._delay);
         return this;
       }
@@ -1619,7 +1620,7 @@
     };
 
     _proto.rawTime = function rawTime(wrapRepeats) {
-      var parent = this.parent || this._dp;
+      const parent = this.parent || this._dp;
       return !parent ? this._tTime : wrapRepeats && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : !this._ts ? this._tTime : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
     };
 
@@ -1705,14 +1706,14 @@
     };
 
     _proto.isActive = function isActive(hasStarted) {
-      var parent = this.parent || this._dp,
-          start = this._start,
-          rawTime;
+      const parent = this.parent || this._dp;
+      const start = this._start;
+      let rawTime;
       return !!(!parent || this._ts && (this._initted || !hasStarted) && parent.isActive(hasStarted) && (rawTime = parent.rawTime(true)) >= start && rawTime < this.endTime(true) - _tinyNum);
     };
 
     _proto.eventCallback = function eventCallback(type, callback, params) {
-      var vars = this.vars;
+      const vars = this.vars;
 
       if (arguments.length > 1) {
         if (!callback) {
@@ -1736,11 +1737,11 @@
     };
 
     _proto.then = function then(onFulfilled) {
-      var self = this;
-      return new Promise(function (resolve) {
-        var f = _isFunction(onFulfilled) ? onFulfilled : _passThrough,
-            _resolve = function _resolve() {
-          var _then = self.then;
+      const self = this;
+      return new Promise(function(resolve) {
+        let f = _isFunction(onFulfilled) ? onFulfilled : _passThrough;
+        const _resolve = function _resolve() {
+          const _then = self.then;
           self.then = null;
           _isFunction(f) && (f = f(self)) && (f.then || f === self) && (self.then = _then);
           resolve(f);
@@ -1780,14 +1781,14 @@
     _zTime: -_tinyNum,
     _prom: 0,
     _ps: false,
-    _rts: 1
+    _rts: 1,
   });
 
-  var Timeline = function (_Animation) {
+  var Timeline = function(_Animation) {
     _inheritsLoose(Timeline, _Animation);
 
     function Timeline(vars, time) {
-      var _this;
+      let _this;
 
       if (vars === void 0) {
         vars = {};
@@ -1802,7 +1803,7 @@
       return _this;
     }
 
-    var _proto2 = Timeline.prototype;
+    const _proto2 = Timeline.prototype;
 
     _proto2.to = function to(targets, vars, position) {
       new Tween(targets, _parseVars(arguments, 0, this), _parsePosition(this, _isNumber(vars) ? arguments[3] : position));
@@ -1855,23 +1856,23 @@
     };
 
     _proto2.render = function render(totalTime, suppressEvents, force) {
-      var prevTime = this._time,
-          tDur = this._dirty ? this.totalDuration() : this._tDur,
-          dur = this._dur,
-          tTime = this !== _globalTimeline && totalTime > tDur - _tinyNum && totalTime >= 0 ? tDur : totalTime < _tinyNum ? 0 : totalTime,
-          crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
-          time,
-          child,
-          next,
-          iteration,
-          cycleDuration,
-          prevPaused,
-          pauseTween,
-          timeScale,
-          prevStart,
-          prevIteration,
-          yoyo,
-          isYoyo;
+      let prevTime = this._time;
+      const tDur = this._dirty ? this.totalDuration() : this._tDur;
+      const dur = this._dur;
+      let tTime = this !== _globalTimeline && totalTime > tDur - _tinyNum && totalTime >= 0 ? tDur : totalTime < _tinyNum ? 0 : totalTime;
+      const crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur);
+      let time;
+      let child;
+      let next;
+      let iteration;
+      let cycleDuration;
+      let prevPaused;
+      let pauseTween;
+      let timeScale;
+      let prevStart;
+      let prevIteration;
+      let yoyo;
+      let isYoyo;
 
       if (tTime !== this._tTime || force || crossingStart) {
         if (prevTime !== this._time && dur) {
@@ -1918,8 +1919,8 @@
           }
 
           if (iteration !== prevIteration && !this._lock) {
-            var rewinding = yoyo && prevIteration & 1,
-                doesWrap = rewinding === (yoyo && iteration & 1);
+            let rewinding = yoyo && prevIteration & 1;
+            const doesWrap = rewinding === (yoyo && iteration & 1);
 
             if (iteration < prevIteration) {
               rewinding = !rewinding;
@@ -2000,7 +2001,7 @@
           }
         } else {
           child = this._last;
-          var adjustedTime = totalTime < 0 ? totalTime : time;
+          const adjustedTime = totalTime < 0 ? totalTime : time;
 
           while (child) {
             next = child._prev;
@@ -2040,13 +2041,17 @@
           _callback(this, 'onUpdate', true);
         }
 
-        if (tTime === tDur && tDur >= this.totalDuration() || !tTime && this._ts < 0) if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) if (!this._lock) {
-          (totalTime || !dur) && (totalTime && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1);
+        if (tTime === tDur && tDur >= this.totalDuration() || !tTime && this._ts < 0) {
+          if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) {
+            if (!this._lock) {
+              (totalTime || !dur) && (totalTime && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1);
 
-          if (!suppressEvents && !(totalTime < 0 && !prevTime)) {
-            _callback(this, tTime === tDur ? 'onComplete' : 'onReverseComplete', true);
+              if (!suppressEvents && !(totalTime < 0 && !prevTime)) {
+                _callback(this, tTime === tDur ? 'onComplete' : 'onReverseComplete', true);
 
-            this._prom && this._prom();
+                this._prom && this._prom();
+              }
+            }
           }
         }
       }
@@ -2055,7 +2060,7 @@
     };
 
     _proto2.add = function add(child, position) {
-      var _this2 = this;
+      const _this2 = this;
 
       if (!_isNumber(position)) {
         position = _parsePosition(this, position);
@@ -2063,7 +2068,7 @@
 
       if (!(child instanceof Animation)) {
         if (_isArray(child)) {
-          child.forEach(function (obj) {
+          child.forEach(function(obj) {
             return _this2.add(obj, position);
           });
           return _uncache(this);
@@ -2100,8 +2105,8 @@
         ignoreBeforeTime = -_bigNum;
       }
 
-      var a = [],
-          child = this._first;
+      const a = [];
+      let child = this._first;
 
       while (child) {
         if (child._start >= ignoreBeforeTime) {
@@ -2127,8 +2132,8 @@
     };
 
     _proto2.getById = function getById(id) {
-      var animations = this.getChildren(1, 1, 1),
-          i = animations.length;
+      const animations = this.getChildren(1, 1, 1);
+      let i = animations.length;
 
       while (i--) {
         if (animations[i].vars.id === id) {
@@ -2183,14 +2188,14 @@
     };
 
     _proto2.addPause = function addPause(position, callback, params) {
-      var t = Tween.delayedCall(0, callback || _emptyFunc, params);
+      const t = Tween.delayedCall(0, callback || _emptyFunc, params);
       t.data = 'isPause';
       this._hasPause = 1;
       return _addToTimeline(this, t, _parsePosition(this, position));
     };
 
     _proto2.removePause = function removePause(position) {
-      var child = this._first;
+      let child = this._first;
       position = _parsePosition(this, position);
 
       while (child) {
@@ -2203,8 +2208,8 @@
     };
 
     _proto2.killTweensOf = function killTweensOf(targets, props, onlyActive) {
-      var tweens = this.getTweensOf(targets, onlyActive),
-          i = tweens.length;
+      const tweens = this.getTweensOf(targets, onlyActive);
+      let i = tweens.length;
 
       while (i--) {
         _overwritingTween !== tweens[i] && tweens[i].kill(targets, props);
@@ -2214,10 +2219,10 @@
     };
 
     _proto2.getTweensOf = function getTweensOf(targets, onlyActive) {
-      var a = [],
-          parsedTargets = toArray(targets),
-          child = this._first,
-          children;
+      const a = [];
+      const parsedTargets = toArray(targets);
+      let child = this._first;
+      let children;
 
       while (child) {
         if (child instanceof Tween) {
@@ -2237,20 +2242,20 @@
     _proto2.tweenTo = function tweenTo(position, vars) {
       vars = vars || {};
 
-      var tl = this,
-          endTime = _parsePosition(tl, position),
-          _vars = vars,
-          startAt = _vars.startAt,
-          _onStart = _vars.onStart,
-          onStartParams = _vars.onStartParams,
-          tween = Tween.to(tl, _setDefaults(vars, {
+      const tl = this;
+      const endTime = _parsePosition(tl, position);
+      const _vars = vars;
+      const startAt = _vars.startAt;
+      const _onStart = _vars.onStart;
+      const onStartParams = _vars.onStartParams;
+      var tween = Tween.to(tl, _setDefaults(vars, {
         ease: 'none',
         lazy: false,
         time: endTime,
         duration: vars.duration || Math.abs((endTime - (startAt && 'time' in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
         onStart: function onStart() {
           tl.pause();
-          var duration = vars.duration || Math.abs((endTime - tl._time) / tl.timeScale());
+          const duration = vars.duration || Math.abs((endTime - tl._time) / tl.timeScale());
 
           if (tween._dur !== duration) {
             _setDuration(tween, duration).render(tween._time, true, true);
@@ -2259,7 +2264,7 @@
           if (_onStart) {
             _onStart.apply(tween, onStartParams || []);
           }
-        }
+        },
       }));
 
       return tween;
@@ -2268,8 +2273,8 @@
     _proto2.tweenFromTo = function tweenFromTo(fromPosition, toPosition, vars) {
       return this.tweenTo(toPosition, _setDefaults({
         startAt: {
-          time: _parsePosition(this, fromPosition)
-        }
+          time: _parsePosition(this, fromPosition),
+        },
       }, vars));
     };
 
@@ -2302,9 +2307,9 @@
         ignoreBeforeTime = 0;
       }
 
-      var child = this._first,
-          labels = this.labels,
-          p;
+      let child = this._first;
+      const labels = this.labels;
+      let p;
 
       while (child) {
         if (child._start >= ignoreBeforeTime) {
@@ -2326,7 +2331,7 @@
     };
 
     _proto2.invalidate = function invalidate() {
-      var child = this._first;
+      let child = this._first;
       this._lock = 0;
 
       while (child) {
@@ -2342,8 +2347,8 @@
         includeLabels = true;
       }
 
-      var child = this._first,
-          next;
+      let child = this._first;
+      let next;
 
       while (child) {
         next = child._next;
@@ -2361,14 +2366,14 @@
     };
 
     _proto2.totalDuration = function totalDuration(value) {
-      var max = 0,
-          self = this,
-          child = self._last,
-          prevStart = _bigNum,
-          prev,
-          end,
-          start,
-          parent;
+      let max = 0;
+      const self = this;
+      let child = self._last;
+      let prevStart = _bigNum;
+      let prev;
+      let end;
+      let start;
+      let parent;
 
       if (arguments.length) {
         return self.timeScale((self._repeat < 0 ? self.duration() : self.totalDuration()) / (self.reversed() ? -value : value));
@@ -2432,14 +2437,16 @@
 
       if (_ticker.frame >= _nextGCFrame) {
         _nextGCFrame += _config.autoSleep || 120;
-        var child = _globalTimeline._first;
-        if (!child || !child._ts) if (_config.autoSleep && _ticker._listeners.length < 2) {
-          while (child && !child._ts) {
-            child = child._next;
-          }
+        let child = _globalTimeline._first;
+        if (!child || !child._ts) {
+          if (_config.autoSleep && _ticker._listeners.length < 2) {
+            while (child && !child._ts) {
+              child = child._next;
+            }
 
-          if (!child) {
-            _ticker.sleep();
+            if (!child) {
+              _ticker.sleep();
+            }
           }
         }
       }
@@ -2451,21 +2458,21 @@
   _setDefaults(Timeline.prototype, {
     _lock: 0,
     _hasPause: 0,
-    _forcing: 0
+    _forcing: 0,
   });
 
-  var _addComplexStringPropTween = function _addComplexStringPropTween(target, prop, start, end, setter, stringFilter, funcParam) {
-    var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter),
-        index = 0,
-        matchIndex = 0,
-        result,
-        startNums,
-        color,
-        endNum,
-        chunk,
-        startNum,
-        hasRandom,
-        a;
+  const _addComplexStringPropTween = function _addComplexStringPropTween(target, prop, start, end, setter, stringFilter, funcParam) {
+    const pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter);
+    let index = 0;
+    let matchIndex = 0;
+    let result;
+    let startNums;
+    let color;
+    let endNum;
+    let chunk;
+    let startNum;
+    let hasRandom;
+    let a;
     pt.b = start;
     pt.e = end;
     start += '';
@@ -2501,7 +2508,7 @@
           p: chunk || matchIndex === 1 ? chunk : ',',
           s: startNum,
           c: endNum.charAt(1) === '=' ? parseFloat(endNum.substr(2)) * (endNum.charAt(0) === '-' ? -1 : 1) : parseFloat(endNum) - startNum,
-          m: color && color < 4 ? Math.round : 0
+          m: color && color < 4 ? Math.round : 0,
         };
         index = _complexStringNumExp.lastIndex;
       }
@@ -2516,16 +2523,16 @@
 
     this._pt = pt;
     return pt;
-  },
-      _addPropTween = function _addPropTween(target, prop, start, end, index, targets, modifier, stringFilter, funcParam) {
+  };
+  var _addPropTween = function _addPropTween(target, prop, start, end, index, targets, modifier, stringFilter, funcParam) {
     if (_isFunction(end)) {
       end = end(index || 0, target, targets);
     }
 
-    var currentValue = target[prop],
-        parsedStart = start !== 'get' ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf('set') || !_isFunction(target['get' + prop.substr(3)]) ? prop : 'get' + prop.substr(3)](funcParam) : target[prop](),
-        setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc,
-        pt;
+    const currentValue = target[prop];
+    const parsedStart = start !== 'get' ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf('set') || !_isFunction(target['get' + prop.substr(3)]) ? prop : 'get' + prop.substr(3)](funcParam) : target[prop]();
+    const setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc;
+    let pt;
 
     if (_isString(end)) {
       if (~end.indexOf('random(')) {
@@ -2555,8 +2562,8 @@
       !currentValue && !(prop in target) && _missingPlugin(prop, end);
       return _addComplexStringPropTween.call(this, target, prop, parsedStart, end, setter, stringFilter || _config.stringFilter, funcParam);
     }
-  },
-      _processVars = function _processVars(vars, index, target, targets, tween) {
+  };
+  const _processVars = function _processVars(vars, index, target, targets, tween) {
     if (_isFunction(vars)) {
       vars = _parseFuncOrString(vars, tween, index, target, targets);
     }
@@ -2565,17 +2572,17 @@
       return _isString(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
     }
 
-    var copy = {},
-        p;
+    const copy = {};
+    let p;
 
     for (p in vars) {
       copy[p] = _parseFuncOrString(vars[p], tween, index, target, targets);
     }
 
     return copy;
-  },
-      _checkPlugin = function _checkPlugin(property, vars, tween, index, target, targets) {
-    var plugin, pt, ptLookup, i;
+  };
+  const _checkPlugin = function _checkPlugin(property, vars, tween, index, target, targets) {
+    let plugin; let pt; let ptLookup; let i;
 
     if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
       tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
@@ -2591,40 +2598,40 @@
     }
 
     return plugin;
-  },
-      _overwritingTween,
-      _initTween = function _initTween(tween, time) {
-    var vars = tween.vars,
-        ease = vars.ease,
-        startAt = vars.startAt,
-        immediateRender = vars.immediateRender,
-        lazy = vars.lazy,
-        onUpdate = vars.onUpdate,
-        onUpdateParams = vars.onUpdateParams,
-        callbackScope = vars.callbackScope,
-        runBackwards = vars.runBackwards,
-        yoyoEase = vars.yoyoEase,
-        keyframes = vars.keyframes,
-        autoRevert = vars.autoRevert,
-        dur = tween._dur,
-        prevStartAt = tween._startAt,
-        targets = tween._targets,
-        parent = tween.parent,
-        fullTargets = parent && parent.data === 'nested' ? parent.parent._targets : targets,
-        autoOverwrite = tween._overwrite === 'auto',
-        tl = tween.timeline,
-        cleanVars,
-        i,
-        p,
-        pt,
-        target,
-        hasPriority,
-        gsData,
-        harness,
-        plugin,
-        ptLookup,
-        index,
-        harnessVars;
+  };
+  let _overwritingTween;
+  var _initTween = function _initTween(tween, time) {
+    const vars = tween.vars;
+    let ease = vars.ease;
+    const startAt = vars.startAt;
+    let immediateRender = vars.immediateRender;
+    let lazy = vars.lazy;
+    const onUpdate = vars.onUpdate;
+    const onUpdateParams = vars.onUpdateParams;
+    const callbackScope = vars.callbackScope;
+    const runBackwards = vars.runBackwards;
+    let yoyoEase = vars.yoyoEase;
+    const keyframes = vars.keyframes;
+    const autoRevert = vars.autoRevert;
+    const dur = tween._dur;
+    const prevStartAt = tween._startAt;
+    const targets = tween._targets;
+    const parent = tween.parent;
+    const fullTargets = parent && parent.data === 'nested' ? parent.parent._targets : targets;
+    const autoOverwrite = tween._overwrite === 'auto';
+    const tl = tween.timeline;
+    let cleanVars;
+    let i;
+    let p;
+    let pt;
+    let target;
+    let hasPriority;
+    let gsData;
+    let harness;
+    let plugin;
+    let ptLookup;
+    let index;
+    let harnessVars;
 
     if (tl && (!keyframes || !ease)) {
       ease = 'none';
@@ -2656,7 +2663,7 @@
           onUpdate: onUpdate,
           onUpdateParams: onUpdateParams,
           callbackScope: callbackScope,
-          stagger: 0
+          stagger: 0,
         }, startAt)));
 
         if (immediateRender) {
@@ -2680,7 +2687,7 @@
             lazy: immediateRender && _isNotFalse(lazy),
             immediateRender: immediateRender,
             stagger: 0,
-            parent: parent
+            parent: parent,
           })));
 
           if (!immediateRender) {
@@ -2711,7 +2718,7 @@
         if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
           tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
 
-          plugin._props.forEach(function (name) {
+          plugin._props.forEach(function(name) {
             ptLookup[name] = pt;
           });
 
@@ -2761,14 +2768,14 @@
     tween._from = !tl && !!vars.runBackwards;
     tween._onUpdate = onUpdate;
     tween._initted = 1;
-  },
-      _addAliasesToVars = function _addAliasesToVars(targets, vars) {
-    var harness = targets[0] ? _getCache(targets[0]).harness : 0,
-        propertyAliases = harness && harness.aliases,
-        copy,
-        p,
-        i,
-        aliases;
+  };
+  const _addAliasesToVars = function _addAliasesToVars(targets, vars) {
+    const harness = targets[0] ? _getCache(targets[0]).harness : 0;
+    const propertyAliases = harness && harness.aliases;
+    let copy;
+    let p;
+    let i;
+    let aliases;
 
     if (!propertyAliases) {
       return vars;
@@ -2788,18 +2795,18 @@
     }
 
     return copy;
-  },
-      _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
+  };
+  var _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
     return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf('random(') ? _replaceRandom(value) : value;
-  },
-      _staggerTweenProps = _callbackNames + 'repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase',
-      _staggerPropsToSkip = (_staggerTweenProps + ',id,stagger,delay,duration,paused').split(',');
+  };
+  const _staggerTweenProps = _callbackNames + 'repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase';
+  const _staggerPropsToSkip = (_staggerTweenProps + ',id,stagger,delay,duration,paused').split(',');
 
-  var Tween = function (_Animation2) {
+  var Tween = function(_Animation2) {
     _inheritsLoose(Tween, _Animation2);
 
     function Tween(targets, vars, time, skipInherit) {
-      var _this3;
+      let _this3;
 
       if (typeof vars === 'number') {
         time.duration = vars;
@@ -2808,24 +2815,24 @@
       }
 
       _this3 = _Animation2.call(this, skipInherit ? vars : _inheritDefaults(vars), time) || this;
-      var _this3$vars = _this3.vars,
-          duration = _this3$vars.duration,
-          delay = _this3$vars.delay,
-          immediateRender = _this3$vars.immediateRender,
-          stagger = _this3$vars.stagger,
-          overwrite = _this3$vars.overwrite,
-          keyframes = _this3$vars.keyframes,
-          defaults = _this3$vars.defaults,
-          parent = _this3.parent,
-          parsedTargets = (_isArray(targets) ? _isNumber(targets[0]) : 'length' in vars) ? [targets] : toArray(targets),
-          tl,
-          i,
-          copy,
-          l,
-          p,
-          curTarget,
-          staggerFunc,
-          staggerVarsToMerge;
+      const _this3$vars = _this3.vars;
+      let duration = _this3$vars.duration;
+      let delay = _this3$vars.delay;
+      const immediateRender = _this3$vars.immediateRender;
+      const stagger = _this3$vars.stagger;
+      const overwrite = _this3$vars.overwrite;
+      const keyframes = _this3$vars.keyframes;
+      const defaults = _this3$vars.defaults;
+      const parent = _this3.parent;
+      const parsedTargets = (_isArray(targets) ? _isNumber(targets[0]) : 'length' in vars) ? [targets] : toArray(targets);
+      let tl;
+      let i;
+      let copy;
+      let l;
+      let p;
+      let curTarget;
+      let staggerFunc;
+      let staggerVarsToMerge;
       _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn('GSAP target ' + targets + ' not found. https://greensock.com', !_config.nullTargetWarn) || [];
       _this3._ptLookup = [];
       _this3._overwrite = overwrite;
@@ -2834,17 +2841,17 @@
         vars = _this3.vars;
         tl = _this3.timeline = new Timeline({
           data: 'nested',
-          defaults: defaults || {}
+          defaults: defaults || {},
         });
         tl.kill();
         tl.parent = _assertThisInitialized(_this3);
 
         if (keyframes) {
           _setDefaults(tl.vars.defaults, {
-            ease: 'none'
+            ease: 'none',
           });
 
-          keyframes.forEach(function (frame) {
+          keyframes.forEach(function(frame) {
             return tl.to(parsedTargets, frame, '>');
           });
         } else {
@@ -2922,22 +2929,22 @@
       return _this3;
     }
 
-    var _proto3 = Tween.prototype;
+    const _proto3 = Tween.prototype;
 
     _proto3.render = function render(totalTime, suppressEvents, force) {
-      var prevTime = this._time,
-          tDur = this._tDur,
-          dur = this._dur,
-          tTime = totalTime > tDur - _tinyNum && totalTime >= 0 ? tDur : totalTime < _tinyNum ? 0 : totalTime,
-          time,
-          pt,
-          iteration,
-          cycleDuration,
-          prevIteration,
-          isYoyo,
-          ratio,
-          timeline,
-          yoyoEase;
+      const prevTime = this._time;
+      const tDur = this._tDur;
+      const dur = this._dur;
+      const tTime = totalTime > tDur - _tinyNum && totalTime >= 0 ? tDur : totalTime < _tinyNum ? 0 : totalTime;
+      let time;
+      let pt;
+      let iteration;
+      let cycleDuration;
+      let prevIteration;
+      let isYoyo;
+      let ratio;
+      let timeline;
+      let yoyoEase;
 
       if (!dur) {
         _renderZeroDurationTween(this, totalTime, suppressEvents, force);
@@ -3027,8 +3034,10 @@
           _callback(this, 'onUpdate');
         }
 
-        if (this._repeat) if (iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent) {
-          _callback(this, 'onRepeat');
+        if (this._repeat) {
+          if (iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent) {
+            _callback(this, 'onRepeat');
+          }
         }
 
         if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
@@ -3078,17 +3087,17 @@
         return this;
       }
 
-      var parsedTargets = this._targets,
-          killingTargets = targets ? toArray(targets) : parsedTargets,
-          propTweenLookup = this._ptLookup,
-          firstPT = this._pt,
-          overwrittenProps,
-          curLookup,
-          curOverwriteProps,
-          props,
-          p,
-          pt,
-          i;
+      const parsedTargets = this._targets;
+      const killingTargets = targets ? toArray(targets) : parsedTargets;
+      const propTweenLookup = this._ptLookup;
+      const firstPT = this._pt;
+      let overwrittenProps;
+      let curLookup;
+      let curOverwriteProps;
+      let props;
+      let p;
+      let pt;
+      let i;
 
       if ((!vars || vars === 'all') && _arraysMatch(parsedTargets, killingTargets)) {
         return _interrupt(this);
@@ -3100,7 +3109,7 @@
         if (_isString(vars)) {
           p = {};
 
-          _forEachName(vars, function (name) {
+          _forEachName(vars, function(name) {
             return p[name] = 1;
           });
 
@@ -3168,7 +3177,7 @@
         onReverseComplete: callback,
         onCompleteParams: params,
         onReverseCompleteParams: params,
-        callbackScope: scope
+        callbackScope: scope,
       });
     };
 
@@ -3194,13 +3203,13 @@
     _lazy: 0,
     _startAt: 0,
     _op: 0,
-    _onInit: 0
+    _onInit: 0,
   });
 
-  _forEachName('staggerTo,staggerFrom,staggerFromTo', function (name) {
-    Tween[name] = function () {
-      var tl = new Timeline(),
-          params = _slice.call(arguments, 0);
+  _forEachName('staggerTo,staggerFrom,staggerFromTo', function(name) {
+    Tween[name] = function() {
+      const tl = new Timeline();
+      const params = _slice.call(arguments, 0);
 
       params.splice(name === 'staggerFromTo' ? 5 : 4, 0, 0);
       return tl[name].apply(tl, params);
@@ -3209,28 +3218,28 @@
 
   var _setterPlain = function _setterPlain(target, property, value) {
     return target[property] = value;
-  },
-      _setterFunc = function _setterFunc(target, property, value) {
+  };
+  var _setterFunc = function _setterFunc(target, property, value) {
     return target[property](value);
-  },
-      _setterFuncWithParam = function _setterFuncWithParam(target, property, value, data) {
+  };
+  var _setterFuncWithParam = function _setterFuncWithParam(target, property, value, data) {
     return target[property](data.fp, value);
-  },
-      _setterAttribute = function _setterAttribute(target, property, value) {
+  };
+  const _setterAttribute = function _setterAttribute(target, property, value) {
     return target.setAttribute(property, value);
-  },
-      _getSetter = function _getSetter(target, property) {
+  };
+  var _getSetter = function _getSetter(target, property) {
     return _isFunction(target[property]) ? _setterFunc : _isUndefined(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
-  },
-      _renderPlain = function _renderPlain(ratio, data) {
+  };
+  var _renderPlain = function _renderPlain(ratio, data) {
     return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000, data);
-  },
-      _renderBoolean = function _renderBoolean(ratio, data) {
+  };
+  var _renderBoolean = function _renderBoolean(ratio, data) {
     return data.set(data.t, data.p, !!(data.s + data.c * ratio), data);
-  },
-      _renderComplexString = function _renderComplexString(ratio, data) {
-    var pt = data._pt,
-        s = '';
+  };
+  var _renderComplexString = function _renderComplexString(ratio, data) {
+    let pt = data._pt;
+    let s = '';
 
     if (!ratio && data.b) {
       s = data.b;
@@ -3246,18 +3255,18 @@
     }
 
     data.set(data.t, data.p, s, data);
-  },
-      _renderPropTweens = function _renderPropTweens(ratio, data) {
-    var pt = data._pt;
+  };
+  var _renderPropTweens = function _renderPropTweens(ratio, data) {
+    let pt = data._pt;
 
     while (pt) {
       pt.r(ratio, pt.d);
       pt = pt._next;
     }
-  },
-      _addPluginModifier = function _addPluginModifier(modifier, tween, target, property) {
-    var pt = this._pt,
-        next;
+  };
+  var _addPluginModifier = function _addPluginModifier(modifier, tween, target, property) {
+    let pt = this._pt;
+    let next;
 
     while (pt) {
       next = pt._next;
@@ -3268,11 +3277,11 @@
 
       pt = next;
     }
-  },
-      _killPropTweensOf = function _killPropTweensOf(property) {
-    var pt = this._pt,
-        hasNonDependentRemaining,
-        next;
+  };
+  var _killPropTweensOf = function _killPropTweensOf(property) {
+    let pt = this._pt;
+    let hasNonDependentRemaining;
+    let next;
 
     while (pt) {
       next = pt._next;
@@ -3287,16 +3296,16 @@
     }
 
     return !hasNonDependentRemaining;
-  },
-      _setterWithModifier = function _setterWithModifier(target, property, value, data) {
+  };
+  const _setterWithModifier = function _setterWithModifier(target, property, value, data) {
     data.mSet(target, property, data.m.call(data.tween, value, data.mt), data);
-  },
-      _sortPropTweensByPriority = function _sortPropTweensByPriority(parent) {
-    var pt = parent._pt,
-        next,
-        pt2,
-        first,
-        last;
+  };
+  var _sortPropTweensByPriority = function _sortPropTweensByPriority(parent) {
+    let pt = parent._pt;
+    let next;
+    let pt2;
+    let first;
+    let last;
 
     while (pt) {
       next = pt._next;
@@ -3324,7 +3333,7 @@
     parent._pt = first;
   };
 
-  var PropTween = function () {
+  var PropTween = function() {
     function PropTween(next, target, prop, start, change, renderer, data, setter, priority) {
       this.t = target;
       this.s = start;
@@ -3341,7 +3350,7 @@
       }
     }
 
-    var _proto4 = PropTween.prototype;
+    const _proto4 = PropTween.prototype;
 
     _proto4.modifier = function modifier(func, tween, target) {
       this.mSet = this.mSet || this.set;
@@ -3354,7 +3363,7 @@
     return PropTween;
   }();
 
-  _forEachName(_callbackNames + 'parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert', function (name) {
+  _forEachName(_callbackNames + 'parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert', function(name) {
     return _reservedProps[name] = 1;
   });
 
@@ -3365,16 +3374,16 @@
     defaults: _defaults,
     autoRemoveChildren: true,
     id: 'root',
-    smoothChildTiming: true
+    smoothChildTiming: true,
   });
   _config.stringFilter = _colorStringFilter;
-  var _gsap = {
+  const _gsap = {
     registerPlugin: function registerPlugin() {
       for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
 
-      args.forEach(function (config) {
+      args.forEach(function(config) {
         return _createPlugin(config);
       });
     },
@@ -3389,14 +3398,14 @@
         target = toArray(target)[0];
       }
 
-      var getter = _getCache(target || {}).get,
-          format = unit ? _passThrough : _numericIfPossible;
+      const getter = _getCache(target || {}).get;
+      const format = unit ? _passThrough : _numericIfPossible;
 
       if (unit === 'native') {
         unit = '';
       }
 
-      return !target ? target : !property ? function (property, unit, uncache) {
+      return !target ? target : !property ? function(property, unit, uncache) {
         return format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
       } : format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
     },
@@ -3404,12 +3413,12 @@
       target = toArray(target);
 
       if (target.length > 1) {
-        var setters = target.map(function (t) {
+        const setters = target.map(function(t) {
           return gsap.quickSetter(t, property, unit);
-        }),
-            l = setters.length;
-        return function (value) {
-          var i = l;
+        });
+        const l = setters.length;
+        return function(value) {
+          let i = l;
 
           while (i--) {
             setters[i](value);
@@ -3419,17 +3428,17 @@
 
       target = target[0] || {};
 
-      var Plugin = _plugins[property],
-          cache = _getCache(target),
-          setter = Plugin ? function (value) {
-        var p = new Plugin();
+      const Plugin = _plugins[property];
+      const cache = _getCache(target);
+      const setter = Plugin ? function(value) {
+        const p = new Plugin();
         _quickTween._pt = 0;
         p.init(target, unit ? value + unit : value, _quickTween, 0, [target]);
         p.render(1, p);
         _quickTween._pt && _renderPropTweens(1, _quickTween);
       } : cache.set(target, property);
 
-      return Plugin ? setter : function (value) {
+      return Plugin ? setter : function(value) {
         return setter(target, property, unit ? value + unit : value, cache, 1);
       };
     },
@@ -3447,21 +3456,21 @@
       return _mergeDeep(_config, value || {});
     },
     registerEffect: function registerEffect(_ref) {
-      var name = _ref.name,
-          effect = _ref.effect,
-          plugins = _ref.plugins,
-          defaults = _ref.defaults,
-          extendTimeline = _ref.extendTimeline;
-      (plugins || '').split(',').forEach(function (pluginName) {
+      const name = _ref.name;
+      const effect = _ref.effect;
+      const plugins = _ref.plugins;
+      const defaults = _ref.defaults;
+      const extendTimeline = _ref.extendTimeline;
+      (plugins || '').split(',').forEach(function(pluginName) {
         return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + ' effect requires ' + pluginName + ' plugin.');
       });
 
-      _effects[name] = function (targets, vars, tl) {
+      _effects[name] = function(targets, vars, tl) {
         return effect(toArray(targets), _setDefaults(vars || {}, defaults), tl);
       };
 
       if (extendTimeline) {
-        Timeline.prototype[name] = function (targets, vars, position) {
+        Timeline.prototype[name] = function(targets, vars, position) {
           return this.add(_effects[name](targets, _isObject(vars) ? vars : (position = vars) && {}, this), position);
         };
       }
@@ -3480,9 +3489,9 @@
         vars = {};
       }
 
-      var tl = new Timeline(vars),
-          child,
-          next;
+      const tl = new Timeline(vars);
+      let child;
+      let next;
       tl.smoothChildTiming = _isNotFalse(vars.smoothChildTiming);
 
       _globalTimeline.remove(tl);
@@ -3520,7 +3529,7 @@
       pipe: pipe,
       unitize: unitize,
       interpolate: interpolate,
-      shuffle: shuffle
+      shuffle: shuffle,
     },
     install: _install,
     effects: _effects,
@@ -3535,34 +3544,34 @@
       Timeline: Timeline,
       Animation: Animation,
       getCache: _getCache,
-      _removeLinkedListItem: _removeLinkedListItem
-    }
+      _removeLinkedListItem: _removeLinkedListItem,
+    },
   };
 
-  _forEachName('to,from,fromTo,delayedCall,set,killTweensOf', function (name) {
+  _forEachName('to,from,fromTo,delayedCall,set,killTweensOf', function(name) {
     return _gsap[name] = Tween[name];
   });
 
   _ticker.add(Timeline.updateRoot);
 
   _quickTween = _gsap.to({}, {
-    duration: 0
+    duration: 0,
   });
 
-  var _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
-    var pt = plugin._pt;
+  const _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
+    let pt = plugin._pt;
 
     while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
       pt = pt._next;
     }
 
     return pt;
-  },
-      _addModifiers = function _addModifiers(tween, modifiers) {
-    var targets = tween._targets,
-        p,
-        i,
-        pt;
+  };
+  const _addModifiers = function _addModifiers(tween, modifiers) {
+    const targets = tween._targets;
+    let p;
+    let i;
+    let pt;
 
     for (p in modifiers) {
       i = targets.length;
@@ -3579,19 +3588,19 @@
         }
       }
     }
-  },
-      _buildModifierPlugin = function _buildModifierPlugin(name, modifier) {
+  };
+  const _buildModifierPlugin = function _buildModifierPlugin(name, modifier) {
     return {
       name: name,
       rawVars: 1,
       init: function init(target, vars, tween) {
-        tween._onInit = function (tween) {
-          var temp, p;
+        tween._onInit = function(tween) {
+          let temp; let p;
 
           if (_isString(vars)) {
             temp = {};
 
-            _forEachName(vars, function (name) {
+            _forEachName(vars, function(name) {
               return temp[name] = 1;
             });
 
@@ -3610,28 +3619,28 @@
 
           _addModifiers(tween, vars);
         };
-      }
+      },
     };
   };
 
   var gsap = _gsap.registerPlugin({
     name: 'attr',
     init: function init(target, vars, tween, index, targets) {
-      for (var p in vars) {
+      for (const p in vars) {
         this.add(target, 'setAttribute', (target.getAttribute(p) || 0) + '', vars[p], index, targets, 0, 0, p);
 
         this._props.push(p);
       }
-    }
+    },
   }, {
     name: 'endArray',
     init: function init(target, value) {
-      var i = value.length;
+      let i = value.length;
 
       while (i--) {
         this.add(target, i, target[i] || 0, value[i]);
       }
-    }
+    },
   }, _buildModifierPlugin('roundProps', _roundModifier), _buildModifierPlugin('modifiers'), _buildModifierPlugin('snap', snap)) || _gsap;
   Tween.version = Timeline.version = gsap.version = '3.2.6';
   _coreReady = 1;
@@ -3640,105 +3649,105 @@
     _wake();
   }
 
-  var Power0 = _easeMap.Power0,
-      Power1 = _easeMap.Power1,
-      Power2 = _easeMap.Power2,
-      Power3 = _easeMap.Power3,
-      Power4 = _easeMap.Power4,
-      Linear = _easeMap.Linear,
-      Quad = _easeMap.Quad,
-      Cubic = _easeMap.Cubic,
-      Quart = _easeMap.Quart,
-      Quint = _easeMap.Quint,
-      Strong = _easeMap.Strong,
-      Elastic = _easeMap.Elastic,
-      Back = _easeMap.Back,
-      SteppedEase = _easeMap.SteppedEase,
-      Bounce = _easeMap.Bounce,
-      Sine = _easeMap.Sine,
-      Expo = _easeMap.Expo,
-      Circ = _easeMap.Circ;
+  const Power0 = _easeMap.Power0;
+  const Power1 = _easeMap.Power1;
+  const Power2 = _easeMap.Power2;
+  const Power3 = _easeMap.Power3;
+  const Power4 = _easeMap.Power4;
+  const Linear = _easeMap.Linear;
+  const Quad = _easeMap.Quad;
+  const Cubic = _easeMap.Cubic;
+  const Quart = _easeMap.Quart;
+  const Quint = _easeMap.Quint;
+  const Strong = _easeMap.Strong;
+  const Elastic = _easeMap.Elastic;
+  const Back = _easeMap.Back;
+  const SteppedEase = _easeMap.SteppedEase;
+  const Bounce = _easeMap.Bounce;
+  const Sine = _easeMap.Sine;
+  const Expo = _easeMap.Expo;
+  const Circ = _easeMap.Circ;
 
-  var _win$1,
-      _doc$1,
-      _docElement,
-      _pluginInitted,
-      _tempDiv,
-      _tempDivStyler,
-      _recentSetterPlugin,
-      _windowExists$1 = function _windowExists() {
+  let _win$1;
+  let _doc$1;
+  let _docElement;
+  let _pluginInitted;
+  let _tempDiv;
+  let _tempDivStyler;
+  let _recentSetterPlugin;
+  const _windowExists$1 = function _windowExists() {
     return typeof window !== 'undefined';
-  },
-      _transformProps = {},
-      _RAD2DEG = 180 / Math.PI,
-      _DEG2RAD = Math.PI / 180,
-      _atan2 = Math.atan2,
-      _bigNum$1 = 1e8,
-      _capsExp = /([A-Z])/g,
-      _horizontalExp = /(?:left|right|width|margin|padding|x)/i,
-      _complexExp = /[\s,\(]\S/,
-      _propertyAliases = {
+  };
+  const _transformProps = {};
+  const _RAD2DEG = 180 / Math.PI;
+  const _DEG2RAD = Math.PI / 180;
+  const _atan2 = Math.atan2;
+  const _bigNum$1 = 1e8;
+  const _capsExp = /([A-Z])/g;
+  const _horizontalExp = /(?:left|right|width|margin|padding|x)/i;
+  const _complexExp = /[\s,\(]\S/;
+  const _propertyAliases = {
     autoAlpha: 'opacity,visibility',
     scale: 'scaleX,scaleY',
-    alpha: 'opacity'
-  },
-      _renderCSSProp = function _renderCSSProp(ratio, data) {
+    alpha: 'opacity',
+  };
+  const _renderCSSProp = function _renderCSSProp(ratio, data) {
     return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
-  },
-      _renderPropWithEnd = function _renderPropWithEnd(ratio, data) {
+  };
+  const _renderPropWithEnd = function _renderPropWithEnd(ratio, data) {
     return data.set(data.t, data.p, ratio === 1 ? data.e : Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
-  },
-      _renderCSSPropWithBeginning = function _renderCSSPropWithBeginning(ratio, data) {
+  };
+  const _renderCSSPropWithBeginning = function _renderCSSPropWithBeginning(ratio, data) {
     return data.set(data.t, data.p, ratio ? Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u : data.b, data);
-  },
-      _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
-    var value = data.s + data.c * ratio;
+  };
+  const _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
+    const value = data.s + data.c * ratio;
     data.set(data.t, data.p, ~~(value + (value < 0 ? -.5 : .5)) + data.u, data);
-  },
-      _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
+  };
+  const _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
     return data.set(data.t, data.p, ratio ? data.e : data.b, data);
-  },
-      _renderNonTweeningValueOnlyAtEnd = function _renderNonTweeningValueOnlyAtEnd(ratio, data) {
+  };
+  const _renderNonTweeningValueOnlyAtEnd = function _renderNonTweeningValueOnlyAtEnd(ratio, data) {
     return data.set(data.t, data.p, ratio !== 1 ? data.b : data.e, data);
-  },
-      _setterCSSStyle = function _setterCSSStyle(target, property, value) {
+  };
+  const _setterCSSStyle = function _setterCSSStyle(target, property, value) {
     return target.style[property] = value;
-  },
-      _setterCSSProp = function _setterCSSProp(target, property, value) {
+  };
+  const _setterCSSProp = function _setterCSSProp(target, property, value) {
     return target.style.setProperty(property, value);
-  },
-      _setterTransform = function _setterTransform(target, property, value) {
+  };
+  const _setterTransform = function _setterTransform(target, property, value) {
     return target._gsap[property] = value;
-  },
-      _setterScale = function _setterScale(target, property, value) {
+  };
+  const _setterScale = function _setterScale(target, property, value) {
     return target._gsap.scaleX = target._gsap.scaleY = value;
-  },
-      _setterScaleWithRender = function _setterScaleWithRender(target, property, value, data, ratio) {
-    var cache = target._gsap;
+  };
+  const _setterScaleWithRender = function _setterScaleWithRender(target, property, value, data, ratio) {
+    const cache = target._gsap;
     cache.scaleX = cache.scaleY = value;
     cache.renderTransform(ratio, cache);
-  },
-      _setterTransformWithRender = function _setterTransformWithRender(target, property, value, data, ratio) {
-    var cache = target._gsap;
+  };
+  const _setterTransformWithRender = function _setterTransformWithRender(target, property, value, data, ratio) {
+    const cache = target._gsap;
     cache[property] = value;
     cache.renderTransform(ratio, cache);
-  },
-      _transformProp = 'transform',
-      _transformOriginProp = _transformProp + 'Origin',
-      _supports3D,
-      _createElement = function _createElement(type, ns) {
-    var e = _doc$1.createElementNS ? _doc$1.createElementNS((ns || 'http://www.w3.org/1999/xhtml').replace(/^https/, 'http'), type) : _doc$1.createElement(type);
+  };
+  let _transformProp = 'transform';
+  let _transformOriginProp = _transformProp + 'Origin';
+  let _supports3D;
+  const _createElement = function _createElement(type, ns) {
+    const e = _doc$1.createElementNS ? _doc$1.createElementNS((ns || 'http://www.w3.org/1999/xhtml').replace(/^https/, 'http'), type) : _doc$1.createElement(type);
     return e.style ? e : _doc$1.createElement(type);
-  },
-      _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
-    var cs = getComputedStyle(target);
+  };
+  const _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
+    const cs = getComputedStyle(target);
     return cs[property] || cs.getPropertyValue(property.replace(_capsExp, '-$1').toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || '';
-  },
-      _prefixes = 'O,Moz,ms,Ms,Webkit'.split(','),
-      _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
-    var e = element || _tempDiv,
-        s = e.style,
-        i = 5;
+  };
+  const _prefixes = 'O,Moz,ms,Ms,Webkit'.split(',');
+  var _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
+    const e = element || _tempDiv;
+    const s = e.style;
+    let i = 5;
 
     if (property in s && !preferPrefix) {
       return property;
@@ -3749,14 +3758,14 @@
     while (i-- && !(_prefixes[i] + property in s)) {}
 
     return i < 0 ? null : (i === 3 ? 'ms' : i >= 0 ? _prefixes[i] : '') + property;
-  },
-      _initCore = function _initCore() {
+  };
+  const _initCore = function _initCore() {
     if (_windowExists$1()) {
       _win$1 = window;
       _doc$1 = _win$1.document;
       _docElement = _doc$1.documentElement;
       _tempDiv = _createElement('div') || {
-        style: {}
+        style: {},
       };
       _tempDivStyler = _createElement('div');
       _transformProp = _checkPropPrefix(_transformProp);
@@ -3765,13 +3774,13 @@
       _supports3D = !!_checkPropPrefix('perspective');
       _pluginInitted = 1;
     }
-  },
-      _getBBoxHack = function _getBBoxHack(swapIfPossible) {
-    var svg = _createElement('svg', this.ownerSVGElement && this.ownerSVGElement.getAttribute('xmlns') || 'http://www.w3.org/2000/svg'),
-        oldParent = this.parentNode,
-        oldSibling = this.nextSibling,
-        oldCSS = this.style.cssText,
-        bbox;
+  };
+  const _getBBoxHack = function _getBBoxHack(swapIfPossible) {
+    const svg = _createElement('svg', this.ownerSVGElement && this.ownerSVGElement.getAttribute('xmlns') || 'http://www.w3.org/2000/svg');
+    const oldParent = this.parentNode;
+    const oldSibling = this.nextSibling;
+    const oldCSS = this.style.cssText;
+    let bbox;
 
     _docElement.appendChild(svg);
 
@@ -3800,18 +3809,18 @@
 
     this.style.cssText = oldCSS;
     return bbox;
-  },
-      _getAttributeFallbacks = function _getAttributeFallbacks(target, attributesArray) {
-    var i = attributesArray.length;
+  };
+  const _getAttributeFallbacks = function _getAttributeFallbacks(target, attributesArray) {
+    let i = attributesArray.length;
 
     while (i--) {
       if (target.hasAttribute(attributesArray[i])) {
         return target.getAttribute(attributesArray[i]);
       }
     }
-  },
-      _getBBox = function _getBBox(target) {
-    var bounds;
+  };
+  const _getBBox = function _getBBox(target) {
+    let bounds;
 
     try {
       bounds = target.getBBox();
@@ -3824,15 +3833,15 @@
       x: +_getAttributeFallbacks(target, ['x', 'cx', 'x1']) || 0,
       y: +_getAttributeFallbacks(target, ['y', 'cy', 'y1']) || 0,
       width: 0,
-      height: 0
+      height: 0,
     } : bounds;
-  },
-      _isSVG = function _isSVG(e) {
+  };
+  const _isSVG = function _isSVG(e) {
     return !!(e.getCTM && (!e.parentNode || e.ownerSVGElement) && _getBBox(e));
-  },
-      _removeProperty = function _removeProperty(target, property) {
+  };
+  const _removeProperty = function _removeProperty(target, property) {
     if (property) {
-      var style = target.style;
+      const style = target.style;
 
       if (property in _transformProps) {
         property = _transformProp;
@@ -3848,9 +3857,9 @@
         style.removeAttribute(property);
       }
     }
-  },
-      _addNonTweeningPT = function _addNonTweeningPT(plugin, target, property, beginning, end, onlySetAtEnd) {
-    var pt = new PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
+  };
+  const _addNonTweeningPT = function _addNonTweeningPT(plugin, target, property, beginning, end, onlySetAtEnd) {
+    const pt = new PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
     plugin._pt = pt;
     pt.b = beginning;
     pt.e = end;
@@ -3858,26 +3867,26 @@
     plugin._props.push(property);
 
     return pt;
-  },
-      _nonConvertibleUnits = {
+  };
+  const _nonConvertibleUnits = {
     deg: 1,
     rad: 1,
-    turn: 1
-  },
-      _convertToUnit = function _convertToUnit(target, property, value, unit) {
-    var curValue = parseFloat(value) || 0,
-        curUnit = (value + '').trim().substr((curValue + '').length) || 'px',
-        style = _tempDiv.style,
-        horizontal = _horizontalExp.test(property),
-        isRootSVG = target.tagName.toLowerCase() === 'svg',
-        measureProperty = (isRootSVG ? 'client' : 'offset') + (horizontal ? 'Width' : 'Height'),
-        amount = 100,
-        toPixels = unit === 'px',
-        toPercent = unit === '%',
-        px,
-        parent,
-        cache,
-        isSVG;
+    turn: 1,
+  };
+  const _convertToUnit = function _convertToUnit(target, property, value, unit) {
+    let curValue = parseFloat(value) || 0;
+    const curUnit = (value + '').trim().substr((curValue + '').length) || 'px';
+    const style = _tempDiv.style;
+    const horizontal = _horizontalExp.test(property);
+    const isRootSVG = target.tagName.toLowerCase() === 'svg';
+    const measureProperty = (isRootSVG ? 'client' : 'offset') + (horizontal ? 'Width' : 'Height');
+    const amount = 100;
+    const toPixels = unit === 'px';
+    const toPercent = unit === '%';
+    let px;
+    let parent;
+    let cache;
+    let isSVG;
 
     if (unit === curUnit || !curValue || _nonConvertibleUnits[unit] || _nonConvertibleUnits[curUnit]) {
       return curValue;
@@ -3921,9 +3930,9 @@
     }
 
     return _round(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
-  },
-      _get = function _get(target, property, unit, uncache) {
-    var value;
+  };
+  const _get = function _get(target, property, unit, uncache) {
+    let value;
 
     if (!_pluginInitted) {
       _initCore();
@@ -3949,11 +3958,11 @@
     }
 
     return unit && !~(value + '').indexOf(' ') ? _convertToUnit(target, property, value, unit) + unit : value;
-  },
-      _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
+  };
+  const _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
     if (!start || start === 'none') {
-      var p = _checkPropPrefix(prop, target, 1),
-          s = p && _getComputedProperty(target, p, 1);
+      const p = _checkPropPrefix(prop, target, 1);
+      const s = p && _getComputedProperty(target, p, 1);
 
       if (s && s !== start) {
         prop = p;
@@ -3961,22 +3970,22 @@
       }
     }
 
-    var pt = new PropTween(this._pt, target.style, prop, 0, 1, _renderComplexString),
-        index = 0,
-        matchIndex = 0,
-        a,
-        result,
-        startValues,
-        startNum,
-        color,
-        startValue,
-        endValue,
-        endNum,
-        chunk,
-        endUnit,
-        startUnit,
-        relative,
-        endValues;
+    const pt = new PropTween(this._pt, target.style, prop, 0, 1, _renderComplexString);
+    let index = 0;
+    let matchIndex = 0;
+    let a;
+    let result;
+    let startValues;
+    let startNum;
+    let color;
+    let startValue;
+    let endValue;
+    let endNum;
+    let chunk;
+    let endUnit;
+    let startUnit;
+    let relative;
+    let endValues;
     pt.b = start;
     pt.e = end;
     start += '';
@@ -4039,7 +4048,7 @@
             p: chunk || matchIndex === 1 ? chunk : ',',
             s: startNum,
             c: relative ? relative * endNum : endNum - startNum,
-            m: color && color < 4 ? Math.round : 0
+            m: color && color < 4 ? Math.round : 0,
           };
         }
       }
@@ -4055,18 +4064,18 @@
 
     this._pt = pt;
     return pt;
-  },
-      _keywordToPercent = {
+  };
+  const _keywordToPercent = {
     top: '0%',
     bottom: '100%',
     left: '0%',
     right: '100%',
-    center: '50%'
-  },
-      _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
-    var split = value.split(' '),
-        x = split[0],
-        y = split[1] || '50%';
+    center: '50%',
+  };
+  const _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
+    const split = value.split(' ');
+    let x = split[0];
+    let y = split[1] || '50%';
 
     if (x === 'top' || x === 'bottom' || y === 'left' || y === 'right') {
       value = x;
@@ -4077,16 +4086,16 @@
     split[0] = _keywordToPercent[x] || x;
     split[1] = _keywordToPercent[y] || y;
     return split.join(' ');
-  },
-      _renderClearProps = function _renderClearProps(ratio, data) {
+  };
+  const _renderClearProps = function _renderClearProps(ratio, data) {
     if (data.tween && data.tween._time === data.tween._dur) {
-      var target = data.t,
-          style = target.style,
-          props = data.u,
-          cache = target._gsap,
-          prop,
-          clearTransforms,
-          i;
+      const target = data.t;
+      const style = target.style;
+      let props = data.u;
+      const cache = target._gsap;
+      let prop;
+      let clearTransforms;
+      let i;
 
       if (props === 'all' || props === true) {
         style.cssText = '';
@@ -4119,11 +4128,11 @@
         }
       }
     }
-  },
-      _specialProps = {
+  };
+  var _specialProps = {
     clearProps: function clearProps(plugin, target, property, endValue, tween) {
       if (tween.data !== 'isFromStart') {
-        var pt = plugin._pt = new PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
+        const pt = plugin._pt = new PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
         pt.u = endValue;
         pt.pr = -10;
         pt.tween = tween;
@@ -4132,26 +4141,26 @@
 
         return 1;
       }
-    }
-  },
-      _identity2DMatrix = [1, 0, 0, 1, 0, 0],
-      _rotationalProperties = {},
-      _isNullTransform = function _isNullTransform(value) {
+    },
+  };
+  const _identity2DMatrix = [1, 0, 0, 1, 0, 0];
+  const _rotationalProperties = {};
+  const _isNullTransform = function _isNullTransform(value) {
     return value === 'matrix(1, 0, 0, 1, 0, 0)' || value === 'none' || !value;
-  },
-      _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
-    var matrixString = _getComputedProperty(target, _transformProp);
+  };
+  const _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
+    const matrixString = _getComputedProperty(target, _transformProp);
 
     return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_numExp).map(_round);
-  },
-      _getMatrix = function _getMatrix(target, force2D) {
-    var cache = target._gsap || _getCache(target),
-        style = target.style,
-        matrix = _getComputedTransformMatrixAsArray(target),
-        parent,
-        nextSibling,
-        temp,
-        addedToDOM;
+  };
+  const _getMatrix = function _getMatrix(target, force2D) {
+    const cache = target._gsap || _getCache(target);
+    const style = target.style;
+    let matrix = _getComputedTransformMatrixAsArray(target);
+    let parent;
+    let nextSibling;
+    let temp;
+    let addedToDOM;
 
     if (cache.svg && target.getAttribute('transform')) {
       temp = target.transform.baseVal.consolidate().matrix;
@@ -4189,27 +4198,27 @@
     }
 
     return force2D && matrix.length > 6 ? [matrix[0], matrix[1], matrix[4], matrix[5], matrix[12], matrix[13]] : matrix;
-  },
-      _applySVGOrigin = function _applySVGOrigin(target, origin, originIsAbsolute, smooth, matrixArray, pluginToAddPropTweensTo) {
-    var cache = target._gsap,
-        matrix = matrixArray || _getMatrix(target, true),
-        xOriginOld = cache.xOrigin || 0,
-        yOriginOld = cache.yOrigin || 0,
-        xOffsetOld = cache.xOffset || 0,
-        yOffsetOld = cache.yOffset || 0,
-        a = matrix[0],
-        b = matrix[1],
-        c = matrix[2],
-        d = matrix[3],
-        tx = matrix[4],
-        ty = matrix[5],
-        originSplit = origin.split(' '),
-        xOrigin = parseFloat(originSplit[0]) || 0,
-        yOrigin = parseFloat(originSplit[1]) || 0,
-        bounds,
-        determinant,
-        x,
-        y;
+  };
+  const _applySVGOrigin = function _applySVGOrigin(target, origin, originIsAbsolute, smooth, matrixArray, pluginToAddPropTweensTo) {
+    const cache = target._gsap;
+    const matrix = matrixArray || _getMatrix(target, true);
+    const xOriginOld = cache.xOrigin || 0;
+    const yOriginOld = cache.yOrigin || 0;
+    const xOffsetOld = cache.xOffset || 0;
+    const yOffsetOld = cache.yOffset || 0;
+    const a = matrix[0];
+    const b = matrix[1];
+    const c = matrix[2];
+    const d = matrix[3];
+    let tx = matrix[4];
+    let ty = matrix[5];
+    const originSplit = origin.split(' ');
+    let xOrigin = parseFloat(originSplit[0]) || 0;
+    let yOrigin = parseFloat(originSplit[1]) || 0;
+    let bounds;
+    let determinant;
+    let x;
+    let y;
 
     if (!originIsAbsolute) {
       bounds = _getBBox(target);
@@ -4249,51 +4258,51 @@
     }
 
     target.setAttribute('data-svg-origin', xOrigin + ' ' + yOrigin);
-  },
-      _parseTransform = function _parseTransform(target, uncache) {
-    var cache = target._gsap || new GSCache(target);
+  };
+  var _parseTransform = function _parseTransform(target, uncache) {
+    const cache = target._gsap || new GSCache(target);
 
     if ('x' in cache && !uncache && !cache.uncache) {
       return cache;
     }
 
-    var style = target.style,
-        invertedScaleX = cache.scaleX < 0,
-        px = 'px',
-        deg = 'deg',
-        origin = _getComputedProperty(target, _transformOriginProp) || '0',
-        x,
-        y,
-        z,
-        scaleX,
-        scaleY,
-        rotation,
-        rotationX,
-        rotationY,
-        skewX,
-        skewY,
-        perspective,
-        xOrigin,
-        yOrigin,
-        matrix,
-        angle,
-        cos,
-        sin,
-        a,
-        b,
-        c,
-        d,
-        a12,
-        a22,
-        t1,
-        t2,
-        t3,
-        a13,
-        a23,
-        a33,
-        a42,
-        a43,
-        a32;
+    const style = target.style;
+    const invertedScaleX = cache.scaleX < 0;
+    const px = 'px';
+    const deg = 'deg';
+    const origin = _getComputedProperty(target, _transformOriginProp) || '0';
+    let x;
+    let y;
+    let z;
+    let scaleX;
+    let scaleY;
+    let rotation;
+    let rotationX;
+    let rotationY;
+    let skewX;
+    let skewY;
+    let perspective;
+    let xOrigin;
+    let yOrigin;
+    let matrix;
+    let angle;
+    let cos;
+    let sin;
+    let a;
+    let b;
+    let c;
+    let d;
+    let a12;
+    let a22;
+    let t1;
+    let t2;
+    let t3;
+    let a13;
+    let a23;
+    let a33;
+    let a42;
+    let a43;
+    let a32;
     x = y = z = rotation = rotationX = rotationY = skewX = skewY = perspective = 0;
     scaleX = scaleY = 1;
     cache.svg = !!(target.getCTM && _isSVG(target));
@@ -4435,50 +4444,50 @@
     cache.renderTransform = cache.svg ? _renderSVGTransforms : _supports3D ? _renderCSSTransforms : _renderNon3DTransforms;
     cache.uncache = 0;
     return cache;
-  },
-      _firstTwoOnly = function _firstTwoOnly(value) {
+  };
+  var _firstTwoOnly = function _firstTwoOnly(value) {
     return (value = value.split(' '))[0] + ' ' + value[1];
-  },
-      _addPxTranslate = function _addPxTranslate(target, start, value) {
-    var unit = getUnit(start);
+  };
+  const _addPxTranslate = function _addPxTranslate(target, start, value) {
+    const unit = getUnit(start);
     return _round(parseFloat(start) + parseFloat(_convertToUnit(target, 'x', value + 'px', unit))) + unit;
-  },
-      _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
+  };
+  var _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
     cache.z = '0px';
     cache.rotationY = cache.rotationX = '0deg';
     cache.force3D = 0;
 
     _renderCSSTransforms(ratio, cache);
-  },
-      _zeroDeg = '0deg',
-      _zeroPx = '0px',
-      _endParenthesis = ') ',
-      _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
-    var _ref = cache || this,
-        xPercent = _ref.xPercent,
-        yPercent = _ref.yPercent,
-        x = _ref.x,
-        y = _ref.y,
-        z = _ref.z,
-        rotation = _ref.rotation,
-        rotationY = _ref.rotationY,
-        rotationX = _ref.rotationX,
-        skewX = _ref.skewX,
-        skewY = _ref.skewY,
-        scaleX = _ref.scaleX,
-        scaleY = _ref.scaleY,
-        transformPerspective = _ref.transformPerspective,
-        force3D = _ref.force3D,
-        target = _ref.target,
-        zOrigin = _ref.zOrigin,
-        transforms = '',
-        use3D = force3D === 'auto' && ratio && ratio !== 1 || force3D === true;
+  };
+  const _zeroDeg = '0deg';
+  const _zeroPx = '0px';
+  const _endParenthesis = ') ';
+  var _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
+    const _ref = cache || this;
+    const xPercent = _ref.xPercent;
+    const yPercent = _ref.yPercent;
+    let x = _ref.x;
+    let y = _ref.y;
+    let z = _ref.z;
+    const rotation = _ref.rotation;
+    const rotationY = _ref.rotationY;
+    const rotationX = _ref.rotationX;
+    const skewX = _ref.skewX;
+    const skewY = _ref.skewY;
+    const scaleX = _ref.scaleX;
+    const scaleY = _ref.scaleY;
+    const transformPerspective = _ref.transformPerspective;
+    const force3D = _ref.force3D;
+    const target = _ref.target;
+    const zOrigin = _ref.zOrigin;
+    let transforms = '';
+    const use3D = force3D === 'auto' && ratio && ratio !== 1 || force3D === true;
 
     if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
-      var angle = parseFloat(rotationY) * _DEG2RAD,
-          a13 = Math.sin(angle),
-          a33 = Math.cos(angle),
-          cos;
+      let angle = parseFloat(rotationY) * _DEG2RAD;
+      const a13 = Math.sin(angle);
+      const a33 = Math.cos(angle);
+      let cos;
 
       angle = parseFloat(rotationX) * _DEG2RAD;
       cos = Math.cos(angle);
@@ -4520,31 +4529,31 @@
     }
 
     target.style[_transformProp] = transforms || 'translate(0, 0)';
-  },
-      _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
-    var _ref2 = cache || this,
-        xPercent = _ref2.xPercent,
-        yPercent = _ref2.yPercent,
-        x = _ref2.x,
-        y = _ref2.y,
-        rotation = _ref2.rotation,
-        skewX = _ref2.skewX,
-        skewY = _ref2.skewY,
-        scaleX = _ref2.scaleX,
-        scaleY = _ref2.scaleY,
-        target = _ref2.target,
-        xOrigin = _ref2.xOrigin,
-        yOrigin = _ref2.yOrigin,
-        xOffset = _ref2.xOffset,
-        yOffset = _ref2.yOffset,
-        forceCSS = _ref2.forceCSS,
-        tx = parseFloat(x),
-        ty = parseFloat(y),
-        a11,
-        a21,
-        a12,
-        a22,
-        temp;
+  };
+  var _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
+    const _ref2 = cache || this;
+    const xPercent = _ref2.xPercent;
+    const yPercent = _ref2.yPercent;
+    const x = _ref2.x;
+    const y = _ref2.y;
+    let rotation = _ref2.rotation;
+    let skewX = _ref2.skewX;
+    let skewY = _ref2.skewY;
+    const scaleX = _ref2.scaleX;
+    const scaleY = _ref2.scaleY;
+    const target = _ref2.target;
+    const xOrigin = _ref2.xOrigin;
+    const yOrigin = _ref2.yOrigin;
+    const xOffset = _ref2.xOffset;
+    const yOffset = _ref2.yOffset;
+    const forceCSS = _ref2.forceCSS;
+    let tx = parseFloat(x);
+    let ty = parseFloat(y);
+    let a11;
+    let a21;
+    let a12;
+    let a22;
+    let temp;
 
     rotation = parseFloat(rotation);
     skewX = parseFloat(skewX);
@@ -4611,15 +4620,15 @@
     if (forceCSS) {
       target.style[_transformProp] = temp;
     }
-  },
-      _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue, relative) {
-    var cap = 360,
-        isString = _isString(endValue),
-        endNum = parseFloat(endValue) * (isString && ~endValue.indexOf('rad') ? _RAD2DEG : 1),
-        change = relative ? endNum * relative : endNum - startNum,
-        finalValue = startNum + change + 'deg',
-        direction,
-        pt;
+  };
+  const _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue, relative) {
+    const cap = 360;
+    const isString = _isString(endValue);
+    const endNum = parseFloat(endValue) * (isString && ~endValue.indexOf('rad') ? _RAD2DEG : 1);
+    let change = relative ? endNum * relative : endNum - startNum;
+    const finalValue = startNum + change + 'deg';
+    let direction;
+    let pt;
 
     if (isString) {
       direction = endValue.split('_')[1];
@@ -4646,19 +4655,19 @@
     plugin._props.push(property);
 
     return pt;
-  },
-      _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
-    var style = _tempDivStyler.style,
-        startCache = target._gsap,
-        exclude = 'perspective,force3D,transformOrigin,svgOrigin',
-        endCache,
-        p,
-        startValue,
-        endValue,
-        startNum,
-        endNum,
-        startUnit,
-        endUnit;
+  };
+  const _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
+    const style = _tempDivStyler.style;
+    const startCache = target._gsap;
+    const exclude = 'perspective,force3D,transformOrigin,svgOrigin';
+    let endCache;
+    let p;
+    let startValue;
+    let endValue;
+    let startNum;
+    let endNum;
+    let startUnit;
+    let endUnit;
     style.cssText = getComputedStyle(target).cssText + ';position:absolute;display:block;';
     style[_transformProp] = transforms;
 
@@ -4685,20 +4694,20 @@
     _doc$1.body.removeChild(_tempDivStyler);
   };
 
-  _forEachName('padding,margin,Width,Radius', function (name, index) {
-    var t = 'Top',
-        r = 'Right',
-        b = 'Bottom',
-        l = 'Left',
-        props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function (side) {
+  _forEachName('padding,margin,Width,Radius', function(name, index) {
+    const t = 'Top';
+    const r = 'Right';
+    const b = 'Bottom';
+    const l = 'Left';
+    const props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function(side) {
       return index < 2 ? name + side : 'border' + side + name;
     });
 
-    _specialProps[index > 1 ? 'border' + name : name] = function (plugin, target, property, endValue, tween) {
-      var a, vars;
+    _specialProps[index > 1 ? 'border' + name : name] = function(plugin, target, property, endValue, tween) {
+      let a; let vars;
 
       if (arguments.length < 4) {
-        a = props.map(function (prop) {
+        a = props.map(function(prop) {
           return _get(plugin, prop, property);
         });
         vars = a.join(' ');
@@ -4707,37 +4716,37 @@
 
       a = (endValue + '').split(' ');
       vars = {};
-      props.forEach(function (prop, i) {
+      props.forEach(function(prop, i) {
         return vars[prop] = a[i] = a[i] || a[(i - 1) / 2 | 0];
       });
       plugin.init(target, vars, tween);
     };
   });
 
-  var CSSPlugin = {
+  const CSSPlugin = {
     name: 'css',
     register: _initCore,
     targetTest: function targetTest(target) {
       return target.style && target.nodeType;
     },
     init: function init(target, vars, tween, index, targets) {
-      var props = this._props,
-          style = target.style,
-          startValue,
-          endValue,
-          endNum,
-          startNum,
-          type,
-          specialProp,
-          p,
-          startUnit,
-          endUnit,
-          relative,
-          isTransformRelated,
-          transformPropTween,
-          cache,
-          smooth,
-          hasPriority;
+      const props = this._props;
+      const style = target.style;
+      let startValue;
+      let endValue;
+      let endNum;
+      let startNum;
+      let type;
+      let specialProp;
+      let p;
+      let startUnit;
+      let endUnit;
+      let relative;
+      let isTransformRelated;
+      let transformPropTween;
+      let cache;
+      let smooth;
+      let hasPriority;
 
       if (!_pluginInitted) {
         _initCore();
@@ -4895,43 +4904,43 @@
     get: _get,
     aliases: _propertyAliases,
     getSetter: function getSetter(target, property, plugin) {
-      var p = _propertyAliases[property];
+      const p = _propertyAliases[property];
       p && p.indexOf(',') < 0 && (property = p);
       return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, 'x')) ? plugin && _recentSetterPlugin === plugin ? property === 'scale' ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === 'scale' ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !_isUndefined(target.style[property]) ? _setterCSSStyle : ~property.indexOf('-') ? _setterCSSProp : _getSetter(target, property);
     },
     core: {
       _removeProperty: _removeProperty,
-      _getMatrix: _getMatrix
-    }
+      _getMatrix: _getMatrix,
+    },
   };
   gsap.utils.checkPrefix = _checkPropPrefix;
 
-  (function (positionAndScale, rotation, others, aliases) {
-    var all = _forEachName(positionAndScale + ',' + rotation + ',' + others, function (name) {
+  (function(positionAndScale, rotation, others, aliases) {
+    const all = _forEachName(positionAndScale + ',' + rotation + ',' + others, function(name) {
       _transformProps[name] = 1;
     });
 
-    _forEachName(rotation, function (name) {
+    _forEachName(rotation, function(name) {
       _config.units[name] = 'deg';
       _rotationalProperties[name] = 1;
     });
 
     _propertyAliases[all[13]] = positionAndScale + ',' + rotation;
 
-    _forEachName(aliases, function (name) {
-      var split = name.split(':');
+    _forEachName(aliases, function(name) {
+      const split = name.split(':');
       _propertyAliases[split[1]] = all[split[0]];
     });
   })('x,y,z,scale,scaleX,scaleY,xPercent,yPercent', 'rotation,rotationX,rotationY,skewX,skewY', 'transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective', '0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY');
 
-  _forEachName('x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective', function (name) {
+  _forEachName('x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective', function(name) {
     _config.units[name] = 'px';
   });
 
   gsap.registerPlugin(CSSPlugin);
 
-  var gsapWithCSS = gsap.registerPlugin(CSSPlugin) || gsap,
-      TweenMaxWithCSS = gsapWithCSS.core.Tween;
+  const gsapWithCSS = gsap.registerPlugin(CSSPlugin) || gsap;
+  const TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
   exports.Back = Back;
   exports.Bounce = Bounce;
@@ -4959,6 +4968,9 @@
   exports.default = gsapWithCSS;
   exports.gsap = gsapWithCSS;
 
-  if (typeof(window) === 'undefined' || window !== exports) {Object.defineProperty(exports, '__esModule', { value: true });} else {delete window.default;}
-
+  if (typeof(window) === 'undefined' || window !== exports) {
+    Object.defineProperty(exports, '__esModule', {value: true});
+  } else {
+    delete window.default;
+  }
 })));
