@@ -1,16 +1,9 @@
 .brand {
   @include interpolate("padding-top", 600px, 120px, 1200px, 175px);
   @include interpolate("padding-bottom", 600px, 100px, 1200px, 175px);
-  @include mobile {
-    >* {
-      flex-basis: 45%;
-    }
-  }
-
-  @include desktop {
-    >* {
-      @include size($mwidth: 24.7rem);
-    }
+  
+  .page-main-head{
+    max-width: 445px;
   }
 
   h3 {
@@ -19,6 +12,7 @@
 
   .content-txt {
     margin-bottom: 2.2em;
+    max-width: 440px;
   }
 
   span {

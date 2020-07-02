@@ -119,11 +119,11 @@ class Sticky {
    * @function
    * @param {node} element - Element to be activated
    */
-   activate(element) {
+  activate(element) {
     if (
-      ((element.sticky.rect.top + element.sticky.rect.height) < (element.sticky.container.rect.top + element.sticky.container.rect.height))
-      && (element.sticky.stickyFor < this.vp.width)
-      && !element.sticky.active
+      ((element.sticky.rect.top + element.sticky.rect.height) < (element.sticky.container.rect.top + element.sticky.container.rect.height)) &&
+      (element.sticky.stickyFor < this.vp.width) &&
+      !element.sticky.active
     ) {
       element.sticky.active = true;
     }
@@ -143,7 +143,7 @@ class Sticky {
     }
 
     this.setPosition(element);
-   }
+  }
 
 
   /**
@@ -151,10 +151,10 @@ class Sticky {
    * @function
    * @param {node} element - Element for which resize events are initialised
    */
-   initResizeEvents(element) {
+  initResizeEvents(element) {
     element.sticky.resizeListener = () => this.onResizeEvents(element);
     window.addEventListener('resize', element.sticky.resizeListener);
-   }
+  }
 
 
   /**
@@ -162,9 +162,9 @@ class Sticky {
    * @function
    * @param {node} element - Element from which listener is deleted
    */
-   destroyResizeEvents(element) {
+  destroyResizeEvents(element) {
     window.removeEventListener('resize', element.sticky.resizeListener);
-   }
+  }
 
 
   /**
@@ -172,28 +172,28 @@ class Sticky {
    * @function
    * @param {node} element - Element for which event function is fired
    */
-   onResizeEvents(element) {
+  onResizeEvents(element) {
     this.vp = this.getViewportSize();
 
     element.sticky.rect = this.getRectangle(element);
     element.sticky.container.rect = this.getRectangle(element.sticky.container);
 
     if (
-      ((element.sticky.rect.top + element.sticky.rect.height) < (element.sticky.container.rect.top + element.sticky.container.rect.height))
-      && (element.sticky.stickyFor < this.vp.width)
-      && !element.sticky.active
+      ((element.sticky.rect.top + element.sticky.rect.height) < (element.sticky.container.rect.top + element.sticky.container.rect.height)) &&
+      (element.sticky.stickyFor < this.vp.width) &&
+      !element.sticky.active
     ) {
       element.sticky.active = true;
     } else if (
-      ((element.sticky.rect.top + element.sticky.rect.height) >= (element.sticky.container.rect.top + element.sticky.container.rect.height))
-      || element.sticky.stickyFor >= this.vp.width
-      && element.sticky.active
+      ((element.sticky.rect.top + element.sticky.rect.height) >= (element.sticky.container.rect.top + element.sticky.container.rect.height)) ||
+      element.sticky.stickyFor >= this.vp.width &&
+      element.sticky.active
     ) {
       element.sticky.active = false;
     }
 
     this.setPosition(element);
-   }
+  }
 
 
   /**
@@ -201,10 +201,10 @@ class Sticky {
    * @function
    * @param {node} element - Element for which scroll events are initialised
    */
-   initScrollEvents(element) {
+  initScrollEvents(element) {
     element.sticky.scrollListener = () => this.onScrollEvents(element);
     window.addEventListener('scroll', element.sticky.scrollListener);
-   }
+  }
 
 
   /**
@@ -212,9 +212,9 @@ class Sticky {
    * @function
    * @param {node} element - Element from which listener is deleted
    */
-   destroyScrollEvents(element) {
+  destroyScrollEvents(element) {
     window.removeEventListener('scroll', element.sticky.scrollListener);
-   }
+  }
 
 
   /**
@@ -222,11 +222,11 @@ class Sticky {
    * @function
    * @param {node} element - Element for which event function is fired
    */
-   onScrollEvents(element) {
+  onScrollEvents(element) {
     if (element.sticky && element.sticky.active) {
       this.setPosition(element);
     }
-   }
+  }
 
 
   /**
@@ -234,8 +234,8 @@ class Sticky {
    * @function
    * @param {node} element - Element that will be positioned if it's active
    */
-   setPosition(element) {
-    this.css(element, { position: '', width: '', top: '', left: '' });
+  setPosition(element) {
+    this.css(element, {position: '', width: '', top: '', left: ''});
 
     if ((this.vp.height < element.sticky.rect.height) || !element.sticky.active) {
       return;
@@ -254,8 +254,8 @@ class Sticky {
     }
 
     if (
-      element.sticky.rect.top === 0
-      && element.sticky.container === this.body
+      element.sticky.rect.top === 0 &&
+      element.sticky.container === this.body
     ) {
       this.css(element, {
         position: 'fixed',
@@ -274,43 +274,42 @@ class Sticky {
       });
 
       if (
-        (this.scrollTop + element.sticky.rect.height + element.sticky.marginTop)
-        > (element.sticky.container.rect.top + element.sticky.container.offsetHeight - element.sticky.marginBottom)
+        (this.scrollTop + element.sticky.rect.height + element.sticky.marginTop) >
+        (element.sticky.container.rect.top + element.sticky.container.offsetHeight - element.sticky.marginBottom)
       ) {
-
         if (element.sticky.stickyClass) {
           element.classList.remove(element.sticky.stickyClass);
         }
 
         this.css(element, {
-          top: (element.sticky.container.rect.top + element.sticky.container.offsetHeight) - (this.scrollTop + element.sticky.rect.height + element.sticky.marginBottom) + 'px' }
+          top: (element.sticky.container.rect.top + element.sticky.container.offsetHeight) - (this.scrollTop + element.sticky.rect.height + element.sticky.marginBottom) + 'px'}
         );
       } else {
         if (element.sticky.stickyClass) {
           element.classList.add(element.sticky.stickyClass);
         }
 
-        this.css(element, { top: element.sticky.marginTop + 'px' });
+        this.css(element, {top: element.sticky.marginTop + 'px'});
       }
     } else {
       if (element.sticky.stickyClass) {
         element.classList.remove(element.sticky.stickyClass);
       }
 
-      this.css(element, { position: '', width: '', top: '', left: '' });
+      this.css(element, {position: '', width: '', top: '', left: ''});
 
       if (element.sticky.wrap) {
-        this.css(element.parentNode, { display: '', width: '', height: '' });
+        this.css(element.parentNode, {display: '', width: '', height: ''});
       }
     }
-   }
+  }
 
 
   /**
    * Function that updates element sticky rectangle (with sticky container), then activate or deactivate element, then update position if it's active
    * @function
    */
-   update() {
+  update() {
     this.forEach(this.elements, (element) => {
       element.sticky.rect = this.getRectangle(element);
       element.sticky.container.rect = this.getRectangle(element.sticky.container);
@@ -318,14 +317,14 @@ class Sticky {
       this.activate(element);
       this.setPosition(element);
     });
-   }
+  }
 
 
   /**
    * Destroys sticky element, remove listeners
    * @function
    */
-   destroy() {
+  destroy() {
     window.removeEventListener('load', this.updateScrollTopPosition);
     window.removeEventListener('scroll', this.updateScrollTopPosition);
 
@@ -334,7 +333,7 @@ class Sticky {
       this.destroyScrollEvents(element);
       delete element.sticky;
     });
-   }
+  }
 
 
   /**
@@ -343,19 +342,19 @@ class Sticky {
    * @param {node} element - Element which sticky container are looked for
    * @return {node} element - Sticky container
    */
-   getStickyContainer(element) {
+  getStickyContainer(element) {
     let container = element.parentNode;
 
     while (
-      !container.hasAttribute('data-sticky-container')
-      && !container.parentNode.querySelector(element.sticky.stickyContainer)
-      && container !== this.body
+      !container.hasAttribute('data-sticky-container') &&
+      !container.parentNode.querySelector(element.sticky.stickyContainer) &&
+      container !== this.body
     ) {
       container = container.parentNode;
     }
 
     return container;
-   }
+  }
 
 
   /**
@@ -365,7 +364,7 @@ class Sticky {
    * @return {object}
    */
   getRectangle(element) {
-    this.css(element, { position: '', width: '', top: '', left: '' });
+    this.css(element, {position: '', width: '', top: '', left: ''});
 
     const width = Math.max(element.offsetWidth, element.clientWidth, element.scrollWidth);
     const height = Math.max(element.offsetHeight, element.clientHeight, element.scrollHeight);
@@ -377,9 +376,9 @@ class Sticky {
       top += element.offsetTop || 0;
       left += element.offsetLeft || 0;
       element = element.offsetParent;
-    } while(element);
+    } while (element);
 
-    return { top, left, width, height };
+    return {top, left, width, height};
   }
 
 
@@ -402,7 +401,7 @@ class Sticky {
    * @return {number}
    */
   updateScrollTopPosition() {
-    this.scrollTop = (window.pageYOffset || document.scrollTop)  - (document.clientTop || 0) || 0;
+    this.scrollTop = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0;
   }
 
 
@@ -426,7 +425,7 @@ class Sticky {
    * @param {object} properties - CSS properties that will be added/removed from specified element
    */
   css(element, properties) {
-    for (let property in properties) {
+    for (const property in properties) {
       if (properties.hasOwnProperty(property)) {
         element.style[property] = properties[property];
       }

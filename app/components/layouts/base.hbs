@@ -1,16 +1,55 @@
 {{!-- layouts/base.hbs --}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" class="no-js">
 
-  <head>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="resource-type" content="document" />
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Rillusion">
+
+    <script type='application/ld+json'>
+    {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+      "sameAs": [
+    "http://www.facebook.com/Rillusion/",
+    "http://www.linkedin.com/company/rillusion/",
+    "https://twitter.com/wearerillusion",
+    "http://instagram.com/rillusion_ux_ui_design_studio/"
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "India",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamilnadu",
+        "postalCode": "600042",
+        "streetAddress": "Ram Nagar, Velachery",
+        "email": "interact@rillusion.com",
+        "telephone": "9500007094",
+        "description": "We are Chennai based user interface (UI) and user experience (UX) design company, crafting digital experiences for mobile and web app. We are one of India's best UX/UI design company. We worked with smartest global startups and enterprises in 15+ industries."
+    },
+    "founder": {
+        "@type": "Person",
+        "additionalName": "Ram Bal"
+    },
+    "foundingDate": "2010",
+    "url": "http://rillusion.com",
+    "logo": {
+        "@type": "ImageObject",
+        "caption": "Rillusion Logo",
+        "contentUrl": "https://pbs.twimg.com/profile_images/877471353179328512/sk94YTix.jpg"
+        }
+    }
+    </script>
 
     <title>
       {{#if title}}
         {{title}}
       {{else}}
-        Rillusion | A creative UI/UX design company bases in chennai
+        Rillusion - Creative UI / UX Design Company in Chennai, India
       {{/if}}
     </title>
 
@@ -35,36 +74,36 @@
       <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
     {{/if}}
 
-    <!-- Facebook Opengraph -->
-    <meta property="fb:app_id" content="" />
-    <meta property="fb:admins" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="Rillusion" />
-    <meta property="og:description"
-      content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="" />
-    <meta property="og:site_name" content="Rillusion" />
+    {{#> head-block}}
+      {{!-- Custom <head> content per page could be added --}}
+    {{/head-block}}
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@weareRillusion" />
-    <meta name="twitter:creator" content="@weareRillusion" />
-
-    <!-- Noraml Card -->
-    <meta itemprop="name" content="Home" />
-    <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
-    <meta itemprop="image" content="" />
-
-    <!-- Veriification code -->
-    <meta name="google-site-verification" content=" " />
+    <!-- Verification code -->
+    <meta name=" google-site-verification" content="AC0uE7anN-1hAPNWn1IBuYhOzWDK8PywYUJqRIw52bA" />
 
     <!-- preload domain -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {{!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Montserrat:300,400,500,600,700', 'Open Sans', 'Oswald', 'Work Sans', 'Playfair Display', 'Esteban']
+        }
+      });
+      (function (d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+    </script>
 
     {{#if project}}
       <link href="../styles/style.css" rel="stylesheet" />
@@ -72,77 +111,78 @@
       <link href="./styles/style.css" rel="stylesheet" />
     {{/if}}
 
-
-    {{#> head-block}}
-      {{!-- Custom <head> content per page could be added --}}
-    {{/head-block}}
   </head>
 
-  <body data-barba="wrapper" {{#if project}} class="page-project" {{/if}}>
-    <!--[if IE]>
+  {{#if project}}
+    <body data-barba="wrapper" class="page-project">
+  {{else}}
+    <body data-barba="wrapper" class="">
+  {{/if}}
+
+  <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- page load -->
-    <div class="loading-container">
-      <div class="loading-screen"></div>
+  <!-- page load -->
+  <div class="loading-container">
+    <div class="loading-screen"></div>
+  </div>
+
+  <!-- cursor -->
+  <div id="cursor"></div>
+
+  <!-- menu content -->
+  {{> partials/header }}
+
+  <main data-barba="container" data-barba-namespace="{{barbaNamesapce}}">
+    <div class="page--{{barbaNamesapce}}">
+
+      <!-- page content -->
+      {{#> content-block}}
+        {{!-- Content goes here --}}
+      {{/content-block}}
+
+      {{#unless hideCallToAction}}
+
+        <!-- footer content -->
+        {{> partials/footer }}
+      {{/unless}}
+
     </div>
+  </main>
 
-    <!-- cursor -->
-    <div id="cursor"></div>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3693359-8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-3693359-8');
+  </script>
 
-    <!-- menu content -->
-    {{> partials/header }}
+  <!-- build:js scripts/vendor.js -->
+  <!-- endbuild -->
 
-    <main data-barba="container" data-barba-namespace="{{barbaNamesapce}}">
-      <div class="page--{{barbaNamesapce}}">
+  <script crossorigin="anonymous"
+    src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js"></script>
+  {{#if project}}
+    <script src="../scripts/script.js"></script>
+  {{else}}
+    <script src="./scripts/script.js"></script>
+  {{/if}}
 
-        <!-- page content -->
-        {{#> content-block}}
-          {{!-- Content goes here --}}
-        {{/content-block}}
-        {{#unless hideCallToAction}}
-
-          <!-- footer content -->
-          {{> partials/footer }}
-        {{/unless}}
-
-      </div>
-    </main>
-
-    {{!-- <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3693359-8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'UA-3693359-8');
-    </script> --}}
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- endbuild -->
-
-    <script crossorigin="anonymous"
-      src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js"></script>
-    {{#if project}}
-      <script src="../scripts/script.js"></script>
-    {{else}}
-      <script src="./scripts/script.js"></script>
-    {{/if}}
-
-    {{#> scripts-block}}
-      {{!-- Custom scripts per page can be added --}}
-    {{/scripts-block}}
-
+  {{#> scripts-block}}
+    {{!-- Custom scripts per page can be added --}}
+  {{/scripts-block}}
   </body>
 
 </html>

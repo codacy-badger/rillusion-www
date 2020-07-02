@@ -87,57 +87,26 @@
 }
 
 .showcase {
-	display : flex;
-	justify-content : space-between;
-	flex-direction : column;
-	// margin-bottom : 65px;
-
-	@media(min-width: $tablet) {
-		flex-direction : row;
-		align-items : center;
-		// margin-bottom : 120px;
-	}
-
-	@media(min-width: $tablet) {
-		.text-container article ,
-		.image-container {
-			margin-top : 120px;
-			margin-bottom : 120px;
-			height : 100vh;
+	.our-service {
+		&--list {
+			display : flex;
+			flex-wrap : wrap;
+			justify-content : space-between;
+			// margin-bottom : 200px;
+			@include interpolate("margin-bottom", 520px, 60px, 992px, 200px, "ease-in");
 		}
-	}
-
-	.text-side ,
-	.text-inner {
-		max-width : 460px;
-		overflow : hidden;
-	}
-
-	.text-inner {
-		@media(min-width: 768px) {
-			margin-bottom : 0;
+		&--text {
+			max-width : 460px;
+			padding-right : 15px;
 		}
-	}
-
-	.image-side {
-		width : calc(100% - 460px);
-		text-align : center;
-		margin : 0  auto;
-	}
-	.image-container {
-		padding-top : 38px;
-	}
-	.content {
-		h2 {
-			font-style : normal;
+		&--title {
 			font-weight : 700;
 			font-size : 32px;
 			line-height : 48px;
 			color : var(--text-black);
 			margin-bottom : 25px;
 		}
-
-		p {
+		&--content {
 			font-style : normal;
 			font-weight : 500;
 			font-size : 16px;
@@ -145,49 +114,53 @@
 			color : var(--text-black);
 			margin-bottom : 22px;
 		}
+		&--key-area {
+			ul {
+				li {
+					overflow : hidden;
 
-		ul {
-			li {
-				overflow : hidden;
+					span {
+						font-weight : 700;
+						font-size : 16px;
+						line-height : 36px;
+						color : var(--red);
+						margin-bottom : 0;
 
-				span {
-					font-weight : 700;
-					font-size : 16px;
-					line-height : 36px;
-					color : var(--red);
-					margin-bottom : 0;
-
-					&:before {
-						content : "";
-						display : inline-block;
-						margin-right : 14px;
-						width : 14px;
-						height : 14px;
-						background : url("data:image/png;base64,iVBORw0KGg
+						&:before {
+							content : "";
+							display : inline-block;
+							margin-right : 14px;
+							width : 14px;
+							height : 14px;
+							background : url("data:image/png;base64,iVBORw0KGg
 oAAAANSUhEUgAAABEAAAARCAYAAAA7bU f6AAAACXBIWXMAAAsTAAALEwEAmpwYAA AAAXNSR0IArs4c6QAAAARnQU1BAACxjw v8YQUAAAChSURBVHgB7dPNCQJBDAXgN7 sWMKN3Da6FaAd2oHZgB5ZgC1uKN71agD AVaBqQcf3B2yTZhb3tg8DAhI9ASAkhiy ntg/fncfDxwXzN9RUS8v9NqCuiTa6thJ A782USvGuey6bWuYlE5AedNEhFLJAJ0S AzIkHuvcbkcETHuCdWhbJkHRmB0TZzok M1o/Qpoi3aZgC+V2wBLFfMcNjdYqzRZ1 4ApVmdTnBqLAAAAABJRU5ErkJggg==") no-repeat center;
-						background-size : cover;
+							background-size : cover;
+						}
+					}
+				}
+
+				vertical-align : top;
+				display : block;
+
+				@media(min-width: $tablet) {
+					display : inline-block;
+
+					+ ul {
+						margin-left : 30px;
 					}
 				}
 			}
-
-			vertical-align : top;
-			display : block;
-
-			@media(min-width: $tablet) {
-				display : inline-block;
-
-				+ ul {
-					margin-left : 30px;
+		}
+		&--image {
+			padding-left : 15px;
+			flex : 1 0 auto;
+			text-align : center;
+			margin-top : 36px;
+			@media(min-width: $desktop) {
+				svg {
+					margin-left : 70px;
 				}
 			}
-		}
-	}
-
-	.image-side .image-container {
-		display : none;
-
-		@media(min-width: $tablet) {
-			display : block;
 		}
 	}
 }

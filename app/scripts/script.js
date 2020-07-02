@@ -1,41 +1,69 @@
+/* eslint-disable require-jsdoc */
+
+(function () {
+  if (sessionStorage.fonts) {
+    console.log('Fonts installed.');
+    document.documentElement.classList.add('wf-active');
+  } else {
+    console.log('No fonts installed.');
+  }
+})();
+
 /* cursor  */
-let cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', function (e) {
-  let x = e.clientX,
-    y = e.clientY;
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', function(e) {
+  const x = e.clientX;
+  const y = e.clientY;
   cursor.style.left = x + 'px';
   cursor.style.top = y + 'px';
 });
 
-document.querySelectorAll('a').forEach(function (el) {
-  el.addEventListener('mouseover', function (e) {
+document.querySelectorAll('a').forEach(function(el) {
+  el.addEventListener('mouseover', function(e) {
     cursor.style.width = '40px';
     cursor.style.height = '40px';
     cursor.style.opacity = '0.3';
   });
-  el.addEventListener('mouseout', function (e) {
+  el.addEventListener('mouseout', function(e) {
     cursor.style.width = '10px';
     cursor.style.height = '10px';
     cursor.style.opacity = '1';
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.swiper-pagination-bullet').forEach(function (el) {
+  el.addEventListener('mouseover', function(e) {
+    cursor.style.width = '40px';
+    cursor.style.height = '40px';
+    cursor.style.opacity = '0.3';
+  });
+  el.addEventListener('mouseout', function(e) {
+    cursor.style.width = '10px';
+    cursor.style.height = '10px';
+    cursor.style.opacity = '1';
+  });
+});
+
+});
+
 // Function to add and remove the page transition screen
 function pageTransition() {
-  $('.loading-container').each(function (i) {
-    let tl = gsap.timeline();
+  $('.loading-container').each(function(i) {
+    const tl = gsap.timeline();
     tl.set('main', {
       translateY: '-30',
-      opacity: 0
+      opacity: 0,
     });
     tl.set('.loading-screen', {
       transformOrigin: 'right left',
       width: '0%',
-      translateX: '0'
+      translateX: '0',
     });
     tl.to('.loading-screen', {
       duration: ' .5',
-      scaleX: 1
+      scaleX: 1,
     });
     tl.to('.loading-screen', {
       duration: '.5',
@@ -49,17 +77,17 @@ function pageTransition() {
       ease: 'power1.out',
     });
     tl.from(
-      '.header--navigation .width-box a',
-      {
-        duration: 0.26,
-        translateY: '-10',
-        opacity: 0,
-        stagger: 0.4
-      }
+        '.header--navigation .width-box a',
+        {
+          duration: 0.26,
+          translateY: '-10',
+          opacity: 0,
+          stagger: 0.4,
+        }
     );
     tl.to('main', {
       translateY: 0,
-      opacity: 1
+      opacity: 1,
     });
   });
 }
@@ -72,12 +100,12 @@ AOS.init({
 
 
 /* header nav */
-const body = document.body,
-    navHeader = document.getElementsByTagName('header');
+const body = document.body;
+const navHeader = document.getElementsByTagName('header');
 
 // menu items transition
-let t1 = new TimelineMax({
-  paused: true
+const t1 = new TimelineMax({
+  paused: true,
 });
 
 t1.staggerFrom('.menu--items', 0.2, {
@@ -94,7 +122,7 @@ t1.staggerFrom('.menu--items ul li', 0.2, {
 t1.reverse();
 
 // menu transition and action on click
-$(document).on('click', '.trigger-menu, .menu--items_close', function () {
+$(document).on('click', '.trigger-menu, .menu--items_close', function() {
   body.classList.toggle('menu-open');
   t1.reversed(!t1.reversed());
   console.log('demo');
@@ -102,10 +130,10 @@ $(document).on('click', '.trigger-menu, .menu--items_close', function () {
 
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 if (screen.width > 620) {
-  var previousScroll = 0,
-    headerOrgOffset = $('header').height();
-  $(window).scroll(function () {
-    var currentScroll = $(this).scrollTop();
+  var previousScroll = 0;
+  var headerOrgOffset = $('header').height();
+  $(window).scroll(function() {
+    const currentScroll = $(this).scrollTop();
     if (currentScroll > headerOrgOffset) {
       if (currentScroll > previousScroll) {
         $('header').slideUp();
@@ -122,6 +150,6 @@ if (screen.width > 620) {
 /* footer rillusion logo animation  */
 if (document.getElementById('footer-logo')) {
   new Vivus('footer-logo', {
-    duration: 200
+    duration: 200,
   });
 }

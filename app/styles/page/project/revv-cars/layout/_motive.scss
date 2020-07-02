@@ -31,7 +31,8 @@
             max-width: 350px;
         }
         @include tablet{
-            max-width: 400px;
+            width: 418px;
+            max-width: none;
         }
     }
 
@@ -57,7 +58,7 @@
 }
 
 .motive_banner {
-    width: 100%;
+    // width: 100%;
     @include interpolate("left", 360px, -60px, 767px, -113px);
     position: relative;
 
@@ -65,12 +66,12 @@
         margin-top: 39px;
     }
 
-    @include media-min(860px){
-        width: 85%
-    }
+    // @include media-min(860px){
+    //     width: 85%
+    // }
 
     @include media-min(1000px){
-        width: 70%;
+        // width: 70%;
         @include interpolate("left", 1200px, -116px, 1440px, -235px);
     }
 }

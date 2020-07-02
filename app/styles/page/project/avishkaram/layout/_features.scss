@@ -10,7 +10,7 @@
 
 .features_item {
 	.banner-item {
-		@extend %font-0;
+		
 		max-width : 100%;
 		margin-top : 42px;
 
@@ -97,7 +97,7 @@
 	.custom-1-card {
 		width : 45%;
 		border-radius : 3px;
-		@extend %font-0;
+		
 		box-shadow : -10px 10px 60px rgba(0, 55, 98, 0.1);
 		@include desktop {
 			width : 300px;
@@ -131,7 +131,7 @@
 		@include interpolate("margin-bottom", 320px, -83px, 1250px, -152px);
 		order : 2;
 		margin-top : 33px;
-		@extend %font-0;
+		
 
 		@include tablet {
 			position : absolute;

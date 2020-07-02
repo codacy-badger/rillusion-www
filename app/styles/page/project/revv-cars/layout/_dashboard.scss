@@ -15,8 +15,12 @@
         align-items: unset;
     }
     .content-head{
-        max-width: 280px;
         color: $white;
+
+        @include mobile{
+          width: 280px;
+        }
+
     }
 
     .content-txt{
@@ -27,18 +31,19 @@
             color: rgba(255, 255, 255, 0.8);
         }
         @include mobile{
-            max-width: 270px;
+            width: 270px;
+            margin-right: 20px;
         }
     }
 }
 
-.dashboard-banner{
-    width: 100%;
-    @extend %font-0;
-    @include mobile{
-        width: 50%;
-    }
-    @include desktop{
-        width: 63%;
-    }
-}
+// .dashboard-banner{
+//     // width: 100%;
+    
+//     // @include mobile{
+//     //     width: 50%;
+//     // }
+//     // @include desktop{
+//     //     width: 63%;
+//     // }
+// }

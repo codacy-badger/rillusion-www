@@ -268,17 +268,18 @@
 
 
 .services_banners {
+    text-align: center;
     background-color: #EDF0F5;
     @include interpolate("padding-top", 576px, 10px, 1200px, 31px);
     @include interpolate("padding-bottom", 576px, 10px, 1200px, 31px);
 
     .custom-right {
         top: 13%;
-        right: -5%;
+        right: 6%;
         box-shadow: -35px 35px 150px rgba(0, 30, 52, 0.25);
 
         @include mobile {
-            right: -15%;
+            right: 0;
         }
 
         @include desktop {
@@ -288,12 +289,12 @@
     }
 
     .custom-left {
-        left: -3%;
+        left: 4%;
         bottom: 22%;
         box-shadow: 25px 25px 40px rgba(0, 0, 0, 0.15);
 
         @include mobile {
-            left: -15%;
+            left: 0;
         }
 
         @include desktop {
@@ -304,11 +305,17 @@
 }
 
 .services_full_banner {
-    @include interpolate("max-width", 360px, 288px, 1200px, 825px);
+    // @include interpolate("max-width", 360px, 288px, 1200px, 825px);
     @include interpolate("top", 576px, -89px, 1200px, -239px);
-    @extend %m-x-auto;
-    @extend %font-0;
     position: relative;
+    // left: 50%;
+    // transform: translateX(-50%);
+    display: inline-block;
+    
+    @include media-max(900px){
+        padding-left: 35px;
+        padding-right: 35px;
+    }
 
     >picture {
         box-shadow: -25px 25px 70px rgba(143, 149, 161, 0.5);

@@ -83,6 +83,22 @@
 		@include interpolate("margin-top", 600px, 10px, 1200px, 30px);
 		@include interpolate("margin-bottom", 600px, 18px, 1200px, 24px);
 	}
+
+	&-head {
+        color: $primary-color;
+        @extend %font-montsrt;
+        @include interpolate("font-size", 600px, 20px, 1200px, 32px);
+        @include interpolate("line-height", 600px, 30px, 1200px, 48px);
+        @include interpolate("max-width", 600px, 279px, 1200px, 600px);
+        @extend %m-x-auto;
+    span{
+        font-weight: 600;
+        @include media-min(1013px){
+            display: block;
+        }
+    }
+
+    }
 }
 
 

@@ -6,21 +6,15 @@
 	}
 
 	.custom-1 {
-		margin-right : -30%;
-		margin-left : -20%;
 		padding-bottom : 130px;
-
-		@include mobile {
-			margin-right : -18.5%;
-		}
+		width : 141%;
+		max-width : 2033px;
+		position : relative;
+		left : 50%;
+		transform : translateX(-50%);
 
 		@include desktop {
-			padding : 120px 0 230px;
-		}
-
-		@include media-min(1440px) {
-			margin-right : 0;
-			margin-left : 0;
+			padding : 120px 0 0;
 		}
 	}
 

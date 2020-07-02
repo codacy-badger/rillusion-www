@@ -43,8 +43,10 @@
 }   
 
 .header_list{
+    margin-top: 71px;
     @include mobile{
         margin-right: 6%;
+        margin-top: 0;
     }
 }
 
