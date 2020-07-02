@@ -1,4 +1,35 @@
-{{#> layouts/base  project=false title="Project | Rillusion" barbaNamesapce="project"}}
+{{#> layouts/base  project=false title="Rillusion - UI UX Design & Digital Product Design Projects" barbaNamesapce="project"}}
+
+  {{#*inline "head-block"}}
+    <meta name="description" content="FinTech UX UI Design, Edu-Tech UX UI Design, E-Commerce UX UI Design and Development, Saas UX UI Design, Enterprise, Intranet Portal, CRM, ERP UX UI Design " />
+
+    <!-- Facebook Opengraph -->
+    <meta property="og:title" content="Rillusion - Contact us for UI UX Design & Product Design Projects" />
+    <meta property="og:description"
+      content="FinTech UX UI Design, Edu-Tech UX UI Design, E-Commerce UX UI Design and Development, Saas UX UI Design, Enterprise, Intranet Portal, CRM, ERP UX UI Design " />
+    <meta property="og:url" content="https://rillusion.com/" />
+    <meta property="og:url" content="https://www.rillusion.com/" />
+    <meta property="og:site_name" content="Rillusion" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/favicons/rillusion-1200.png" />
+    <meta property="fb:app_id" content="546964375459684" />
+    <meta property="fb:admins" content="100004519120778" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Rillusion - Contact us for UI UX Design & Product Design Projects">
+    <meta itemprop="description" content="FinTech UX UI Design, Edu-Tech UX UI Design, E-Commerce UX UI Design and Development, Saas UX UI Design, Enterprise, Intranet Portal, CRM, ERP UX UI Design " />
+    <meta itemprop="image" content="./images/favicons/rillusion-1200.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@weareRillusion" />
+    <meta name="twitter:creator" content="@weareRillusion" />
+    <meta name="twitter:title" content="Rillusion - Contact us for UI UX Design & Product Design Projects" />
+    <meta name="twitter:description"
+      content="FinTech UX UI Design, Edu-Tech UX UI Design, E-Commerce UX UI Design and Development, Saas UX UI Design, Enterprise, Intranet Portal, CRM, ERP UX UI Design " />
+    <meta name="twitter:image" content="./images/favicons/rillusion-1200.png" />
+  {{/inline}}
+
   {{#*inline "content-block"}}
     <section class="width-box page--content--home__project page--intro">
       <h1 class="section--header">
@@ -52,7 +83,7 @@
           <span data-aos="fade-right" data-aos-delay="1000" class="block_bg" style="background-color: #f2aa00;"></span>
         </div>
       </div>
-      <div class="grid grid-template-column:3fr project-colum:3">
+      <div class="grid-masonry">
 
 
         {{#each page_project}}

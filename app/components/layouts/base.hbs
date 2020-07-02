@@ -11,15 +11,15 @@
     <meta name="author" content="Rillusion">
 
     <script type='application/ld+json'>
-{
+    {
     "@context": "http://schema.org/",
-   "@type": "Organization",
+    "@type": "Organization",
       "sameAs": [
-   "http://www.facebook.com/Rillusion/",
-   "http://www.linkedin.com/company/rillusion/",
-   "https://twitter.com/wearerillusion",
-   "http://instagram.com/rillusion_ux_ui_design_studio/"
- ],
+    "http://www.facebook.com/Rillusion/",
+    "http://www.linkedin.com/company/rillusion/",
+    "https://twitter.com/wearerillusion",
+    "http://instagram.com/rillusion_ux_ui_design_studio/"
+    ],
     "address": {
         "@type": "PostalAddress",
         "addressCountry": "India",
@@ -36,14 +36,14 @@
         "additionalName": "Ram Bal"
     },
     "foundingDate": "2010",
-   "url": "http://rillusion.com",
+    "url": "http://rillusion.com",
     "logo": {
         "@type": "ImageObject",
         "caption": "Rillusion Logo",
         "contentUrl": "https://pbs.twimg.com/profile_images/877471353179328512/sk94YTix.jpg"
-       }
-}
-</script>
+        }
+    }
+    </script>
 
     <title>
       {{#if title}}
@@ -52,11 +52,6 @@
         Rillusion - Creative UI / UX Design Company in Chennai, India
       {{/if}}
     </title>
-
-    <meta name="description"
-      content="Rillusion is a Chennai based user interface (UI) and user experience (UX) design studio | company where we specialise on digital experiences for mobile and web." />
-    <meta name="keywords"
-      content="User Interface design, user experience design, user experience design company, Design company India, Mobile App Design, Web Design company, UX Design company, UI Design company, UX company, UI company, UX company in India, UI company in India, Rillusion, Chennai, Delhi, UX Design company in India, Best Design company, UI Design Agency" />
 
     <!-- Manifest code for new layout -->
     <meta name="mobile-web-app-capable" content="yes" />
@@ -78,33 +73,6 @@
       <link rel="icon" href="./images/favicon.png" sizes="32x32" />
       <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
     {{/if}}
-
-    <!-- Facebook Opengraph -->
-    <meta property="og:title"
-      content="Rillusion is an UX/UI design company that specialise on desktop/mobile/tablet digital experiences of all sorts and flavors." />
-    <meta property="og:description"
-      content="Rillusion is an UX/UI design company based in Chennai  that craft digital experiences of all flavors and sorts. Just about anything that demands a simple stunning interface." />
-    <meta property="og:url" content="https://rillusion.com/" />
-    <meta property="fb:app_id" content="546964375459684" />
-    <meta property="fb:admins" content="100004519120778" />
-    <meta property="og:url" content="https://www.rillusion.com/" />
-    <meta property="og:site_name" content="Rillusion" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.rillusion.com/wp-content/themes/rillusion/image/logo-mini.svg" />
-
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Home">
-    <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
-    <meta itemprop="image" content="" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@weareRillusion" />
-    <meta name="twitter:creator" content="@weareRillusion" />
-    <meta name="twitter:title" content="Rillusion - Creative UI / UX Design Company in Chennai, India" />
-    <meta name="twitter:description"
-      content="Rillusion is an UX/UI design company based in Chennai  that craft digital experiences of all flavors and sorts. Just about anything that demands a simple stunning interface." />
-    <meta name="twitter:image" content="https://www.rillusion.com/wp-content/themes/rillusion/image/logo-mini.svg" />
-
 
     {{#> head-block}}
       {{!-- Custom <head> content per page could be added --}}
@@ -142,13 +110,12 @@
     {{else}}
       <link href="./styles/style.css" rel="stylesheet" />
     {{/if}}
+
   </head>
 
   {{#if project}}
-
     <body data-barba="wrapper" class="page-project">
   {{else}}
-
     <body data-barba="wrapper" class="">
   {{/if}}
 
@@ -174,6 +141,7 @@
       {{#> content-block}}
         {{!-- Content goes here --}}
       {{/content-block}}
+
       {{#unless hideCallToAction}}
 
         <!-- footer content -->
@@ -216,4 +184,5 @@
     {{!-- Custom scripts per page can be added --}}
   {{/scripts-block}}
   </body>
+
 </html>

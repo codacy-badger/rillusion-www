@@ -137,19 +137,25 @@ function html() {
         link: './projects/ux-ui-design-mutual-fund-wealth-fund.html',
       },
       {
+        title: 'Increasing employee engagement with Intranet portal',
+        content: '',
+        tag: ['Enterprise', 'UX Consulting', 'UX & UI Design'],
+        image: './images/project/feature/sparsh.png',
+        link: './projects/enterprise-ux-ui-design-intranet-portal-sparsh.html',
+      },
+      {
+        title: 'Envisioning a new disruptor car buying experience for Revv-cars.',
+        content: '',
+        tag: ['Automotive', 'UX & UI Design'],
+        image: './images/project/feature/revv-cars.png',
+        link: './projects/ux-ui-design-car-leasing-revv-cars.html',
+      },
+      {
         title: 'Powering businesses with a smarter way to marketing',
         content: '',
         tag: ['Saas', 'UX Consulting', 'UX & UI Design'],
         image: './images/project/feature/gamooga.png',
         link: './projects/ux-ui-design-saas-gamooga.html',
-      },
-      {
-        title: 'Increasing employee engagement with Intranet portal',
-        content: '',
-        tag: ['Enterprise', 'UX Consulting', 'UX & UI Design'],
-        image: './images/project/feature/sparsh.png',
-        link:
-            './projects/enterprise-ux-ui-design-intranet-portal-sparsh.html',
       },
       {
         title: 'Defining the web identity for a IT Services company',
@@ -159,20 +165,11 @@ function html() {
         link: './projects/website-design-avishkaram.html',
       },
       {
-        title:
-            'Envisioning a new disruptor car buying experience for Revv-cars.',
-        content: '',
-        tag: ['Automotive', 'UX & UI Design'],
-        image: './images/project/feature/revv-cars.png',
-        link: './projects/ux-ui-design-car-leasing-revv-cars.html',
-      },
-      {
         title: 'Helping manage the complex research lab system for Zifo.',
         content: '',
         tag: ['Enterprise', 'UX Consulting', 'UX & UI Design'],
         image: './images/project/feature/zifo.png',
-        link:
-            './projects/enterprise-ux-ui-design-project-management-zifo.html',
+        link: './projects/enterprise-ux-ui-design-project-management-zifo.html',
       },
     ],
     contact: [

@@ -28,34 +28,27 @@
 				@include interpolate("height", 520px, 320px, 992px, 780px, "ease-in");
 			}
 		}
-		.grid.project-colum\:3 {
-			row-gap : 0;
-			grid-template-columns : repeat(auto-fit, minmax(260px, 1fr));
-			margin-top : 40px;
-			@media(min-width: $tablet) {
-				grid-template-columns : repeat(auto-fit, minmax(364px, 1fr));
-				row-gap : 30px;
-				column-gap : 60px;
-				margin-top : 362px;
-			}
-		}
 	}
 }
 
 
+/* Masonry grid */
+.grid-masonry {
+	margin-top : 223px;
+	transition : all 0.5s ease-in-out;
+	column-gap : 30px;
+	column-fill : initial;
+	column-count : 2;
+	.project--list {
+		margin-bottom : 60px;
+		display : inline-block; /* Fix the misalignment of items */
+		vertical-align : top; /* Keep the item on the very top */
+	}
+}
+
 
 .project {
 	&--list {
-		@media(min-width: $tablet) {
-			&:nth-child(odd) {
-				margin-top : 60px;
-			}
-
-			&:nth-child(even) {
-				padding-bottom : 60px;
-			}
-		}
-
 		&-highlight {
 			position : relative;
 

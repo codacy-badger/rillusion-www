@@ -1,9 +1,42 @@
 {
-    "name": "Rillusion Digital Media",
-    "short_name": "Rillusion",
-    "description": "Rillusion is a Chennai based user interface (UI) and user experience (UX) design studio | Company where we specialise on digital experiences for mobile and web.",
-    "lang": "en-US",
-    "start_url": "/",
-    "display": "standalone",
-    "theme_color": "#ff2300"
-  }
+  "name": "Rillusion Design",
+  "short_name": "Rillusion",
+  "description": "Rillusion - India's best UI and UX Design company. Experts in digital product design - Mobile App UX UI design, Website UX UI design and UX Consulting",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ff2300",
+  "icons": [
+    {
+      "src": "images/favicons/rillusion-36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicons/rillusion-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicons/rillusion-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicons/rillusion-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicons/rillusion-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/favicons/rillusion-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

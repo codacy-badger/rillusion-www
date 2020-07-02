@@ -31,6 +31,23 @@ document.querySelectorAll('a').forEach(function(el) {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.swiper-pagination-bullet').forEach(function (el) {
+  el.addEventListener('mouseover', function(e) {
+    cursor.style.width = '40px';
+    cursor.style.height = '40px';
+    cursor.style.opacity = '0.3';
+  });
+  el.addEventListener('mouseout', function(e) {
+    cursor.style.width = '10px';
+    cursor.style.height = '10px';
+    cursor.style.opacity = '1';
+  });
+});
+
+});
+
 // Function to add and remove the page transition screen
 function pageTransition() {
   $('.loading-container').each(function(i) {

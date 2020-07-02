@@ -1,11 +1,36 @@
-{{#> layouts/base  project=false  title="Home | Rillusion" barbaNamesapce="home"}}
+{{#> layouts/base  project=false  title="Rillusion - UI UX Design & UX Consulting Company - Chennai, India" barbaNamesapce="home"}}
 
   {{#*inline "head-block"}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.0/css/swiper.min.css" rel="stylesheet" />
+    <meta name="description" content="Rillusion - India's best UI and UX Design company. Experts in digital product design - Mobile App UX UI design, Website UX UI design and UX Consulting" />
+
+    <!-- Facebook Opengraph -->
+    <meta property="og:title" content="Rillusion - UI UX Design & UX Consulting Company - Chennai, India" />
+    <meta property="og:description"
+      content="Rillusion - India's best UI and UX Design company. Experts in digital product design - Mobile App UX UI design, Website UX UI design and UX Consulting" />
+    <meta property="og:url" content="https://rillusion.com/" />
+    <meta property="og:url" content="https://www.rillusion.com/" />
+    <meta property="og:site_name" content="Rillusion" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/favicons/rillusion-1200.png" />
+    <meta property="fb:app_id" content="546964375459684" />
+    <meta property="fb:admins" content="100004519120778" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Rillusion - Creative UI / UX Design Company in Chennai, India">
+    <meta itemprop="description" content="Rillusion - India's best UI and UX Design company. Experts in digital product design - Mobile App UX UI design, Website UX UI design and UX Consulting" />
+    <meta itemprop="image" content="./images/favicons/rillusion-1200.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@weareRillusion" />
+    <meta name="twitter:creator" content="@weareRillusion" />
+    <meta name="twitter:title" content="Rillusion - Creative UI / UX Design Company in Chennai, India" />
+    <meta name="twitter:description" content="Rillusion - India's best UI and UX Design company. Experts in digital product design - Mobile App UX UI design, Website UX UI design and UX Consulting" />
+    <meta name="twitter:image" content="./images/favicons/rillusion-1200.png" />
   {{/inline}}
 
   {{#*inline "content-block"}}
-
 
     <section class="width-box page--content--home__jumbo d-flex">
       <div data-aos="zoom-in" class="section--image">
@@ -65,7 +90,8 @@
                     <span>UX & UI Design</span>
                   </div>
                 </div>
-                <a href="./projects/ux-ui-design-edu-tech-platform-vidyatri.html" target="_blank" class="section--content__read-more">
+                <a href="./projects/ux-ui-design-edu-tech-platform-vidyatri.html" target="_blank"
+                  class="section--content__read-more">
                   <span class="link-text">View Case Study</span>
                   <span class="link-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
@@ -133,7 +159,8 @@
                     <span>UX & UI Design</span>
                   </div>
                 </div>
-                <a href="/projects/enterprise-ux-ui-design-intranet-portal-sparsh.html" target="_blank" class="section--content__read-more">
+                <a href="/projects/enterprise-ux-ui-design-intranet-portal-sparsh.html" target="_blank"
+                  class="section--content__read-more">
                   <span class="link-text">View Case Study</span>
                   <span class="link-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +184,7 @@
                 <div class="section--content__link">
                   <div class="section--content__title">
                     <a href="/projects/enterprise-ux-ui-design-project-management-zifo.html" target="_blank">
-                     Helping manage the complex research lab system for Zifo.
+                      Helping manage the complex research lab system for Zifo.
                     </a>
                   </div>
                   <div class="section--content__tag">
@@ -166,7 +193,8 @@
                     <span>UX & UI Design</span>
                   </div>
                 </div>
-                <a data-aos="" href="/projects/enterprise-ux-ui-design-project-management-zifo.html" target="_blank" class="section--content__read-more">
+                <a data-aos="" href="/projects/enterprise-ux-ui-design-project-management-zifo.html" target="_blank"
+                  class="section--content__read-more">
                   <span class="link-text">View Case Study</span>
                   <span class="link-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
@@ -255,7 +283,7 @@
           </li>
         </ol>
         <div class="readmoreLink">
-          <a href="/service.html" data-aos="fade-down" data-aos-delay="2000">
+          <a href="/ui-and-ux-design-services.html" data-aos="fade-down" data-aos-delay="2000">
             See all our services
             <span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -318,6 +346,7 @@
     </section>
 
   {{/inline}}
+
   {{#*inline "scripts-block"}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.0/js/swiper.min.js"></script>
     <script>
@@ -325,7 +354,6 @@
         spaceBetween: 30,
         effect: "fade",
         lazy: true,
-
         centeredSlides: true,
         autoplay: {
           delay: 2500,
@@ -335,30 +363,13 @@
           el: ".swiper-pagination",
           clickable: true,
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
         on: {
           progress: function () {
-            var swiper = '.swiper-slide-active .section--image img';
-            var dod = '.swiper-slide-active .section--image .dummy';
-            let tl = gsap.timeline();
-            tl.from(dod, {
 
-              transformOrigin: 'left',
-              translateX: '-100',
-              opacity: 1
-            });
-            tl.from(swiper, {
-              transformOrigin: 'center',
-              translateX: '100',
-              opacity: 0
-            });
           }
         }
       });
     </script>
-
   {{/inline}}
+
   {{/layouts/base}}
