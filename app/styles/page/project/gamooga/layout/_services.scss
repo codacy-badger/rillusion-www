@@ -10,6 +10,31 @@
   @include mobile {
     flex-direction: row;
   }
+
+  &:first-child{
+    
+    .content-txt{
+
+      @include mobile{
+        max-width: 341px;
+      }
+
+    }
+
+  }
+
+  &:nth-child(2){
+    
+    .content-txt{
+
+      @include mobile{
+        max-width: 343px;
+      }
+
+    }
+
+  }
+
 }
 
 .services__list_item-content {
