@@ -398,11 +398,11 @@ a {
 	}
 }
 
+button ,
 input ,
-textarea ,
-button {
-	& ,
-	&:focus {
+textarea {
+	&:focus ,
+	&:hover {
 		outline : 0;
 	}
 }
@@ -515,4 +515,8 @@ p {
 		clear : both;
 		display : block;
 	}
+}
+
+.hidden {
+	display : none !important;
 }
