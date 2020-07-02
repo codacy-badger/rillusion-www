@@ -1,18 +1,62 @@
 {{!-- layouts/base.hbs --}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" class="no-js">
 
-  <head>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="resource-type" content="document" />
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Rillusion">
+
+    <script type='application/ld+json'>
+{
+    "@context": "http://schema.org/",
+   "@type": "Organization",
+      "sameAs": [
+   "http://www.facebook.com/Rillusion/",
+   "http://www.linkedin.com/company/rillusion/",
+   "https://twitter.com/wearerillusion",
+   "http://instagram.com/rillusion_ux_ui_design_studio/"
+ ],
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "India",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamilnadu",
+        "postalCode": "600042",
+        "streetAddress": "Ram Nagar, Velachery",
+        "email": "interact@rillusion.com",
+        "telephone": "9500007094",
+        "description": "We are Chennai based user interface (UI) and user experience (UX) design company, crafting digital experiences for mobile and web app. We are one of India's best UX/UI design company. We worked with smartest global startups and enterprises in 15+ industries."
+    },
+    "founder": {
+        "@type": "Person",
+        "additionalName": "Ram Bal"
+    },
+    "foundingDate": "2010",
+   "url": "http://rillusion.com",
+    "logo": {
+        "@type": "ImageObject",
+        "caption": "Rillusion Logo",
+        "contentUrl": "https://pbs.twimg.com/profile_images/877471353179328512/sk94YTix.jpg"
+       }
+}
+</script>
 
     <title>
       {{#if title}}
         {{title}}
       {{else}}
-        Rillusion | A creative UI/UX design company bases in chennai
+        Rillusion - Creative UI / UX Design Company in Chennai, India
       {{/if}}
     </title>
+
+    <meta name="description"
+      content="Rillusion is a Chennai based user interface (UI) and user experience (UX) design studio | company where we specialise on digital experiences for mobile and web." />
+    <meta name="keywords"
+      content="User Interface design, user experience design, user experience design company, Design company India, Mobile App Design, Web Design company, UX Design company, UI Design company, UX company, UI company, UX company in India, UI company in India, Rillusion, Chennai, Delhi, UX Design company in India, Best Design company, UI Design Agency" />
 
     <!-- Manifest code for new layout -->
     <meta name="mobile-web-app-capable" content="yes" />
@@ -36,32 +80,38 @@
     {{/if}}
 
     <!-- Facebook Opengraph -->
-    <meta property="fb:app_id" content="" />
-    <meta property="fb:admins" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="Rillusion" />
+    <meta property="og:title"
+      content="Rillusion is an UX/UI design company that specialise on desktop/mobile/tablet digital experiences of all sorts and flavors." />
     <meta property="og:description"
-      content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="" />
+      content="Rillusion is an UX/UI design company based in Chennai  that craft digital experiences of all flavors and sorts. Just about anything that demands a simple stunning interface." />
+    <meta property="og:url" content="https://rillusion.com/" />
+    <meta property="fb:app_id" content="546964375459684" />
+    <meta property="fb:admins" content="100004519120778" />
+    <meta property="og:url" content="https://www.rillusion.com/" />
     <meta property="og:site_name" content="Rillusion" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.rillusion.com/wp-content/themes/rillusion/image/logo-mini.svg" />
 
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Home">
+    <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
+    <meta itemprop="image" content="" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@weareRillusion" />
     <meta name="twitter:creator" content="@weareRillusion" />
+    <meta name="twitter:title" content="Rillusion - Creative UI / UX Design Company in Chennai, India" />
+    <meta name="twitter:description"
+      content="Rillusion is an UX/UI design company based in Chennai  that craft digital experiences of all flavors and sorts. Just about anything that demands a simple stunning interface." />
+    <meta name="twitter:image" content="https://www.rillusion.com/wp-content/themes/rillusion/image/logo-mini.svg" />
 
-    <!-- Noraml Card -->
-    <meta itemprop="name" content="Home" />
-    <meta itemprop="description" content="RIllusion &#8211; A creative UI/UX Design Company based in Chennai, India" />
-    <meta itemprop="image" content="" />
 
     {{#> head-block}}
       {{!-- Custom <head> content per page could be added --}}
     {{/head-block}}
 
-    <!-- Veriification code -->
-    <meta name="google-site-verification" content=" " />
+    <!-- Verification code -->
+    <meta name=" google-site-verification" content="AC0uE7anN-1hAPNWn1IBuYhOzWDK8PywYUJqRIw52bA" />
 
     <!-- preload domain -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -95,8 +145,10 @@
   </head>
 
   {{#if project}}
+
     <body data-barba="wrapper" class="page-project">
   {{else}}
+
     <body data-barba="wrapper" class="">
   {{/if}}
 
@@ -131,14 +183,14 @@
     </div>
   </main>
 
-  {{!-- <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3693359-8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'UA-3693359-8');
-    </script> --}}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3693359-8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-3693359-8');
+  </script>
 
   <!-- build:js scripts/vendor.js -->
   <!-- endbuild -->
@@ -163,17 +215,5 @@
   {{#> scripts-block}}
     {{!-- Custom scripts per page can be added --}}
   {{/scripts-block}}
-  <script>
-    (function () {
-      if (sessionStorage.fonts) {
-        console.log("Fonts installed.");
-        document.documentElement.classList.add('wf-active');
-      } else {
-        console.log("No fonts installed.");
-      }
-    })();
-
-  </script>
   </body>
-
 </html>
